@@ -439,3 +439,23 @@ recipes.removeByRecipeName('botania:tornadorod');   recipes.addShaped(<botania:t
 recipes.removeByRecipeName('botania:waterrod');     recipes.addShaped(<botania:waterrod>, [[null, <minecraft:potion>.withTag({Potion: 'minecraft:water'})], [<ore:livingwoodTwig>, null]]);
 recipes.removeByRecipeName('botania:skydirtrod');   recipes.addShapeless(<botania:skydirtrod>, [<botania:dirtrod>, <ore:elvenPixieDust>]);
 // ////////////////////////////////////////////////////////////////
+
+mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "campanimia"}), [
+<botania:rune:1>,
+<botania:rune:2>,
+<botania:rune:3>,
+<botania:rune>,
+<quark:rune:14>,
+<quark:rune:2>,
+<quark:rune:4>,
+]);
+
+mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "rokku_eryngium"}), [
+<botania:manaresource:5>,
+<botania:manaresource:9>,
+<botania:rune:11>,
+<botania:rune:12>,
+<quark:rune:11>,
+<quark:rune>,
+<quark:rune>,
+]);

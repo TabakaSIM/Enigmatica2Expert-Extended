@@ -107,7 +107,7 @@ function workOnCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEnti
 function dropCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
     world.spawnEntity(validCrystalNames[subtile.getCustomData().name]
     .withTag({astralsorcery: {crystalProperties: subtile.data.crystalProperties}})
-    .createEntityItem(world, pos)); //TODO: fix drop position (see adaminite)
+    .createEntityItem(world, pos.x, pos.y + 0.3f, pos.z));
     subtile.setCustomData({crystalProperties: {collectiveCapability: -1}} as IData);
 }
 
@@ -119,7 +119,7 @@ function breakCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntit
 
 function cutCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame, sizeChange as int, cuttingChange as int) as void{
     subtile.setCustomData(cutData(subtile.data, sizeChange, cuttingChange));
-    server.commandManager.executeCommandSilent(server, "/particle blockcrack "~pos.x~" "~pos.y~" "~pos.z~" 0 0 0 1 0 force @a 35"); //TODO: change particles
+    server.commandManager.executeCommandSilent(server, "/particle blockcrack "~pos.x~" "~pos.y~" "~pos.z~" 0 0 0 1 0 force @a 35");
     playSound("minecraft:entity.wither.break_block", pos, world);
     return;
 }
