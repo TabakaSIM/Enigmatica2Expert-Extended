@@ -82,7 +82,7 @@ var campanimia as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerat
 campanimia.maxMana = 300000; //Max mana generated with all 51 aspects is 297066
 campanimia.passiveFlower = false;
 campanimia.range = 1;
-campanimia.onUpdate = function(subtile, world, pos) {
+campanimia.onUpdate = function(subtile, world, pos) { //subtile.acceptsRedstone(); TODO
     if(world.isRemote()) return;
     if(world.time%20!=7) return; 
     //check blocks
