@@ -7,6 +7,13 @@ botania.tagline.botania.entry.campanimia=Mana from essentia
 botania.page.campanimia0=The §1Campanimia§r is a flower that loves to drink leftover essentia from the crucibles of Thaumaturges. The more types of essentia left, the more §4mana§r it generates. <br>Note that the crucible must be functional — must be supplied with both heat and water.
 botania.page.campanimia1=&oDon't get too drunk&r
 
+tile.botania:flower.nuclianthus.name=Nuclianthus
+tile.botania:flower.nuclianthus.reference=Eats nukes, blooms bright.
+botania.entry.nuclianthus=Nuclianthus
+botania.tagline.botania.entry.nuclianthus=Mana from nuclear fuel
+botania.page.nuclianthus0=Reactor designs are often highly complex, but why not go botanical? The §1Nuclianthus§r is the perfect solution. It consumes nearby nuclear fuels, and depending on their potency, it generates §4mana§r. However, if its buffer fills up, the flower will explode.
+botania.page.nuclianthus1=&oWhere's radiation?&r
+
 #Functional flowers
 
 tile.botania:flower.rokku_eryngium.name=Rokku Eryngium
