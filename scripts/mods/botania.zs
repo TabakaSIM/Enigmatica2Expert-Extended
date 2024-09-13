@@ -450,6 +450,16 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "campan
 <quark:rune:4>,
 ]);
 
+mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "nuclianthus"}), [
+<quark:rune:5>,
+<quark:rune:4>,
+<quark:rune:4>,
+<quark:rune:1>,
+<botania:manaresource:1>,
+<botania:rune:6>,
+<botania:rune:6>,
+]);
+
 mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "rokku_eryngium"}), [
 <botania:manaresource:5>,
 <botania:manaresource:9>,
