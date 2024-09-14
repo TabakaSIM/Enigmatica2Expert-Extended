@@ -23,3 +23,9 @@ botania.tagline.botania.entry.rokku_eryngium=Cuts rock crystals
 botania.page.rokku_eryngium0=The §1Rokku Eryngium§r is a flower that, unlike the grindstone, allows for the automation of maximizing §frock crystal§r cut stat. <br>It will pick up nearby §frock crystals§r and, at a decent §4mana§r cost, sharpen them. However, be careful, as it can still break the crystal like a grindstone.
 botania.page.rokku_eryngium1=&oBack to the stone age&r
 
+tile.botania:flower.jikanacea.name=Jikanacea
+tile.botania:flower.jikanacea.reference=A way to save some time
+botania.entry.jikanacea=Jikanacea
+botania.tagline.botania.entry.jikanacea=Prolongs time in a bottle effect
+botania.page.jikanacea0=§1Jikanacea§r is a unique flower that extends nearby effects of §cTime in a Bottle§r. <br>The higher level of acceleration, the more mana it consumes to sustain the flow of time. 
+botania.page.jikanacea1=&oTime flows where mana grows&r

@@ -469,3 +469,13 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "rokku_
 <quark:rune>,
 <quark:rune>,
 ]);
+
+mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "jikanacea"}), [
+<astralsorcery:itemtunedcelestialcrystal>.withTag({astralsorcery: {constellationName: "astralsorcery.constellation.horologium", crystalProperties: {collectiveCapability: 100, size: 900, fract: 0, purity: 100}}}),
+<botania:rune:14>,
+<botania:rune:9>,
+<quark:rune:2>,
+<quark:rune:4>,
+<quark:rune:4>,
+<thaumicaugmentation:material:5>,
+]);

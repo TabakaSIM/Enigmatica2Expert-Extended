@@ -49,3 +49,15 @@ mods.botania.Lexicon.addPetalPage("botania.page.rokku_eryngium1", "botania.entry
 <quark:rune>,
 ]]);
 
+mods.botania.Lexicon.addEntry("botania.entry.jikanacea", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "jikanacea"}));
+mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.jikanacea", "alfheim");
+mods.botania.Lexicon.addTextPage("botania.page.jikanacea0", "botania.entry.jikanacea", 0);
+mods.botania.Lexicon.addPetalPage("botania.page.jikanacea1", "botania.entry.jikanacea", 1, [<botania:specialflower>.withTag({type: "jikanacea"})], [[
+<astralsorcery:itemtunedcelestialcrystal>.withTag({astralsorcery: {constellationName: "astralsorcery.constellation.horologium", crystalProperties: {collectiveCapability: 100, size: 900, fract: 0, purity: 100}}}),
+<botania:rune:14>,
+<botania:rune:9>,
+<quark:rune:2>,
+<quark:rune:4>,
+<quark:rune:4>,
+<thaumicaugmentation:material:5>,
+]]);
