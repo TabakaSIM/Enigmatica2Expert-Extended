@@ -3,7 +3,6 @@ Rokku Eryngium (Eryngium + Rokku) - flower that cuts astral rock crystals (actua
 */
 
 #loader contenttweaker
-# priority -1
 
 import crafttweaker.block.IBlock;
 import crafttweaker.data.IData;
@@ -30,23 +29,23 @@ static validCrystalNames as IItemStack[string] = {
     'item.itemrockcrystalsimple'        : <item:astralsorcery:itemrockcrystalsimple>, 
 } as IItemStack[string];
 
+static manaCostPerCut as int = 1000;
+
 var rokku_eryngium as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("rokku_eryngium", 16777215);
 rokku_eryngium.hasMini = false;
 rokku_eryngium.maxMana = 5000;
-rokku_eryngium.acceptsRedstone = true;
 rokku_eryngium.range = 1;
 rokku_eryngium.onUpdate = function(subtile, world, pos) {
-    if(world.isRemote()) return;
-    if(world.time%20!=5) return;
-    //if(subtile.getRedstoneSignal()==0)//FIXME: Flower always return here 0!
+    if(world.isRemote()
+    || world.time%20 != 5) return;
     if(isNull(subtile.data)
     || isNull(subtile.data.crystalProperties)
-    || subtile.data.crystalProperties.collectiveCapability==-1){
+    || subtile.data.crystalProperties.collectiveCapability == -1){
         pickCrystal(world, pos, subtile);
         return;
     } else {
-        if(subtile.getMana()<1000) return;
-        subtile.consumeMana(1000);
+        if(subtile.getMana() < manaCostPerCut) return;
+        subtile.consumeMana(manaCostPerCut);
         workOnCrystal(world, pos, subtile);
         return;
     }
@@ -56,10 +55,9 @@ rokku_eryngium.onBlockHarvested = function(world, pos, state, player) {
     val subtile = world.getSubTileEntityInGame(pos);
     if(!isNull(subtile.data)
     && !isNull(subtile.data.crystalProperties)
-    && subtile.data.crystalProperties.collectiveCapability!=-1) dropCrystal(world, pos, subtile);
+    && subtile.data.crystalProperties.collectiveCapability != -1) dropCrystal(world, pos, subtile);
     return;
 };
-rokku_eryngium.acceptsRedstone = true;
 rokku_eryngium.register();
 
 function pickCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
@@ -88,18 +86,15 @@ function findCrystal(world as IWorld, pos as IBlockPos) as IEntityItem{
 
 function workOnCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
     if(subtile.data.crystalProperties.collectiveCapability==100){
-        print("dropping");
         dropCrystal(world, pos, subtile);
         return;
     } 
     val sizeChange = 3 + world.random.nextInt(2);
     val cuttingChange = 1 + world.random.nextInt(2);
     if(subtile.data.crystalProperties.size <= sizeChange) {
-        print("breaking");
         breakCrystal(world, pos, subtile);
         return;
     }
-    print("cutting");
     cutCrystal(world, pos, subtile, sizeChange, cuttingChange);
     return;
 }

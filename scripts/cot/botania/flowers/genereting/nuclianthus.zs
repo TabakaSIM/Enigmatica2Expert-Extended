@@ -8,7 +8,6 @@ Mana per 1 sec: H/t*eff
 Time working: as on fuel
 */
 #loader contenttweaker
-# priority 100
 
 import crafttweaker.data.IData;
 import crafttweaker.entity.IEntityItem;
@@ -123,25 +122,15 @@ fuel:name [duration, heat/t, effciency]
 
 } as int[][string]; 
 
-/*
-Info:
-Data format:
-{
-Status: working,
-FuelData:{
-    name: string
-    duration: int
-    production: int
-    }
-OverHeat: int
-}
-*/
+static fuelDurationMultiplier as double = 1.0;
+static fuelManaGenerationMultiplier as double = 1.0;
+static overHeatLimit as int = 10000;
 
 var nuclianthus as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("nuclianthus", 16776960);
 nuclianthus.maxMana = 10000;
 nuclianthus.passiveFlower = false;
 nuclianthus.range = 1;
-nuclianthus.onUpdate = function(subtile, world, pos) { //subtile.acceptsRedstone(); FIXME
+nuclianthus.onUpdate = function(subtile, world, pos) { 
     if(world.isRemote()) return;
     isWorking(subtile) ? generate(world, pos, subtile) : pickUpFuel(world, pos, subtile);
 };
@@ -156,12 +145,12 @@ function isWorking(subtile as SubTileEntityInGame) as bool{
 function generate(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
     if(subtile.data.FuelData.duration>0){
         val manaGenerated = (subtile.data.FuelData.production / 20) as int;
-        val heatGenerated = Math.max(manaGenerated + subtile.getMana() - subtile.getMaxMana() , 0);
+        val heatGenerated = Math.max(manaGenerated + subtile.getMana() - subtile.getMaxMana(), 0);
         subtile.setCustomData(subtile.data.deepUpdate({Overheat: (Math.max((subtile.data.Overheat + heatGenerated - 10) as int , 0)), FuelData: {duration: subtile.data.FuelData.duration - 2}},{FuelData: {duration: OVERWRITE}, Overheat: OVERWRITE}));
         subtile.addMana(manaGenerated);
-        if(world.random.nextInt(5)>2) playSound("nuclearcraft:geiger_tick", pos, world);
-        server.commandManager.executeCommandSilent(server, "/particle reddust "~pos.x~" "~(1.2f+pos.y)~" "~pos.z~" "~(((subtile.data.Overheat as float)/10000) - 1)~" "~(((10000-subtile.data.Overheat) as float)/10000)~" 0 1");
-        if(subtile.data.Overheat>10000) world.performExplosion(null, pos.x, pos.y, pos.z, 20.0f, true, true);
+        if(world.random.nextInt(5) > 2) playSound("nuclearcraft:geiger_tick", pos, world);
+        server.commandManager.executeCommandSilent(server, "/particle reddust "~pos.x~" "~(1.2f + pos.y)~" "~pos.z~" "~(((subtile.data.Overheat as float) / 10000) - 1)~" "~(((10000 - subtile.data.Overheat) as float) / 10000)~" 0 1");
+        if(subtile.data.Overheat > overHeatLimit) world.performExplosion(null, pos.x, pos.y, pos.z, 20.0f, true, true);
     } else {
         dropFuelWaste(world, pos, subtile);
     }
@@ -173,7 +162,7 @@ function pickUpFuel(world as IWorld, pos as IBlockPos, subtile as SubTileEntityI
     val fuelData = fuelsList[fuel.item.name]; 
     val newData = {
         Status : 'work',
-        FuelData : {duration: fuelData[0], production: (fuelData[1] * fuelData[2] / 100)},
+        FuelData : {duration: (fuelDurationMultiplier * fuelData[0]) as int , production: (fuelManaGenerationMultiplier * fuelData[1] * fuelData[2] / 100) as int},
         Overheat : getSubtileHeat(subtile),
         WasteName : getFuelWasteOreDictName(fuel.item)
     } as IData;    

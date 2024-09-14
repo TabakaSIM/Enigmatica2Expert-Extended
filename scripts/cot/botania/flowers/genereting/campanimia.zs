@@ -59,7 +59,6 @@ Mana generations numbers:
 51 -> 297066
 */
 #loader contenttweaker
-# priority 1
 
 import mods.contenttweaker.VanillaFactory;
 import mods.randomtweaker.cote.ISubTileEntity;
@@ -79,25 +78,20 @@ import crafttweaker.entity.IEntity;
 import crafttweaker.util.Math;
 
 var campanimia as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("campanimia", 65535);
-campanimia.maxMana = 300000; //Max mana generated with all 51 aspects is 297066
+campanimia.maxMana = 300000; 
 campanimia.passiveFlower = false;
 campanimia.range = 1;
-campanimia.onUpdate = function(subtile, world, pos) { //subtile.acceptsRedstone(); TODO
+campanimia.onUpdate = function(subtile, world, pos) { 
     if(world.isRemote()) return;
-    if(world.time%20!=7) return; 
-    //check blocks
+    if(world.time%20 != 7) return; 
     val cruciblesPos = getCruciblesPos(world, pos);
     if(cruciblesPos.length == 0) return;
     val crucibles = getCrucibles(world, cruciblesPos);
-    //calculate aspects
     val aspects = getAspectsList(crucibles);
-    if(aspects.length==0) return;
-    //check buffer
+    if(aspects.length == 0) return;
     val generatedMana = pow(10,pow(aspects.length,0.475) - 1) as int;
-    if(subtile.getMaxMana() - subtile.getMana()<generatedMana) return; //Or make it to loose acutally mana? To always keep buffer empty to not loose mana?
-    //take essentia
+    if(subtile.getMaxMana() - subtile.getMana() < generatedMana) return;
     drinkEssentia(world, cruciblesPos);
-    //generate mana
     subtile.addMana(generatedMana);
     playSound("thaumcraft:spill", pos, world);
     return;
