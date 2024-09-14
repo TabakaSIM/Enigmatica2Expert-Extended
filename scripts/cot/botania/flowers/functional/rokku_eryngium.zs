@@ -77,9 +77,9 @@ function findCrystal(world as IWorld, pos as IBlockPos) as IEntityItem{
         if(isNull(item)
         || isNull(item.item)
         || !(validCrystalNames has item.item.name)
-        || Math.abs(item.x - pos.x ) > 1
+        || Math.abs(item.x - pos.x - 0.5 ) > 1
         || Math.abs(item.y - pos.y ) > 1
-        || Math.abs(item.z - pos.z ) > 1
+        || Math.abs(item.z - pos.z - 0.5 ) > 1
         || item.item.tag.astralsorcery.crystalProperties.collectiveCapability==100) continue;
         return item;
     }
