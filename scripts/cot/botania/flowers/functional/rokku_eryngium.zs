@@ -30,7 +30,7 @@ static validCrystalNames as IItemStack[string] = {
     'item.itemrockcrystalsimple'        : <item:astralsorcery:itemrockcrystalsimple>, 
 } as IItemStack[string];
 
-var rokku_eryngium as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("rokku_eryngium");
+var rokku_eryngium as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("rokku_eryngium", 16777215);
 rokku_eryngium.hasMini = false;
 rokku_eryngium.maxMana = 5000;
 rokku_eryngium.acceptsRedstone = true;

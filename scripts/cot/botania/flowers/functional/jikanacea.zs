@@ -18,7 +18,7 @@ import mods.randomtweaker.cote.SubTileEntityInGame;
 
 static manaCostMultipier as int = 300;
 
-var jikanacea as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("jikanacea");
+var jikanacea as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("jikanacea", 6553700);
 jikanacea.maxMana = 9600;
 jikanacea.range = 8;
 jikanacea.acceptsRedstone = false;

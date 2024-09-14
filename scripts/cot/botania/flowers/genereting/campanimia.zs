@@ -78,7 +78,7 @@ import crafttweaker.player.IPlayer;
 import crafttweaker.entity.IEntity;
 import crafttweaker.util.Math;
 
-var campanimia as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("campanimia");
+var campanimia as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("campanimia", 65535);
 campanimia.maxMana = 300000; //Max mana generated with all 51 aspects is 297066
 campanimia.passiveFlower = false;
 campanimia.range = 1;

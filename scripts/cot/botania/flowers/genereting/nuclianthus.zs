@@ -137,7 +137,7 @@ OverHeat: int
 }
 */
 
-var nuclianthus as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("nuclianthus");
+var nuclianthus as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("nuclianthus", 16776960);
 nuclianthus.maxMana = 10000;
 nuclianthus.passiveFlower = false;
 nuclianthus.range = 1;
