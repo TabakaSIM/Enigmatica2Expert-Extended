@@ -63,6 +63,7 @@ rokku_eryngium.register();
 function pickCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
     val crystal = findCrystal(world, pos);
     if(isNull(crystal)) return;
+    crystal.setDead();
     subtile.setCustomData(crystal.item.tag.astralsorcery + {name: crystal.item.name, status: "work"});
     crystal.setDead();
     playSound("minecraft:entity.item.pickup", pos, world);
@@ -74,6 +75,7 @@ function findCrystal(world as IWorld, pos as IBlockPos) as IEntityItem{
     for item in items{
         if(isNull(item)
         || isNull(item.item)
+        || !item.isAlive()
         || !(validCrystalNames has item.item.name)
         || Math.abs(item.x - pos.x - 0.5 ) > 1
         || Math.abs(item.y - pos.y ) > 1
