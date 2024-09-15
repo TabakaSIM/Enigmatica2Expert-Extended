@@ -29,3 +29,10 @@ botania.entry.jikanacea=Jikanacea
 botania.tagline.botania.entry.jikanacea=Prolongs time in a bottle effect
 botania.page.jikanacea0=§1Jikanacea§r is a unique flower that extends nearby effects of §cTime in a Bottle§r. <br>The higher level of acceleration, the more mana it consumes to sustain the flow of time. 
 botania.page.jikanacea1=&oTime flows where mana grows&r
+
+tile.botania:flower.echinacenko.name=Echinacenko
+tile.botania:flower.echinacenko.reference=Organic dietary supplements
+botania.entry.echinacenko=Echinacenko
+botania.tagline.botania.entry.echinacenko=Refills nearby players nutritions
+botania.page.echinacenko0=While forbidden items may fill your stomach through magical aura, they lack the nourishment your body needs. §1Echinacenko§r solves this by restoring all types of nutrition to nearby players, using §4mana§r to fuel its life-sustaining magic.
+botania.page.echinacenko1=&oTaste doesn't matter&r

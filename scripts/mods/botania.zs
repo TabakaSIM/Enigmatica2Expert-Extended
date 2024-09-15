@@ -479,3 +479,12 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "jikana
 <quark:rune:4>,
 <thaumicaugmentation:material:5>,
 ]);
+
+mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "echinacenko"}), [
+<quark:rune:2>,
+<quark:rune:2>,
+<quark:rune:5>,
+<botania:rune:10>,
+<botania:rune:12>,
+<botania:manaresource:8>,
+]);

@@ -61,3 +61,15 @@ mods.botania.Lexicon.addPetalPage("botania.page.jikanacea1", "botania.entry.jika
 <quark:rune:4>,
 <thaumicaugmentation:material:5>,
 ]]);
+
+mods.botania.Lexicon.addEntry("botania.entry.echinacenko", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "echinacenko"}));
+mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.echinacenko", "alfheim");
+mods.botania.Lexicon.addTextPage("botania.page.echinacenko0", "botania.entry.echinacenko", 0);
+mods.botania.Lexicon.addPetalPage("botania.page.echinacenko1", "botania.entry.echinacenko", 1, [<botania:specialflower>.withTag({type: "echinacenko"})], [[
+<quark:rune:2>,
+<quark:rune:2>,
+<quark:rune:5>,
+<botania:rune:10>,
+<botania:rune:12>,
+<botania:manaresource:8>,
+]]);
