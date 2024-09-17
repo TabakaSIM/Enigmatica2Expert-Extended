@@ -488,3 +488,13 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "echina
 <botania:rune:12>,
 <botania:manaresource:8>,
 ]);
+
+mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "antirrhift"}), [
+<botania:manaresource:8>,
+<botania:rune:15>,
+<quark:rune:2>,
+<quark:rune>,
+<quark:rune>,
+<thaumicaugmentation:material:5>,
+<thaumicaugmentation:material:5>,
+]);

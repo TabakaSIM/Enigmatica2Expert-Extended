@@ -36,6 +36,19 @@ mods.botania.Lexicon.addPetalPage("botania.page.nuclianthus1", "botania.entry.nu
 //Functional flowers//
 //////////////////////
 
+mods.botania.Lexicon.addEntry("botania.entry.antirrhift", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "antirrhift"}));
+mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.antirrhift", "alfheim");
+mods.botania.Lexicon.addTextPage("botania.page.antirrhift0", "botania.entry.antirrhift", 0);
+mods.botania.Lexicon.addPetalPage("botania.page.antirrhift1", "botania.entry.antirrhift", 1, [<botania:specialflower>.withTag({type: "antirrhift"})], [[
+<botania:manaresource:8>,
+<botania:rune:15>,
+<quark:rune:2>,
+<quark:rune>,
+<quark:rune>,
+<thaumicaugmentation:material:5>,
+<thaumicaugmentation:material:5>,
+]]);
+
 mods.botania.Lexicon.addEntry("botania.entry.rokku_eryngium", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "rokku_eryngium"}));
 mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.rokku_eryngium", "alfheim");
 mods.botania.Lexicon.addTextPage("botania.page.rokku_eryngium0", "botania.entry.rokku_eryngium", 0);

@@ -16,6 +16,13 @@ botania.page.nuclianthus1=&oWhere's radiation?&r
 
 #Functional flowers
 
+tile.botania:flower.antirrhift.name=Antirrhift
+tile.botania:flower.antirrhift.reference=We all hate taxes
+botania.entry.antirrhift=Antirrhift
+botania.tagline.botania.entry.antirrhift=Speed up spreader
+botania.page.antirrhift0=Mana spreaders are slow, but §1Antirrhift§r speeds things up by teleporting §cmana§r directly to the pool. However, it takes a small toll, absorbing about a fifth of the §cmana§r for itself in the process.
+botania.page.antirrhift1=&oI've won... but at what cost?&r
+
 tile.botania:flower.rokku_eryngium.name=Rokku Eryngium
 tile.botania:flower.rokku_eryngium.reference=Sharpening Flower of the Stars
 botania.entry.rokku_eryngium=Rokku Eryngium
