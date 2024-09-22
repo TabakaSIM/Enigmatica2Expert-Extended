@@ -43,3 +43,10 @@ botania.entry.echinacenko=Echinacenko
 botania.tagline.botania.entry.echinacenko=Refills nearby players nutritions
 botania.page.echinacenko0=While forbidden items may fill your stomach through magical aura, they lack the nourishment your body needs. §1Echinacenko§r solves this by restoring all types of nutrition to nearby players, using §4mana§r to fuel its life-sustaining magic.
 botania.page.echinacenko1=&oTaste doesn't matter&r
+
+tile.botania:flower.amuileria_kaerunea.name=Amuileria kaerunea
+tile.botania:flower.amuileria_kaerunea.reference=30.000 degrees is a lie
+botania.entry.amuileria_kaerunea=Amuileria kaerunea
+botania.tagline.botania.entry.amuileria_kaerunea=Charges items with lightning
+botania.page.amuileria_kaerunea0=Active during thunderstorms, §1Amuileria Kaerunea§r channels lightning strikes to charge nearby items. It will call down a bolt when needed, consuming §cmana§r to infuse the items with storm-born energy.
+botania.page.amuileria_kaerunea1=&oThor in a flower&r

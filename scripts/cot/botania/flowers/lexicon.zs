@@ -86,3 +86,16 @@ mods.botania.Lexicon.addPetalPage("botania.page.echinacenko1", "botania.entry.ec
 <botania:rune:12>,
 <botania:manaresource:8>,
 ]]);
+
+mods.botania.Lexicon.addEntry("botania.entry.amuileria_kaerunea", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "amuileria_kaerunea"}));
+mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.amuileria_kaerunea", "alfheim");
+mods.botania.Lexicon.addTextPage("botania.page.amuileria_kaerunea0", "botania.entry.amuileria_kaerunea", 0);
+mods.botania.Lexicon.addPetalPage("botania.page.amuileria_kaerunea1", "botania.entry.amuileria_kaerunea", 1, [<botania:specialflower>.withTag({type: "amuileria_kaerunea"})], [[
+<botania:manaresource:9>,
+<botania:rune:8>,
+<minecraft:end_rod>,
+<quark:rune:3>,
+<quark:rune:3>,
+<quark:rune:4>,
+<quark:rune>,
+]]);

@@ -498,3 +498,13 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "antirr
 <thaumicaugmentation:material:5>,
 <thaumicaugmentation:material:5>,
 ]);
+
+mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "amuileria_kaerunea"}), [
+<botania:manaresource:9>,
+<botania:rune:8>,
+<minecraft:end_rod>,
+<quark:rune:3>,
+<quark:rune:3>,
+<quark:rune:4>,
+<quark:rune>,
+]);
