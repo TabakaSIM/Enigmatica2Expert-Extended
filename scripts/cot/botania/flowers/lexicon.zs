@@ -18,6 +18,7 @@ mods.botania.Lexicon.addPetalPage("botania.page.campanimia1", "botania.entry.cam
 <quark:rune:2>,
 <quark:rune:4>,
 ]]);
+mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "campanimia"}), "botania.entry.campanimia", 0);
 
 mods.botania.Lexicon.addEntry("botania.entry.nuclianthus", "botania.category.generationFlowers", <botania:specialflower>.withTag({type: "nuclianthus"}));
 mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.nuclianthus", "alfheim");
@@ -31,6 +32,7 @@ mods.botania.Lexicon.addPetalPage("botania.page.nuclianthus1", "botania.entry.nu
 <botania:rune:6>,
 <botania:rune:6>,
 ]]);
+mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "nuclianthus"}), "botania.entry.nuclianthus", 0);
 
 //////////////////////
 //Functional flowers//
@@ -48,6 +50,7 @@ mods.botania.Lexicon.addPetalPage("botania.page.antirrhift1", "botania.entry.ant
 <thaumicaugmentation:material:5>,
 <thaumicaugmentation:material:5>,
 ]]);
+mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "antirrhift"}), "botania.entry.antirrhift", 0);
 
 mods.botania.Lexicon.addEntry("botania.entry.rokku_eryngium", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "rokku_eryngium"}));
 mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.rokku_eryngium", "alfheim");
@@ -61,6 +64,7 @@ mods.botania.Lexicon.addPetalPage("botania.page.rokku_eryngium1", "botania.entry
 <quark:rune>,
 <quark:rune>,
 ]]);
+mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "rokku_eryngium"}), "botania.entry.rokku_eryngium", 0);
 
 mods.botania.Lexicon.addEntry("botania.entry.jikanacea", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "jikanacea"}));
 mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.jikanacea", "alfheim");
@@ -74,6 +78,7 @@ mods.botania.Lexicon.addPetalPage("botania.page.jikanacea1", "botania.entry.jika
 <quark:rune:4>,
 <thaumicaugmentation:material:5>,
 ]]);
+mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "jikanacea"}), "botania.entry.jikanacea", 0);
 
 mods.botania.Lexicon.addEntry("botania.entry.echinacenko", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "echinacenko"}));
 mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.echinacenko", "alfheim");
@@ -86,6 +91,7 @@ mods.botania.Lexicon.addPetalPage("botania.page.echinacenko1", "botania.entry.ec
 <botania:rune:12>,
 <botania:manaresource:8>,
 ]]);
+mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "echinacenko"}), "botania.entry.echinacenko", 0);
 
 mods.botania.Lexicon.addEntry("botania.entry.amuileria_kaerunea", "botania.category.functionalFlowers", <botania:specialflower>.withTag({type: "amuileria_kaerunea"}));
 mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.amuileria_kaerunea", "alfheim");
@@ -99,3 +105,4 @@ mods.botania.Lexicon.addPetalPage("botania.page.amuileria_kaerunea1", "botania.e
 <quark:rune:4>,
 <quark:rune>,
 ]]);
+mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "amuileria_kaerunea"}), "botania.entry.amuileria_kaerunea", 0);
