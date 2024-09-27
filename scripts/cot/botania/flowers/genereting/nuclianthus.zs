@@ -43,6 +43,9 @@ fuel:name [duration, heat/t, effciency]
 'item.nuclearcraft.fuel_uranium.heu_233_ox': [2666, 648, 115], // HEU-233-OX
 'item.nuclearcraft.fuel_uranium.heu_233_ni': [3348, 516, 115], // HEU-233-NI
 'item.nuclearcraft.fuel_uranium.heu_233_za': [2134, 810, 115], // HEU-233-ZA
+'item.nuclearcraft.fuel_uranium.leu_235_ox': [4800, 120, 100], // LEU-235-OX
+'item.nuclearcraft.fuel_uranium.leu_235_ni': [6000, 96, 100], // LEU-235-NI
+'item.nuclearcraft.fuel_uranium.leu_235_za': [3840, 150, 100], // LEU-235-ZA
 'item.nuclearcraft.fuel_uranium.heu_235_ox': [4800, 360, 105], // HEU-235-OX
 'item.nuclearcraft.fuel_uranium.heu_235_ni': [6000, 288, 105], // HEU-235-NI
 'item.nuclearcraft.fuel_uranium.heu_235_za': [3840, 450, 105],  // HEU-235-ZA
@@ -65,14 +68,17 @@ fuel:name [duration, heat/t, effciency]
 'item.nuclearcraft.fuel_plutonium.lep_241_ox': [3164, 182, 130], // LEP-241-OX
 'item.nuclearcraft.fuel_plutonium.lep_241_ni': [3946, 146, 130], // LEP-241-NI
 'item.nuclearcraft.fuel_plutonium.lep_241_za': [2526, 228, 130], // LEP-241-ZA
+'item.nuclearcraft.fuel_plutonium.hep_241_ox': [3164, 546, 130], // HEP-241-OX
+'item.nuclearcraft.fuel_plutonium.hep_241_ni': [3946, 438, 130], // HEP-241-NI
+'item.nuclearcraft.fuel_plutonium.hep_241_za': [2526, 684, 130], // HEP-241-ZA
 
 // Mixed fuels
-'item.nuclearcraft.fuel_mixed.mox_239': [4354, 132, 105], // MOX-239
-'item.nuclearcraft.fuel_mixed.mni_239': [5486, 106, 105], // MNI-239
-'item.nuclearcraft.fuel_mixed.mza_239': [3472, 166, 105], // MZA-239
-'item.nuclearcraft.fuel_mixed.mox_241': [3014, 192, 115], // MOX-241
-'item.nuclearcraft.fuel_mixed.mni_241': [3758, 154, 115], // MNI-241
-'item.nuclearcraft.fuel_mixed.mza_241': [2406, 240, 115], // MZA-241
+'item.nuclearcraft.fuel_mixed.mox_239_ox': [4354, 132, 105], // MOX-239
+'item.nuclearcraft.fuel_mixed.mni_239_ni': [5486, 106, 105], // MNI-239
+'item.nuclearcraft.fuel_mixed.mza_239_za': [3472, 166, 105], // MZA-239
+'item.nuclearcraft.fuel_mixed.mox_241_ox': [3014, 192, 115], // MOX-241
+'item.nuclearcraft.fuel_mixed.mni_241_ni': [3758, 154, 115], // MNI-241
+'item.nuclearcraft.fuel_mixed.mza_241_za': [2406, 240, 115], // MZA-241
 
 // Americium fuels
 'item.nuclearcraft.fuel_americium.lea_242_ox': [1476, 390, 135], // LEA-242-OX
@@ -101,6 +107,14 @@ fuel:name [duration, heat/t, effciency]
 'item.nuclearcraft.fuel_curium.hecm_247_ox': [2150, 804, 160], // HECm-247-OX
 'item.nuclearcraft.fuel_curium.hecm_247_ni': [2692, 642, 160], // HECm-247-NI
 'item.nuclearcraft.fuel_curium.hecm_247_za': [1714, 1008, 160],  // HECm-247-ZA
+
+// Berkelium fuels
+'item.nuclearcraft.fuel_berkelium.leb_248_ox': [2166, 266, 165], //LEB-248-OX
+'item.nuclearcraft.fuel_berkelium.leb_248_ni': [2716, 212, 165], //LEB-248-NI
+'item.nuclearcraft.fuel_berkelium.leb_248_za': [1734, 332, 165], //LEB-248-ZA
+'item.nuclearcraft.fuel_berkelium.heb_248_ox': [2166, 798, 170], //HEB-248-OX
+'item.nuclearcraft.fuel_berkelium.heb_248_ni': [2716, 636, 170], //HEB-248-NI
+'item.nuclearcraft.fuel_berkelium.heb_248_za': [1734, 996, 170], //HEB-248-ZA
 
 // Californium fuels
 'item.nuclearcraft.fuel_californium.lecf_249_ox': [1348, 442, 165], // LECf-249-OX
@@ -160,6 +174,7 @@ function pickUpFuel(world as IWorld, pos as IBlockPos, subtile as SubTileEntityI
     val fuel = findFuel(world, pos);
     if(isNull(fuel)) return;
     val fuelData = fuelsList[fuel.item.name]; 
+    if(isnUll(fuelData)) return;
     val newData = {
         Status : 'work',
         FuelData : {duration: (fuelDurationMultiplier * fuelData[0]) as int , production: (fuelManaGenerationMultiplier * fuelData[1] * fuelData[2] / 100) as int},
