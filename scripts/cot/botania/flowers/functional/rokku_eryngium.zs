@@ -33,7 +33,7 @@ static manaCostPerCut as int = 1000;
 
 var rokku_eryngium as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("rokku_eryngium", 16777215);
 rokku_eryngium.hasMini = false;
-rokku_eryngium.maxMana = 5000;
+rokku_eryngium.maxMana = 1000;
 rokku_eryngium.range = 1;
 rokku_eryngium.onUpdate = function(subtile, world, pos) {
     if(world.isRemote()
@@ -87,10 +87,10 @@ function findCrystal(world as IWorld, pos as IBlockPos) as IEntityItem{
 }
 
 function workOnCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
-    if(subtile.data.crystalProperties.collectiveCapability==100){
+    /*if(subtile.data.crystalProperties.collectiveCapability==100){
         dropCrystal(world, pos, subtile);
         return;
-    } 
+    }*/
     val sizeChange = 3 + world.random.nextInt(2);
     val cuttingChange = 1 + world.random.nextInt(2);
     if(subtile.data.crystalProperties.size <= sizeChange) {
