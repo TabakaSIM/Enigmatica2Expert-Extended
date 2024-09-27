@@ -53,6 +53,12 @@ events.onEntityItemDeath(function (e as mods.zenutils.event.EntityItemDeathEvent
 });
 
 function charge(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
+    if(isNull(subtile.data.charge)) subtile.setCustomData({charge: 0});
+    if(subtile.data.charge < 4){
+        subtile.setCustomData({charge: (subtile.data.charge as int + 1)});
+        return;
+    }
+
     var makeThunder = false;
     if(subtile.getMana() < manaCostPerLightning) return;
     for item in world.getEntityItems(){
@@ -68,8 +74,31 @@ function charge(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGam
         continue;
     }
 
-    if(makeThunder) server.commandManager.executeCommandSilent(server, '/summon minecraft:lightning_bolt '~pos.x~' '~pos.y~' '~pos.z );
+    if(makeThunder) {
+        server.commandManager.executeCommandSilent(server, '/summon minecraft:lightning_bolt '~pos.x~' '~pos.y~' '~pos.z );
+        subtile.setCustomData({charge: 0});
+    } else{
+        server.commandManager.executeCommandSilent(server, "/particle magicCrit "~pos.x~" "~(1.2f + pos.y)~" "~pos.z~" .4 .4 .4 0 5");
+    }
     return;
 }
 
+/* 
+function registerThunderRecipe(item as IItemStack, result as IItemStack) as void{
+    if(recipesLigthningFlower has item.definition.id){
+        print("[ERROR] "~item.definition.id~" is already registered!");
+        return;
+    }
+    recipesLigthningFlower[item.definition.id] = result;
+    if(!(recipesLigthningFlower has result.definition.id)) recipesLigthningFlower[result.definition.id] = result;
+    return;
+}
 
+val lightningRecipes = {
+  <item:appliedenergistics2:material:2>: <item:appliedenergistics2:material:1>,
+  <item:appliedenergistics2:material:0>: <item:appliedenergistics2:material:1>,
+} as IItemStack[IItemStack];
+
+for item, result in lightningRecipes {
+  registerThunderRecipe(item, result);
+} */
