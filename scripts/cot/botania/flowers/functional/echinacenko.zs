@@ -19,7 +19,7 @@ import mods.contenttweaker.Color;
 static manaCost as int = 100;
 static nutritionGain as float = 1.0f;
 
-var echinacenko as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("echinacenko");
+var echinacenko as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("echinacenko", 16711935);
 echinacenko.maxMana = 1000;
 echinacenko.range = 4;
 echinacenko.onUpdate = function(subtile, world, pos) {

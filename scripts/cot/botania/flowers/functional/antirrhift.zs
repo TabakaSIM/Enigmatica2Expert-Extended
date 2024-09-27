@@ -24,7 +24,7 @@ import mods.zenutils.DataUpdateOperation.OVERWRITE;
 
 static manaTransportEfficiency as float = 0.8f;
 
-var antirrhift as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("antirrhift");
+var antirrhift as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("antirrhift", 16763135);
 antirrhift.maxMana = 0;
 antirrhift.passiveFlower = false;
 antirrhift.range = 4;
