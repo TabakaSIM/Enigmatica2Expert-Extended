@@ -148,9 +148,9 @@ function generate(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInG
         val heatGenerated = Math.max(manaGenerated + subtile.getMana() - subtile.getMaxMana(), 0);
         subtile.setCustomData(subtile.data.deepUpdate({Overheat: (Math.max((subtile.data.Overheat + heatGenerated - 10) as int , 0)), FuelData: {duration: subtile.data.FuelData.duration - 2}},{FuelData: {duration: OVERWRITE}, Overheat: OVERWRITE}));
         subtile.addMana(manaGenerated);
-        if(world.random.nextInt(5) > 2) playSound("nuclearcraft:geiger_tick", pos, world);
+        if(world.random.nextInt(5) > 2) playSound("minecraft:block.lava.pop", pos, world); //I would like to use this: "nuclearcraft:player.geiger_tick"
         server.commandManager.executeCommandSilent(server, "/particle reddust "~pos.x~" "~(1.2f + pos.y)~" "~pos.z~" "~(((subtile.data.Overheat as float) / 10000) - 1)~" "~(((10000 - subtile.data.Overheat) as float) / 10000)~" 0 1");
-        if(subtile.data.Overheat > overHeatLimit) world.performExplosion(null, pos.x, pos.y, pos.z, 20.0f, true, true);
+        if(subtile.data.Overheat > overHeatLimit) world.performExplosion(null, pos.x, pos.y, pos.z, 20.0f, true, true); //TODO make falling blocks
     } else {
         dropFuelWaste(world, pos, subtile);
     }
@@ -169,7 +169,7 @@ function pickUpFuel(world as IWorld, pos as IBlockPos, subtile as SubTileEntityI
     subtile.setCustomData(newData);
     playSound("minecraft:entity.item.pickup", pos, world);
 
-    fuel.item.amount==1 ? fuel.setDead() : fuel.item.mutable().shrink(1); //TODO 
+    fuel.item.amount==1 ? fuel.setDead() : fuel.item.mutable().shrink(1);
     return;
 }
 
