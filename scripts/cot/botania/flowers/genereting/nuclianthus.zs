@@ -73,12 +73,12 @@ fuel:name [duration, heat/t, effciency]
 'item.nuclearcraft.fuel_plutonium.hep_241_za': [2526, 684, 130], // HEP-241-ZA
 
 // Mixed fuels
-'item.nuclearcraft.fuel_mixed.mox_239_ox': [4354, 132, 105], // MOX-239
-'item.nuclearcraft.fuel_mixed.mni_239_ni': [5486, 106, 105], // MNI-239
-'item.nuclearcraft.fuel_mixed.mza_239_za': [3472, 166, 105], // MZA-239
-'item.nuclearcraft.fuel_mixed.mox_241_ox': [3014, 192, 115], // MOX-241
-'item.nuclearcraft.fuel_mixed.mni_241_ni': [3758, 154, 115], // MNI-241
-'item.nuclearcraft.fuel_mixed.mza_241_za': [2406, 240, 115], // MZA-241
+'item.nuclearcraft.fuel_mixed.mix_239_ox': [4354, 132, 105], // MOX-239
+'item.nuclearcraft.fuel_mixed.mix_239_ni': [5486, 106, 105], // MNI-239
+'item.nuclearcraft.fuel_mixed.mix_239_za': [3472, 166, 105], // MZA-239
+'item.nuclearcraft.fuel_mixed.mix_241_ox': [3014, 192, 115], // MOX-241
+'item.nuclearcraft.fuel_mixed.mix_241_ni': [3758, 154, 115], // MNI-241
+'item.nuclearcraft.fuel_mixed.mix_241_za': [2406, 240, 115], // MZA-241
 
 // Americium fuels
 'item.nuclearcraft.fuel_americium.lea_242_ox': [1476, 390, 135], // LEA-242-OX
@@ -174,7 +174,7 @@ function pickUpFuel(world as IWorld, pos as IBlockPos, subtile as SubTileEntityI
     val fuel = findFuel(world, pos);
     if(isNull(fuel)) return;
     val fuelData = fuelsList[fuel.item.name]; 
-    if(isnUll(fuelData)) return;
+    if(isNull(fuelData)) return;
     val newData = {
         Status : 'work',
         FuelData : {duration: (fuelDurationMultiplier * fuelData[0]) as int , production: (fuelManaGenerationMultiplier * fuelData[1] * fuelData[2] / 100) as int},
