@@ -304,7 +304,7 @@ craft.make(<advancedrocketry:suitworkstation>, ['pretty',
   '3 w 3',
   '■ ■ ■'], {
   '■': <ore:blockTitanium>, // Titanium Block
-  '3': <opencomputers:print>, // 3D Print
+  '3': <enderio:item_basic_capacitor:1>,
   'w': <ore:workbench>, // Crafting Table
   '*': <ore:crystalEmeraldic>, // Emeradic Crystal
 });
@@ -618,3 +618,15 @@ mods.thaumcraft.Infusion.registerRecipe(
     'L L L'], {
     'L': <twilightforest:magic_leaves:1>, // Leaves of Transformation
   }).spiral(1));
+
+// [Precision Assembler] from [Machine Structure][+4]
+craft.remake(<advancedrocketry:precisionassemblingmachine>, ['pretty',
+  '  U  ',
+  'I M C',
+  '¤ ¤ ¤'], {
+  'U': <advancedrocketry:misc>,      // User Interface
+  'I': <advancedrocketry:ic:4>,      // Item IO Circuit Board
+  'M': <libvulpes:structuremachine>, // Machine Structure
+  'C': <advancedrocketry:ic:3>,      // Control Circuit Board
+  '¤': <ore:gearDiamond>,            // Diamond Gear
+});
