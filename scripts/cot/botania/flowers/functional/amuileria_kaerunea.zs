@@ -25,7 +25,7 @@ static recipesLigthningFlower as IItemStack[string] = {
 
 static manaCostPerLightning as int = 1000;
 
-var amuileria_kaerunea as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("amuileria_kaerunea", 65535);
+var amuileria_kaerunea = VanillaFactory.createSubTileFunctional("amuileria_kaerunea", 0xffff);
 amuileria_kaerunea.maxMana = 5000;
 amuileria_kaerunea.range = 1;
 amuileria_kaerunea.onUpdate = function(subtile, world, pos) {

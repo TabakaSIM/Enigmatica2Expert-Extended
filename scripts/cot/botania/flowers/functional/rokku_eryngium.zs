@@ -31,7 +31,7 @@ static validCrystalNames as IItemStack[string] = {
 
 static manaCostPerCut as int = 1000;
 
-var rokku_eryngium as ISubTileEntityFunctional = VanillaFactory.createSubTileFunctional("rokku_eryngium", 16777215);
+var rokku_eryngium = VanillaFactory.createSubTileFunctional("rokku_eryngium", 0xffffff);
 rokku_eryngium.hasMini = false;
 rokku_eryngium.maxMana = 1000;
 rokku_eryngium.range = 1;

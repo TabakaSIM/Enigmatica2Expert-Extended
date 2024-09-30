@@ -140,7 +140,7 @@ static fuelDurationMultiplier as double = 1.0;
 static fuelManaGenerationMultiplier as double = 1.0;
 static overHeatLimit as int = 10000;
 
-var nuclianthus as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("nuclianthus", 16776960);
+var nuclianthus = VanillaFactory.createSubTileGenerating("nuclianthus", 0xffff00);
 nuclianthus.maxMana = 10000;
 nuclianthus.passiveFlower = false;
 nuclianthus.range = 1;

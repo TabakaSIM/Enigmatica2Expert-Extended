@@ -77,7 +77,7 @@ import crafttweaker.player.IPlayer;
 import crafttweaker.entity.IEntity;
 import crafttweaker.util.Math;
 
-var campanimia as ISubTileEntityGenerating = VanillaFactory.createSubTileGenerating("campanimia", 65535);
+var campanimia = VanillaFactory.createSubTileGenerating("campanimia", 0xffff);
 campanimia.maxMana = 300000; 
 campanimia.passiveFlower = false;
 campanimia.range = 1;
