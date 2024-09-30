@@ -70,7 +70,7 @@ mods.botania.Lexicon.addEntry("botania.entry.jikanacea", "botania.category.funct
 mods.botania.Lexicon.setEntryKnowledgeType("botania.entry.jikanacea", "alfheim");
 mods.botania.Lexicon.addTextPage("botania.page.jikanacea0", "botania.entry.jikanacea", 0);
 mods.botania.Lexicon.addPetalPage("botania.page.jikanacea1", "botania.entry.jikanacea", 1, [<botania:specialflower>.withTag({type: "jikanacea"})], [[
-<astralsorcery:itemtunedcelestialcrystal>.withTag({astralsorcery: {constellationName: "astralsorcery.constellation.horologium", crystalProperties: {collectiveCapability: 100, size: 900, fract: 0, purity: 100}}}),
+<astralsorcery:itemcraftingcomponent:4>,
 <botania:rune:14>,
 <botania:rune:9>,
 <quark:rune:2>,
@@ -89,7 +89,7 @@ mods.botania.Lexicon.addPetalPage("botania.page.echinacenko1", "botania.entry.ec
 <quark:rune:5>,
 <botania:rune:10>,
 <botania:rune:12>,
-<botania:manaresource:8>,
+<botania:manaresource:1>,
 ]]);
 mods.botania.Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: "echinacenko"}), "botania.entry.echinacenko", 0);
 

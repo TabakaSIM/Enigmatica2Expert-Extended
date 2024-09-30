@@ -471,7 +471,7 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "rokku_
 ]);
 
 mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "jikanacea"}), [
-<astralsorcery:itemtunedcelestialcrystal>.withTag({astralsorcery: {constellationName: "astralsorcery.constellation.horologium", crystalProperties: {collectiveCapability: 100, size: 900, fract: 0, purity: 100}}}),
+<astralsorcery:itemcraftingcomponent:4>,
 <botania:rune:14>,
 <botania:rune:9>,
 <quark:rune:2>,
@@ -486,7 +486,7 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "echina
 <quark:rune:5>,
 <botania:rune:10>,
 <botania:rune:12>,
-<botania:manaresource:8>,
+<botania:manaresource:1>,
 ]);
 
 mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "antirrhift"}), [
