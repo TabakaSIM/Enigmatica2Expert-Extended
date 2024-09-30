@@ -76,6 +76,7 @@ import crafttweaker.util.Position3f;
 import crafttweaker.player.IPlayer;
 import crafttweaker.entity.IEntity;
 import crafttweaker.util.Math;
+import scripts.lib.sound;
 
 var campanimia = VanillaFactory.createSubTileGenerating("campanimia", 0xffff);
 campanimia.maxMana = 300000; 
@@ -93,7 +94,7 @@ campanimia.onUpdate = function(subtile, world, pos) {
     if(subtile.getMaxMana() - subtile.getMana() < generatedMana) return;
     drinkEssentia(world, cruciblesPos);
     subtile.addMana(generatedMana);
-    playSound("thaumcraft:spill", pos, world);
+    scripts.lib.sound.play("thaumcraft:spill", pos, world);
     return;
 };
 campanimia.register();
@@ -155,14 +156,4 @@ function drinkEssentia(world as IWorld, cruciblesPosList as IBlockPos[]) as void
         world.setBlockState(world.getBlockState(cruciblePos), newData, cruciblePos);
     }
     return;
-}
-
-function playSound(str as string, pos as IBlockPos, world as IWorld) as void{
-    val list = world.getAllPlayers();
-    for player in list {
-        if(isNull(player)
-        || player.world.dimension!=world.dimension
-        || Math.sqrt(pow(player.x - pos.x, 2) * pow(player.y - pos.y, 2) * pow(player.z - pos.z, 2))>50) continue;
-        player.sendPlaySoundPacket(str, "ambient", pos, 0.05f, 1.0f);
-    }
 }

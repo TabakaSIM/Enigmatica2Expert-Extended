@@ -24,6 +24,7 @@ import mods.randomtweaker.cote.ISubTileEntityFunctional;
 import mods.randomtweaker.cote.ISubTileEntityGenerating;
 import mods.randomtweaker.cote.SubTileEntityInGame;
 import mods.zenutils.DataUpdateOperation.OVERWRITE;
+import scripts.lib.sound;
 
 static fuelsList as int[][string] = {
 /*
@@ -162,7 +163,7 @@ function generate(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInG
         val heatGenerated = Math.max(manaGenerated + subtile.getMana() - subtile.getMaxMana(), 0);
         subtile.setCustomData(subtile.data.deepUpdate({Overheat: (Math.max((subtile.data.Overheat + heatGenerated - 10) as int , 0)), FuelData: {duration: subtile.data.FuelData.duration - 2}},{FuelData: {duration: OVERWRITE}, Overheat: OVERWRITE}));
         subtile.addMana(manaGenerated);
-        if(world.random.nextInt(5) > 2) playSound("minecraft:block.lava.pop", pos, world); //I would like to use this: "nuclearcraft:player.geiger_tick"
+        if(world.random.nextInt(5) > 2) scripts.lib.sound.play("minecraft:block.lava.pop", pos, world); //I would like to use this: "nuclearcraft:player.geiger_tick"
         server.commandManager.executeCommandSilent(server, "/particle reddust "~pos.x~" "~(1.2f + pos.y)~" "~pos.z~" "~(((subtile.data.Overheat as float) / 10000) - 1)~" "~(((10000 - subtile.data.Overheat) as float) / 10000)~" 0 1");
         if(subtile.data.Overheat > overHeatLimit) world.performExplosion(null, pos.x, pos.y, pos.z, 20.0f, true, true); //TODO make falling blocks
     } else {
@@ -182,7 +183,7 @@ function pickUpFuel(world as IWorld, pos as IBlockPos, subtile as SubTileEntityI
         WasteName : getFuelWasteOreDictName(fuel.item)
     } as IData;    
     subtile.setCustomData(newData);
-    playSound("minecraft:entity.item.pickup", pos, world);
+    scripts.lib.sound.play("minecraft:entity.item.pickup", pos, world);
 
     fuel.item.amount==1 ? fuel.setDead() : fuel.item.mutable().shrink(1);
     return;
@@ -220,14 +221,3 @@ function dropFuelWaste(world as IWorld, pos as IBlockPos, subtile as SubTileEnti
     world.spawnEntity(oreDict.get(subtile.data.WasteName).firstItem.createEntityItem(world, pos.x, pos.y + 0.3f, pos.z));
     subtile.setCustomData({Status: "pickUp"} as IData);
 }
-
-function playSound(str as string, pos as IBlockPos, world as IWorld) as void{
-    val list = world.getAllPlayers();
-    for player in list {
-        if(isNull(player)
-        || player.world.dimension!=world.dimension
-        || Math.sqrt(pow(player.x - pos.x, 2) * pow(player.y - pos.y, 2) * pow(player.z - pos.z, 2))>50) continue;
-        player.sendPlaySoundPacket(str, "ambient", pos, 0.05f, 1.0f);
-    }
-}
-

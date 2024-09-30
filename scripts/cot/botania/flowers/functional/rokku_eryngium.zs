@@ -23,6 +23,7 @@ import mods.zenutils.DataUpdateOperation.APPEND;
 import mods.zenutils.DataUpdateOperation.MERGE;
 import mods.zenutils.DataUpdateOperation.OVERWRITE;
 import mods.zenutils.DataUpdateOperation.REMOVE;
+import scripts.lib.sound;
 
 static validCrystalNames as IItemStack[string] = {
     'item.itemcelestialcrystal'         : <item:astralsorcery:itemcelestialcrystal>,
@@ -66,7 +67,7 @@ function pickCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntity
     crystal.setDead();
     subtile.setCustomData(crystal.item.tag.astralsorcery + {name: crystal.item.name, status: "work"});
     crystal.setDead();
-    playSound("minecraft:entity.item.pickup", pos, world);
+    scripts.lib.sound.play("minecraft:entity.item.pickup", pos, world);
     return;
 }
 
@@ -110,28 +111,17 @@ function dropCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntity
 
 function breakCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
     subtile.setCustomData({crystalProperties: {collectiveCapability: -1}} as IData);
-    playSound("minecraft:entity.item.break", pos, world);
+    scripts.lib.sound.play("minecraft:entity.item.break", pos, world);
     return;
 }
 
 function cutCrystal(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame, sizeChange as int, cuttingChange as int) as void{
     subtile.setCustomData(cutData(subtile.data, sizeChange, cuttingChange));
     server.commandManager.executeCommandSilent(server, "/particle blockcrack "~pos.x~" "~pos.y~" "~pos.z~" 0 0 0 1 0 force @a 35");
-    playSound("minecraft:entity.wither.break_block", pos, world);
+    scripts.lib.sound.play("minecraft:entity.wither.break_block", pos, world);
     return;
 }
 
 function cutData(data as IData, sizeChange as int, cuttingChange as int) as IData{
     return data.deepUpdate({crystalProperties: {size: data.crystalProperties.size - sizeChange, collectiveCapability: Math.min((data.crystalProperties.collectiveCapability + cuttingChange) as int, 100)}}, {crystalProperties: {size: OVERWRITE, collectiveCapability: OVERWRITE}});
 }
-
-function playSound(str as string, pos as IBlockPos, world as IWorld) as void{
-    val list = world.getAllPlayers();
-    for player in list {
-        if(isNull(player)
-        || player.world.dimension!=world.dimension
-        || Math.sqrt(pow(player.x - pos.x, 2) * pow(player.y - pos.y, 2) * pow(player.z - pos.z, 2))>50) continue;
-        player.sendPlaySoundPacket(str, "ambient", pos, 0.05f, 1.0f);
-    }
-}
-
