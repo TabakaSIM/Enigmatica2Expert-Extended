@@ -12,7 +12,6 @@ Time working: as on fuel
 import crafttweaker.data.IData;
 import crafttweaker.entity.IEntityItem;
 import crafttweaker.item.IItemStack;
-import crafttweaker.oredict.IOreDict;
 import crafttweaker.util.Math;
 import crafttweaker.world.IBlockPos;
 import crafttweaker.world.IWorld;
@@ -20,11 +19,9 @@ import mods.contenttweaker.Color;
 import mods.contenttweaker.VanillaFactory;
 import mods.randomtweaker.cote.BlockAdded;
 import mods.randomtweaker.cote.ISubTileEntity;
-import mods.randomtweaker.cote.ISubTileEntityFunctional;
 import mods.randomtweaker.cote.ISubTileEntityGenerating;
 import mods.randomtweaker.cote.SubTileEntityInGame;
 import mods.zenutils.DataUpdateOperation.OVERWRITE;
-import scripts.lib.sound;
 
 static fuelsList as int[][string] = {
 /*

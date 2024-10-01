@@ -4,14 +4,10 @@ Rokku Eryngium (Eryngium + Rokku) - flower that cuts astral rock crystals (actua
 
 #loader contenttweaker
 
-import crafttweaker.block.IBlock;
 import crafttweaker.data.IData;
-import crafttweaker.entity.IEntity;
 import crafttweaker.entity.IEntityItem;
 import crafttweaker.item.IItemStack;
-import crafttweaker.player.IPlayer;
 import crafttweaker.util.Math;
-import crafttweaker.util.Position3f;
 import crafttweaker.world.IBlockPos;
 import crafttweaker.world.IWorld;
 import mods.contenttweaker.VanillaFactory;
@@ -19,11 +15,7 @@ import mods.randomtweaker.cote.ISubTileEntity;
 import mods.randomtweaker.cote.ISubTileEntityFunctional;
 import mods.randomtweaker.cote.SubTileEntityInGame;
 import mods.randomtweaker.cote.Update;
-import mods.zenutils.DataUpdateOperation.APPEND;
-import mods.zenutils.DataUpdateOperation.MERGE;
 import mods.zenutils.DataUpdateOperation.OVERWRITE;
-import mods.zenutils.DataUpdateOperation.REMOVE;
-import scripts.lib.sound;
 
 static validCrystalNames as IItemStack[string] = {
     'item.itemcelestialcrystal'         : <item:astralsorcery:itemcelestialcrystal>,

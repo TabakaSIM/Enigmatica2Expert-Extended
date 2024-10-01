@@ -12,7 +12,6 @@ import mods.contenttweaker.VanillaFactory;
 import mods.randomtweaker.cote.BlockAdded;
 import mods.randomtweaker.cote.ISubTileEntity;
 import mods.randomtweaker.cote.ISubTileEntityFunctional;
-import mods.randomtweaker.cote.ISubTileEntityGenerating;
 import mods.randomtweaker.cote.SubTileEntityInGame;
 
 static manaCostMultipier as int = 300;

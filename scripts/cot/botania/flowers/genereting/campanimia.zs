@@ -65,18 +65,13 @@ import mods.randomtweaker.cote.ISubTileEntity;
 import mods.randomtweaker.cote.ISubTileEntityGenerating;
 import mods.randomtweaker.cote.Update;
 import crafttweaker.data.IData;
-import mods.zenutils.DataUpdateOperation.APPEND;
 import mods.zenutils.DataUpdateOperation.MERGE;
-import mods.zenutils.DataUpdateOperation.REMOVE;
 import mods.zenutils.DataUpdateOperation.OVERWRITE;
 import crafttweaker.world.IWorld;
 import crafttweaker.block.IBlock;
 import crafttweaker.world.IBlockPos;
 import crafttweaker.util.Position3f;
-import crafttweaker.player.IPlayer;
-import crafttweaker.entity.IEntity;
 import crafttweaker.util.Math;
-import scripts.lib.sound;
 
 var campanimia = VanillaFactory.createSubTileGenerating("campanimia", 0xffff);
 campanimia.maxMana = 300000; 

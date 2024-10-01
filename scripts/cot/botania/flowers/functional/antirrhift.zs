@@ -9,16 +9,12 @@ I need to set is a generating flower, to ensure binding to funtional spreader.
 #loader contenttweaker
 
 import crafttweaker.data.IData;
-import crafttweaker.item.IIngredient;
-import crafttweaker.item.IItemStack;
 import crafttweaker.util.Math;
 import crafttweaker.world.IBlockPos;
-import mods.botania.Lexicon;
 import mods.contenttweaker.VanillaFactory;
 import mods.randomtweaker.cote.BlockAdded;
 import mods.randomtweaker.cote.ISubTileEntity;
 import mods.randomtweaker.cote.ISubTileEntityFunctional;
-import mods.randomtweaker.cote.ISubTileEntityGenerating;
 import mods.randomtweaker.cote.SubTileEntityInGame;
 import mods.zenutils.DataUpdateOperation.OVERWRITE;
 
