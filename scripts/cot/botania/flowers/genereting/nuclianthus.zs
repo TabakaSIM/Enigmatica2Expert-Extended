@@ -22,6 +22,8 @@ import mods.randomtweaker.cote.ISubTileEntity;
 import mods.randomtweaker.cote.ISubTileEntityGenerating;
 import mods.randomtweaker.cote.SubTileEntityInGame;
 import mods.zenutils.DataUpdateOperation.OVERWRITE;
+import native.net.minecraft.util.EnumParticleTypes;
+import native.net.minecraft.world.World;
 
 static fuelsList as int[][string] = {
 /*
@@ -143,7 +145,10 @@ nuclianthus.maxMana = 10000;
 nuclianthus.passiveFlower = false;
 nuclianthus.range = 1;
 nuclianthus.onUpdate = function(subtile, world, pos) { 
-    if(world.isRemote()) return;
+    if(world.isRemote()) {
+        
+        return;
+    }
     isWorking(subtile) ? generate(world, pos, subtile) : pickUpFuel(world, pos, subtile);
 };
 nuclianthus.register();
@@ -156,6 +161,10 @@ function isWorking(subtile as SubTileEntityInGame) as bool{
 
 function generate(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame) as void{
     if(subtile.data.FuelData.duration>0){
+        if(world.isRemote()){
+            world.native.spawnParticle(EnumParticleTypes.CRIT_MAGIC, pos.x, 1.2f + pos.y, pos.z, 0, 0, 0, 5);
+            return;
+        }
         val manaGenerated = (subtile.data.FuelData.production / 20) as int;
         val heatGenerated = Math.max(manaGenerated + subtile.getMana() - subtile.getMaxMana(), 0);
         subtile.setCustomData(subtile.data.deepUpdate({Overheat: (Math.max((subtile.data.Overheat + heatGenerated - 10) as int , 0)), FuelData: {duration: subtile.data.FuelData.duration - 2}},{FuelData: {duration: OVERWRITE}, Overheat: OVERWRITE}));
@@ -169,6 +178,7 @@ function generate(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInG
 }
 
 function pickUpFuel(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInGame)as void{
+    if(world.isRemote()) return;
     val fuel = findFuel(world, pos);
     if(isNull(fuel)) return;
     val fuelData = fuelsList[fuel.item.name]; 
