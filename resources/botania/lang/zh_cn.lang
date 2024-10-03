@@ -1,4 +1,4 @@
-// 生成花朵
+# 产能花(Generating flowers)
 
 tile.botania:flower.campanimia.name=坎帕尼米亚
 tile.botania:flower.campanimia.reference=真正的鉴赏家！
@@ -14,7 +14,7 @@ botania.tagline.botania.entry.nuclianthus=来自核燃料的魔力
 botania.page.nuclianthus0=反应堆的设计通常非常复杂，为什么不走植物学路线呢？§1纽克莲花§r 是完美的解决方案。它会消耗附近的核燃料，根据其能量生成 §4魔力§r。然而，如果它的缓冲区充满，花朵会爆炸。
 botania.page.nuclianthus1=&o辐射在哪儿？&r
 
-// 功能花朵
+# 功能性花
 
 tile.botania:flower.antirrhift.name=安蒂尔里夫特
 tile.botania:flower.antirrhift.reference=我们都讨厌税收
