@@ -173,11 +173,10 @@ else {
 
   // [ME Controller] from [Industrial Machine Chassis][+4]
   craft.remake(controller, ['pretty',
-    'C I C',
+    'C A C',
     'Ϟ M Ϟ',
     'C A C'], {
     'C': <contenttweaker:compressed_crushed_skystone>, // Compressed Crushed Skystone
-    'I': <enderio:block_inventory_panel>, // Inventory Panel
     'Ϟ': <appliedenergistics2:energy_acceptor>, // Energy Acceptor
     'M': <ore:itemMachineChassi>, // Industrial Machine Chassis
     'A': <appliedenergistics2:material:28>, // Advanced Card
@@ -628,7 +627,20 @@ for i, inputs in storCompIngrs {
 // ---------------------------------
 
 // Clear singularity tags
-recipes.addShapeless('Clear singularity tags', <appliedenergistics2:material:48> * 2, [<ore:singularityEntangled>, <ore:singularityEntangled>]);
+recipes.addHiddenShapeless(
+  'singularity_tag_clearing',
+  <appliedenergistics2:material:48> * 2,
+  [<ore:singularityEntangled>, <ore:singularityEntangled>]
+);
+// and JEI recipe hint for it, it's added at both server and client to prevent strange data syncing issue
+recipes.addShapeless(
+  'dummy_singularity_tag_clearing',
+  <appliedenergistics2:material:48> * 2,
+  [
+    <appliedenergistics2:material:48>.withTag({freq: 1234567890 as long}),
+    <appliedenergistics2:material:48>.withTag({freq: 9876543210 as long})
+  ]
+);
 
 // [ME Crafting Terminal] from [ME Terminal][+3]
 craft.remake(<appliedenergistics2:part:360>, ['pretty',

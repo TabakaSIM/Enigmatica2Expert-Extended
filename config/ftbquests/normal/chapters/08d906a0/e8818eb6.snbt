@@ -7,7 +7,7 @@
 		"07e0ed8d",
 		"cbc64098"
 	],
-	optional: true,
+	optional: 1b,
 	tasks: [{
 		uid: "abdf9030",
 		type: "item",
@@ -41,24 +41,24 @@
 		uid: "21ff2be0",
 		type: "item",
 		items: [{
-			id: "itemfilters:filter",
-			tag: {
-				display: {
-					Name: "Any logWood"
-				}
-			},
 			ForgeCaps: {
 				Parent: {
 					id: "ore",
 					data: "logWood"
 				}
-			}
+			},
+			tag: {
+				display: {
+					Name: "Any logWood"
+				}
+			},
+			id: "itemfilters:filter"
 		}],
 		count: 4L
 	}],
 	rewards: [{
 		uid: "c9194a14",
 		type: "item",
-		item: "immersivetech:metal_barrel 1 2"
+		item: "enderio:block_tank"
 	}]
 }

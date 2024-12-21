@@ -1,6 +1,6 @@
 {
   // Enable the ESlint flat config support
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
 
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
@@ -85,28 +85,6 @@
     "versions/": true,
     "WailaErrorOutput.txt": true
   },
-
-  "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#003a52",
-    "activityBar.activeBorder": "#bf0087",
-    "activityBar.background": "#003a52",
-    "activityBar.foreground": "#e7e7e7",
-    "activityBar.inactiveForeground": "#e7e7e799",
-    "activityBarBadge.background": "#bf0087",
-    "activityBarBadge.foreground": "#e7e7e7",
-    "sash.hoverBorder": "#003a52",
-    "statusBar.background": "#00161f",
-    "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#003a52",
-    "statusBarItem.remoteBackground": "#00161f",
-    "statusBarItem.remoteForeground": "#e7e7e7",
-    "titleBar.activeBackground": "#00161f",
-    "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveBackground": "#00161f99",
-    "titleBar.inactiveForeground": "#e7e7e799",
-    "commandCenter.border": "#e7e7e799"
-  },
-  "peacock.color": "00161f",
 
   // Automatically sort JSON files of mc-tools
   "emeraldwalk.runonsave": {
@@ -424,5 +402,27 @@
       "snippet": "utils.tryCatch('$TM_SELECTED_TEXT', $0)",
       "languageIds": ["zenscript"]
     }
+  },
+  // world-gen.json, coverage-*, .gitignore, ./dev/automation/betterquesting/*, ./dev/lang/tmp*, ./config/BiomeTweaker/output/biome/*, ./node_modules/*, ./dev/default_configs/*, ./config/tellme/*, ./scripts/wrap/*, ./crash-reports/*, ./.git/*, ./CHANGELOG*, ./minecraftinstance.json*, ./assets/*, ./dumps/*, ./saves/* , ./*.zsrc, *.log, *aspects.json, blocks.cfg
+  "search.exclude": {
+    "config/jeresources/world-gen.json": true,
+    ".gitignore": true,
+    "dev/automation/betterquesting/*": true,
+    "dev/lang/tmp*": true,
+    "config/BiomeTweaker/output/biome/*": true,
+    "node_modules/*": true,
+    "dev/default_configs/*": true,
+    "config/tellme/*": true,
+    "scripts/wrap/*": true,
+    "crash-reports/*": true,
+    ".git/*": true,
+    "CHANGELOG*": true,
+    "minecraftinstance.json*": true,
+    "assets/*": true,
+    "dumps/*": true,
+    "saves/* ": true,
+    "*.zsrc": true,
+    "*.log": true,
+    "config/*aspects.json": true
   }
 }

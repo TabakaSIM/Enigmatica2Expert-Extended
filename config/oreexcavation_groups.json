@@ -4,7 +4,9 @@
       "treeLeaves"
     ],
     [
-      "logWood"
+      "logWood",
+      "integrateddynamics:menril_log",
+      "integrateddynamics:menril_log_filled"
     ],
     [
       "immersiveengineering:stone_decoration_slab:5",
@@ -12,6 +14,9 @@
       "immersiveengineering:stone_device:3",
       "immersiveengineering:stone_device:4",
       "immersiveengineering:stone_device:5"
+    ],
+    [
+      "stoneMetamorphic"
     ]
   ],
   "strictSubtypes": [

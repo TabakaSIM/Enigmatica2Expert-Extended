@@ -304,7 +304,7 @@ craft.make(<advancedrocketry:suitworkstation>, ['pretty',
   '3 w 3',
   '■ ■ ■'], {
   '■': <ore:blockTitanium>, // Titanium Block
-  '3': <opencomputers:print>, // 3D Print
+  '3': <enderio:item_basic_capacitor:1>,
   'w': <ore:workbench>, // Crafting Table
   '*': <ore:crystalEmeraldic>, // Emeradic Crystal
 });
@@ -569,6 +569,23 @@ craft.remake(<advancedrocketry:vacuumlaser>, ['pretty',
   'T': <ore:sheetTitaniumIridium>, // Titanium Iridium Alloy Sheet
 });
 
+// Way harder [Rocket Fuel] recipe for using as ingredients in other recipes
+mods.tconstruct.Alloy.addRecipe(<liquid:rocketfuel> * 1000, [
+  <liquid:gasoline> * 1000,
+  <liquid:syngas> * 1000,
+  <liquid:liquidfusionfuel> * 200,
+  <liquid:empoweredoil> * 200,
+  <liquid:refined_fuel> * 200,
+]);
+
+// Craft for Enriched Lava as exploration alt
+mods.tconstruct.Alloy.addRecipe(<liquid:enrichedlava> * 1000, [
+  <liquid:ic2pahoehoe_lava> * 2000, // Pahoehoe Lava
+  <liquid:xu_demonic_metal> * 1000, // Molten Demon Metal
+  <liquid:xu_enchanted_metal> * 288, // Enchanted Metal
+  <liquid:sic_vapor> * 250, // Silicon Carbide Vapor
+]);
+
 //####################################
 // Remake coils harder
 //####################################
@@ -618,3 +635,15 @@ mods.thaumcraft.Infusion.registerRecipe(
     'L L L'], {
     'L': <twilightforest:magic_leaves:1>, // Leaves of Transformation
   }).spiral(1));
+
+// [Precision Assembler] from [Machine Structure][+4]
+craft.remake(<advancedrocketry:precisionassemblingmachine>, ['pretty',
+  '  U  ',
+  'I M C',
+  '¤ ¤ ¤'], {
+  'U': <advancedrocketry:misc>,      // User Interface
+  'I': <advancedrocketry:ic:4>,      // Item IO Circuit Board
+  'M': <libvulpes:structuremachine>, // Machine Structure
+  'C': <advancedrocketry:ic:3>,      // Control Circuit Board
+  '¤': <ore:gearDiamond>,            // Diamond Gear
+});

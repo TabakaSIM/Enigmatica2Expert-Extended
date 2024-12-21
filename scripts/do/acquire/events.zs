@@ -1,5 +1,6 @@
 #reloadable
 #priority -1300
+#modloaded zenutils ctintegration
 
 import crafttweaker.block.IBlockDefinition;
 import crafttweaker.item.IItemStack;
@@ -18,7 +19,7 @@ function pushRegistry(evtName as string, stack as IItemStack) as void {
 }
 
 function checkAcquire(evtName as string, player as IPlayer, stack as IItemStack) as void {
-  if (player.creative || player.spectator) return;
+  if (isNull(player) || player.creative || player.spectator) return;
   val stackAnyAmount = stack.anyAmount();
   if (evtName != 'open' && (isNull(registry[evtName]) || isNull(registry[evtName][stackAnyAmount]))) return;
   onAcquire(evtName, player, stackAnyAmount);
@@ -63,7 +64,7 @@ events.register(function (e as crafttweaker.event.PlayerOpenContainerEvent) {
   val serialized = e.container as string;
   val class = serialized.split('@')[0];
 
-  utils.log('~~opened container: ' ~ serialized);
+  // utils.log('~~opened container: ' ~ serialized);
 
   val stack = stringRegistry[class];
   if(isNull(stack)) return;

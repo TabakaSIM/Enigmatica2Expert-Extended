@@ -1,4 +1,4 @@
-#modloaded forestry
+#modloaded forestry thaumcraft
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
@@ -19,10 +19,6 @@ recipes.removeByRecipeName('forestry:greenhouse_hygro');
 recipes.removeByRecipeName('forestry:greenhouse_plain');
 recipes.removeByRecipeName('forestry:greenhouse_window_roof');
 recipes.removeByRecipeName('forestry:greenhouse_window');
-
-// Add hint about manual serum source
-scripts.jei.crafting_hints.addInsOutCatl([<forestry:butterfly_ge:*>], <forestry:serum_ge>, <forestry:escritoire>);
-scripts.jei.crafting_hints.addInsOutCatl([<forestry:caterpillar_ge:*>], <forestry:serum_ge>, <forestry:escritoire>);
 
 // Fix grapes have two different outputs - Fruit Juice and Grape Juice
 mods.forestry.Squeezer.removeRecipe(<liquid:juice>, [<rustic:grapes>]);
@@ -198,6 +194,8 @@ for oil in [<liquid:oliveoil>, <liquid:seed.oil>] as ILiquidStack[] {
 
 // Cheaper capsules
 mods.forestry.Carpenter.removeRecipe(<forestry:wood_pulp>);
+mods.forestry.Carpenter.removeRecipe(<forestry:crafting_material:4>);
+mods.forestry.Carpenter.removeRecipe(<forestry:iodine_capsule>);
 scripts.mods.forestry.Carpenter.addRecipe(<forestry:crafting_material:4>, [[<forestry:honeydew>, <ic2:fluid_cell>]], 100, <fluid:water> * 1000);
 scripts.mods.forestry.Carpenter.addRecipe(<forestry:iodine_capsule>, [[<forestry:honey_drop>, <ic2:fluid_cell>]], 100, <fluid:water> * 1000);
 
@@ -292,7 +290,7 @@ val Po = <contenttweaker:ore_phosphor>;
 val Pn = <contenttweaker:nugget_phosphor>;
 recipes.addShapeless('ingot phosphor', PH, [Pn, Pn, Pn, Pn, Pn, Pn, Pn, Pn, Pn]);
 recipes.addShapeless('nuggets phosphor', Pn * 9, [PH]);
-scripts.process.crush(<ore:blockApatite>, Po, 'only: AACrusher MekEnrichment', [Pn], [0.05]);
+scripts.process.crush(<ore:blockApatite>, Po, 'only: eu2crusher MekEnrichment', [Pn], [0.05]);
 mods.ic2.ThermalCentrifuge.addRecipe([Po * 9, Pn * 4], <forestry:resource_storage> * 9);
 
 // Phosphor Benefication
@@ -339,8 +337,7 @@ scripts.process.melt(<forestry:smoker>, <fluid:tin> * (144 * 5));
 scripts.process.crush(<thermalfoundation:material:801> /* Compressed Sawdust */, <forestry:carton>, 'only: CrushingBlock');
 
 // Remove all fireproof recipes. Fireproof only obtainable through breeding.
-for log, plank in scripts.lib.wood.logPlank {
-  if (!log.definition.id.matches('.*fireproof.*')) continue;
+for log, plank in scripts.lib.wood.logPlankFireproof {
   mods.forestry.ThermionicFabricator.removeCast(log);
   mods.forestry.ThermionicFabricator.removeCast(plank * 5);
 }

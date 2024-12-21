@@ -33,6 +33,8 @@ recipes.removeByRecipeName('quark:basalt');
 
 recipes.remove(<quark:stone_basalt_slab>);
 recipes.addShaped('oredicted_slab', <quark:stone_basalt_slab> * 6, [[<ore:stoneBasalt>, <ore:stoneBasalt>, <ore:stoneBasalt>]]);
+mods.chisel.Carving.addVariation('basaltslab', <quark:stone_basalt_slab>);
+mods.chisel.Carving.addVariation('basaltslab', <quark:stone_basalt_bricks_slab>);
 
 // Fix recipes (each original quark recipe use basalt bricks for some reason)
 for i in [
@@ -163,3 +165,11 @@ mods.thaumcraft.Crucible.registerRecipe(
   <harvestcraft:ediblerootitem>, // Input
   [<aspect:potentia> * 5]
 );
+
+// Peaceful Skyblock alt
+// [Archaeologist Hat] from [Zebrawood Wood Planks (Fireproof)]
+craft.make(<quark:archaeologist_hat>, ['pretty',
+  '# # #',
+  '#   #'], {
+  '#': <ore:plankFireproof>,
+});

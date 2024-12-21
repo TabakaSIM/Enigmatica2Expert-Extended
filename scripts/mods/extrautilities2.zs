@@ -398,7 +398,7 @@ scripts.process.melt(<extrautils2:ironwood_planks:0>, <liquid:iron> *  8, 'No Ex
 // Burnt
 scripts.process.melt(<extrautils2:ironwood_log:1>   , <liquid:iron> * 144, 'No Exceptions');
 scripts.process.melt(<extrautils2:ironwood_planks:1>, <liquid:iron> *  80, 'No Exceptions');
-mods.tconstruct.Casting.addTableRecipe(<extrautils2:ironwood_sapling>, <ore:treeSapling>, <liquid:iron>, 576, true);
+mods.tconstruct.Casting.addTableRecipe(<extrautils2:ironwood_sapling>, <ore:treeSapling>, <liquid:iron>, 576, true, 1);
 
 // Rat diamond alt
 // [Climograph Base Unit] from [Machine Block][+3]
@@ -538,3 +538,8 @@ scripts.do.burnt_in_fluid.add('extrautils2:redorchid', <blockstate:minecraft:red
 
 // Allow Ferrous-Juniper saplings to drop from Ferrous-Juniper Leaves when breaking with Crook
 mods.exnihilocreatio.Crook.addRecipe(<extrautils2:ironwood_leaves>, <extrautils2:ironwood_sapling>, 0.2, 0.28);
+
+// Remake removed AA crusher benefits
+scripts.process.crush(<minecraft:gravel>, <minecraft:sand>, 'strict: eu2crusher', [<minecraft:flint>], [0.5f]);
+scripts.process.crush(<immersiveengineering:material:19>, <immersiveengineering:material:18>, 'only: eu2crusher');
+scripts.process.crush(<minecraft:prismarine_shard>, <minecraft:prismarine_crystals>, 'only: eu2crusher');

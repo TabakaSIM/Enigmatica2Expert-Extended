@@ -4,6 +4,7 @@
 
 import crafttweaker.block.IBlockState;
 import crafttweaker.world.IFacing;
+import native.net.minecraft.util.EnumParticleTypes;
 
 // Manually add this when adding new liquids
 static fluidToBlock as string[string] = {
@@ -14,7 +15,7 @@ static fluidToBlock as string[string] = {
 // Item and respective block
 //                      chance blockOutput fluidId inputId
 static burntRecipes as double[IBlockState][string][string]
-               = {} as double[IBlockState][string][string];
+               = {} as double[IBlockState][string][string]$orderly;
 
 function add(inputId as string, blockOutput as IBlockState, fluidId as string = 'stone', chance as double = 1.0) as void {
   if (blockOutput.block.definition.id == 'minecraft:air') {
@@ -82,7 +83,7 @@ events.onEntityItemDeath(function (e as mods.zenutils.event.EntityItemDeathEvent
   // Iterate block essence inside and under it (item can jump)
   for i in 0 .. 2 {
     // Get state
-    val blockPos = entityItem.position.getOffset(IFacing.down(), i);
+    val blockPos = entityItem.position.getOffset(down, i);
     val blockState = world.getBlockState(blockPos);
 
     // Liquid should be full
@@ -95,7 +96,8 @@ events.onEntityItemDeath(function (e as mods.zenutils.event.EntityItemDeathEvent
         val total = chance * entityItem.item.amount as double;
         if (total < 1.0 && total < world.random.nextDouble()) {
           // Conversion failure
-          utils.spawnParticles(entityItem, 'fallingdust', entityItem.x, entityItem.y + 0.5, entityItem.z, 0.1, 0.4, 0.1, 0, 6);
+          (world.native as native.net.minecraft.world.WorldServer)
+            .spawnParticle(EnumParticleTypes.FALLING_DUST, entityItem.x, entityItem.y + 0.5, entityItem.z, 6, 0.1, 0.4, 0.1, 0.0, 0);
           continue;
         }
 
