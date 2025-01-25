@@ -5128,7 +5128,6 @@
 		{
 			item: "extrautils2:decorativesolid 1 6"
 		}],
-		ignore_damage: 1b,
 		ignore_nbt: 2b
 	}],
 	rewards: [{

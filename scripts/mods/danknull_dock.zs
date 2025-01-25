@@ -42,7 +42,7 @@ for i, catalyst in catalystRequirments {
 }
 
 // Consuming item mechanic
-events.onPlayerInteractBlock(function (e as PlayerInteractBlockEvent) {
+events.register(function (e as PlayerInteractBlockEvent) {
   val world = e.world;
   if (world.remote || e.canceled) return;
 
@@ -95,7 +95,9 @@ function attemptToTakeOff(e as PlayerInteractBlockEvent) as void {
 
   val requiredItem = getRequiredItem(dankInside);
   if (isNull(requiredItem)) return;
-  e.player.give(requiredItem.items[0]);
+  val itemEntity = requiredItem.items[0].createEntityItem(
+    e.player.world, e.player.x as float, e.player.y as float, e.player.z as float);
+  e.player.world.spawnEntity(itemEntity);
 }
 
 function getRequiredItem(dankNullItem as IItemStack) as IIngredient {

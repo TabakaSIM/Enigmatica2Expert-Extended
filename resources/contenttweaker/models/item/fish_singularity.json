@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "contenttweaker:items/fish_singularity",
+    "layer1": "contenttweaker:items/fish_singularity_overlay"
+  }
+}

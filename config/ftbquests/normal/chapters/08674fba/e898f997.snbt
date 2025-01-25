@@ -34,7 +34,16 @@
 		uid: "dda301cf",
 		type: "item",
 		items: [{
-			item: "libvulpes:motor 2"
+			item: "libvulpes:motor"
+		},
+		{
+			item: "libvulpes:advancedmotor"
+		},
+		{
+			item: "libvulpes:enhancedmotor"
+		},
+		{
+			item: "libvulpes:elitemotor"
 		}]
 	},
 	{

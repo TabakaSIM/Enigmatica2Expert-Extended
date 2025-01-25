@@ -27,6 +27,18 @@
 		type: "item",
 		items: [{
 			item: "libvulpes:coil0 1 4"
+		},
+		{
+			item: "libvulpes:coil0 1 2"
+		},
+		{
+			item: "libvulpes:coil0 1 7"
+		},
+		{
+			item: "libvulpes:coil0 1 9"
+		},
+		{
+			item: "libvulpes:coil0 1 10"
 		}]
 	},
 	{

@@ -170,6 +170,11 @@ addItems(<ore:listAllmeatcooked>, [
 add(<ore:listAllmeatcooked>, <twilightforest:cooked_meef>);
 remove(<ore:feather>, <twilightforest:raven_feather>);
 
+addItems(<ore:itemFiery>, [
+  <twilightforest:fiery_blood>,
+  <twilightforest:fiery_tears>,
+]);
+
 // Void Metal Block
 add(<ore:blockVoid>, <thaumcraft:metal_void>);
 

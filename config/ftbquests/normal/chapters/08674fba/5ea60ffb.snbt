@@ -27,6 +27,15 @@
 		type: "item",
 		items: [{
 			item: "libvulpes:motor"
+		},
+		{
+			item: "libvulpes:advancedmotor"
+		},
+		{
+			item: "libvulpes:enhancedmotor"
+		},
+		{
+			item: "libvulpes:elitemotor"
 		}]
 	},
 	{

@@ -232,6 +232,7 @@ Generate mods screenshot with command:
 
 ## ![Setup Guide](https://i.imgur.com/pXZ4zj5.png)
 
+> [!IMPORTANT]
 > **💥 Update your Java**
 > 
 > To play this pack you **must** update your Java from verson `1.8.0_51` to newer one.  

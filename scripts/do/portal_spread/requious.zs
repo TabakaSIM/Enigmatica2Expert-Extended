@@ -65,7 +65,7 @@ for dimFrom, dimFromData in scripts.do.portal_spread.recipes.spread.stateRecipes
       if (!isNull(wildcardedNumIds[dimFrom])
         && !isNull(wildcardedNumIds[dimFrom][dimTo])
         && !isNull(wildcardedNumIds[dimFrom][dimTo][stateFrom.block.definition])
-      ) input = input.anyDamage();
+      ) input = input.withDamage(32767);
 
       var merged = false;
       for inp, outs in recipeMap {

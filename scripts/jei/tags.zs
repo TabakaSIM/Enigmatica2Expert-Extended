@@ -340,7 +340,7 @@ for lang, items in list {
 function getAsIngredient(tagName as string) as IIngredient {
   val items = list[tagName];
   if (isNull(items) || items.length == 0) return null;
-  var ingr = items[0];
+  var ingr = items[0] as IIngredient;
   for i, item in items {
     if (i == 0) continue;
     ingr |= item;

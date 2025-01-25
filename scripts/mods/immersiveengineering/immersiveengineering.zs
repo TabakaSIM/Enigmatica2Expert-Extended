@@ -220,7 +220,7 @@ scripts.mods.extendedcrafting_engineering.remakeAlted(
 
 // Heavy Engineering Block
 scripts.mods.extendedcrafting_engineering.remakeAlted(
-  <immersiveengineering:metal_decoration0:5> * 10, ['pretty',
+  <immersiveengineering:metal_decoration0:5> * 4, ['pretty',
   '□ E □',
   'S t S',
   '□ E □'], {
