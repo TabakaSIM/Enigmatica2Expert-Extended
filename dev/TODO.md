@@ -2,23 +2,25 @@
 
 🚧✅❌⚠️ List of priorities:
 
+- [ ] ✏️ Add 5% of max durab on combining ThW stones
+- [ ] 🛈 Add shader guide botania.cfg: `B:shaders.enabled=true`
+- [ ] ✏️ Remake VillagerContract item, Implement https://github.com/Krutoy242/Enigmatica2Expert-Extended/issues/437
 - [ ] ✏️ `Benitoite`, `Anglesite` fix benefication
-- [ ] `Flux Anodizers` should output more ore when working with Netherending Ores
+- [ ] 📀 `Flux Anodizers` should output more ore when working with Netherending Ores
 - [ ] 𝓩𝒮 Fix `/perf chunks` not correct with position of blocks https://i.imgur.com/ktLcvSn.png
 - [ ] 📀 Buff Forestry circuits speed bonus 25% => 100%
-- [ ] Add 5% of max durab on combining ThW stones
-- [ ] cinnabar clusters can only be made in the crucible/thaumatorium and not via an alchemist's stone in a crystalization chamber
-- [ ] end/nether `draconium ore` make smelt into default ore variant to line up with other end/nether ores
+- [ ] ✏️ cinnabar clusters can only be made in the crucible/thaumatorium and not via an alchemist's stone in a crystalization chamber
+- [ ] ✏️ end/nether `draconium ore` make smelt into default ore variant to line up with other end/nether ores
 - [ ] ✨ Make Singularities sucking in items in inventory
-- [ ] TOP remove "(Level: )" text
-- [x] TOP localize mining levels
-- [ ] Animals chapter trophy causing shader crash
-- [x] Make `ME controller` reward Rare
-- [ ] Add shader guide `B:shaders.enabled=true`
-- [ ] Fix `Magma Crucible` cant melt Rotten Flesh
-- [ ] Add https://www.curseforge.com/minecraft/mc-mods/noisethreader
-- [x] `printing ingredients` quest add double-layered capacitor
-- [ ] hot mercury is supposed to make blocks of sugar when it flows into liquid starlight, but it just makes an air block instead
+- [ ] 🖼️ TOP remove "(Level: )" text
+- [ ] 📖 `Animals chapter trophy` causing shader crash, replace item on stand
+- [ ] ✏️ Fix `Magma Crucible` cant melt Rotten Flesh
+- [ ] 🟢 Add https://www.curseforge.com/minecraft/mc-mods/noisethreader
+- [ ] 💧 `Hot Mercury` is supposed to make blocks of sugar when it flows into liquid starlight, but it just makes an air block instead
+- [ ] 𝓩𝒮 Fix `Axing` trait output unexisting double slabs on breaking
+- [ ] ✨ Download slideashow screenshots from external sources to descrease size of client zip
+- [ ] ✨ Idea: for endgame run difficulty is always 0 for some dimensions.
+- [ ] ❓ Ask `Aragolt` for perf command feedback
 
 ---
 
@@ -88,6 +90,7 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ✏️ Dragon Ice better craft isages
 - [ ] ✏️ Add `Meat Singularity`
 - [ ] 🔨 Ironwood Add material. Drop Armor from mobs on hit
+- [ ] 🧩 nerf Cake Flower, Buff Game Of Life One
 
 ### "Nuclear☢️" expansion
 - [ ] ☢️ Turn on Radiation
@@ -309,7 +312,6 @@ Planned non-urgent changes, or just good ideas:
 - 📖 whenever you have a rewards for a quest containing three items of tinkers, the last item does not show your stats. (Cant be fixed - FTBQ bug)
 - ✏️ SAGmill stuck when produce too much Scrap with balls: best grinding balls produce X5 output that would make SAG mill without balls too weak
 - ✏️ Fix Cottontail not turning into Dye. Dont know how to determine double plant
-- 🧩 nerf Cake Flower, Buff Game Of Life One. Impossible - no config options for this flowers.
 - ✏️ Add command to show all registered Floo Fireplaces. Impossible, files stored in dimension data.
 
 ---

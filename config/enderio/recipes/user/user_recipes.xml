@@ -846,6 +846,14 @@
     </alloying>
   </recipe>
   <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->
+  <recipe name="Fiery Ingot">
+    <alloying energy="10000">
+      <input name="itemFiery"/>
+      <input name="ingotFakeIron"/>
+      <output name="twilightforest:fiery_ingot"/>
+    </alloying>
+  </recipe>
+  <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->
   <recipe name="Hard Carbon Alloy Ingot">
     <alloying energy="10000">
       <input name="ingotGraphite" amount="2"/>

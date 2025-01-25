@@ -356,6 +356,9 @@ craft.shapeless(<twilightforest:castle_door:3>, 'LYC', {
   'C': <twilightforest:castle_brick:*>, // Castle Brick
 });
 
+recipes.removeByRecipeName('twilightforest:materials/fiery_conversion/fiery_ingot');
+scripts.process.alloy([<ore:itemFiery>, <ore:ingotFakeIron>], <twilightforest:fiery_ingot>);
+
 val castleIngrs = {
   'C': <twilightforest:castle_brick:*>, // Castle Brick
   '▲': <ore:dustCalciumSulfate>, // Calcium Sulfate

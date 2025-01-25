@@ -25,13 +25,9 @@ Object.entries(
 )) */
   'perfect_fuel': [25, 384000000],
   'rocketfuel'  : [1000, 240000],
-  'empoweredoil': [2400, 50000],
-  'refined_fuel': [2823, 42500],
   'diesel'      : [6857, 8750],
-  'crystaloil'  : [6857, 8750],
   'biodiesel'   : [9600, 6250],
   'biomass'     : [9600, 6250],
-  'canolaoil'   : [16000, 3750],
   'oil'         : [24000, 2500],
 /**/
 } as int[][string]$orderly {

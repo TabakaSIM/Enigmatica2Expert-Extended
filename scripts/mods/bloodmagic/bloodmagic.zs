@@ -84,6 +84,16 @@ craft.remake(<bloodmagic:blood_rune:6>, ['pretty',
   'I': <bloodmagic:slate:2>, // Imbued Slate
 });
 
+craft.remake(<bloodmagic:blood_rune:5>, ['pretty',
+  'M ◊ M',
+  '◊ B ◊',
+  'M I M'], {
+  'M': <ore:stoneMetamorphic>,
+  '◊': <ore:gemAquamarine>,
+  'B': <bloodmagic:blood_rune>,
+  'I': <bloodmagic:slate:2>,
+});
+
 // Rune of the orb
 recipes.remove(<bloodmagic:blood_rune:8>);
 recipes.addShaped('Rune of the Orb', <bloodmagic:blood_rune:8>,
