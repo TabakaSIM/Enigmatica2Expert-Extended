@@ -90,8 +90,8 @@ val rare as IData[] = [
 ];
 
 scripts.loot.lootHelper.addBackpackPool('minecraft:chests/abandoned_mineshaft');
-scripts.loot.lootHelper.addBackpackEmpty('minecraft:chests/abandoned_mineshaft');
+scripts.loot.lootHelper.addBackpackEmpty('minecraft:chests/abandoned_mineshaft', 2);
 scripts.loot.lootHelper.addBackpackWithLoot('minecraft:chests/abandoned_mineshaft', common, uncommon, rare);
-scripts.loot.lootHelper.addBackpackForestryWithLoot(<forestry:miner_bag>, 'minecraft:chests/abandoned_mineshaft', common, uncommon, rare);
-scripts.loot.lootHelper.addBackpackForestryWithLoot(<forestry:miner_bag_t2>, 'minecraft:chests/abandoned_mineshaft', common, uncommon, rare);
+scripts.loot.lootHelper.addBackpackForestryWithLoot(<forestry:miner_bag>, 'minecraft:chests/abandoned_mineshaft', common, common, uncommon, 5);
+scripts.loot.lootHelper.addBackpackForestryWithLoot(<forestry:miner_bag_t2>, 'minecraft:chests/abandoned_mineshaft', common, uncommon, rare, 2);
 scripts.loot.lootHelper.addBackpackCyclicWithLoot('minecraft:chests/abandoned_mineshaft', common, uncommon, rare);
