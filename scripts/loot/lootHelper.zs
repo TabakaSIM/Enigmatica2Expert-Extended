@@ -24,6 +24,10 @@ function removeEtriesFromPool(tableName as string, poolName as string, stringLis
     }
 }
 
+function clearPool(tableName as string, poolName as string) as void{
+    loottweaker.LootTweaker.getTable(tableName).getPool(poolName).clearEntries();
+}
+
 function addLootToPool(tableName as string, poolName as string, lootTable as int[][IItemStack]) as void {
     val pool = loottweaker.LootTweaker.getTable(tableName).getPool(poolName);
     for key, value in lootTable{
