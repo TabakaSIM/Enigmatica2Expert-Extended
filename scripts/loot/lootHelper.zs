@@ -32,7 +32,7 @@ function addLootToPool(tableName as string, poolName as string, lootTable as int
     val pool = loottweaker.LootTweaker.getTable(tableName).getPool(poolName);
     for key, value in lootTable{
         pool.addItemEntry(
-            <minecraft:potato>, value[0], value[1],
+            key, value[0], value[1],
             [Functions.setCount(value[2], value[3])],
             [] // Arbitrary value for example purposes
         );
