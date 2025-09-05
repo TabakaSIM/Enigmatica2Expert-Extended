@@ -1,12 +1,14 @@
 #modloaded actuallyadditions
 #loader mixin
 
-import native.net.minecraft.block.state.IBlockState;
-import native.net.minecraft.util.math.BlockPos;
-import native.net.minecraft.init.Blocks;
-import native.de.ellpeck.actuallyadditions.api.internal.IAtomicReconstructor;
 import native.de.ellpeck.actuallyadditions.api.ActuallyAdditionsAPI;
+import native.de.ellpeck.actuallyadditions.api.internal.IAtomicReconstructor;
 import native.de.ellpeck.actuallyadditions.api.recipe.WeightedOre;
+import native.net.minecraft.block.Block;
+import native.net.minecraft.block.state.IBlockState;
+import native.net.minecraft.init.Blocks;
+import native.net.minecraft.util.math.BlockPos;
+import native.net.minecraft.world.World;
 
 #mixin {targets: "de.ellpeck.actuallyadditions.mod.items.InitItems"}
 zenClass MixinInitItems {
@@ -184,5 +186,47 @@ zenClass MixinCrusherCrafting {
     #mixin Overwrite
     function init() as void {
         // NO-OP
+    }
+}
+
+/*
+Set maximum harvest level for [Auto-Breaker] [Phantom Breaker] [Long-Range Breaker]
+to prevent exploiting and skip mining levels
+*/
+#mixin {targets: "de.ellpeck.actuallyadditions.mod.tile.TileEntityBreaker", priority: 2000}
+zenClass MixinTileEntityBreaker {
+    #mixin ModifyVariable
+    #{
+    #    method: "doWork",
+    #    at: {value: "STORE", ordinal: 0},
+    #    name: "stateToBreak"
+    #}
+    function checkHarvestLevel(stateToBreak as IBlockState) as IBlockState {
+        return stateToBreak.block.getHarvestLevel(stateToBreak) > 10
+            ? native.net.minecraft.init.Blocks.AIR.defaultState
+            : stateToBreak;
+    }
+}
+
+#mixin
+# {
+#     priority: 2000,
+#     targets: [
+#         "de.ellpeck.actuallyadditions.mod.tile.TileEntityPhantomPlacer",
+#         "de.ellpeck.actuallyadditions.mod.tile.TileEntityDirectionalBreaker"
+# ]}
+zenClass MixinTileEntityPhantomPlacerAndBreaker {
+    #mixin Redirect
+    #{
+    #    method: "doWork",
+    #    at: {
+    #        value: "INVOKE",
+    #        target: "Lnet/minecraft/block/state/IBlockState;func_185887_b(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F"
+    #    }
+    #}
+    function checkHarvestLevel(stateToBreak as IBlockState, world as World, pos as BlockPos) as float {
+        return stateToBreak.block.getHarvestLevel(stateToBreak) > 10
+            ? -1.0f
+            : stateToBreak.getBlockHardness(world, pos);
     }
 }

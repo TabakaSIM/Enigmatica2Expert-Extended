@@ -1,5 +1,6 @@
 #modloaded jei requious
 #priority 975
+#ignoreBracketErrors
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;

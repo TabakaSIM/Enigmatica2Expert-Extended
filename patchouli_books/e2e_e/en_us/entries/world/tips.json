@@ -1,5 +1,4 @@
 {
-  "__comment": "This file generated automatically with Patchouli.js. All changes will be rewritten",
   "name": "Tips",
   "icon": "thaumicaugmentation:research_notes",
   "category": "World",
@@ -7,140 +6,128 @@
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§aAutomation is key!§r$(li)§aAlways craft extras.§r$(li)No more capturing Ghasts for the §nAngel Ring§r!$(li)Go through the Controls. Lots of mods have features that need to be bound to a key.$(li)§aNever spend 6 minutes doing something by hand when you can spend 6 hours to automate it.§r",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(a)Automation is key!$()$(li)$(a)Always craft extras.$()$(li)No more capturing Ghasts for the $(n)Angel Ring$()!$(li)Go through the Controls. Lots of mods have features that need to be bound to a key.$(li)$(a)Never spend 6 minutes doing something by hand when you can spend 6 hours to automate it.$()"
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§3Mekanism Cables§r tend to cause lag, be careful not to overuse them.$(li)Press §lBackspace§r to go to the previous recipe in JEI.$(li)Instead of using filled §nbuckets§r in recipes, you can use filled §nPortable Tanks§r for batch crafting.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(3)Mekanism Cables$() tend to cause lag, be careful not to overuse them.$(li)Press $(l)Backspace$() to go to the previous recipe in JEI.$(li)Instead of using filled $(n)buckets$() in recipes, you can use filled $(n)Portable Tanks$() for batch crafting.$(li)Beware the effects of poor $(2)nutrition$() (Hotkey N). Seemingly random debuffs can stem from a bad diet."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Beware the effects of poor §2nutrition§r (Hotkey N). Seemingly random debuffs can stem from a bad diet.$(li)To loot a dragon, §lright-click§r it with an empty hand.$(li)Keep your §nitem cables§r short. Not only does it speed up the overall transfer, it is also easier on the server.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)To loot a dragon, $(l)right-click$() it with an empty hand.$(li)Keep your $(n)item cables$() short. Not only does it speed up the overall transfer, it is also easier on the server.$(li)Use $(l)F7$() to see the light levels, $(l)F9$() to see the chunk borders, and $(l)Ctrl+B$() to see the biome borders."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Use §lF7§r to see the light levels, §lF9§r to see the chunk borders, and §lCtrl+B§r to see the biome borders.$(li)Press §lShift/Sneak§r over your grave to retrieve your items.$(li)Holding the §oDrawer Key§r in your off-hand will automatically lock a newly placed Storage Drawer.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)Press $(l)Shift/Sneak$() over your grave to retrieve your items.$(li)Holding the $(o)Drawer Key$() in your off-hand will automatically lock a newly placed Storage Drawer.$(li)The Immersive Petroleum $(n)Pumpjack$() needs an Immersive Engineering $(n)Fluid Pipe$() to bedrock to function."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)The Immersive Petroleum §nPumpjack§r needs an Immersive Engineering §nFluid Pipe§r to bedrock to function.$(li)§nMob Spawners§r can be moved by using a §nDrop Of Evil§r on them, or by carrying them. (§lShift + Right-Click§r by default)",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(n)Mob Spawners$() can be moved by using a $(n)Drop Of Evil$() on them, or by carrying them. ($(l)Shift + Right-Click$() by default)$(li)$(l)Starlight Transmutation$() gives you access to $(n)End Stone$() without ever going to The End.$(li)You can put the Astral Sorcery $(n)Linking Wand$() in your offhand, and it won't stop linking."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§lStarlight Transmutation§r gives you access to §nEnd Stone§r without ever going to The End.$(li)You can put the Astral Sorcery §nLinking Wand§r in your offhand, and it won't stop linking.$(li)§6/xu_powersharing§r allows you to share Extra Utilities §4Grid Power§r with anyone on your server.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(6)/xu_powersharing$() allows you to share Extra Utilities $(4)Grid Power$() with anyone on your server.$(li)$(6)/foodlist size$() shows you how many different foods you already ate.$(li)$(6)/undo_excavation$() can undo $(6)Ore Excavator$()$(li)$(6)/wandOops$() can undo the $(6)Better Builder's Wand$()"
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§6/foodlist size§r shows you how many different foods you already ate.$(li)§6/undo_excavation§r can undo §6Ore Excavator§r$(li)§6/wandOops§r can undo the §6Better Builder's Wand§r$(li)§lAstral Sorcery Rituals§r (and linked Ritual Anchors) act as §lChunkloaders§r.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(l)Astral Sorcery Rituals$() (and linked Ritual Anchors) act as $(l)Chunkloaders$().$(li)$(l)Horologium$() only appears every 36 days, the night after a $(l)Solar Eclipse$().$(li)$(5)Mystical Agriculture$() plants have a 5%% chance of dropping $(5)2 seeds$() when harvested with left click."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§lHorologium§r only appears every 36 days, the night after a §lSolar Eclipse§r.$(li)§5Mystical Agriculture§r plants have a 5%% chance of dropping §52 seeds§r when harvested with left click.$(li)There are many different valid fuels for the Tinkers' Construct §nSmeltery§r, all with different attributes.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)There are many different valid fuels for the Tinkers' Construct $(n)Smeltery$(), all with different attributes.$(li)$(n)Pile of Ashes$() from the Nether are a great early game fuel source.$(li)The $(n)Akashic Tome$() is a portable bookshelf capable of holding all of your informational books and guides."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§nPile of Ashes§r from the Nether are a great early game fuel source.$(li)The §nAkashic Tome§r is a portable bookshelf capable of holding all of your informational books and guides.$(li)A 13x13x13 §nCompact Machine§r is large enough for all of your §dThaumcraft§r needs, and will prevent flux from spreading to your base.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)A 13x13x13 $(n)Compact Machine$() is large enough for all of your $(d)Thaumcraft$() needs, and will prevent flux from spreading to your base.$(li)Growing $(n)Sugar Cane$() on $(o)Fertile Soil$() or $(o)Fertilized Dirt$() does not require an adjacent water source."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Growing §nSugar Cane§r on §oFertile Soil§r or §oFertilized Dirt§r does not require an adjacent water source.$(li)Under NO circumstances activate §lVeinminer§r while working around §lAE2 networks§r!$(li)§lMob Farms§r will lag less if spread out over a large area. The main load comes from mobs pathing away from each other.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(l)Mob Farms$() will lag less if spread out over a large area. The main load comes from mobs pathing away from each other.$(li)$(2)NuclearCraft$() machines automatically convert Mekanism $(6)gasses$() into their fluid forms, and vice-versa.$(li)Utilize the $(l)Quark chest buttons$() in your inventory! They help a lot with early game storage management."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§2NuclearCraft§r machines automatically convert Mekanism §6gasses§r into their fluid forms, and vice-versa.$(li)Utilize the §lQuark chest buttons§r in your inventory! They help a lot with early game storage management.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)Applied Energistics $(n)Interfaces$() are grouped together by their name in the $(n)Interface Terminal$() (can be named in an anvil).$(li)The $(n)Advanced Omniwand$() (Omniwand crafted with 4 gears) is a good way to get all wrenches early. It also helps to keep your inventory neat.$(li)$(n)Drawers$() can be accessed via the Cooking For Blockheads $(n)Floor$()."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Applied Energistics §nInterfaces§r are grouped together by their name in the §nInterface Terminal§r (can be named in an anvil).$(li)The §nAdvanced Omniwand§r (Omniwand crafted with 4 gears) is a good way to get all wrenches early. It also helps to keep your inventory neat.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)A $(n)Skeleton$() that falls in Witch Water becomes a $(n)Wither Skeleton$(). $(n)Squid$() -> $(n)Ghast$().$(li)$(n)Cursed Earth$() spawns $(n)Wither Skeletons$() in $(l)Nether Fortress$()es.$(li)$(n)Ender Lily$() grows faster on End Stone. Get it in $(n)Stone Barrel$()s.$(li)Hover over an item and press $(l)Y$() to show it in nearby $(n)Chest$()s."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§nDrawers§r can be accessed via the Cooking For Blockheads §nFloor§r.$(li)A §nSkeleton§r that falls in Witch Water becomes a §nWither Skeleton§r. §nSquid§r -> §nGhast§r.$(li)§nCursed Earth§r spawns §nWither Skeletons§r in §lNether Fortress§res.$(li)§nEnder Lily§r grows faster on End Stone. Get it in §nStone Barrel§rs.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)A stack of $(n)Steeleaves$() in your hotbar will dramatically fast repair with the $(a)Synergy$() trait$(li)$(n)Building Gadgets$() can take items from ME network. Just $(l)shift-right-click$() on a $(n)Security Terminal$() with the gadget.$(li)The $(n)Maim Trap$() from Dark Utilities is the best way to kill mobs on high $(5)difficulty$()."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Hover over an item and press §lY§r to show it in nearby §nChest§rs.$(li)A stack of §nSteeleaves§r in your hotbar will dramatically fast repair with the §aSynergy§r trait$(li)§nBuilding Gadgets§r can take items from ME network. Just §lshift-right-click§r on a §nSecurity Terminal§r with the gadget.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)The Ice Bomb from Twilight Forest turns even flowing $(n)Lava$() into $(n)Obsidian$().$(li)Press $(l)Shift+F$() to lock stairs rotation.$(li)You can $(l)shear$() Creepers.$(li)6+ mods support $(2)JEI dragging$() for item filters, just like $(l)EnderIO$().$(li)[MP] Hover over an item in a GUI and press $(l)Shift+T$() to show it in chat."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)The §nMaim Trap§r from Dark Utilities is the best way to kill mobs on high §5difficulty§r.$(li)The Ice Bomb from Twilight Forest turns even flowing §nLava§r into §nObsidian§r.$(li)Press §lShift+F§r to lock stairs rotation.$(li)You can §lshear§r Creepers.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)[MP] $(l)Crouch + right-click$() another player to give them an item.$(li)[MP] Hold $(l)F4$() to ping a block.$(li)$(b)PSI Energy$() restores when you gather $(a)XP$().$(li)Calm down the fastest tool by press \"$(l)\\$()\".$(li)Press \"$(l)Shift+F8$()\" to refresh your sound device."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)6+ mods support §2JEI dragging§r for item filters, just like §lEnderIO§r.$(li)[MP] Hover over an item in a GUI and press §lShift+T§r to show it in chat.$(li)[MP] §lCrouch + right-click§r another player to give them an item.$(li)[MP] Hold §lF4§r to ping a block.$(li)§bPSI Energy§r restores when you gather §aXP§r.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(n)Fluid Tank$() from Ender IO - When trashing items in $(6)lava$(), a tiny amount of more $(6)lava$() will be produced.$(li)$(n)Carry on$() mob spawner trigger more mobs to spawn.$(li)Game stages don't actually prohibit anything.$(li)Full $(n)Backpacks$() in AE2 system cause lags, or even $(5)cant be taken out$().$(li)$(n)Industrial Wires$() - cheapest way to convert between RF and EU."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Calm down the fastest tool by press \"§l\\§r\".$(li)Press \"§lShift+F8§r\" to refresh your sound device.$(li)§nFluid Tank§r from Ender IO - When trashing items in §6lava§r, a tiny amount of more §6lava§r will be produced.$(li)§nCarry on§r mob spawner trigger more mobs to spawn.$(li)Game stages don't actually prohibit anything.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(n)Ctrl+Delete$() trashes item from inventory.$(li)$(n)Inventory System Storage$() can't be accessed directly, but work with hoppers and VAULTOPIC$(li)Right-Click $(n)Openblock's Tank$() with Liquid XP to receive experience.$(li)Want $(8)/home$() command? Craft $(n)Stable Ender Pearl$() + $(n)Chat Detector$()!$(li)Putting a Fluid Bus on an IE Fluid Tank $(4)causes lag$()"
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Full §nBackpacks§r in AE2 system cause lags, or even §5cant be taken out§r.$(li)§nIndustrial Wires§r - cheapest way to convert between RF and EU.$(li)§nCtrl+Delete§r trashes item from inventory.$(li)§nInventory System Storage§r can't be accessed directly, but work with hoppers and VAULTOPIC",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)Use $(5)Horologrium$() stasis to kill the $(8)Chaos Guardian$()$(li)$(0)Nocturnal Powder$() can be used to spawn rare mobs such as $(o)Blizz$()$(li)Blood Magic $(n)Teleposers$() allow for easy long-range transportation of Botania $(b)Mana Pools$() and Astral Temple $(b)Crystals$(). Even works with Sparks!"
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)Right-Click §nOpenblock's Tank§r with Liquid XP to receive experience.$(li)Want §8/home§r command? Craft §nStable Ender Pearl§r + §nChat Detector§r!$(li)Putting a Fluid Bus on an IE Fluid Tank §4causes lag§r$(li)Use §5Horologrium§r stasis to kill the §8Chaos Guardian§r",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)$(n)/integrateddynamics networkdiagnostics$() is great to find out what exactly you did with ID that's destroying $(4)TPS$()$(li)$(l)Need Vis?$() Place the $(n)Arcane Workbench$() in the $(2)Twilight Forest$()!$(li)$(o)Environmental Tech$() multiblocks can $(l)share blocks$()!$(li)$(n)Heads$() with NBT tags in ME terminal cause FPS lag$(li)Press \"$(l)Shift+C$()\" to crawl"
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§0Nocturnal Powder§r can be used to spawn rare mobs such as §oBlizz§r$(li)Blood Magic §nTeleposers§r allow for easy long-range transportation of Botania §bMana Pools§r and Astral Temple §bCrystals§r. Even works with Sparks!",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)The OP command $(n)/bcore_util regenchunk$() regenerates the entire chunk.$(li)Use the command $(n)/tmg_deathlist [TAB] [TAB]$() to assist in locating your grave.$(li)$(b)Splash Water Bottle$() can extinguish entities on fire.$(li)Press \"$(l)R$()\" or \"$(l)U$()\" while hovering over an item in the $(2)Patchouli$() book to view its recipes."
     },
     {
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
-      "text": "$(li)§n/integrateddynamics networkdiagnostics§r is great to find out what exactly you did with ID that's destroying §4TPS§r$(li)§lNeed Vis?§r Place the §nArcane Workbench§r in the §2Twilight Forest§r!$(li)§oEnvironmental Tech§r multiblocks can §lshare blocks§r!$(li)§nHeads§r with NBT tags in ME terminal cause FPS lag",
-      "title": "Tips"
-    },
-    {
-      "item": "thaumicaugmentation:research_notes",
-      "type": "text",
-      "text": "$(li)Press \"§lShift+C§r\" to crawl$(li)The OP command §n/bcore_util regenchunk§r regenerates the entire chunk.$(li)Use the command §n/tmg_deathlist [TAB] [TAB]§r to assist in locating your grave.$(li)§bSplash Water Bottle§r can extinguish entities on fire.",
-      "title": "Tips"
-    },
-    {
-      "item": "thaumicaugmentation:research_notes",
-      "type": "text",
-      "text": "$(li)Press \"§lR§r\" or \"§lU§r\" while hovering over an item in the §2Patchouli§r book to view its recipes.",
-      "title": "Tips"
+      "title": "Tips",
+      "text": "$(li)You can $(6)deconstruct TCon tools$() by placing them into output slot."
     }
   ]
 }

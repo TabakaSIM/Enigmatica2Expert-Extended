@@ -4,6 +4,7 @@ When you break block with special axe it output planks
 
 */
 
+#modloaded zenutils
 #priority -1
 #reloadable
 #ignoreBracketErrors

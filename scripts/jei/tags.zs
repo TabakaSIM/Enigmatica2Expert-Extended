@@ -1,4 +1,4 @@
-#modloaded jei
+#modloaded jei ctintegration
 #priority 1
 #ignoreBracketErrors
 
@@ -220,6 +220,7 @@ static list as IItemStack[][string] = {
     <mekanism:jetpack>,
     <minecraft:potion>.withTag({ Potion: 'potioncore:flight' }),
     <rftools:flight_module>,
+    <thaumictinkerer:kami_chest>,
   ],
 
   miner: [
@@ -289,7 +290,7 @@ static list as IItemStack[][string] = {
     <randomthings:itemcollector>,
     <randomthings:plate_collection>,
     <tconstruct:wooden_hopper>,
-    utils.get('thaumadditions:seal_symbol', 0, 1, { Aspect: 'vacuos' }),
+    <thaumadditions:seal_symbol>.withTag({ Aspect: 'vacuos' }),
     <thaumcraft:hungry_chest>,
     <thermalexpansion:device:12>,
   ],

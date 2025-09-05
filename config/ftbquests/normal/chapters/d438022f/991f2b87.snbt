@@ -21,10 +21,10 @@
 		uid: "bb78c6bf",
 		type: "item",
 		items: [{
+			id: "bibliocraft:paintingcanvas",
 			tag: {
 				blank: 1b
-			},
-			id: "bibliocraft:paintingcanvas"
+			}
 		}],
 		ignore_nbt: 1b
 	},

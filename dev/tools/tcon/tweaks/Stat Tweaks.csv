@@ -24,7 +24,7 @@ bronze,,,,3,,,,,,
 cactus,,,+1,0,,,,,,
 carbon_fiber,,,,,,,,,,
 certus_quartz,/2,/2,/2,2,,,,,,
-chaotic_metal,,,,14,,,,,,
+chaotic_metal,,,,12,,,,,,
 cheese,,,,0,,,,,,
 chocolate,+300,,,,,,,,,
 cobalt,,,,7,,,,,,
@@ -38,7 +38,7 @@ dark_steel,,,*1.44,7,,,,,,
 darkwood,*4,*4,*4,,*4,*4,*4,*4,*4,*4
 desert_myrmex,,,+8,,,,,,,
 diamantine_crystal,/2,,,5,,,,,,
-draconic_metal,,,,13,,,,,,
+draconic_metal,,,,12,,,,,,
 draconium,*1.5,*1.5,*1.5,9,,,*1.5,*1.5,*1.5,*1.5
 dragonbone,/2,/2,/2,,1.1,/2,/2,,,
 dragonsteel_fire,,,*(5/6),9,,,,,,+8
@@ -67,13 +67,13 @@ fluix,,,,,,,,,,
 flux_crystal,,,,4,,,,,,
 fluxed_electrum,,,,9,,,,,,
 fusewood,*2,*2,*2,,*2,*2,*2,*2,*2,*2
-gelid_enderium,*2,*2,*2,13,*2,*2,*2,*2,,
-gelid_gem,*2,*2,*2,13,*2,*2,*2,*2,,
+gelid_enderium,*2,*2,*2,12,*2,*2,*2,*2,,
+gelid_gem,*2,*2,*2,12,*2,*2,*2,*2,,
 ghostwood,*3,*3,*3,,*3,*3,*3,*3,*3,*3
 hard_carbon,,,*1.5,7,,,,,,
 heavy,,,,,,,,,,
 ichorium,/2,/2,,9,1.2,/2,/2,,,
-infinity_metal,,25,300,15,,,,,,300
+infinity_metal,,25,300,13,,,,,,300
 invar,,,,5,,,,,,
 ionite,*3,*3,*3,11,*3,*3,*3,*3,*3,*3
 iridium,,,,9,,,,,,
@@ -85,7 +85,7 @@ kyronite,*3,*3,*3,9,*3,*3,*3,*3,*3,*3
 lead,,,,4,,,,,,
 litherite,*3,*3,*3,7,*3,*3,*3,*3,*3,*3
 livingrock,,,,,,,,,,
-livingwood,,/2,/2,4,1.2,5,,,,
+livingwood,/5,/2,/2,4,1.1,5,5,,,
 lonsdaleite,,,,,,,,,,
 lumium,,,,6,,,,,,
 ma.base_essence,,,,4,*2,,,,,+2.5
@@ -129,7 +129,7 @@ prismarine,,,,3,,,,,,
 psigem,*0.5,*0.5,*0.5,7,,-170,-270,,,
 psimetal,*0.25,*0.5,*0.5,7,,-170,-270,,,
 pulsating_iron,,*2,*2,7,,,,,,+2
-red_matter,,,,14,,,,,,
+red_matter,,,,12,,,,,,
 redstone_alloy,*3,*3,*3,5,*3,*3,*3,*2,*2,*2
 refined_glowstone,,,,6,,,,,,
 refined_obsidian,,,,8,,,,,,

@@ -2,6 +2,7 @@
 Rokku Eryngium (Eryngium + Rokku) - flower that cuts astral rock crystals (actually automates grindstone)
 */
 
+#modloaded randomtweaker botania ctintegration zenutils
 #loader contenttweaker
 
 import crafttweaker.data.IData;
@@ -28,7 +29,7 @@ rokku_eryngium.hasMini = false;
 rokku_eryngium.maxMana = 1000;
 rokku_eryngium.range = 1;
 rokku_eryngium.onUpdate = function (subtile, world, pos) {
-  if (world.isRemote()
+  if (world.remote
     || world.worldInfo.worldTotalTime % 20 != 5) {
     return;
   }
@@ -44,7 +45,7 @@ rokku_eryngium.onUpdate = function (subtile, world, pos) {
   }
 };
 rokku_eryngium.onBlockHarvested = function (world, pos, state, player) {
-  if (world.isRemote()) return;
+  if (world.remote) return;
   val subtile = world.getSubTileEntityInGame(pos);
   if (!isNull(subtile.data)
     && !isNull(subtile.data.crystalProperties)

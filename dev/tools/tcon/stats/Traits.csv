@@ -1,5 +1,6 @@
 Name,ID,Value,Description,Comment
-Absorbent,absorbent_armor,10,More absorbent than other brands.\nYour armor gets stronger in water and rain.,
+Absorbent,absorbent_armor,10,"More absorbent than other brands.
+Your armor gets stronger in water and rain.",
 Aftershock II,tconevo.aftershock2,15,Laevatein!\nThis weapon deals additional magical damage on fully-charged hits.,Deals additional magic damage on fully charged hits
 Aftershock,tconevo.aftershock1,5,Laevatein!\nThis weapon deals additional magical damage on fully-charged hits.,Deals additional magic damage on fully charged hits
 Alien,alien_armor,60,The stats feel off...\n..as if they're changing! Maybe time will tell?,"800 points are created, and randomly distributed to durability, speed, and damage. Every 3.6 seconds, one of the distributed points is applied to the tool’s stats, unless you are currently breaking a block. Each point is worth 1 durability, 0.007 speed, or 0.005 damage."

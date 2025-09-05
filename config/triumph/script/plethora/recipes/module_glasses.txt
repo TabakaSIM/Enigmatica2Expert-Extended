@@ -1,0 +1,4 @@
+addParent("minecraft:recipes/root")
+
+criteria = addCriteria("has_manipulator", "minecraft:inventory_changed")
+criteria.addItem(<plethora:manipulator>)

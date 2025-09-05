@@ -20,14 +20,14 @@
 		uid: "3f820a67",
 		type: "item",
 		item: {
+			id: "opencomputers:upgrade",
 			tag: {
 				"oc:data": {
-					Amount: 20000000,
-					FluidName: "stone"
+					FluidName: "stone",
+					Amount: 20000000
 				}
 			},
-			Damage: 23s,
-			id: "opencomputers:upgrade"
+			Damage: 23s
 		}
 	}]
 }

@@ -2,7 +2,7 @@
   Extract seed issue from gender-specific animals
 */
 
-#modloaded tconstruct
+#modloaded tconstruct contenttweaker
 #reloadable
 
 import crafttweaker.data.IData;
@@ -161,7 +161,7 @@ function milk(e as crafttweaker.event.PlayerInteractEntityEvent) as bool {
 static playerLastActionTime as long[string] = {} as long[string];
 
 events.onPlayerInteractEntity(function (e as crafttweaker.event.PlayerInteractEntityEvent) {
-  if (!e.player.world.isRemote()
+  if (!e.player.world.remote
     && (
       isNull(playerLastActionTime[e.player.name])
       || e.player.world.time != playerLastActionTime[e.player.name]

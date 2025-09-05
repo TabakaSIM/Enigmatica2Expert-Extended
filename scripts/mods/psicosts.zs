@@ -93,7 +93,7 @@ craft.remake(<psicosts:creative_cell>, ['pretty',
   '  ▬ D ▬ §',
   'P § §   P'], {
   'P': <ore:ingotSpectre>,
-  'D': utils.tryCatch('thaumadditions:taintwood_planks', <thaumcraft:taint_log>),
+  'D': <thaumadditions:taintwood_planks> ?? <thaumcraft:taint_log>,
   '§': <deepmoblearning:glitch_infused_ingot>,  // Glitch Infused Ingot
   '◘': <psicosts:psi_cell:2>,                   // PSI-Dyne Cell
   '▬': <ore:ingotEbonyPsi>,                     // Ebony Psimetal Ingot

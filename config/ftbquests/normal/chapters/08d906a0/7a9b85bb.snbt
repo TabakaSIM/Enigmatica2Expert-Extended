@@ -16,11 +16,11 @@
 		uid: "b0d4253e",
 		type: "item",
 		item: {
+			id: "storagedrawers:basicdrawers",
 			tag: {
 				material: "oak"
 			},
-			Damage: 1s,
-			id: "storagedrawers:basicdrawers"
+			Damage: 1s
 		}
 	},
 	{

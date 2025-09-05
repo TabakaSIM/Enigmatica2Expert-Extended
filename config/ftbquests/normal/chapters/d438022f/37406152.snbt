@@ -24,5 +24,11 @@
 		uid: "69be750f",
 		type: "item",
 		item: "randomthings:weatheregg 1 1"
+	},
+	{
+		uid: "8c508200",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🍎Utilities\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

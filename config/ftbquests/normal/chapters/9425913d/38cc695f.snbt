@@ -29,10 +29,10 @@
 		uid: "f9ec55d7",
 		type: "item",
 		item: {
+			id: "thermalexpansion:florb",
 			tag: {
 				Fluid: "petrotheum"
-			},
-			id: "thermalexpansion:florb"
+			}
 		}
 	}]
 }

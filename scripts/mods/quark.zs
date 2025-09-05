@@ -1,4 +1,4 @@
-#modloaded quark
+#modloaded quark harvestcraft
 
 import crafttweaker.item.IItemStack;
 
@@ -27,6 +27,26 @@ scripts.process.melt(<ore:blockSugar>, <fluid:sugar> * (144 * 9));
 
 // Conflict recipes
 recipes.removeByRecipeName('quark:basalt_1');
+
+// COnflict with Cathedral
+craft.remake(<quark:basalt_speleothem> * 12, ['pretty',
+  'B B',
+  'B B',
+  'B B'], {
+  'B': <ore:stoneBasalt>,
+});
+craft.remake(<quark:endstone_speleothem> * 12, ['pretty',
+  'B B',
+  'B B',
+  'B B'], {
+  'B': <ore:oc:stoneEndstone>,
+});
+craft.remake(<quark:obsidian_speleothem> * 12, ['pretty',
+  'B B',
+  'B B',
+  'B B'], {
+  'B': <ore:obsidian>,
+});
 
 // Too easy recipe
 recipes.removeByRecipeName('quark:basalt');

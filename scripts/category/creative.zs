@@ -1,3 +1,4 @@
+#ignoreBracketErrors
 #modloaded extendedcrafting plustic
 
 import crafttweaker.item.IIngredient;
@@ -72,7 +73,7 @@ val list = {
   '◙': <compactsolars:compact_solar_block:2>,
   'ж': <draconicevolution:crafting_injector:2>,
   'Ж': <draconicevolution:draconium_capacitor:1>,
-  '☑': utils.tryCatch('threng:material', 14, <gendustry:genetics_processor>), // Speculative Processor
+  '☑': <threng:material:14> ?? <gendustry:genetics_processor>, // Speculative Processor
   '☠': <extendedcrafting:material:13>,
   'ⱋ': <nae2:material:4>,
   '☒': <extrautils2:compressedcobblestone:7>,
@@ -363,7 +364,7 @@ craft.remake(<mekanism:gastank>.withTag({ tier: 4 }), ['pretty',
   '▬ R ▄ ♦ ◘ ♦ ▄ R ▬',
   '▬ ▀ U - E - v ▀ ▬',
   '■ ◊ G A B A G ◊ ■',
-  '◘ ◘ E B C B E ◘ ◘',
+  '◘ ◘ E ∞ C ∞ E ◘ ◘',
   '■ ◊ G A B A G ◊ ■',
   '▬ ▀ i - E - n ▀ ▬',
   '▬ R ▄ ♦ ◘ ♦ ▄ R ▬',
@@ -379,13 +380,14 @@ craft.remake(<mekanism:gastank>.withTag({ tier: 4 }), ['pretty',
   '◊': <ore:gemBenitoite>, // Benitoite
   'G': <advancedrocketry:oxygencharger>, // Gas Charge Pad
   'A': <draconicevolution:crafting_injector:2>,
-  'B': <bloodmagic:blood_tank:9>, // Blood Tank Tier 10
+  'B': <bloodmagic:blood_tank:10>,
   'C': <plustic:centrifuge>, // Centrifuge Tank
   'n': FluidCell('aerotheum'),
   'i': FluidCell('high_pressure_steam'),
   'U': FluidCell('helium_3'),
   'v': FluidCell('tritium'),
   '◘': FluidCell('vapor_of_levity'),
+  '∞': <contenttweaker:machine_case_singularity>,
 });
 
 recipes.addShapeless('Creative Gas Tank Clearing',
@@ -403,31 +405,94 @@ function advTank(fluid as string) as IIngredient {
 recipes.addShapeless('creative Fluid Tank Frame', creativeFluidTankFrame, [
   advTank('cloud_seed_concentrated'), Bucket('corium'), advTank('essence'),
   Bucket('red_matter'), Bucket('perfect_fuel'), Bucket('ic2uu_matter'),
-  advTank('witchwater'), Bucket('crystal'), advTank('hot_mercury'),
+  advTank('witchwater'), Bucket('crystal'), advTank('high_pressure_mercury'),
 ]);
 
 // *======= Mekanism Creative Tank =======*
 list['⍤'] = <mekanism:gastank>.withTag({ tier: 4 });
 list['✝'] = <draconicevolution:crafting_injector:3>;
 list['♥'] = creativeFluidTankFrame;
-list['♀'] = utils.tryCatch('mctsmelteryio:upgrade', 4, <advancedrocketry:productsheet>);
+list['♀'] = <mctsmelteryio:upgrade:4> ?? <advancedrocketry:productsheet>;
 list['θ'] = <ic2:te:134>;
 list['◆'] = <enderio:item_capacitor_stellar>;
+list['∞'] = <contenttweaker:machine_case_singularity>;
 
 craft.make(<mekanism:machineblock2:11>.withTag({ tier: 4 }), ['pretty',
   '◉ ◉ ♀ ♀ ◆ ♀ ♀ . .',
   '◉ ◽ ▬ ▬ ◊ ▬ ▬ ◽ .',
-  'θ ▬ ⩉ ⩉ ⩉ ⩉ ⩉ ▬ .',
+  'θ ▬ ⩉ ⩉ ∞ ⩉ ⩉ ▬ .',
   'θ ▬ ⩉ ж ✝ ж ⩉ ▬ .',
-  '◆ ◊ ⩉ ☠ ♥ ☠ ⩉ ◊ .',
+  '◆ ◊ ∞ ☠ ♥ ☠ ∞ ◊ .',
   'θ ▬ ⩉ ж ⍤ ж ⩉ ▬ .',
-  'θ ▬ ⩉ ⩉ ⩉ ⩉ ⩉ ▬ .',
+  'θ ▬ ⩉ ⩉ ∞ ⩉ ⩉ ▬ .',
   '. ◽ ▬ ▬ ◊ ▬ ▬ ◽ .',
   '. . . . . . . . .'], list);
 
 recipes.addShapeless('Creative Tank Reset',
   <mekanism:machineblock2:11>.withTag({ tier: 4 }),
   [<mekanism:machineblock2:11>.withTag({ tier: 4 })]);
+
+list['τ'] = <notenoughrtgs:rtg_californium_compact> ?? <nuclearcraft:rtg_californium>;
+list['⁴'] = <environmentaltech:solar_cont_4>;
+list['⁵'] = <environmentaltech:solar_cont_5>;
+list['⁶'] = <environmentaltech:solar_cont_6>;
+list['⫲'] = <extrautils2:decorativesolid:8>;
+list['V'] = <ic2:te:22>;
+list['W'] = <mekanismgenerators:reactor>;
+list['X'] = <tconevo:metal_block:1>;
+list['■'] = <draconicevolution:fusion_crafting_core>;
+list['κ'] = <extrautils2:decorativesolid:6>;
+
+// Mekanism Creative Energy
+list['☹'] = <draconicevolution:draconium_capacitor:1>;
+val creativeCube = <mekanism:energycube>.withTag({ tier: 4, mekData: { energyStored: 1.7976931348623157e308 } });
+craft.make(creativeCube, ['pretty',
+  '◘ ◘ ◙ ◙ τ . . . .',
+  '◘ ◊ V ▩ ∞ . . . .',
+  '☠ V W ◽ ⁶ . . . .',
+  '☠ ▨ ◽ ■ ☹ . . . .',
+  'κ ∞ ⁶ ⫲ X . . . .',
+  '. . . . . . . . .',
+  '. . . . . . . . .',
+  '. . . . . . . . .',
+  '. . . . . . . . .'], list);
+
+recipes.addHiddenShapeless('Recharging cube', creativeCube, [<mekanism:energycube>.withTag({ tier: 4, mekData: {} })]);
+
+// [Creative Vending Upgrade] from [Lamp of Cinders][+18]
+craft.make(<storagedrawers:upgrade_creative:1>, ['pretty',
+  '* B T T ♦ T T B *',
+  'B ◘ ◘ S 1 S ◘ ◘ B',
+  'T ◘ ■ C ◊ C ■ ◘ T',
+  'T S r e ▬ a r S T',
+  '♦ 1 ◊ D L D ◊ 1 ♦',
+  'T S r Ϟ ▬ o r S T',
+  'T ◘ ■ C ◊ C ■ ◘ T',
+  'B ◘ ◘ S 1 S ◘ ◘ B',
+  '* B T T ♦ T T B *'], {
+  '*': <ore:blockCrystalMatrix>, // Crystal Matrix
+  'B': <industrialforegoing:black_hole_unit>, // Black Hole Unit
+  'T': <extendedcrafting:material:13>, // The Ultimate Catalyst
+  '♦': <ore:gemAnglesite>, // Anglesite
+  '◘': <thermalexpansion:frame:148>, // Resonant Cell Frame (Full)
+  'S': <threng:material:14>, // Speculative Processor
+  '1': <nae2:material:4>, // 16384k ME Storage Component
+  '■': <ore:crystalAethium>, // Aethium
+  'C': <draconicevolution:crafting_injector:3>, // Chaotic Injector
+  '◊': <ore:gemBenitoite>, // Benitoite
+  'r': <tconstruct:large_plate>.withTag({ Material: 'red_matter' }),
+  '▬': <ore:ingotInfinity>, // Infinity Ingot
+  'D': <draconicevolution:reactor_core>, // Draconic Reactor Core
+  'o': <environmentaltech:solar_cont_6>, // Solar Array Controller Tier 6
+  'L': <twilightforest:lamp_of_cinders>.anyDamage(), // Lamp of Cinders
+  'e': <mekanism:machineblock2:11>.withTag({ tier: 4 }), // Creative Fluid Tank
+  'a': <mekanism:gastank>.withTag({ tier: 4 }), // Creative Gas Tank
+  'Ϟ': creativeCube, // Creative Energy Cube
+});
+
+recipes.addHiddenShapeless('Creative Storage Upgrade Duplication',
+  <storagedrawers:upgrade_creative:1> * 2,
+  [<storagedrawers:upgrade_creative:1>]);
 
 list['π'] = <storagedrawers:upgrade_creative:1>;
 list['ρ'] = <botania:exchangerod>;
@@ -499,15 +564,14 @@ craft.remake(<draconicevolution:draconium_capacitor:2>.withTag({ Energy: 1073741
 craft.remake(<extrautils2:passivegenerator:6>, ['pretty',
   'C ■ ⌃ W ⌃ ■ C',
   '■ ⌃ a a a ⌃ ■',
-  '⌃ L O B O i ⌃',
+  '⌃ L O ∞ O i ⌃',
   'W L A D A i W',
-  '⌃ L O B O i ⌃',
+  '⌃ L O ∞ O i ⌃',
   '■ ⌃ F F F ⌃ ■',
   'C ■ ⌃ W ⌃ ■ C'], {
   '■': <ore:blockDraconiumCharged>, // Charged Draconium Block
   'a': <extrautils2:passivegenerator:3>, // Water Mill
   'A': <ore:gemAnglesite>,
-  'B': <ore:gemBenitoite>,
   '⌃': <extrautils2:decorativesolid:6>, // Blue Quartz
   'C': <extendedcrafting:material:12>, // Crystaltine Catalyst
   'D': <extrautils2:teleporter:1>, // Deep Dark Portal
@@ -516,72 +580,8 @@ craft.remake(<extrautils2:passivegenerator:6>, ['pretty',
   'i': <extrautils2:passivegenerator:4>, // Wind Mill
   'L': <extrautils2:passivegenerator:2>, // Lava Mill
   'O': <extrautils2:opinium:6>, // Opinium Core (Amazing)
+  '∞': <contenttweaker:machine_case_singularity>,
 });
-
-list['τ'] = utils.tryCatch('notenoughrtgs:rtg_californium_compact', <nuclearcraft:rtg_californium>);
-list['⁴'] = <environmentaltech:solar_cont_4>;
-list['⁵'] = <environmentaltech:solar_cont_5>;
-list['⁶'] = <environmentaltech:solar_cont_6>;
-list['⫲'] = <extrautils2:decorativesolid:8>;
-list['V'] = <ic2:te:22>;
-list['W'] = <mekanismgenerators:reactor>;
-list['X'] = <tconevo:metal_block:1>;
-list['■'] = <draconicevolution:fusion_crafting_core>;
-list['κ'] = <extrautils2:decorativesolid:6>;
-
-// Mekanism Creative Energy
-list['☹'] = <draconicevolution:draconium_capacitor:1>;
-val creativeCube = <mekanism:energycube>.withTag({ tier: 4, mekData: { energyStored: 1.7976931348623157e308 } });
-craft.make(creativeCube, ['pretty',
-  '◘ ◘ ◙ ◙ τ . . . .',
-  '◘ ◊ V ▩ ▩ . . . .',
-  '☠ V W ◽ ⁵ . . . .',
-  '☠ ▨ ◽ ■ ☹ . . . .',
-  'κ ▨ ⁵ ⫲ X . . . .',
-  '. . . . . . . . .',
-  '. . . . . . . . .',
-  '. . . . . . . . .',
-  '. . . . . . . . .'], list);
-
-recipes.addHiddenShapeless('Recharging cube', creativeCube, [<mekanism:energycube>.withTag({ tier: 4, mekData: {} })]);
-
-// [Creative Vending Upgrade] from [Lamp of Cinders][+18]
-craft.make(<storagedrawers:upgrade_creative:1>, ['pretty',
-  '* B T T ♦ T T B *',
-  'B ◘ ◘ S 1 S ◘ ◘ B',
-  'T ◘ ■ C ◊ C ■ ◘ T',
-  'T S r e ▬ a r S T',
-  '♦ 1 ◊ D L D ◊ 1 ♦',
-  'T S r Ϟ ▬ o r S T',
-  'T ◘ ■ C ◊ C ■ ◘ T',
-  'B ◘ ◘ S 1 S ◘ ◘ B',
-  '* B T T ♦ T T B *'], {
-  '*': <ore:blockCrystalMatrix>, // Crystal Matrix
-  'B': <industrialforegoing:black_hole_unit>, // Black Hole Unit
-  'T': <extendedcrafting:material:13>, // The Ultimate Catalyst
-  '♦': <ore:gemAnglesite>, // Anglesite
-  '◘': <thermalexpansion:frame:148>, // Resonant Cell Frame (Full)
-  'S': <threng:material:14>, // Speculative Processor
-  '1': <nae2:material:4>, // 16384k ME Storage Component
-  '■': <ore:blockAethium>, // Aethium
-  'C': <draconicevolution:crafting_injector:3>, // Chaotic Injector
-  '◊': <ore:gemBenitoite>, // Benitoite
-  'r': <tconstruct:large_plate>.withTag({ Material: 'red_matter' }),
-  '▬': <ore:ingotInfinity>, // Infinity Ingot
-  'D': <draconicevolution:reactor_core>, // Draconic Reactor Core
-  'o': <environmentaltech:solar_cont_6>, // Solar Array Controller Tier 6
-  'L': <twilightforest:lamp_of_cinders>.anyDamage(), // Lamp of Cinders
-  'e': <mekanism:machineblock2:11>.withTag({ tier: 4 }), // Creative Fluid Tank
-  'a': <mekanism:gastank>.withTag({ tier: 4 }), // Creative Gas Tank
-  'Ϟ': creativeCube, // Creative Energy Cube
-});
-
-recipes.addHiddenShapeless('Creative Storage Upgrade Duplication',
-  <storagedrawers:upgrade_creative:1> * 2,
-  [<storagedrawers:upgrade_creative:1>]);
-
-// Add later
-recipes.remove(<cyclicmagic:uncrafting_block>);
 
 // [Uncrafting Table] from [Creative Modifier][+11]
 craft.remake(<twilightforest:uncrafting_table>, ['pretty',

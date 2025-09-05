@@ -1,3 +1,4 @@
+#modloaded zenutils
 #sideonly client
 #reloadable
 

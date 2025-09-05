@@ -1,4 +1,5 @@
 #modloaded mysticalagriculture
+#ignoreBracketErrors
 
 import crafttweaker.block.IBlockState;
 import crafttweaker.item.IIngredient;
@@ -253,7 +254,7 @@ function addTieredRecipe(
 // *======= Seeds Tier 1 =======*
 curr_tier = 1;
 addTieredRecipe(<mysticalagriculture:nature_seeds>,         [<mysticalagriculture:crafting:6>, <ore:ingotInferium>], null);
-addTieredRecipe(itemUtils.getItem('mysticalcreations:creosolite_seeds'), [utils.tryCatch(utils.get('openblocks:tank', 0, 1, { tank: { FluidName: 'creosote', Amount: 24000 } }), Bucket('creosote')),<ore:runeEarthB>], null);
+addTieredRecipe(itemUtils.getItem('mysticalcreations:creosolite_seeds'), [<openblocks:tank>.withTag({ tank: { FluidName: 'creosote', Amount: 24000 } }) ?? Bucket('creosote'), <ore:runeEarthB>], null);
 
 // *======= Seeds Tier 2 =======*
 curr_tier = 2;
@@ -350,7 +351,7 @@ val crystals = [
 ] as IItemStack[];
 
 // Infusion crystals
-val prospetry = <mysticalagriculture:crafting:5>;
+val prospetry = <mysticalagriculture:crafting:5> | <mysticalagriculture:crafting:39>;
 for i in 0 .. 5 {
   craft.remake(crystals[i + 1], ['ABA','BCB','ABA'], {
     A: prospetry,
@@ -363,6 +364,9 @@ for i in 0 .. 5 {
     return out;
   });
 }
+
+// 🚒 Inworld crafting
+furnace.addRecipe(<mysticalagriculture:prosperity_ore>, <astralsorcery:blockcustomore>, 1.0);
 
 // ######################################################################
 //
@@ -556,25 +560,24 @@ craft.shapeless(<minecraft:ender_pearl> * 6, 'AAA', { A: <mysticalagriculture:en
 // Base essence harder to use more magic
 recipes.removeByRecipeName('mysticalagriculture:crafting_16');
 scripts.process.solution(
-  [<ore:blockProsperity>, <ore:nuggetManasteel>, <ore:dustAstralStarmetal>],
+  [<ore:shardProsperity>, <ore:nuggetManasteel>, <ore:dustAstralStarmetal>],
   [<liquid:brass> * 144],
   [<liquid:base_essence> * 1440],
   [0.5, 0.5, 0.5, 3300], 'only: highoven'
 );
 
 // [Base Essence Ingot] from [Stardust][+3]
-scripts.processUtils.avdRockXmlRecipe('ElectricArcFurnace', [
-  <ore:ingotBrass> * 4,  // Alchemical Brass Ingot
-  <ore:blockProsperity> * 2,
-  <ore:nuggetManasteel> * 2,
-  <ore:dustAstralStarmetal> * 2,  // Stardust
-], null, [<mysticalagriculture:crafting:32> * 40], null);
+mods.advancedrocketry.RecipeTweaker.forMachine('ElectricArcFurnace').builder()
+  .inputOre(<ore:ingotBrass>, 4)
+  .inputOre(<ore:shardProsperity>, 2)
+  .inputOre(<ore:nuggetManasteel>, 2)
+  .inputOre(<ore:dustAstralStarmetal>, 2)
+  .outputItem(<mysticalagriculture:crafting:32> * 40)
+  .build();
 
 // [Base Crafting Seed] Harder to encourage Villager Trades
 craft.remake(<mysticalagriculture:crafting:16>, ['pretty',
-  'l l l',
-  'l s l',
-  'l l l'], {
+  'l s l'], {
   'l': <ore:shardProsperity>,
   's': <ore:seed>,
 });
@@ -667,14 +670,10 @@ craft.make(<quark:slime_bucket>, ['pretty',
 });
 
 // [Mystical String] from [Industrial Hemp Fiber][+1]
-craft.remake(<mysticalagriculture:crafting:23>, [
-  'PHP'], {
+craft.reshapeless(<mysticalagriculture:crafting:23>, 'HP', {
   'P': <ore:shardProsperity>, // Prosperity Shard
   'H': <ore:fiberHemp>,       // Industrial Hemp Fiber
 });
-
-// "Purification" or [Prosperity Shard Shard] into pure shards
-scripts.do.expire_in_block.set(<tconstruct:shard>.withTag({ Material: 'ma.prosperity' }),  { 'cyclicmagic:fire_dark': <mysticalagriculture:crafting:5> });
 
 // Adventure way to obtain Prudentium Essence
 scripts.do.entity_kill_entity.add('minecraft:slime', 'betteranimalsplus:feralwolf', <mysticalagriculture:crafting:2>);
@@ -744,12 +743,7 @@ for i, item in furnaceByTier {
 // --------------------------------------------
 function remakeBlock(recName as string, output as IBlockState, ingrs as IIngredient[], fluid as string = 'stone') as void {
   if (!isNull(recName)) recipes.removeByRecipeName(recName);
-  scripts.do.burnt_in_fluid.add(ingrs[0].items[0].definition.id, output, fluid);
-  if (!(ingrs[0] has <mysticalagriculture:rock_crystal_essence>)) {
-    scripts.processWork.work(['ARCrystallizer'], null,
-      [ingrs[0].items[0] * 8], [<liquid:ic2construction_foam> * 8000],
-      [scripts.do.portal_spread.utils.stateToItem(output) * 8], null, null, null);
-  }
+  scripts.do.burnt_in_fluid.add(ingrs[0], output, fluid, 1.0, !(ingrs[0] has <mysticalagriculture:rock_crystal_essence>));
 }
 
 function makeSmelt(recName as string, output as ILiquidStack, ingrs as IIngredient[]) as void {
@@ -972,12 +966,12 @@ remakeManapool('mysticalagriculture:ingotsteeleaf'        , <twilightforest:stee
 remakeManapool('mysticalagriculture:ingotvoid'            , <thaumcraft:nugget:7>                  , [<mysticalagriculture:void_metal_essence>]);
 // remakeSimple("mysticalagriculture:leather"              , <minecraft:leather> * 8                   , [<mysticalagriculture:cow_essence> * 4                                               ]);
 // remakeSimple("mysticalagriculture:limestone2"           , <chisel:limestone2:7> * 24                , [<mysticalagriculture:limestone_essence> * 8                                         ]);
-remakeArcane('mysticalagriculture:log'                  , <minecraft:log> * 16                      , ['eee'], { e: <mysticalagriculture:wood_essence> }, []);
-remakeArcane('mysticalagriculture:log_1'                , <minecraft:log:1> * 16                    , ['','eee'], { e: <mysticalagriculture:wood_essence> }, []);
-remakeArcane('mysticalagriculture:log_2'                , <minecraft:log:2> * 16                    , ['','','eee'], { e: <mysticalagriculture:wood_essence> }, []);
-remakeArcane('mysticalagriculture:log_3'                , <minecraft:log:3> * 16                    , ['e','e','e'], { e: <mysticalagriculture:wood_essence> }, []);
-remakeArcane('mysticalagriculture:log2'                 , <minecraft:log2> * 16                     , [' e',' e',' e'], { e: <mysticalagriculture:wood_essence> }, []);
-remakeArcane('mysticalagriculture:log2_1'               , <minecraft:log2:1> * 16                   , ['  e','  e','  e'], { e: <mysticalagriculture:wood_essence> }, []);
+remakeArcane('mysticalagriculture:log'                  , <minecraft:log> * 64                      , ['eee'], { e: <mysticalagriculture:wood_essence> }, []);
+remakeArcane('mysticalagriculture:log_1'                , <minecraft:log:1> * 64                    , ['','eee'], { e: <mysticalagriculture:wood_essence> }, []);
+remakeArcane('mysticalagriculture:log_2'                , <minecraft:log:2> * 64                    , ['','','eee'], { e: <mysticalagriculture:wood_essence> }, []);
+remakeArcane('mysticalagriculture:log_3'                , <minecraft:log:3> * 64                    , ['e','e','e'], { e: <mysticalagriculture:wood_essence> }, []);
+remakeArcane('mysticalagriculture:log2'                 , <minecraft:log2> * 64                     , [' e',' e',' e'], { e: <mysticalagriculture:wood_essence> }, []);
+remakeArcane('mysticalagriculture:log2_1'               , <minecraft:log2:1> * 64                   , ['  e','  e','  e'], { e: <mysticalagriculture:wood_essence> }, []);
 // remakeSimple("mysticalagriculture:marble2"              , <chisel:marble2:7> * 16                   , [<mysticalagriculture:marble_essence> * 8                                            ]);
 // remakeSimple("mysticalagriculture:melon_block"          , <minecraft:melon_block> * 8               , [<mysticalagriculture:nature_essence> * 9                                            ]);
 // remakeSimple("mysticalagriculture:menril_berries"       , <integrateddynamics:menril_berries> * 12  , [<mysticalagriculture:menril_essence> * 3                                            ]);
@@ -1036,13 +1030,13 @@ recipes.removeByRecipeName('mysticalagriculture:mutton');
 recipes.removeByRecipeName('mysticalagriculture:leather');
 recipes.removeByRecipeName('mysticalagriculture:wool');
 
-makeArcane(<minecraft:beef> * 8                                      , ['CCC']               , cowIngrs , []);
-makeArcane(<minecraft:leather> * 16                                  , ['CC', 'CC']          , cowIngrs , []);
-makeArcane(utils.get('betteranimalsplus:antler', 0, 8)               , ['CC', 'SS']          , cowIngrs , []);
-makeArcane(<harvestcraft:venisonrawitem> * 8                         , ['CSC']               , cowIngrs , []);
-makeArcane(<harvestcraft:freshmilkitem> * 8                          , [' C ', 'C C' , ' C '], cowIngrs , []);
-makeArcane(<minecraft:wool> * 16                                     , ['SSS']               , cowIngrs , []);
-makeArcane(<minecraft:mutton> * 8                                    , ['','SSS']            , cowIngrs , []);
+makeArcane(<minecraft:beef> * 8, ['CCC'], cowIngrs, []);
+makeArcane(<minecraft:leather> * 16, ['CC', 'CC'], cowIngrs, []);
+makeArcane(<betteranimalsplus:antler> * 8, ['CC', 'SS'], cowIngrs, []);
+makeArcane(<harvestcraft:venisonrawitem> * 8, ['CSC'], cowIngrs, []);
+makeArcane(<harvestcraft:freshmilkitem> * 64, [' C ', 'C C', ' C '], cowIngrs, []);
+makeArcane(<minecraft:wool> * 16, ['SSS'], cowIngrs, []);
+makeArcane(<minecraft:mutton> * 8, ['','SSS'], cowIngrs, []);
 // --------------------
 // Chickens
 
@@ -1068,11 +1062,11 @@ val uniqChick = scripts.lib.unique.Unique([CE, CE, CE]);
 chickEss(uniqChick.next(), <minecraft:egg> * 8);
 chickEss(uniqChick.next(), <minecraft:feather> * 8);
 chickEss(uniqChick.next(), <minecraft:chicken> * 4);
-chickEss(uniqChick.next(), utils.get('betteranimalsplus:pheasant_egg', 0, 2), 40, [<aspect:aer>]);
-chickEss(uniqChick.next(), utils.get('betteranimalsplus:turkey_egg', 0, 2), 40, [<aspect:aer>]);
-chickEss(uniqChick.next(), utils.get('betteranimalsplus:goose_egg', 0, 2), 40, [<aspect:aer>]);
+chickEss(uniqChick.next(), <betteranimalsplus:pheasant_egg> * 2, 40, [<aspect:aer>]);
+chickEss(uniqChick.next(), <betteranimalsplus:turkey_egg> * 2, 40, [<aspect:aer>]);
+chickEss(uniqChick.next(), <betteranimalsplus:goose_egg> * 2, 40, [<aspect:aer>]);
 
-chickEss([[CE, <mysticalagriculture:gold_essence>, CE]], utils.get('betteranimalsplus:golden_goose_egg'), 20);
+chickEss([[CE, <mysticalagriculture:gold_essence>, CE]], <betteranimalsplus:golden_goose_egg>, 20);
 chickEss([[CE, <mysticalagriculture:copper_essence>, CE]], <iceandfire:stymphalian_bird_feather>, 40, [<aspect:aer> * 5]);
 chickEss([[CE, <mysticalagriculture:water_essence>, CE]], <iceandfire:amphithere_feather>, 40, [<aspect:aer> * 5]);
 chickEss([[CE, <mysticalagriculture:coal_essence>, CE]], <twilightforest:raven_feather>, 40, [<aspect:aer> * 5]);

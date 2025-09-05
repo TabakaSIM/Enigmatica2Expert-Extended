@@ -15,8 +15,8 @@
 		uid: "849a351d",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "openblocks:dev_null"
+			id: "openblocks:dev_null",
+			tag: {}
 		}],
 		ignore_nbt: 1b
 	}],

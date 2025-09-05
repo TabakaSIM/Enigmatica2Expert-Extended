@@ -5,8 +5,9 @@ with other items again and again untill treshold reached
 
 */
 
+#modloaded zenutils
 #reloadable
-#priority 2000
+#priority 2100
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
@@ -54,6 +55,15 @@ function getCharge(ins as IItemStack[string], getValue as function(IItemStack)do
   return total;
 }
 
+function chargeTooltip(item as IItemStack) as string {
+  if (isNull(item.tag.charge)) return null;
+  val value = item.tag.charge.asDouble();
+  return mods.zenutils.I18n.format(
+    'e2ee.do.charge',
+    mods.zenutils.StaticString.format('%,f', [value]).replaceAll('\\.0+$', '').replaceAll(',', '§8,§6')
+  );
+}
+
 function addRecipe(
   recipeName as string,
   E as IItemStack, // Empty, zero-charged base ingredient
@@ -65,19 +75,13 @@ function addRecipe(
   getValue as function(IItemStack)double
 ) as void {
 
-  F.addAdvancedTooltip(function (item) {
-    val value = isNull(item.tag.charge) ? 0.0 : item.tag.charge.asDouble();
-    return mods.zenutils.I18n.format(
-      game.localize('e2ee.do.charge'),
-      mods.zenutils.StaticString.format('%,f', [value]).replaceAll('\\.0+$', '').replaceAll(',', '§8,§6')
-    );
-  });
+  F.addAdvancedTooltip(function (item) { return chargeTooltip(item); });
 
   F.addAdvancedTooltip(function (item) {
     val value = isNull(item.tag.bonus) ? 0.0 : item.tag.bonus.asDouble();
     val s = (value as string).split('\\.');
     return mods.zenutils.I18n.format(
-      game.localize('e2ee.do.charge.bonus'),
+      'e2ee.do.charge.bonus',
       s[0] ~ '§8.' ~ (s.length <= 1 ? '' : s[1].length > 2 ? s[1].substring(0, 2) : s[1])
     );
   });

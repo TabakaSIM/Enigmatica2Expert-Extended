@@ -11,8 +11,8 @@
 		uid: "45f978f4",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "thaumicwonders:night_vision_goggles"
+			id: "thaumicwonders:night_vision_goggles",
+			tag: {}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b

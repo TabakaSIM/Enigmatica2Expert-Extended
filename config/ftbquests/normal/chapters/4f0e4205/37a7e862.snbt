@@ -1,9 +1,9 @@
 {
 	icon: {
+		id: "ftbquests:lootcrate",
 		tag: {
 			type: "uncommon"
-		},
-		id: "ftbquests:lootcrate"
+		}
 	},
 	disable_toast: 1b,
 	x: 10.350000000000001d,
@@ -37,10 +37,10 @@
 		type: "item",
 		auto: "no_toast",
 		item: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		count: 2,
 		random_bonus: 2

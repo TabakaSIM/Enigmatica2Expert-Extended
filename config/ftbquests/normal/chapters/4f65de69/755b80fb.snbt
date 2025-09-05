@@ -25,10 +25,10 @@
 		uid: "2dbe173e",
 		type: "item",
 		items: [{
+			id: "tconstruct:sharpening_kit",
 			tag: {
 				Material: "pigiron"
-			},
-			id: "tconstruct:sharpening_kit"
+			}
 		}]
 	}]
 }

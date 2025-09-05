@@ -12,8 +12,11 @@
 	},
 	{
 		icon: {
+			id: "opencomputers:storage",
+			Count: 8,
 			tag: {
 				"oc:data": {
+					"oc:readonly": 0b,
 					"oc:eeprom": [B;
 						108b,
 						111b,
@@ -1768,16 +1771,15 @@
 						41b,
 						10b
 					],
-					"oc:readonly": 0b,
 					"oc:label": "EEPROM (Lua BIOS)"
 				}
-			},
-			Count: 8,
-			id: "opencomputers:storage"
+			}
 		},
 		item: {
+			id: "opencomputers:storage",
 			tag: {
 				"oc:data": {
+					"oc:readonly": 0b,
 					"oc:eeprom": [B;
 						108b,
 						111b,
@@ -3532,32 +3534,30 @@
 						41b,
 						10b
 					],
-					"oc:readonly": 0b,
 					"oc:label": "EEPROM (Lua BIOS)"
 				}
-			},
-			id: "opencomputers:storage"
+			}
 		},
 		count: 8
 	},
 	{
 		icon: {
+			id: "immersiveengineering:jerrycan",
 			tag: {
 				Fluid: {
-					Amount: 10000,
-					FluidName: "electronics"
+					FluidName: "electronics",
+					Amount: 10000
 				}
-			},
-			id: "immersiveengineering:jerrycan"
+			}
 		},
 		item: {
+			id: "immersiveengineering:jerrycan",
 			tag: {
 				Fluid: {
-					Amount: 10000,
-					FluidName: "electronics"
+					FluidName: "electronics",
+					Amount: 10000
 				}
-			},
-			id: "immersiveengineering:jerrycan"
+			}
 		}
 	}]
 }

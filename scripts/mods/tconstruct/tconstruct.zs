@@ -1,4 +1,4 @@
-#modloaded tconstruct
+#modloaded tconstruct iceandfire
 
 import crafttweaker.data.IData;
 import crafttweaker.item.IIngredient;
@@ -6,6 +6,8 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
 
 <tconstruct:throwball>.maxStackSize = 64;
+
+<blockstate:tconstruct:ore>.block.definition.hardness = 18; // Harvest level defined in mod config
 
 mods.tconstruct.Melting.addEntityMelting(<entity:iceandfire:hippocampus>, <fluid:liquid_helium> * 20);
 
@@ -149,6 +151,7 @@ val pressPlates = {
   flint           : <excompressum:compressed_block:5>,
   osgloglas       : <ore:blockOsgloglas>,
   black_quartz    : <ore:blockQuartzBlack>,
+  void_crystal    : <actuallyadditions:block_crystal:3>,
   heavy           : <ore:blockHeavy>,
   constantan      : <ore:blockConstantan>,
   manyullyn       : <ore:blockManyullyn>,
@@ -156,6 +159,7 @@ val pressPlates = {
   xu_evil_metal   : <ore:blockEvilMetal>,
   void_metal      : <ore:blockVoid>,
   neutronium      : <ore:blockCosmicNeutronium>,
+  enderium        : <ore:blockEnderium>,
 } as IIngredient[string];
 for out, inp in pressPlates {
   mods.immersiveengineering.MetalPress.addRecipe(
@@ -205,12 +209,6 @@ mods.tconstruct.Melting.removeRecipe(<liquid:ender>);
 scripts.process.melt(<actuallyadditions:block_misc:6>, <liquid:ender> * 1000, 'Except: Smeltery', { energy: 80000 });
 
 // Gear Cast
-mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <exnihilocreatio:item_material:7>, <liquid:gold>, 288, true);
-mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <exnihilocreatio:item_material:7>, <liquid:alubrass>, 144, true);
-mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <exnihilocreatio:item_material:7>, <liquid:brass>, 144, true);
-mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <thermalfoundation:material:22>, <liquid:gold>, 288, true);
-mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <thermalfoundation:material:22>, <liquid:alubrass>, 144, true);
-mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <thermalfoundation:material:22>, <liquid:brass>, 144, true);
 mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <thermalfoundation:material:23>, <liquid:gold>, 288, true);
 mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <thermalfoundation:material:23>, <liquid:alubrass>, 144, true);
 mods.tconstruct.Casting.addTableRecipe(<tconstruct:cast_custom:4>, <thermalfoundation:material:23>, <liquid:brass>, 144, true);
@@ -232,7 +230,6 @@ remakeSlimeSlings('Red', <tconstruct:slimesling:3>, <tconstruct:slime_congealed:
 remakeSlimeSlings('Magma', <tconstruct:slimesling:4>, <tconstruct:slime_congealed:4>);
 
 // Remake some metals to able be melted only under amplyfiing tube
-mods.mechanics.addTubeRecipe([<thaumcraft:amber_block>] as IItemStack[], <liquid:amber> * 1000);
 mods.mechanics.addTubeRecipe([<biomesoplenty:crystal>] as IItemStack[], <liquid:crystal> * 1000);
 
 // Remove other Fluid Amber Recipes
@@ -388,9 +385,6 @@ craft.remake(<tconstruct:firewood:1>, ['pretty',
   '~': LiquidIngr('ic2pahoehoe_lava'), // Pahoehoe Lava Bucket
 });
 
-// Nerf stone torch light level
-<tconstruct:stone_torch>.asBlock().definition.lightLevel = 0.75f;
-
 // Remake to fix weird stone rod HEI scrolling
 // [Stone Torch]*4 from [Stone Rod][+1]
 craft.remake(<tconstruct:stone_torch> * 4, [
@@ -435,7 +429,7 @@ craft.remake(<conarm:armor_trim>.withTag({ Material: 'aethium' }), ['pretty',
   'A I A'], {
   'A': <tconstruct:shard>.withTag({ Material: 'aethium' }), // Aethium Shard
   'I': <environmentaltech:interconnect>, // Interconnect
-  'L': <ore:blockLitherite>,
+  'L': <ore:crystalLitherite>,
   'p': <environmentaltech:modifier_piezo>,
 });
 
@@ -454,7 +448,7 @@ craft.remake(<tconevo:material:2>, ['pretty',
 
 // New liquids
 mods.tconstruct.Alloy.addRecipe(<liquid:sunnarium> * 144, [<liquid:liquid_sunshine> * 500, <liquid:flux_goo> * 100, <liquid:mirion> * 72]);
-mods.tconstruct.Alloy.addRecipe(<liquid:dark_matter> * 144, [<liquid:neutronium> * 144, <liquid:primal_metal> * 144, <liquid:mana> * 250]);
+mods.tconstruct.Alloy.addRecipe(<liquid:dark_matter> * 144, [<liquid:neutronium> * 48, <liquid:primal_metal> * 48, <liquid:mana> * 250]);
 mods.tconstruct.Alloy.addRecipe(<liquid:red_matter> * 144, [<liquid:supremium> * 432, <liquid:blockfluidantimatter> * 1000, <liquid:dark_matter> * 144]);
 
 // Melt Block of flesh

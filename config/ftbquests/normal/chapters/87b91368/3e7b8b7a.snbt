@@ -15,16 +15,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "myrmexEgg"
+					data: "myrmexEgg",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any myrmexEgg"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}],
 		ignore_nbt: 1b
 	}],

@@ -1,13 +1,13 @@
 {
 	title: "{q.nuclearcraft_overh.hev_armor.name}",
 	icon: {
+		id: "qmd:chest_hev",
 		tag: {
 			energyStorage: {
 				capacity: 1000000L,
 				energy: 0L
 			}
-		},
-		id: "qmd:chest_hev"
+		}
 	},
 	x: 18.6d,
 	y: 8.5d,
@@ -22,13 +22,13 @@
 		uid: "8235471e",
 		type: "item",
 		items: [{
+			id: "qmd:helm_hev",
 			tag: {
 				energyStorage: {
 					capacity: 1000000L,
 					energy: 0L
 				}
-			},
-			id: "qmd:helm_hev"
+			}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -37,13 +37,13 @@
 		uid: "eab7f672",
 		type: "item",
 		items: [{
+			id: "qmd:chest_hev",
 			tag: {
 				energyStorage: {
 					capacity: 1000000L,
 					energy: 0L
 				}
-			},
-			id: "qmd:chest_hev"
+			}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -52,13 +52,13 @@
 		uid: "4b994e16",
 		type: "item",
 		items: [{
+			id: "qmd:legs_hev",
 			tag: {
 				energyStorage: {
 					capacity: 1000000L,
 					energy: 0L
 				}
-			},
-			id: "qmd:legs_hev"
+			}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -67,13 +67,13 @@
 		uid: "d72a5733",
 		type: "item",
 		items: [{
+			id: "qmd:boots_hev",
 			tag: {
 				energyStorage: {
 					capacity: 1000000L,
 					energy: 0L
 				}
-			},
-			id: "qmd:boots_hev"
+			}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -101,10 +101,10 @@
 		type: "custom",
 		title: "{e2ee.quest.uncommon}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

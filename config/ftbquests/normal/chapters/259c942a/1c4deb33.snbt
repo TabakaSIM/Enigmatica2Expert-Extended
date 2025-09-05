@@ -13,5 +13,11 @@
 		uid: "b609a3ec",
 		type: "item",
 		item: "immersiveengineering:tool"
+	},
+	{
+		uid: "f4cace2a",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🛢️Immersive Engineer\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

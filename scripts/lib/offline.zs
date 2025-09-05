@@ -9,16 +9,12 @@
 
 #priority 3000
 #reloadable
-#modloaded randomtweaker contenttweaker zenutils
+#modloaded randomtweaker zenutils
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import crafttweaker.world.IWorld;
 import crafttweaker.player.IPlayer;
-import mods.contenttweaker.IItemRightClick;
-import mods.contenttweaker.MutableItemStack;
-import mods.contenttweaker.Player;
-import mods.contenttweaker.World;
 
 // /////////////////////////////////////////////////////////////////////////////
 zenClass WrappedFunc {

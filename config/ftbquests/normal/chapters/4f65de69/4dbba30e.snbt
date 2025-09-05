@@ -24,16 +24,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "blockSlime"
+					data: "blockSlime",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any blockSlime"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}]
 	}],
 	rewards: [{

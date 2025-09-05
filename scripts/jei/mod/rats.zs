@@ -1,4 +1,4 @@
-#modloaded rats
+#modloaded rats jei
 #priority -1
 //priority should be lower than scripts/mods/ratsprocessing.zs
 #sideonly client

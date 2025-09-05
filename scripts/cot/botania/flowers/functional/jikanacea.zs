@@ -1,6 +1,8 @@
 /*
 Jikanacea (Echinacea + jikan[time]) - extends durration of time in a bottle effect
 */
+
+#modloaded randomtweaker botania
 #loader contenttweaker
 
 import crafttweaker.entity.IEntity;
@@ -16,7 +18,7 @@ val jikanacea = VanillaFactory.createSubTileFunctional('jikanacea', 0x640064);
 jikanacea.maxMana = manaCostMultipier * 64;
 jikanacea.range = 8;
 jikanacea.onUpdate = function (subtile, world, pos) {
-  if (world.isRemote()
+  if (world.remote
     || world.worldInfo.worldTotalTime  % 300 != 0) {
     return;
   }

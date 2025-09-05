@@ -1,6 +1,6 @@
-#modloaded appliedenergistics2
 #ignoreBracketErrors
 #priority 1000
+#reloadable
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.oredict.IOreDictEntry;
@@ -27,6 +27,13 @@ function removeItems(ore as IOreDictEntry, items as IItemStack[]) as void {
   }
 }
 // *===========================================*
+
+addItems(<ore:itemJar>, [
+  <twilightforest:firefly_jar>,
+  <thaumcraft:jar_normal>,
+  <biomesoplenty:jar_empty>,
+  <iceandfire:jar_empty>,
+]);
 
 // Oredicts for pressure plates
 addItems(<ore:pressurePlateWood>, [
@@ -182,7 +189,6 @@ add(<ore:blockVoid>, <thaumcraft:metal_void>);
 add(<ore:circuitBoard>, <immersiveengineering:material:27>);
 
 // Amber Oredict
-add(<ore:blockAmber>, <biomesoplenty:gem_block:7>);
 add(<ore:blockAmber>, <thaumcraft:amber_block>);
 add(<ore:blockAmber>, <thaumcraft:amber_brick>);
 
@@ -489,6 +495,156 @@ removeItems(<ore:chest>, [
   <minecraft:black_shulker_box>,
 ]);
 
+// *======= Singularities =======*
+addItems(<ore:machineCase>, [
+  <actuallyadditions:block_misc:4>,
+  <actuallyadditions:block_misc:8>,
+  <actuallyadditions:block_misc:9>,
+  <deepmoblearning:machine_casing>,
+  <enderio:item_material:1>,
+  <enderio:item_material:53>,
+  <enderio:item_material:54>,
+  <enderio:item_material:55>,
+  <enderio:item_material:66>,
+  <enderio:item_material>,
+  <environmentaltech:interconnect>,
+  <forestry:flexible_casing>,
+  <forestry:hardened_machine>,
+  <forestry:impregnated_casing>,
+  <forestry:sturdy_machine>,
+  <ic2:resource:12>,
+  <ic2:resource:13>,
+  <immersiveengineering:metal_decoration0:3>,
+  <immersiveengineering:metal_decoration0:4>,
+  <immersiveengineering:metal_decoration0:5>,
+  <libvulpes:advstructuremachine>,
+  <libvulpes:structuremachine>,
+  <mekanism:basicblock:8>,
+  <mysticalagriculture:mystical_machine_frame>,
+  <nuclearcraft:part:10>,
+  <nuclearcraft:part:11>,
+  <nuclearcraft:part:12>,
+  <opencomputers:case1>,
+  <opencomputers:case2>,
+  <opencomputers:case3>,
+  <rftools:machine_frame>,
+  <teslacorelib:machine_case>,
+  <thaumcraft:metal_alchemical_advanced>,
+  <thaumcraft:metal_alchemical>,
+  <thermalexpansion:frame:64>,
+  <thermalexpansion:frame:128>,
+  <thermalexpansion:frame:129>,
+  <thermalexpansion:frame:130>,
+  <thermalexpansion:frame:131>,
+  <thermalexpansion:frame:132>,
+  <thermalexpansion:frame:146>,
+  <thermalexpansion:frame:147>,
+  <thermalexpansion:frame:148>,
+  <thermalexpansion:frame>,
+]);
+
+addItems(<ore:itemBall>, [
+  <actuallyadditions:item_crystal_empowered:3>,
+  <actuallyadditions:item_crystal:3>,
+  <actuallyadditions:item_hairy_ball>,
+  <actuallyadditions:item_misc:12>,
+  <appliedenergistics2:material:6>,
+  <appliedenergistics2:material:9>,
+  <appliedenergistics2:material:47>,
+  <appliedenergistics2:material:48>,
+  <avaritia:endest_pearl>,
+  <avaritia:matter_cluster:*>,
+  <avaritiaio:grindingballinfinity>,
+  <avaritiaio:grindingballneutronium>,
+  <biomesoplenty:mudball>,
+  <botania:manaresource:1>,
+  <botania:thirdeye>,
+  <botania:vineball>,
+  <buildinggadgets:construction_chunk_dense>,
+  <cyclicmagic:ender_eye_orb>,
+  <cyclicmagic:magic_net>,
+  <cyclicmagic:stone_pebble>,
+  <darkutils:material:1>,
+  <darkutils:shulker_pearl>,
+  <draconicevolution:reactor_core>,
+  <enderio:item_alloy_ball:1>,
+  <enderio:item_alloy_ball:2>,
+  <enderio:item_alloy_ball:3>,
+  <enderio:item_alloy_ball:4>,
+  <enderio:item_alloy_ball:5>,
+  <enderio:item_alloy_ball:6>,
+  <enderio:item_alloy_ball:7>,
+  <enderio:item_alloy_ball:8>,
+  <enderio:item_alloy_ball:9>,
+  <enderio:item_alloy_ball>,
+  <enderio:item_alloy_endergy_ball:1>,
+  <enderio:item_alloy_endergy_ball:2>,
+  <enderio:item_alloy_endergy_ball:3>,
+  <enderio:item_alloy_endergy_ball:4>,
+  <enderio:item_alloy_endergy_ball:6>,
+  <enderio:item_material:57>,
+  <enderio:item_material:58>,
+  <enderio:item_material:59>,
+  <endreborn:item_advanced_ender_pearl>,
+  <exnihilocreatio:item_material:1>,
+  <extrautils2:ingredients:2>,
+  <eyeofdragons:eye_of_firedragon>,
+  <eyeofdragons:eye_of_icedragon>,
+  <forestry:propolis:1>,
+  <forestry:propolis:2>,
+  <forestry:propolis:3>,
+  <forestry:propolis>,
+  <harvestcraft:sesameballitem>,
+  <ic2:crafting:16>,
+  <ic2:crafting:20>,
+  <iceandfire:cockatrice_eye>,
+  <industrialforegoing:mob_imprisonment_tool>,
+  <mctsmelteryio:iceball>,
+  <mekanism:substrate>,
+  <minecraft:clay_ball>,
+  <minecraft:ender_eye>,
+  <minecraft:ender_pearl>,
+  <minecraft:slime_ball>,
+  <minecraft:snowball>,
+  <randomthings:stableenderpearl>,
+  <rats:cheese_cannonball>,
+  <rftools:infused_enderpearl>,
+  <tconstruct:edible:1>,
+  <tconstruct:edible:2>,
+  <tconstruct:edible:4>,
+  <tconstruct:throwball:1>,
+  <tconstruct:throwball>,
+  <thaumcraft:focus_1>,
+  <thaumcraft:focus_2>,
+  <thaumcraft:focus_3>,
+  <thaumcraft:primordial_pearl>,
+  <thaumcraft:quicksilver>,
+  <thaumicenergistics:blank_knowledge_core>,
+  <thaumicenergistics:knowledge_core>,
+  <thaumictinkerer:sky_pearl>,
+  <thaumicwonders:meaty_orb>,
+  <thaumicwonders:meteorb>,
+  <thermalfoundation:material:832>,
+  <thermalfoundation:material:833>,
+  <trinity:am242_pit>,
+  <trinity:bk248_pit>,
+  <trinity:cf249_pit>,
+  <trinity:cf251_pit>,
+  <trinity:cm247_pit>,
+  <trinity:np237_pit>,
+  <trinity:pu239_pit>,
+  <trinity:u233_pit>,
+  <trinity:u235_pit>,
+]);
+
+for mod in ['extendedcrafting', 'avaritia', 'contenttweaker'] as string[] {
+  if (!isNull(loadedMods[mod])) {
+    for item in loadedMods[mod].items {
+      if (item.definition.id.matches('.*singularity.*'))
+        add(<ore:singularity>, item);
+    }
+  }
+}
 // *======= Conversion Recipes =======*
 
 recipes.addShapeless('trapdoororedict1', <minecraft:trapdoor>, [<ore:trapdoorWood>]);
@@ -497,6 +653,7 @@ recipes.addShapeless('bedoredict1', <minecraft:bed>, [<ore:bed>]);
 // Rats
 addItems(<ore:hatArcheologist>, [<quark:archaeologist_hat:*>, <rats:archeologist_hat:*>]);
 addItems(<ore:hatPirate>, [<quark:pirate_hat>, <rats:pirat_hat>]);
+addItems(<ore:garbage>, [<rats:garbage_pile>]);
 
 // Some dusts
 remove(<ore:dustEnderPearl>, <ic2:dust:31>);
@@ -506,35 +663,6 @@ removeItems(<ore:dustNetherQuartz>, [<actuallyadditions:item_dust:5>, <enderio:i
 // Any iceCream
 addItems(<ore:listAllicecream>, itemUtils.getItemsByRegexRegistryName('harvestcraft:.*icecreamitem'));
 remove(<ore:listAllicecream>, <harvestcraft:silkentofuitem>);
-
-// Clear "ore" entry from hunks
-// And remove hunks from JEI
-function removeHunkOre(item as IItemStack) as void {
-  var needRemoveAndHide = false;
-  for ore in item.ores {
-    if (ore.name.startsWith('ore') || ore.name.startsWith('hunk')) {
-      ore.remove(item);
-      needRemoveAndHide = true;
-    }
-  }
-  if (needRemoveAndHide) {
-    Purge(item);
-    mods.appliedenergistics2.Grinder.removeRecipe(item);
-  }
-}
-
-for item in loadedMods['exnihilocreatio'].items {
-  if (item.definition.id.matches('exnihilocreatio:item_ore\\w+'))
-    removeHunkOre(item);
-}
-for item in loadedMods['contenttweaker'].items {
-  if (item.definition.id.matches('contenttweaker:item_ore\\w+'))
-    removeHunkOre(item);
-}
-for item in loadedMods['jaopca'].items {
-  if (item.definition.id.matches('jaopca:item_hunk\\w+'))
-    removeHunkOre(item);
-}
 
 // Myrmex
 addItems(<ore:myrmexEgg>, [<iceandfire:myrmex_desert_egg:*>, <iceandfire:myrmex_jungle_egg:*>]);
@@ -608,6 +736,14 @@ add(<ore:blockSugarcane>, <quark:reed_block>);
 add(<ore:blockSugar>, <quark:sugar_block>);
 add(<ore:blockFlesh>, <thaumcraft:flesh_block>);
 
+// Make draconic ore Nether/End variants like all other Nether/End ores
+removeItems(<ore:oreDraconium>, [
+  <draconicevolution:draconium_ore:1>,
+  <draconicevolution:draconium_ore:2>,
+]);
+add(<ore:oreNetherDraconium>, <draconicevolution:draconium_ore:1>);
+add(<ore:oreEndDraconium>, <draconicevolution:draconium_ore:2>);
+
 // Rearrange items in Dye Oredict to better integration
 // with AA [Lens Of Color]
 removeItems(<ore:dyeBrown>, [<enderio:item_material:49>, <industrialforegoing:fertilizer>]);
@@ -637,6 +773,8 @@ addItems(<ore:itemXP>, [
 ]);
 
 // Add oredict for benefication
+add(<ore:oreBenitoite>, <contenttweaker:ore_benitoite>);
+add(<ore:oreAnglesite>, <contenttweaker:ore_anglesite>);
 add(<ore:gemBenitoite>, <contenttweaker:benitoite>);
 add(<ore:gemAnglesite>, <contenttweaker:anglesite>);
 
@@ -648,6 +786,10 @@ add(<ore:aliencrystalRed>, <advancedrocketry:crystal:3>);
 add(<ore:aliencrystalYellow>, <advancedrocketry:crystal:4>);
 add(<ore:aliencrystalOrange>, <advancedrocketry:crystal:5>);
 add(<ore:sandOxidisedFerric>, <advancedrocketry:hotturf>);
+
+// Coil copies
+add(<ore:coilGold>, <nuclearcraft:turbine_dynamo_coil:3>);
+add(<ore:coilAluminum>, <nuclearcraft:turbine_dynamo_coil:2>);
 
 // Sequoia
 addItems(<ore:logSequoia>, [
@@ -748,7 +890,7 @@ addItems(<ore:stoneMetamorphic>, [
   <botania:biomestonea:7>,
 ]);
 
-addItems(<ore:singularityEntangled>, [
+addItems(<ore:itemEntangled>, [
   <appliedenergistics2:material:48>,
 ]);
 

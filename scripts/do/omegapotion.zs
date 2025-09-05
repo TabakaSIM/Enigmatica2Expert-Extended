@@ -1,4 +1,12 @@
-#modloaded jei
+/*
+
+Recipe and mechanics to enrich potion power, time and
+combine their effects.
+
+*/
+
+#modloaded jei thaumcraft
+#norun
 
 import crafttweaker.data.IData;
 import crafttweaker.item.IIngredient;
@@ -6,7 +14,7 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.recipes.IRecipeFunction;
 
 // Sadly, i didnt find dynamic solution to convert Potion_Name -> EffectName -> EffectId
-/* Inject_js{
+/* Inject_js!{
   const potionsRegnameTag = getCSV('config/tellme/potions-csv.csv')
 .map(l=>[l['Registry name'], l['ID']])
 
@@ -449,17 +457,15 @@ static potionFunction as IRecipeFunction = function (out, ins, cInfo) {
       var newEffect = a;
 
       // Iterate other effects in dataList
-      if (i + 1 < compoundTags.length) {
-        for j in (i + 1) .. compoundTags.length {
-          val b = compoundTags[j];
-          if (isNull(a.Id) || isNull(b.Id) || a.Id != b.Id) continue;
-          // We found effect with same Id
-          skipIndexes = skipIndexes + j;
-          newEffect = newEffect + {
-            Amplifier: max(a.Amplifier, b.Amplifier),
-            Duration : max(a.Duration, b.Duration),
-          } as IData;
-        }
+      for j in (i + 1) .. compoundTags.length {
+        val b = compoundTags[j];
+        if (isNull(a.Id) || isNull(b.Id) || a.Id != b.Id) continue;
+        // We found effect with same Id
+        skipIndexes = skipIndexes + j;
+        newEffect = newEffect + {
+          Amplifier: max(a.Amplifier, b.Amplifier),
+          Duration : max(a.Duration, b.Duration),
+        } as IData;
       }
 
       if (isOMega) {

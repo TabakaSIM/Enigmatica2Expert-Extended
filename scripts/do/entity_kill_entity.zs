@@ -1,4 +1,4 @@
-#modloaded jei
+#modloaded jei requious
 #priority 10
 
 import crafttweaker.entity.IEntityLivingBase;
@@ -16,7 +16,7 @@ function add(deadEntity as string, killerEntity as string, item as IItemStack) a
 }
 
 events.onEntityLivingDeathDrops(function (e as crafttweaker.event.EntityLivingDeathDropsEvent) {
-  if (e.entity.world.isRemote()) return; // Remove world
+  if (e.entity.world.remote) return; // Remove world
   if (!(e.entity instanceof IEntityLivingBase)) return; // Is not entity
 
   val entity as IEntityLivingBase = e.entity;

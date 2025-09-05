@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "contenttweaker:items/woodweave_singularity",
-    "layer1": "contenttweaker:items/woodweave_singularity_overlay"
+    "layer0": "contenttweaker:items/woodweave_singularity_bg",
+    "layer1": "contenttweaker:items/woodweave_singularity"
   }
 }

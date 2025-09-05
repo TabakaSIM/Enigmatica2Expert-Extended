@@ -59,12 +59,27 @@ events.onWorldTick(function (e as crafttweaker.event.WorldTickEvent) {
   }
 });
 
+// Cache userful maps from recipes
+// of specified [Portal origin] => [portal towards] directions
+zenClass DirectionMapCache {
+  var spreadStateRecipes as IBlockState[][IBlockState];
+  var spreadWhitelist as bool[IBlockDefinition];
+  var spreadBlacklist as bool[IBlockDefinition];
+  var spreadWildcards as bool[IBlockDefinition];
+
+  zenConstructor() {}
+  function update(recipeDimId as int, targetDimIdStr as string) as bool {
+    spreadStateRecipes = spread.getRecipes(recipeDimId, targetDimIdStr); if (isNull(spreadStateRecipes)) return false;
+    spreadWhitelist = spread.getNumIds('transformable', recipeDimId, targetDimIdStr); if (isNull(spreadWhitelist)) return false;
+    spreadBlacklist = spread.getNumIds('blacklisted', recipeDimId, targetDimIdStr); if (isNull(spreadBlacklist)) return false;
+    spreadWildcards = spread.getNumIds('wildcarded', recipeDimId, targetDimIdStr); if (isNull(spreadWildcards)) return false;
+    return true;
+  }
+}
+static currentDirection as DirectionMapCache = DirectionMapCache();
+
 function tickPortalsToWorld(world as IWorld, targetDimIdStr as string, dimData as IData, recipeDimId as int) as void {
-  // Get userful maps from recipes
-  val REC = spread.getRecipes(recipeDimId, targetDimIdStr); if (isNull(REC)) return;
-  val WL = spread.getNumIds('transformable', recipeDimId, targetDimIdStr); if (isNull(WL)) return;
-  val BL = spread.getNumIds('blacklisted', recipeDimId, targetDimIdStr); if (isNull(BL)) return;
-  val WC = spread.getNumIds('wildcarded', recipeDimId, targetDimIdStr); if (isNull(WC)) return;
+  if (!currentDirection.update(recipeDimId, targetDimIdStr)) return;
   /*
       ████
     ██▒▒▒▒██
@@ -120,8 +135,7 @@ function tickPortalsToWorld(world as IWorld, targetDimIdStr as string, dimData a
         if (spreadBlock(
           world,
           spreadPos,
-          showParticles,
-          REC, WL, BL, WC
+          showParticles
         )) {
           somethingReplaced = true;
           break;
@@ -156,11 +170,7 @@ function destroyPortal(world as IWorld, dimId as string, portalId as string, ful
 function spreadBlock(
   world as IWorld,
   spreadPos as Position3f,
-  showParticles as bool,
-  spreadStateRecipes as IBlockState[][IBlockState],
-  spreadWhitelist as bool[IBlockDefinition],
-  spreadBlacklist as bool[IBlockDefinition],
-  spreadWildcards as bool[IBlockDefinition]
+  showParticles as bool
 ) as bool {
   val inworldState = world.getBlockState(spreadPos);
   val inworldDefinition = inworldState.block.definition;
@@ -174,15 +184,15 @@ function spreadBlock(
 
   if (numId == 0) return false; // Air
 
-  if(isNull(spreadWhitelist[inworldDefinition]) || !isNull(spreadBlacklist[inworldDefinition]))
+  if(isNull(currentDirection.spreadWhitelist[inworldDefinition]) || !isNull(currentDirection.spreadBlacklist[inworldDefinition]))
     return false;
 
   // If block is wildcarded, lookup for its default state
-  val isWildcarded = !isNull(spreadWildcards[inworldDefinition]);
+  val isWildcarded = !isNull(currentDirection.spreadWildcards[inworldDefinition]);
   val lookupState = isWildcarded ? inworldDefinition.defaultState : inworldState;
 
   // Determine result
-  val blocksTo = spreadStateRecipes[lookupState];
+  val blocksTo = currentDirection.spreadStateRecipes[lookupState];
 
   // No blocks to convert from this one
   if (isNull(blocksTo) || blocksTo.length == 0) return false;

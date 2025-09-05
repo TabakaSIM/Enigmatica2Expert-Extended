@@ -2,10 +2,6 @@
 #modloaded crafttweakerutils
 #priority 9000
 
-import crafttweaker.item.IItemStack;
-import crafttweaker.player.IPlayer;
-import crafttweaker.world.IBlockPos;
-import crafttweaker.world.IWorld;
 import mods.contenttweaker.AxisAlignedBB;
 import mods.contenttweaker.BlockMaterial;
 import mods.contenttweaker.Color;
@@ -14,7 +10,10 @@ import mods.contenttweaker.ItemFood;
 import mods.contenttweaker.MaterialSystem;
 import mods.contenttweaker.SoundType;
 import mods.contenttweaker.VanillaFactory;
-import mods.ctutils.utils.Math.abs;
+import crafttweaker.block.IBlockState;
+import crafttweaker.world.IBlockPos;
+import mods.contenttweaker.BlockPos;
+import mods.contenttweaker.World;
 
 mods.contenttweaker.VanillaFactory.createCreativeTab('other', <item:minecraft:coal:1>).register();
 
@@ -57,20 +56,37 @@ for craftMat in [
   buildItem(craftMat);
 }
 
-// Custom singularities
-var x = VanillaFactory.createExpandItem('woodweave_singularity');
-x.creativeTab = <creativetab:other>;
-x.maxDamage = 30000;
-x.noRepair = true;
-// x.attackSpeed = 0; // Changing this values not working for unknown reason
-// x.attackDamage = 0;
-x.register();
+// --------------------------------------------------------------------
+// Singularities
+// --------------------------------------------------------------------
+static singularIDs as string[] = [];
+static singularOres as string[] = [];
+static singularCharges as string[] = [];
+function buildSingularity(id as string, ore as string, charge as int = 30000, glowing as bool = false) as void {
+  val x = VanillaFactory.createExpandItem(`${id}_singularity`);
+  x.creativeTab = <creativetab:other>;
+  x.maxDamage = 30000;
+  x.noRepair = true;
+  x.glowing = glowing;
+  x.register();
 
-x = VanillaFactory.createExpandItem('fish_singularity');
-x.creativeTab = <creativetab:other>;
-x.maxDamage = 30000;
-x.noRepair = true;
-x.register();
+  singularIDs += id;
+  singularOres += ore;
+  singularCharges += charge;
+}
+
+buildSingularity('woodweave', 'plankFireproof', 30000);
+buildSingularity('fish', 'listAllfishraw', 3000);
+buildSingularity('ball', 'itemBall', 2000000000);
+buildSingularity('meat', 'listAllmeatraw', 300000);
+buildSingularity('garbage', 'garbage', 10000);
+buildSingularity('machine_case', 'machineCase', 20000000);
+buildSingularity('ultimate', 'singularity', 400000, true);
+
+scripts.lib.crossscript.setList('singularIDs', singularIDs);
+scripts.lib.crossscript.setList('singularOres', singularOres);
+scripts.lib.crossscript.setList('singularCharges', singularCharges);
+// --------------------------------------------------------------------
 
 createBlockStone('compressed_skystone', 6, <blockmaterial:rock>);
 createBlockStone('compressed_andesite', 4, <blockmaterial:rock>);
@@ -169,20 +185,6 @@ moltenCheese.addDataValue('density', '1004');
 moltenCheese.addDataValue('viscosity', '2000');
 
 // -------------------------------
-// Molten heavy
-// -------------------------------
-val heavyMatBuilder = MaterialSystem
-  .getMaterialBuilder()
-  .setName('Heavy Metal')
-  .setColor(Color.fromHex('444450'))
-  .build();
-
-val molten = heavyMatBuilder.registerPart('molten').getData();
-molten.addDataValue('temperature', '320');
-molten.addDataValue('density', '500000');
-molten.addDataValue('viscosity', '30000');
-
-// -------------------------------
 // Seed
 // -------------------------------
 val seed_fluid = VanillaFactory.createFluid('seed', 0xFFE3D7C8);
@@ -251,7 +253,7 @@ buildItem('dust_tiny_gold');
 buildItem('dust_tiny_silver');
 buildItem('compressed_tallow');
 
-x = VanillaFactory.createExpandItem('bee_diversity');
+var x = VanillaFactory.createExpandItem('bee_diversity');
 x.setCreativeTab(<creativetab:other>);
 x.rarity = 'rare';
 x.register();
@@ -355,23 +357,39 @@ mm.flowingLocation = 'astralsorcery:blocks/fluid/starlight_flow';
 mm.register();
 
 // -------------------------------
+// Tile Entities
+// -------------------------------
+
+
+// Tile Entity that replace itselt with Bedrock Ore
+// to create Bedrock Ores using block string ID instead of numericalID
+var te = VanillaFactory.createActualTileEntity(1);
+te.register();
+
+var exBlock = VanillaFactory.createExpandBlock('bedrockore', <blockmaterial:rock>);
+exBlock.tileEntity = te;
+exBlock.blockHardness = -1.00;
+exBlock.blockResistance = 18000000.00;
+exBlock.register();
+
+// -------------------------------
 // New Coins
 // -------------------------------
 
 mods.contenttweaker.VanillaFactory.createCreativeTab('coins_tab', <item:thermalfoundation:coin:64>).register();
 
 function buildCoin(name as string, glowing as bool = false) {
-  val item = VanillaFactory.createExpandItem('coin_' ~ name) as Item;
+  val item = VanillaFactory.createExpandItem(`coin_${name}`) as Item;
   item.setCreativeTab(<creativetab:coins_tab>);
   item.glowing = glowing;
-  item.textureLocation = mods.contenttweaker.ResourceLocation.create('contenttweaker:items/coin/' ~ name);
+  item.textureLocation = mods.contenttweaker.ResourceLocation.create(`contenttweaker:items/coin/${name}`);
   item.register();
 }
 
 function buildFoodyCoin(name as string, foodValue as int, foodSaturation as float) {
-  val item = VanillaFactory.createItemFood('coin_' ~ name, foodValue) as ItemFood;
+  val item = VanillaFactory.createItemFood(`coin_${name}`, foodValue) as ItemFood;
   item.setCreativeTab(<creativetab:coins_tab>);
-  item.textureLocation = mods.contenttweaker.ResourceLocation.create('contenttweaker:items/coin/' ~ name);
+  item.textureLocation = mods.contenttweaker.ResourceLocation.create(`contenttweaker:items/coin/${name}`);
   item.saturation = foodSaturation;
   item.register();
 }

@@ -12,16 +12,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "pebble"
+					data: "pebble",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any pebble"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}],
 		count: 4L
 	}],

@@ -14,5 +14,11 @@
 		type: "item",
 		item: "astralsorcery:blockmarble",
 		count: 32
+	},
+	{
+		uid: "89db2c09",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🌠Astral Sorcery\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

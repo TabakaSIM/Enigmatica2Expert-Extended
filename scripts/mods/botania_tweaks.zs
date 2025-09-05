@@ -66,29 +66,28 @@ craft.make(<botania_tweaks:elite_extended_crafty_crate>, ['pretty',
   'B': <botania_tweaks:basic_extended_crafty_crate>, // Basic Extended Crafty Crate
 });
 
-// [Ultimate Crafting Table] from [Extreme Crafting Table][+14]
 mods.botania.ElvenTrade.removeRecipe(<botania_tweaks:ultimate_extended_crafty_crate>);
-// craft.make(<extendedcrafting:table_ultimate>, ['pretty',
-//   '◘ ■ * A * ■ ◘',
-//   '■ e V ◙ V ▀ ■',
-//   '* V d E d V *',
-//   'A Ϟ I x I Ϟ A',
-//   '* V d E d V *',
-//   '■ i V ◙ V ▄ ■',
-//   '◘ ■ * A * ■ ◘'], {
-//   '◘': <thermalexpansion:frame:147>,           // Signalum Cell Frame (Full)
-//   '■': <extendedcrafting:trimmed:4>,           // Block of Black Iron
-//   '*': <ore:crystalDraconium>,                 // Draconium Crystal
-//   'A': <advancedrocketry:ic:2>,                // Advanced Circuit
-//   'e': <ore:blockAethium>,                     // Aethium
-//   'V': <vaultopic:vice>,                       // V.I.C.E. (Vaultopic Item Crafting Entity)
-//   '◙': <thermalexpansion:frame:148>,           // Resonant Cell Frame (Full)
-//   '▀': <ore:blockEnderium>,                    // Block of Enderium
-//   'd': <botania_tweaks:advanced_extended_crafty_crate>,      // Advanced Crafting Table
-//   'E': <botania_tweaks:elite_extended_crafty_crate>,         // Elite Crafting Table
-//   'Ϟ': <draconicevolution:wyvern_energy_core>, // Wyvern Energy Core
-//   'I': <ic2:iridium_reflector>,                // Iridium Neutron Reflector
-//   'x': <avaritia:extreme_crafting_table>,      // Extreme Crafting Table
-//   'i': <ore:blockVividAlloy>,                  // Vivid Alloy Block
-//   '▄': <ore:blockMirion>,                      // Mirion Block
-// });
+craft.make(<botania_tweaks:ultimate_extended_crafty_crate>, ['pretty',
+  'E ■ S n S ■ E',
+  '■ M U G U d ■',
+  'S U A l A U S',
+  'n ▲ P D P ▲ n',
+  'S U A l A U S',
+  '■ ▄ U G U ▀ ■',
+  'E ■ S n S ■ E'], {
+  'E': <contenttweaker:empowered_phosphor>,
+  '■': <extendedcrafting:trimmed:4>,
+  'S': <thaumcraft:taint_feature>,
+  'n': <randomthings:spectrecoil_ender>,
+  'M': <ore:blockMithminite>,
+  'U': <extendedcrafting:material:11>,
+  'G': <botania:gaiahead>,
+  'd': <ore:blockEnderium>,
+  'A': <botania_tweaks:advanced_extended_crafty_crate>,
+  'l': <botania_tweaks:elite_extended_crafty_crate>,
+  '▲': <ore:dustAlchDraconium>,
+  'P': <cyclicmagic:beacon_potion>,
+  'D': <botania:dice:*>,
+  '▄': <ore:blockVividAlloy>,
+  '▀': <ore:blockMirion>,
+});

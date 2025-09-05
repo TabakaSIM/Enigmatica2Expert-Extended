@@ -1,8 +1,8 @@
 {
 	title: "{q.botania.botania.name}",
 	icon: {
-		tag: {},
-		id: "botania:lexicon"
+		id: "botania:lexicon",
+		tag: {}
 	},
 	x: 5.0d,
 	y: 12.0d,
@@ -18,5 +18,11 @@
 		type: "item",
 		item: "botania:fertilizer",
 		count: 16
+	},
+	{
+		uid: "0b479bc5",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🌷Botania\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

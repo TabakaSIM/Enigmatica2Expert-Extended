@@ -1,23 +1,23 @@
 {
 	title: "{q.mekanism.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 169,
-			TrophyColorBlue: 171,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 88,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 0s,
 				Count: 1b,
 				id: "mekanism:energycube",
 				tag: {
 					tier: 3
-				}
+				},
+				Damage: 0s
 			},
+			TrophyColorBlue: 171,
+			TrophyColorRed: 169,
 			TrophyName: "Mekanism Master Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 10.5d,
 	y: 6.75d,
@@ -80,23 +80,23 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 169,
-				TrophyColorBlue: 171,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 88,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 0s,
 					Count: 1b,
 					id: "mekanism:energycube",
 					tag: {
 						tier: 3
-					}
+					},
+					Damage: 0s
 				},
+				TrophyColorBlue: 171,
+				TrophyColorRed: 169,
 				TrophyName: "Mekanism Master Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

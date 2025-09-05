@@ -1,20 +1,20 @@
 {
 	title: "{q.ender_io.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 33,
-			TrophyColorBlue: 86,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 38,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 0s,
 				Count: 1b,
-				id: "enderio:block_enhanced_sag_mill"
+				id: "enderio:block_enhanced_sag_mill",
+				Damage: 0s
 			},
+			TrophyColorBlue: 86,
+			TrophyColorRed: 33,
 			TrophyName: "§0EnderIO Master Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 10.35d,
 	y: 5.3999999999999995d,
@@ -56,20 +56,20 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 33,
-				TrophyColorBlue: 86,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 38,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 0s,
 					Count: 1b,
-					id: "enderio:block_enhanced_sag_mill"
+					id: "enderio:block_enhanced_sag_mill",
+					Damage: 0s
 				},
+				TrophyColorBlue: 86,
+				TrophyColorRed: 33,
 				TrophyName: "§0EnderIO Master Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

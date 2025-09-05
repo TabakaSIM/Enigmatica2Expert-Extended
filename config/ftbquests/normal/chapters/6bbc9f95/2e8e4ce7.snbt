@@ -19,6 +19,7 @@
 		uid: "a491735d",
 		type: "item",
 		item: {
+			id: "thaumadditions:crystal_bag",
 			tag: {
 				Aspects: [{
 					amount: 3,
@@ -44,8 +45,7 @@
 					amount: 3,
 					key: "terra"
 				}]
-			},
-			id: "thaumadditions:crystal_bag"
+			}
 		}
 	}]
 }

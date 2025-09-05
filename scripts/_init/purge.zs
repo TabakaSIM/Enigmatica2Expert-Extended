@@ -6,8 +6,10 @@
  * @link https://github.com/Krutoy242
  */
 
-#priority 3000
 #ignoreBracketErrors
+#modloaded zenutils
+#priority 3000
+#reloadable
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.item.IIngredient;
@@ -46,6 +48,14 @@ Purge(<ic2:resource:15>).ores([<ore:blockSilver>]); // Silver blocks
 Purge(<ic2:resource:7>).ores([<ore:blockLead>]); // Lead blocks
 Purge(<ic2:misc_resource>).ores([<ore:dustAshes>]); // Ashes
 Purge(<ic2:misc_resource:5>).ores([<ore:itemSlag>]); // Slag
+Purge(<ic2:plate>).ores([<ore:plateBronze>]);
+Purge(<ic2:plate:1>).ores([<ore:plateCopper>]);
+Purge(<ic2:plate:2>).ores([<ore:plateGold>]);
+Purge(<ic2:plate:3>).ores([<ore:plateIron>]);
+Purge(<ic2:plate:5>).ores([<ore:plateLead>]);
+Purge(<ic2:plate:7>).ores([<ore:plateSteel>]);
+Purge(<ic2:plate:8>).ores([<ore:plateTin>]);
+Purge(<thaumcraft:plate:1>).ores([<ore:plateIron>]);
 Purge(<openblocks:generic:1>); // Crane ingredient
 Purge(<openblocks:generic:2>);
 Purge(<openblocks:generic:3>);
@@ -89,6 +99,40 @@ Purge(<theoneprobe:diamond_helmet_probe>);
 Purge(<theoneprobe:gold_helmet_probe>);
 Purge(<theoneprobe:iron_helmet_probe>);
 Purge(<theoneprobe:probe_goggles>);
+Purge(<libvulpes:productdust:1>).ores([<ore:dustIron>]).furn();
+Purge(<libvulpes:productdust:2>).ores([<ore:dustGold>]).furn();
+Purge(<libvulpes:productdust:3>).ores([<ore:dustSilicon>]).furn();
+Purge(<libvulpes:productdust:4>).ores([<ore:dustCopper>]).furn();
+Purge(<libvulpes:productdust:5>).ores([<ore:dustTin>]).furn();
+Purge(<libvulpes:productdust:6>).ores([<ore:dustSteel>]).furn();
+Purge(<libvulpes:productdust:9>).ores([<ore:dustAluminum>, <ore:dustAluminium>]).furn();
+Purge(<libvulpes:productdust:10>).ores([<ore:dustIridium>]).furn();
+Purge(<libvulpes:productingot:4>).ores([<ore:ingotCopper>]).furn();
+Purge(<libvulpes:productingot:5>).ores([<ore:ingotTin>]).furn();
+Purge(<libvulpes:productingot:6>).ores([<ore:ingotSteel>]).furn();
+Purge(<libvulpes:productingot:9>).ores([<ore:ingotAluminum>, <ore:ingotAluminium>]).furn();
+Purge(<libvulpes:productingot:10>).ores([<ore:ingotIridium>]).furn();
+Purge(<libvulpes:productnugget:4>).ores([<ore:nuggetCopper>]).furn();
+Purge(<libvulpes:productnugget:5>).ores([<ore:nuggetTin>]).furn();
+Purge(<libvulpes:productnugget:6>).ores([<ore:nuggetSteel>]).furn();
+Purge(<libvulpes:productnugget:9>).ores([<ore:nuggetAluminum>, <ore:nuggetAluminium>]).furn();
+Purge(<libvulpes:productnugget:10>).ores([<ore:nuggetIridium>]).furn();
+Purge(<libvulpes:ore0:4>).furn();
+Purge(<libvulpes:ore0:5>).furn();
+Purge(<libvulpes:ore0:9>).ores([<ore:oreAluminium>]).furn();
+Purge(<libvulpes:ore0:10>).ores([<ore:oreIridium>]).furn();
+Purge(<libvulpes:productrod:1>).ores([<ore:stickIron>]).furn();
+Purge(<libvulpes:productrod:6>).ores([<ore:stickSteel>]).furn();
+Purge(<advancedrocketry:concrete>).ores([<ore:concrete>]);
+Purge(<actuallyadditions:block_grinder>);
+Purge(<actuallyadditions:block_grinder_double>);
+Purge(<actuallyadditions:item_dust>).ores([<ore:dustIron>]).furn();
+Purge(<actuallyadditions:item_dust:1>).ores([<ore:dustGold>]).furn();
+Purge(<actuallyadditions:item_dust:2>).ores([<ore:dustDiamond>]).furn();
+Purge(<actuallyadditions:item_dust:4>).ores([<ore:dustLapis>]).furn();
+Purge(<actuallyadditions:item_dust:6>).ores([<ore:dustCoal>]).furn();
+Purge(<actuallyadditions:block_misc:5>).ores([<ore:blockCharcoal>]).furn();
+Purge(<exnihilocreatio:block_end_cake>);
 
 // Purge saltpeter and sulfur
 Purge(<bloodmagic:component:24>);
@@ -237,12 +281,22 @@ Purge(<ic2:resource:5>).ores([<ore:blockBronze>]); // Bronze
 recipesRemove(<ic2:ingot:5>);
 // *============================*
 
+Purge(<jaopca:item_dusttinyanglesite>).ores([<ore:dustTinyAnglesite>]);
+Purge(<jaopca:item_dusttinybenitoite>).ores([<ore:dustTinyBenitoite>]);
+Purge(<contenttweaker:item_ore_anglesite:1>).ores([<ore:oreAnglesite>]);
+Purge(<contenttweaker:item_ore_anglesite:2>).ores([<ore:dustAnglesite>]);
+Purge(<contenttweaker:item_ore_anglesite:3>).furn().ores([<ore:ingotAnglesite>]);
+Purge(<contenttweaker:item_ore_benitoite:1>).ores([<ore:oreBenitoite>]);
+Purge(<contenttweaker:item_ore_benitoite:2>).ores([<ore:dustBenitoite>]);
+Purge(<contenttweaker:item_ore_benitoite:3>).furn().ores([<ore:ingotBenitoite>]);
 Purge(<contenttweaker:item_ore_tungsten:1>).ores([<ore:oreTungsten>]);
 Purge(<contenttweaker:item_ore_tungsten:2>).ores([<ore:dustTungsten>]);
 Purge(<contenttweaker:item_ore_tungsten:3>).furn().ores([<ore:ingotTungsten>]);
 Purge(<jaopca:block_blocktungsten>).ores([<ore:blockTungsten>]);
 Purge(<jaopca:item_nuggettungsten>).ores([<ore:nuggetTungsten>]);
 Purge(<enderio:item_owl_egg>);
+Purge(<enderio:item_material:9>);
+Purge(<thermalfoundation:material:22>).ores([<ore:gearWood>]);
 Purge(<thermalfoundation:material:656>);
 Purge(<ae2stuff:visualiser>);
 Purge(<itemfilters:filter>);
@@ -296,7 +350,6 @@ Purge(<thaumicwonders:eldritch_cluster:8>);
 
 // Gears
 val gearsToRemove = [
-  <thermalfoundation:material:22>,
   <thermalfoundation:material:23>,
   <thermalfoundation:material:24>,
   <thermalfoundation:material:25>,

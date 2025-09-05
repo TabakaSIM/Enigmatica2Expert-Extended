@@ -1,13 +1,7 @@
-# ######################################################################
-#
-# This file automatically generated from equipmentParse.js
-#
-# ######################################################################
+#priority 10
 
 import crafttweaker.data.IData;
 import crafttweaker.item.IItemStack;
-
-#priority 10
 
 static armorStaged as IData[string] = 
 {
@@ -187,6 +181,20 @@ static armorStaged as IData[string] =
       {id:"ic2:wrench_new"},
       {id:"ic2:tool_box"}
   ]},
+  armor_nc_hazmat:{
+    prev: "armor_leather", 
+    tier: 3,
+    material: "nuclearcraft:part",
+    recycle:  "nuclearcraft:part",
+    recipe: {manual: true},
+    list: [
+      {id:"nuclearcraft:helm_hazmat"},
+      {id:"nuclearcraft:chest_hazmat"},
+      {id:"nuclearcraft:legs_hazmat"},
+      {id:"nuclearcraft:boots_hazmat"},
+      {id:"nuclearcraft:multitool"},
+      {id:"nuclearcraft:rad_x"}
+  ]},
   armor_hev:{
     prev: "armor_leather", 
     tier: 5,
@@ -252,7 +260,7 @@ static armorStaged as IData[string] =
       {id:"twilightforest:arctic_chestplate"},
       {id:"twilightforest:arctic_leggings"},
       {id:"twilightforest:arctic_boots"},
-      {id:"twilightforest:ice_sword"},
+      {id:"iceandfire:dread_sword"},
       {id:"twilightforest:knightmetal_shield"}
   ]},
   armor_ironwood:{

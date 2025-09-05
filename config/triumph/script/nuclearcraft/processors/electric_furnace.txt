@@ -1,0 +1,9 @@
+setIcon(<nuclearcraft:part>)
+setTranslatedTitle("advancement.nuclearcraft.electric_furnace.name")
+setTranslatedDescription("advancement.nuclearcraft.electric_furnace.desc")
+addParent("nuclearcraft:processors/manufactory")
+setShowToast(false)
+setAnnounceToChat(false)
+
+criteria = addCriteria("has_item", "minecraft:inventory_changed")
+criteria.addItem(<nuclearcraft:part>)

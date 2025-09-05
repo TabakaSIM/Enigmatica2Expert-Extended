@@ -1,9 +1,9 @@
 {
 	icon: {
+		id: "botania:specialflower",
 		tag: {
 			type: "exoflame"
-		},
-		id: "botania:specialflower"
+		}
 	},
 	x: 10.0d,
 	y: 8.6d,
@@ -17,10 +17,10 @@
 		uid: "8868e83e",
 		type: "item",
 		items: [{
+			id: "botania:specialflower",
 			tag: {
 				type: "exoflame"
-			},
-			id: "botania:specialflower"
+			}
 		}]
 	},
 	{
@@ -97,12 +97,17 @@
 	}],
 	rewards: [{
 		uid: "f1d97f58",
-		type: "item",
-		item: {
+		type: "custom",
+		title: "{e2ee.quest.uncommon}",
+		icon: {
+			id: "ftbquests:lootcrate",
+			Count: 2,
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
-		}
+			}
+		},
+		tags: [
+			"loot"
+		]
 	}]
 }

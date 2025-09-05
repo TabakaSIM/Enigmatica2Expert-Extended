@@ -1,9 +1,9 @@
-import crafttweaker.item.IItemStack;
-import crafttweaker.item.IIngredient;
-
 #ignoreBracketErrors
 #priority 2000
 #reloadable
+
+import crafttweaker.item.IItemStack;
+import crafttweaker.item.IIngredient;
 
 // Used for $orderly
 #modloaded zenutils

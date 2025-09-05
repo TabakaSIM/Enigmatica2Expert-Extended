@@ -1,5 +1,8 @@
 #modloaded animus
 
+scripts.jei.crafting_hints.addInsOutCatl([<minecraft:cobblestone>], <animus:blockantimatter>, <forge:bucketfilled>.withTag({FluidName: "blockfluidantimatter", Amount: 1000}));
+scripts.jei.crafting_hints.addInsOutCatl([<minecraft:cobblestone>], <animus:blockantimatter>, <animus:sigil_consumption>);
+
 // Remove health shard recipe (actually no output)
 mods.bloodmagic.BloodAltar.removeRecipe(<minecraft:prismarine_shard>);
 

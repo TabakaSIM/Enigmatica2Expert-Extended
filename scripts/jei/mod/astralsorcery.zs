@@ -48,10 +48,10 @@ config('config/astralsorcery/fluid_rarities.cfg').data.data
 .map(([,l])=>l)
 ) */
   <fluid:mana>              * 1500,
-  <fluid:amber>             * 800,
   <fluid:xpjuice>           * 500,
   <fluid:pyrotheum>         * 200,
   <fluid:cryotheum>         * 200,
+  <fluid:sic_vapor>         * 120,
   <fluid:hydrofluoric_acid> * 120,
   <fluid:mutagen>           * 100,
   <fluid:vibrant_alloy>     * 40,

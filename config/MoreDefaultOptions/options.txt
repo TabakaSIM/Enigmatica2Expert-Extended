@@ -13,7 +13,7 @@ fboEnable:true
 fancyGraphics:true
 ao:2
 renderClouds:true
-resourcePacks:["Better Gendustry v1.0.zip","Dark Mode-2.2.1.zip","Sonomagy TC6 v1.6.zip"]
+resourcePacks:["Better Gendustry v1.0.zip","Sonomagy TC6 v1.6.zip","Dark Mode-2.4.2.zip"]
 incompatibleResourcePacks:[]
 lastServer:51.210.223.149:25566
 lang:en_us
@@ -36,7 +36,7 @@ heldItemTooltips:true
 chatHeightFocused:1.0
 chatHeightUnfocused:0.44366196
 chatScale:1.0
-chatWidth:1.0
+chatWidth:1.1
 mipmapLevels:0
 forceUnicodeFont:false
 reducedDebugInfo:false
@@ -73,7 +73,7 @@ key_enderio.keybind.fovstore:0
 key_enderio.keybind.fovunreset:0
 key_enderio.keybind.glidertoggle:37
 key_enderio.keybind.gogglesofrevealing:0
-key_enderio.keybind.inventory:23
+key_enderio.keybind.inventory:23:CONTROL
 key_enderio.keybind.jump:0
 key_enderio.keybind.magnet:0
 key_enderio.keybind.nightvision:25
@@ -83,6 +83,7 @@ key_enderio.keybind.stepassist:0
 key_enderio.keybind.tnt:24
 key_enderio.keybind.top:0
 key_enderio.keybind.yetawrenchmode:0
+key_flare.key.open_tick_tracking_menu:0
 key_FpsReducer.key.forceIdle:197
 key_FpsReducer.key.guiOpen:0
 key_gui.xaero_alternative_list_players:0
@@ -236,10 +237,12 @@ key_key.music_player_previous:79
 key_key.music_player_toggle:80
 key_key.next_item.desc:0
 key_key.nutrition:49
+key_key.open_advanced_extended_wireless_crafting_terminal:0
 key_key.open_danknull.desc:0
 key_key.open_menu:19
 key_key.open_wireless_crafting_terminal.desc:18:CONTROL
 key_key.open_wireless_fluid_terminal.desc:33:SHIFT
+key_key.open_wireless_interface_terminal.desc:23:SHIFT
 key_key.open_wireless_pattern_terminal.desc:19:SHIFT
 key_key.open_wireless_terminal.desc:20:SHIFT
 key_key.otghud.desc:24
@@ -319,7 +322,7 @@ key_oreexcavation.key.excavate:-96
 key_oreexcavation.key.shape:0
 key_pi.key.et_gui:23
 key_pi.key.et_world:23:CONTROL
-key_pi.key.open_pi:23
+key_pi.key.open_pi:0
 key_ping.key.alert:75
 key_ping.key.goto:0
 key_ping.key.look:0
@@ -414,5 +417,19 @@ modelPart_right_pants_leg:true
 modelPart_hat:true
 key_gui.xaero_toggle_tracked_players_on_map:0
 
+key_flare.key.start_client_sampling:0
+key_flare.key.start_sampling:0
+key_flare.key.stop_client_sampling:0
+key_flare.key.stop_sampling:0
+key_key.hitindication.toggle_block_indicators:80
+key_key.hitindication.toggle_edge_of_screen_mode:71
+key_key.hitindication.toggle_hit_indication:72
+key_key.open_basic_extended_wireless_crafting_terminal:0
+key_key.open_elite_extended_wireless_crafting_terminal:0
+key_key.open_ultimate_extended_wireless_crafting_terminal:0
+key_key.retrieve_item.desc:-98:CONTROL
+key_key.start_craft.desc:-98:ALT
 key_key.toggleVisible:0
-key_of.key.zoom:-97
+key_keybind.endermodpacktweaks.toggle:0
+key_of.key.zoom:-97
+key_Open Key Wizard:65

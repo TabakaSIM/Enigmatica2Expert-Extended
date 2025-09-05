@@ -7,6 +7,7 @@ Stats:
 Mana per 1 sec: H/t*eff
 Time working: as on fuel
 */
+#modloaded randomtweaker botania ctintegration zenutils
 #loader contenttweaker
 
 import crafttweaker.data.IData;
@@ -44,7 +45,7 @@ nuclianthus.maxMana = 10000;
 nuclianthus.passiveFlower = false;
 nuclianthus.range = 1;
 nuclianthus.onUpdate = function (subtile, world, pos) {
-  if (world.isRemote()) return;
+  if (world.remote) return;
   isWorking(subtile) ? generate(world, pos, subtile) : pickUpFuel(world, pos, subtile);
 };
 nuclianthus.register();
@@ -63,7 +64,7 @@ function generate(world as IWorld, pos as IBlockPos, subtile as SubTileEntityInG
     subtile.addMana(manaGenerated);
     if (world.random.nextInt(5) > 2) scripts.lib.sound.play('minecraft:block.lava.pop', pos, world);
     makeParticleRing(world ,0.5f + pos.x, 1.2 + pos.y, 0.5f + pos.z, pow((subtile.data.FuelData.duration as double), 0.5) / 10.0, pow((subtile.data.FuelData.maxDuration as double), 0.5) / 10.0, ((subtile.data.Overheat as float) / 10000) - 1, (((10000 - subtile.data.Overheat) as float) / 10000));
-    if (subtile.data.Overheat > overHeatLimit) world.performExplosion(null, pos.x, pos.y, pos.z, 20.0f, true, true);
+    if (subtile.data.Overheat > overHeatLimit) world.performExplosion(null, pos.x, pos.y, pos.z, 6.0f, true, true);
   }
   else {
     dropFuelWaste(world, pos, subtile);

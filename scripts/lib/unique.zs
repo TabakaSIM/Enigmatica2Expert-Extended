@@ -1,7 +1,7 @@
+#priority 3000
+
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
-
-#priority 3000
 
 zenClass Unique {
   // Public fields

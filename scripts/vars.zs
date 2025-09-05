@@ -34,7 +34,7 @@ static dimBlocks as IItemStack[int] = {
   113        : <nuclearcraft:ingot_block:8>,
   114        : <biomesoplenty:leaves_3:11>,
   115        : <advancedrocketry:charcoallog>,
-  118        : <littletiles:lttransparentcoloredblock:5>,
+  118        : <rftoolsdim:fake_water>,
   119        : <minecraft:stone:1>,
   120        : <minecraft:snow>,
   121        : <advancedrocketry:alienwood>,

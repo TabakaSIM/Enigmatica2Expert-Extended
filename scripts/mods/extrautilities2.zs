@@ -1,8 +1,12 @@
-#modloaded extrautils2
+#modloaded extrautils2 ic2
 #priority 1
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
+
+mods.jei.JEI.hideCategory('xu2_machine_extrautils2:furnace');
+mods.jei.JEI.hideCategory('xu2_machine_extrautils2:generator_survival');
+mods.jei.JEI.hideCategory('xu2_machine_extrautils2:generator');
 
 static machineBlock as IIngredient = <extrautils2:machine>.only(function(item){return !item.hasTag;});
 
@@ -74,13 +78,23 @@ recipes.addShapedMirrored('Wireless RF Battery',
     [<ore:gemRedstone>, <immersiveengineering:metal_decoration0:3>, <ore:gemRedstone>],
     [<extrautils2:decorativesolid:3>, <ore:blockRedstone>, <extrautils2:decorativesolid:3>]]);
 
-// Rainbow Generator
-recipes.remove(<extrautils2:rainbowgenerator>);
-recipes.addShaped('Rainbow Generator',
-  <extrautils2:rainbowgenerator>,
-  [[<extrautils2:opinium:4>, <extrautils2:rainbowgenerator:2>, <extrautils2:opinium:4>],
-    [<extrautils2:ingredients:16>, <draconicevolution:crafting_injector:1>, <extrautils2:ingredients:16>],
-    [<extrautils2:opinium:4>, <extrautils2:rainbowgenerator:1>, <extrautils2:opinium:4>]]);
+craft.remake(<extrautils2:rainbowgenerator>, ['pretty',
+  '⌃ ⌃ ⌃ ⌃ ⌃ ⌃ ⌃',
+  '⌃ ■ ■ a ■ ■ ⌃',
+  '⌃ ■ ▬ ▬ ▬ ■ ⌃',
+  '⌃ O s i s O ⌃',
+  '⌃ ■ ▬ ▬ ▬ ■ ⌃',
+  '⌃ ■ ■ R ■ ■ ⌃',
+  '⌃ ⌃ ⌃ ⌃ ⌃ ⌃ ⌃'], {
+  '⌃': <extrautils2:decorativesolid:6>,
+  '■': <chisel:futura:2>,
+  'a': <extrautils2:rainbowgenerator:2>,
+  '▬': <ore:ingotGold198>,
+  'O': <extrautils2:opinium:5>,
+  's': <contenttweaker:ball_singularity>,
+  'i': <contenttweaker:machine_case_singularity>,
+  'R': <extrautils2:rainbowgenerator:1>,
+});
 
 // Transper Pipe
 recipes.remove(<extrautils2:pipe>);
@@ -354,7 +368,7 @@ craft.make(<extrautils2:drum>, [
   'S',
   'O',
   'S'], {
-  'S': <extrautils2:decorativesolid:3>, // Stoneburnt
+  'S': <ore:cobblestone>,
   'O': <enderio:block_omni_reservoir>,  // Omnivoir
 });
 
@@ -364,7 +378,7 @@ craft.make(<extrautils2:drum:1>, ['pretty',
   '  п  ',
   'S S S',
   '  Q  '], {
-  'Q': <extrautils2:decorativesolid:7>, // Quartzburnt
+  'Q': <extrautils2:decorativesolid:3>,
   'S': <extrautils2:drum>,              // Stone Drum
   'п': <ore:plateDenseIron>,            // Dense Iron Plate
 });
@@ -377,7 +391,7 @@ craft.make(<extrautils2:drum:2>, ['pretty',
   '  K  '], {
   '□': <ore:plateLumium>,         // Lumium Plate
   'I': <extrautils2:drum:1>,      // Iron Drum
-  'K': <extrautils2:klein>,       // Klein Bottle
+  'K': <extrautils2:decorativesolid:7>,
 });
 
 // [Demonically Gargantuan Drum] from [High Pressure Steam Bucket][+3]
@@ -388,7 +402,7 @@ craft.make(<extrautils2:drum:3>, ['pretty',
   '  ⌃  '], {
   'R': <extrautils2:drum:2>,            // Reinforced Large Drum
   '⌃': <extrautils2:decorativesolid:6>, // Blue Quartz
-  '~': LiquidIngr('high_pressure_steam'), // High Pressure Steam Bucket
+  '~': <extrautils2:klein>,
 });
 
 // High-GP usage ingredient
@@ -540,12 +554,13 @@ remakeEnchanterRecipe(<minecraft:iron_block> * 8, <minecraft:nether_star> * 9, <
 remakeEnchanterRecipe(<minecraft:iron_ingot> * 8, <minecraft:nether_star>    , <ore:ingotPigiron> , <ore:nuggetNetherStar>, <extrautils2:ingredients:17>    ,  80000, 480);
 
 // Turn Red Orchids straight into redstone Ore
-scripts.do.burnt_in_fluid.add('extrautils2:redorchid', <blockstate:minecraft:redstone_ore>, 'stone', 1.0 / 3.0);
+scripts.do.burnt_in_fluid.add(<extrautils2:redorchid>, <blockstate:minecraft:redstone_ore>, 'stone', 1.0 / 3.0);
 
 // Allow Ferrous-Juniper saplings to drop from Ferrous-Juniper Leaves when breaking with Crook
 mods.exnihilocreatio.Crook.addRecipe(<extrautils2:ironwood_leaves>, <extrautils2:ironwood_sapling>, 0.2, 0.28);
 
 // Remake removed AA crusher benefits
-scripts.process.crush(<minecraft:gravel>, <minecraft:sand>, 'strict: eu2crusher', [<minecraft:flint>], [0.5f]);
-scripts.process.crush(<immersiveengineering:material:19>, <immersiveengineering:material:18>, 'only: eu2crusher');
-scripts.process.crush(<minecraft:prismarine_shard>, <minecraft:prismarine_crystals>, 'only: eu2crusher');
+scripts.process.crush(<minecraft:gold_ore>, <thermalfoundation:material:1> * 2, 'only: IECrusher', [<contenttweaker:dust_tiny_silver>], [1.0f]);
+scripts.process.crush(<minecraft:gravel>, <minecraft:sand>, 'only: IECrusher', [<minecraft:flint>], [0.5f]);
+scripts.process.crush(<immersiveengineering:material:19>, <immersiveengineering:material:18>, 'only: IECrusher');
+scripts.process.crush(<minecraft:prismarine_shard>, <minecraft:prismarine_crystals>, 'only: IECrusher');

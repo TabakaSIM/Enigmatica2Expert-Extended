@@ -32,25 +32,25 @@ return `${pairs
   .map(([name, mj_mb]) => `  ${name.replace(/"/g,"'").padEnd(16)}: ${Math.max(1, Math.round(common / Number(mj_mb)))},`)
   .join('\n')}\n};\nval rfProduced = ${common * 10};`
 } */
-  gasoline        : 6667,
-  canolaoil       : 3333,
-  refinedcanolaoil: 1667,
-  oil             : 1333,
-  biomass         : 1111,
-  biodiesel       : 833,
-  crystaloil      : 833,
-  ic2biogas       : 667,
-  diesel          : 476,
-  'bio.ethanol'   : 370,
-  biofuel         : 370,
-  refined_oil     : 351,
-  rocket_fuel     : 351,
-  refined_fuel    : 317,
-  empoweredoil    : 278,
-  fire_water      : 278,
-  ethene          : 208,
-  liquidethene    : 208,
-  syngas          : 167,
+  gasoline        : 3333,
+  canolaoil       : 1667,
+  refinedcanolaoil: 833,
+  oil             : 667,
+  biomass         : 556,
+  biodiesel       : 417,
+  crystaloil      : 417,
+  ic2biogas       : 333,
+  diesel          : 238,
+  'bio.ethanol'   : 185,
+  biofuel         : 185,
+  refined_oil     : 175,
+  rocket_fuel     : 175,
+  refined_fuel    : 159,
+  empoweredoil    : 139,
+  fire_water      : 139,
+  ethene          : 104,
+  liquidethene    : 104,
+  syngas          : 83,
   rocketfuel      : 1,
   perfect_fuel    : 1,
 };
@@ -70,7 +70,7 @@ for name, amount in turbineFuel {
     continue;
   }
   x.addJEIRecipe(AssemblyRecipe.create(function (container) {
-    container.addEnergyOutput('energy_out', name == 'perfect_fuel' ? 100000000 : rfProduced, 0);
+    container.addEnergyOutput('energy_out', name == 'perfect_fuel' ? 200000000 : rfProduced, 0);
   }).requireFluid('liquid_input', liq * amount));
 }
 
@@ -103,7 +103,7 @@ function addHeatExch(fluid_in as ILiquidStack, heat_in as int, fluid_out as ILiq
 /* Inject_js{
 const cfg = [...loadText('config/AdvGenerators/overrides/exchanger.cfg')
   .matchAll(/^\s*exchanger\s*:\s*(.*)$/gm),
-].map(([,m]) => m.trim())
+].map(([, m]) => m.trim())
 function bl(id) {
   const s = id.split(':')
   return s.length >= 2 ? id.replace(/@(\d+)/, ':$1') : `minecraft:${s[0]}`
@@ -127,21 +127,20 @@ return _(cfg
     heat_out,
     alt_out,
   ]) =>
-  `addHeatExch(${B(`fluid:${fluid_in}`, fluid_in_amount)}, `
-  + `${H(heat_in ?? 0)}, `
-  + `${fluid_out ? B(`fluid:${fluid_out}`, fluid_out_amount) : 'null'}, `
-  + `${
-    alt_out
-      ? `utils.tryCatch("${bl(item_out.replace(/@.+/, ''))}", ${item_out.replace(/.+@/, '') || 0}, <${alt_out}>)`
+    `addHeatExch(${B(`fluid:${fluid_in}`, fluid_in_amount)}, `
+    + `${H(heat_in ?? 0)}, `
+    + `${fluid_out ? B(`fluid:${fluid_out}`, fluid_out_amount) : 'null'}, `
+    + `${alt_out
+      ? `<${bl(item_out.replace(/@.+/, ''))}:${item_out.replace(/.+@/, '') || 0}> ?? <${alt_out}>`
       : item_out ? B(item_out, item_out_amount) : 'null'
-  }, `
-  + `${H(heat_out ?? 0)});`
+    }, `
+    + `${H(heat_out ?? 0)});`
   )
 } */
 addHeatExch(<fluid:ic2hot_coolant>, 0, <fluid:ic2coolant>, null, 40);
 addHeatExch(<fluid:lava>, 0, null, <minecraft:obsidian>, 30);
 addHeatExch(<fluid:ic2pahoehoe_lava>, 0, null, <advancedrocketry:basalt>, 40);
-addHeatExch(<fluid:pyrotheum>, 0, null, utils.tryCatch("chisel:basalt2", 7, <quark:basalt>), 60);
+addHeatExch(<fluid:pyrotheum>, 0, null, <chisel:basalt2:7> ?? <quark:basalt>, 60);
 addHeatExch(<fluid:fire_water>, 0, null, <botania:blazeblock>, 200);
 addHeatExch(<fluid:enrichedlava>, 0, null, <draconicevolution:infused_obsidian>, 500);
 addHeatExch(<fluid:water> * 5, 3, <fluid:steam> * 15, null, 0);

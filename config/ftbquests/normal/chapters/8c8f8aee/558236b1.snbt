@@ -1,20 +1,20 @@
 {
 	title: "{q.actually_additions.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 74,
-			TrophyColorBlue: 46,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 57,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 0s,
 				Count: 1b,
-				id: "actuallyadditions:block_giant_chest_large"
+				id: "actuallyadditions:block_giant_chest_large",
+				Damage: 0s
 			},
+			TrophyColorBlue: 46,
+			TrophyColorRed: 74,
 			TrophyName: "§9Actually Additions Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 5.25d,
 	y: 8.25d,
@@ -51,7 +51,6 @@
 		"67ea3f4d",
 		"1c821fe9",
 		"0e3f4ad2",
-		"6e864c28",
 		"e3af4980",
 		"35cc1f3e",
 		"65e1ffd5",
@@ -70,20 +69,20 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 74,
-				TrophyColorBlue: 46,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 57,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 0s,
 					Count: 1b,
-					id: "actuallyadditions:block_giant_chest_large"
+					id: "actuallyadditions:block_giant_chest_large",
+					Damage: 0s
 				},
+				TrophyColorBlue: 46,
+				TrophyColorRed: 74,
 				TrophyName: "§9Actually Additions Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

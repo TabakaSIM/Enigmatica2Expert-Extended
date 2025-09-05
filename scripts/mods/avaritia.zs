@@ -2,6 +2,14 @@
 #modloaded avaritia
 
 import crafttweaker.item.IItemStack;
+import crafttweaker.item.IIngredient;
+
+val anyAvaritiaMatterTools = <avaritia:infinity_hoe> |
+  <avaritia:infinity_axe> |
+  <avaritia:infinity_pickaxe>.withTag({hammer: 1 as byte}) |
+  <avaritia:infinity_shovel>.withTag({destroyer: 1 as byte});
+scripts.jei.crafting_hints.addInsOutCatl([], <avaritia:matter_cluster>, anyAvaritiaMatterTools);
+scripts.jei.crafting_hints.addInsOutCatl([], <avaritia:matter_cluster>.withTag({clusteritems: {total: 4096}}), anyAvaritiaMatterTools);
 
 // *======= Recipes =======*
 
@@ -20,17 +28,17 @@ mods.avaritia.ExtremeCrafting.remove(<avaritia:infinity_hoe>);
 
 // Infinity Ingot
 mods.avaritia.ExtremeCrafting.remove(<avaritia:resource:6>);
-mods.extendedcrafting.TableCrafting.addShaped(0, <avaritia:resource:6>, [
-  [<ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>],
-  [<ore:ingotCosmicNeutronium>, <ore:ingotCrystalMatrix>, <avaritia:resource:5>, <avaritia:resource:5>, <extendedcrafting:singularity_ultimate>, <avaritia:resource:5>, <avaritia:resource:5>, <ore:ingotCrystalMatrix>, <ore:ingotCosmicNeutronium>],
-  [<ore:ingotCosmicNeutronium>, <avaritia:resource:5>, <ore:ingotCrystalMatrix>, <ore:ingotCrystalMatrix>, <avaritia:resource:5>, <ore:ingotCrystalMatrix>, <ore:ingotCrystalMatrix>, <avaritia:resource:5>, <ore:ingotCosmicNeutronium>],
-  [<ore:ingotCosmicNeutronium>, <ore:ingotCrystalMatrix>, <avaritia:resource:5>, <avaritia:resource:5>, <extendedcrafting:singularity_ultimate>, <avaritia:resource:5>, <avaritia:resource:5>, <ore:ingotCrystalMatrix>, <ore:ingotCosmicNeutronium>],
-  [<ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>, <ore:ingotCosmicNeutronium>],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-]);
+craft.make(<avaritia:resource:6>, ['pretty',
+  '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬',
+  '▬ * I I s I I * ▬',
+  '▬ I * * I * * I ▬',
+  '▬ * I I s I I * ▬',
+  '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬'], {
+  '▬': <ore:ingotCosmicNeutronium>,
+  '*': <ore:ingotCrystalMatrix>,
+  'I': <avaritia:resource:5>,
+  's': <contenttweaker:ultimate_singularity>,
+});
 
 // [Neutron Collector] from [Glitch Infused Ingot][+4]
 mods.avaritia.ExtremeCrafting.remove(<avaritia:neutron_collector>);
@@ -58,7 +66,7 @@ mods.extendedcrafting.TableCrafting.addShapeless(0, <avaritia:resource:5>,
     <quark:soul_bead>, <ore:slimecrystalPink>, <ore:plateElite>, <bloodmagic:demon_crystal>,
     <ore:dragonEgg>, <scalinghealth:heartcontainer>,
     <rustic:fluid_bottle>.withTag({ Fluid: { FluidName: 'wine', Amount: 1000, Tag: { Quality: 1 as float } } }),
-    <ore:blockWither>, <ore:blockAethium>, <ore:blockCosmicNeutronium>, <extendedcrafting:storage:7>,
+    <ore:blockWither>, <ore:crystalAethium>, <ore:blockCosmicNeutronium>, <extendedcrafting:storage:7>,
     <ore:blockEvilMetal>, <ore:blockCoalCoke>, <ore:compressed3xDustBedrock>, <tconstruct:firewood:1>,
     <ore:blockVividAlloy>, <ore:blockAmethyst>, <randomthings:spectreilluminator>,
     <twilightforest:block_storage:4>, <ore:blockSupremium>, <ore:blockDilithium>,
@@ -125,204 +133,174 @@ craft.make(<avaritia:ultimate_stew> * 9, ['pretty',
 mods.extendedcrafting.TableCrafting.addShapeless(
   <avaritia:cosmic_meatballs> * 9, [
     /* Inject_js(
-  getCSV('config/tellme/items-csv.csv')
+  getCSV(globSync('config/tellme/items-csv*.csv')[0])
   .filter(o=>o['Ore Dict keys'].split(',').includes('listAllmeatraw'))
   .map(o=>itemize(o['Registry name'], o['Meta/dmg']))
 	.sort(naturalSort)
-  .map(o=>[`   ${isJEIBlacklisted(o)?'#':' '}utils.tryCatch('${o}'`, `, <minecraft:beef>),`])
+  .map(o=>[`   ${isJEIBlacklisted(o)?'#':' '}<${o}> ?? <minecraft:beef>,`])
 ) */
-    utils.tryCatch('betteranimalsplus:eel_meat_raw'  , <minecraft:beef>),
-    utils.tryCatch('betteranimalsplus:pheasantraw'   , <minecraft:beef>),
-    utils.tryCatch('betteranimalsplus:turkey_leg_raw', <minecraft:beef>),
-    utils.tryCatch('betteranimalsplus:turkey_raw'    , <minecraft:beef>),
-    utils.tryCatch('betteranimalsplus:venisonraw'    , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:duckrawitem'        , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundbeefitem'     , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundchickenitem'  , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundduckitem'     , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundfishitem'     , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundmuttonitem'   , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundporkitem'     , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundrabbititem'   , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundturkeyitem'   , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:groundvenisonitem'  , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:grubitem'           , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofabbititem'    , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofaconitem'     , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofeakitem'      , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofenisonitem'   , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofickenitem'    , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofuduckitem'    , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofurkeyitem'    , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:rawtofuttonitem'    , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:turkeyrawitem'      , <minecraft:beef>),
-    utils.tryCatch('harvestcraft:venisonrawitem'     , <minecraft:beef>),
-    utils.tryCatch('minecraft:beef'                  , <minecraft:beef>),
-    utils.tryCatch('minecraft:chicken'               , <minecraft:beef>),
-    utils.tryCatch('minecraft:mutton'                , <minecraft:beef>),
-    utils.tryCatch('minecraft:porkchop'              , <minecraft:beef>),
-    utils.tryCatch('minecraft:rabbit'                , <minecraft:beef>),
-    utils.tryCatch('rats:raw_rat'                    , <minecraft:beef>),
-    utils.tryCatch('tconevo:edible'                  , <minecraft:beef>),
-    utils.tryCatch('twilightforest:raw_meef'         , <minecraft:beef>),
+    <betteranimalsplus:eel_meat_raw> ?? <minecraft:beef>,
+    <betteranimalsplus:pheasantraw> ?? <minecraft:beef>,
+    <betteranimalsplus:turkey_leg_raw> ?? <minecraft:beef>,
+    <betteranimalsplus:turkey_raw> ?? <minecraft:beef>,
+    <betteranimalsplus:venisonraw> ?? <minecraft:beef>,
+    <harvestcraft:duckrawitem> ?? <minecraft:beef>,
+    <harvestcraft:groundbeefitem> ?? <minecraft:beef>,
+    <harvestcraft:groundchickenitem> ?? <minecraft:beef>,
+    <harvestcraft:groundduckitem> ?? <minecraft:beef>,
+    <harvestcraft:groundfishitem> ?? <minecraft:beef>,
+    <harvestcraft:groundmuttonitem> ?? <minecraft:beef>,
+    <harvestcraft:groundporkitem> ?? <minecraft:beef>,
+    <harvestcraft:groundrabbititem> ?? <minecraft:beef>,
+    <harvestcraft:groundturkeyitem> ?? <minecraft:beef>,
+    <harvestcraft:groundvenisonitem> ?? <minecraft:beef>,
+    <harvestcraft:grubitem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofabbititem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofaconitem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofeakitem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofenisonitem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofickenitem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofuduckitem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofurkeyitem> ?? <minecraft:beef>,
+    <harvestcraft:rawtofuttonitem> ?? <minecraft:beef>,
+    <harvestcraft:turkeyrawitem> ?? <minecraft:beef>,
+    <harvestcraft:venisonrawitem> ?? <minecraft:beef>,
+    <minecraft:beef> ?? <minecraft:beef>,
+    <minecraft:chicken> ?? <minecraft:beef>,
+    <minecraft:mutton> ?? <minecraft:beef>,
+    <minecraft:porkchop> ?? <minecraft:beef>,
+    <minecraft:rabbit> ?? <minecraft:beef>,
+    <rats:raw_rat> ?? <minecraft:beef>,
+    <tconevo:edible> ?? <minecraft:beef>,
+    <twilightforest:raw_meef> ?? <minecraft:beef>,
 /**/
   ]);
 
-// Neutronium Ingot
-val ni = <ore:ingotCosmicNeutronium>;
-// Infinity Catalyst
-val ic = <avaritia:resource:5>;
-// Infinity Ingot
-val ii = <ore:ingotInfinity>;
-// Crystal Matrix
-val cm = <ore:blockCrystalMatrix>;
+val gearIngrs = {
+  '▬': <ore:ingotCosmicNeutronium>,
+  '-': <ore:ingotInfinity>,
+  'I': <avaritia:resource:5>,
+  'B': <avaritia:matter_cluster:*>,
+  'c': <draconicevolution:draconic_helm:*>,
+  'R': <extrautils2:decorativesolid:8>,
+  'D': <draconicevolution:draconic_chest:*>,
+  'r': <draconicevolution:draconic_legs:*>,
+  'a': <draconicevolution:draconic_boots:*>,
+  '*': <ore:blockCrystalMatrix>,
+  'Σ': <draconicevolution:draconic_staff_of_power:*>,
+  '■': <ore:blockRockwool>,
+  '⌀': <draconicevolution:draconic_bow:*>,
+  '♀': <draconicevolution:draconic_pick:*>,
+  '☻': <draconicevolution:draconic_axe:*>,
+  '▄': <ore:blockInfinity>,
+  '○': <draconicevolution:draconic_shovel:*>,
+  '●': <draconicevolution:draconic_hoe:*>,
+} as IIngredient[string];
 
-// Infinity Armor
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_helmet>,
-  [
-    [null, null, ni, ni, ni, ni, ni, null, null],
-    [null, ni, ii, ii, ii, ii, ii, ni, null],
-    [null, ni, null, ic, ii, ic, null, ni, null],
-    [null, ni, ii, ii, <draconicevolution:draconic_helm>.anyDamage(), ii, ii, ni, null],
-    [null, ni, ii, ii, ii, ii, ii, ni, null],
-    [null, ni, ii, null, ii, null, ii, ni, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-  ]);
-
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_chestplate>,
-  [
-    [null, ni, ni, null, null, null, ni, ni, null],
-    [ni, ni, ni, null, null, null, ni, ni, ni],
-    [ni, ni, ni, null, null, null, ni, ni, ni],
-    [null, ni, ii, ii, ii, ii, ii, ni, null],
-    [null, ni, ii, ii, ii, ii, ii, ni, null],
-    [null, ni, ii, ii, <draconicevolution:draconic_chest>.anyDamage(), ii, ii, ni, null],
-    [null, ni, ii, ii, ii, ii, ii, ni, null],
-    [null, ni, ii, ii, ii, ii, ii, ni, null],
-    [null, null, ni, ni, ni, ni, ni, null, null],
-  ]);
-
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_pants>,
-  [
-    [ni, ni, ni, ni, ni, ni, ni, ni, ni],
-    [ni, ii, ii, ii, <draconicevolution:draconic_legs>.anyDamage(), ii, ii, ii, ni],
-    [ni, ii, ni, ni, ni, ni, ni, ii, ni],
-    [ni, ii, ni, null, null, null, ni, ii, ni],
-    [ni, ic, ni, null, null, null, ni, ic, ni],
-    [ni, ii, ni, null, null, null, ni, ii, ni],
-    [ni, ii, ni, null, null, null, ni, ii, ni],
-    [ni, ii, ni, null, null, null, ni, ii, ni],
-    [ni, ni, ni, null, null, null, ni, ni, ni],
-  ]);
-
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_boots>,
-  [
-    [null, ni, ni, ni, null, ni, ni, ni, null],
-    [null, ni, ii, ni, null, ni, ii, ni, null],
-    [null, ni, ii, ni, null, ni, ii, ni, null],
-    [ni, ni, ii, ni, null, ni, ii, ni, ni],
-    [ni, ii, ii, ni, null, ni, ii, ii, ni],
-    [ni, ni, ni, ni, <draconicevolution:draconic_boots>.anyDamage(), ni, ni, ni, ni],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-  ]);
-
-// Infinity Sword
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_sword>,
-  [
-    [null, null, null, null, null, null, null, ii, ii],
-    [null, null, null, null, null, null, ii, ii, ii],
-    [null, null, null, null, null, ii, ii, ii, null],
-    [null, null, null, null, ii, ii, ii, null, null],
-    [null, cm, null, ii, ii, ii, null, null, null],
-    [null, null, cm, <draconicevolution:draconic_staff_of_power>.anyDamage(), ii, null, null, null, null],
-    [null, null, ni, cm, null, null, null, null, null],
-    [null, ni, null, null, cm, null, null, null, null],
-    [ic, null, null, null, null, null, null, null, null],
-  ]);
-
-// Infinity Bow
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_bow>,
-  [
-    [null, null, null, ii, ii, null, null, null, null],
-    [null, null, ii, null, <ore:blockRockwool>, null, null, null, null],
-    [null, ii, null, null, <ore:blockRockwool>, null, null, null, null],
-    [ii, null, null, null, <ore:blockRockwool>, null, null, null, null],
-    [<draconicevolution:draconic_bow>.anyDamage(), null, null, null, <ore:blockRockwool>, null, null, null, null],
-    [ii, null, null, null, <ore:blockRockwool>, null, null, null, null],
-    [null, ii, null, null, <ore:blockRockwool>, null, null, null, null],
-    [null, null, ii, null, <ore:blockRockwool>, null, null, null, null],
-    [null, null, null, ii, ii, null, null, null, null],
-  ]);
-
-// Infinity Pickaxe
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_pickaxe>.withTag({ ench: [{ lvl: 10 as short, id: 35 as short }] }),
-  [
-    [null, ii, ii, ii, ii, ii, ii, ii, null],
-    [ii, ii, ii, ii, cm, ii, ii, ii, ii],
-    [ii, ii, null, null, <draconicevolution:draconic_pick>.anyDamage(), null, null, ii, ii],
-    [null, null, null, null, ni, null, null, null, null],
-    [null, null, null, null, ni, null, null, null, null],
-    [null, null, null, null, ni, null, null, null, null],
-    [null, null, null, null, ni, null, null, null, null],
-    [null, null, null, null, ni, null, null, null, null],
-    [null, null, null, null, ni, null, null, null, null],
-  ]);
-
-// Infinity Shovel
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_shovel>,
-  [
-    [null, null, null, null, null, null, ii, ii, ii],
-    [null, null, null, null, null, ii, ii, <ore:blockInfinity>, ii],
-    [null, null, null, null, null, null, <draconicevolution:draconic_shovel>.anyDamage(), ii, ii],
-    [null, null, null, null, null, ni, null, ii, null],
-    [null, null, null, null, ni, null, null, null, null],
-    [null, null, null, ni, null, null, null, null, null],
-    [null, null, ni, null, null, null, null, null, null],
-    [null, ni, null, null, null, null, null, null, null],
-    [ni, null, null, null, null, null, null, null, null],
-  ]);
-
-// Infinity Axe
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_axe>,
-  [
-    [null, null, null, ii, null, null, null, null, null],
-    [null, null, ii, ii, ii, ii, ii, null, null],
-    [null, null, null, ii, ii, <draconicevolution:draconic_axe>.anyDamage(), ii, null, null],
-    [null, null, null, null, null, ii, ni, null, null],
-    [null, null, null, null, null, null, ni, null, null],
-    [null, null, null, null, null, null, ni, null, null],
-    [null, null, null, null, null, null, ni, null, null],
-    [null, null, null, null, null, null, ni, null, null],
-    [null, null, null, null, null, null, ni, null, null],
-  ]);
-
-// Infinity Hoe
-mods.extendedcrafting.TableCrafting.addShaped(0,
-  <avaritia:infinity_hoe>,
-  [
-    [null, null, null, null, null, ni, null, null, null],
-    [null, ii, ii, ii, ii, ii, ii, null, null],
-    [ii, ii, ii, ii, ii, <draconicevolution:draconic_hoe>.anyDamage(), ii, null, null],
-    [ii, null, null, null, null, ii, ii, null, null],
-    [null, null, null, null, null, ni, null, null, null],
-    [null, null, null, null, null, ni, null, null, null],
-    [null, null, null, null, null, ni, null, null, null],
-    [null, null, null, null, null, ni, null, null, null],
-    [null, null, null, null, null, ni, null, null, null],
-  ]);
+craft.remake(<avaritia:infinity_helmet>, ['pretty',
+  '    ▬ ▬ ▬ ▬ ▬  ',
+  '  ▬ - - - - - ▬',
+  '  ▬   I B I   ▬',
+  '  ▬ - - c - - ▬',
+  '  ▬ - - - - - ▬',
+  '  ▬ R   -   R ▬'], gearIngrs
+);
+craft.remake(<avaritia:infinity_chestplate>, ['pretty',
+  '  ▬ ▬       ▬ ▬  ',
+  '▬ ▬ ▬       ▬ ▬ ▬',
+  '▬ ▬ ▬       ▬ ▬ ▬',
+  '  ▬ R - B - R ▬  ',
+  '  ▬ - - - - - ▬  ',
+  '  ▬ - - D - - ▬  ',
+  '  ▬ - - - - - ▬  ',
+  '  ▬ - - - - - ▬  ',
+  '    ▬ ▬ ▬ ▬ ▬    '], gearIngrs
+);
+craft.remake(<avaritia:infinity_pants>, ['pretty',
+  '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬',
+  '▬ - - - r - - - ▬',
+  '▬ - ▬ B ▬ B ▬ - ▬',
+  '▬ - ▬       ▬ - ▬',
+  '▬ I ▬       ▬ I ▬',
+  '▬ - ▬       ▬ - ▬',
+  '▬ - ▬       ▬ - ▬',
+  '▬ R ▬       ▬ R ▬',
+  '▬ ▬ ▬       ▬ ▬ ▬'], gearIngrs
+);
+craft.remake(<avaritia:infinity_boots>, ['pretty',
+  '  ▬ ▬ ▬   ▬ ▬ ▬  ',
+  '  ▬ R ▬   ▬ R ▬  ',
+  '  ▬ - ▬   ▬ - ▬  ',
+  '▬ ▬ - ▬   ▬ - ▬ ▬',
+  '▬ - - ▬ B ▬ - - ▬',
+  '▬ ▬ ▬ ▬ a ▬ ▬ ▬ ▬'], gearIngrs
+);
+craft.remake(<avaritia:infinity_sword>, ['pretty',
+  '              - -',
+  '            - R -',
+  '          - R -  ',
+  '        - R -    ',
+  '  *   - R -      ',
+  '    * Σ -        ',
+  '    ▬ *          ',
+  '  ▬     *        ',
+  'I                '], gearIngrs
+);
+craft.remake(<avaritia:infinity_bow>, ['pretty',
+  '      R R',
+  '    -   ■',
+  '  -     ■',
+  '-       ■',
+  '⌀       ■',
+  '-       ■',
+  '  -     ■',
+  '    -   ■',
+  '      R R'], gearIngrs
+);
+craft.remake(<avaritia:infinity_pickaxe>.withTag({ench: [{lvl: 10 as short, id: 35 as short}]}), ['pretty',
+  '  - - - - - - -  ',
+  '- - R R * R R - -',
+  '- -     ♀     - -',
+  '        ▬        ',
+  '        ▬        ',
+  '        ▬        ',
+  '        ▬        ',
+  '        ▬        ',
+  '        ▬        '], gearIngrs
+);
+craft.remake(<avaritia:infinity_axe>, ['pretty',
+  '      -      ',
+  '    - - - R R',
+  '      - - ☻ R',
+  '          R ▬',
+  '            ▬',
+  '            ▬',
+  '            ▬',
+  '            ▬',
+  '            ▬'], gearIngrs
+);
+craft.remake(<avaritia:infinity_shovel>, ['pretty',
+  '            - R -',
+  '          - R ▄ R',
+  '            ○ R -',
+  '          ▬   -  ',
+  '        ▬        ',
+  '      ▬          ',
+  '    ▬            ',
+  '  ▬              ',
+  '▬                '], gearIngrs
+);
+craft.remake(<avaritia:infinity_hoe>, ['pretty',
+  '          ▬  ',
+  '  - - - - R -',
+  '- - - - R ● R',
+  '-         R -',
+  '          ▬  ',
+  '          ▬  ',
+  '          ▬  ',
+  '          ▬  ',
+  '          ▬  '], gearIngrs
+);
 
 recipes.remove(<avaritia:extreme_crafting_table>);
 mods.extendedcrafting.CombinationCrafting.addRecipe(<avaritia:extreme_crafting_table>,
@@ -337,7 +315,17 @@ function addDragonForgeRecipe(input1 as IItemStack, input2 as IItemStack, output
 }
 
 recipes.removeByRecipeName('avaritia:items/resource/crystal_matrix_ingot');
-addDragonForgeRecipe(<minecraft:nether_star>, <ore:gemDilithium>.firstItem, <avaritia:resource:1>);
+addDragonForgeRecipe(<extendedcrafting:material:49>, <ore:gemDilithium>.firstItem, <avaritia:resource:1>);
+
+mods.advancedrocketry.RecipeTweaker
+  .forMachine('PrecisionLaserEtcher')
+  .builder()
+  .input(<extendedcrafting:material:49>)
+  .inputOre(<ore:gemDilithium>)
+  .outputs(<avaritia:resource:1>)
+  .power(100000)
+  .timeRequired(5)
+  .build();
 
 // Oredicting recipe
 // [Compressed Crafting Table] from [Crafting Table]

@@ -1,0 +1,9 @@
+setIcon(<nuclearcraft:part>)
+setTranslatedTitle("advancement.nuclearcraft.assembler.name")
+setTranslatedDescription("advancement.nuclearcraft.assembler.desc")
+addParent("nuclearcraft:processors/alloy_furnace")
+setShowToast(false)
+setAnnounceToChat(false)
+
+criteria = addCriteria("has_item", "minecraft:inventory_changed")
+criteria.addItem(<nuclearcraft:part>)

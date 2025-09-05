@@ -1,3 +1,5 @@
+#modloaded zenutils
+
 import mods.zenutils.command.CommandUtils;
 import mods.zenutils.command.ZenCommand;
 

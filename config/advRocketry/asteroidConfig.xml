@@ -8,11 +8,6 @@
 		<ore itemStack="advancedrocketry:moonturf" chance="25"/>
 		<ore itemStack="advancedrocketry:moonturf_dark" chance="25"/>
 	</asteroid>
-	<asteroid name="Prosperity" distance="75" mass="64" massVariability="1" probability="5" richness="0.7" richnessVariability="0.5">
-		<ore itemStack="mysticalagriculture:prosperity_ore" chance="100"/>
-		<ore itemStack="advancedrocketry:moonturf" chance="25"/>
-		<ore itemStack="advancedrocketry:moonturf_dark" chance="25"/>
-	</asteroid>
 	<asteroid name="Dimensional Shard" distance="75" mass="64" massVariability="1" probability="5" richness="0.7" richnessVariability="0.5">
 		<ore itemStack="rftools:dimensional_shard_ore" chance="100"/>
 		<ore itemStack="advancedrocketry:moonturf" chance="25"/>
@@ -25,16 +20,6 @@
 	</asteroid>
 	<asteroid name="Destabilized Redstone" distance="75" mass="64" massVariability="1" probability="5" richness="0.7" richnessVariability="0.5">
 		<ore itemStack="thermalfoundation:ore_fluid 2" chance="100"/>
-		<ore itemStack="advancedrocketry:moonturf" chance="25"/>
-		<ore itemStack="advancedrocketry:moonturf_dark" chance="25"/>
-	</asteroid>
-	<asteroid name="Energized Netherrack" distance="75" mass="64" massVariability="1" probability="5" richness="0.7" richnessVariability="0.5">
-		<ore itemStack="thermalfoundation:ore_fluid 3" chance="100"/>
-		<ore itemStack="advancedrocketry:moonturf" chance="25"/>
-		<ore itemStack="advancedrocketry:moonturf_dark" chance="25"/>
-	</asteroid>
-	<asteroid name="Resonant End Stone" distance="75" mass="64" massVariability="1" probability="5" richness="0.7" richnessVariability="0.5">
-		<ore itemStack="thermalfoundation:ore_fluid 4" chance="100"/>
 		<ore itemStack="advancedrocketry:moonturf" chance="25"/>
 		<ore itemStack="advancedrocketry:moonturf_dark" chance="25"/>
 	</asteroid>

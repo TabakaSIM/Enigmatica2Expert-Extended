@@ -12,16 +12,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "plankWood"
+					data: "plankWood",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any plankWood"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}],
 		count: 32L
 	}],

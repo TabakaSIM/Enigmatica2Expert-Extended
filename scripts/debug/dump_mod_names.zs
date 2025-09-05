@@ -16,7 +16,6 @@ function key(s as string) as string {
 }
 
 function logDebugData() {
-  // server.commandManager.executeCommandSilent(server, '/say §8Logging item names into §2crafttweaker_raw.log');
   logRaw('{');
 
   // Count mods
@@ -30,7 +29,6 @@ function logDebugData() {
   }
   logRaw('  }');
   logRaw('}');
-  // server.commandManager.executeCommandSilent(server, '/say §aDone!');
 }
 
 logDebugData();

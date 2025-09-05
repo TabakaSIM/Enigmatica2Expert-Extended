@@ -32,7 +32,6 @@ scripts.jei.crafting_hints.addInsOutCatl(
 <entity:betteranimalsplus:zotzpyre>.addDrop(<harvestcraft:hardenedleatheritem> % 70, 1, 3);
 <entity:betteranimalsplus:zotzpyre>.addPlayerOnlyDrop(<harvestcraft:netherwingsitem>, 1, 3);
 <entity:betteranimalsplus:badger>.addDrop(<randomthings:fertilizeddirt>, 1, 2);
-<entity:betteranimalsplus:badger>.addPlayerOnlyDrop(<twilightforest:uberous_soil>, 1, 4);
 <entity:betteranimalsplus:bobbit_worm>.addPlayerOnlyDrop(<iceandfire:sea_serpent_scales_bronze> % 20, 1, 1);
 <entity:betteranimalsplus:badger>.addDrop(<rats:garbage_pile>, 1, 3);
 <entity:betteranimalsplus:feralwolf>.addDrop(<betteranimalsplus:wolf_pelt_timber>, 1, 3);
@@ -59,7 +58,7 @@ scripts.jei.crafting_hints.addInsOutCatl(
 ]);
 
 // Tallow
-scripts.process.squeeze([<betteranimalsplus:blubber>], <liquid:lubricant> * 50, 'except: CrushingTub Squeezer MechanicalSqueezer', null);
+scripts.process.squeeze([<betteranimalsplus:blubber>], <liquid:lubricant> * 50, 'except: CrushingTub Squeezer', null);
 
 // Blubber
 mods.thaumcraft.Crucible.registerRecipe('Tallow from blubber', 'HEDGEALCHEMY@1', <thaumcraft:tallow> * 8, <betteranimalsplus:blubber>, [<aspect:ignis> * 4]);
@@ -93,7 +92,7 @@ craft.make(<betteranimalsplus:turkey_raw>, ['pretty',
 scripts.process.melt(<betteranimalsplus:trillium>, <fluid:coal> * 100);
 
 // Bone source
-scripts.process.crush(<betteranimalsplus:antler>, <minecraft:bone> * 20, 'only: eu2Crusher');
+scripts.process.crush(<betteranimalsplus:antler>, <minecraft:bone> * 20, 'only: IECrusher');
 
 <ore:foodCheese>.remove(<betteranimalsplus:cheese>);
 <ore:listAllmeatraw>.add(<betteranimalsplus:turkey_leg_raw>);

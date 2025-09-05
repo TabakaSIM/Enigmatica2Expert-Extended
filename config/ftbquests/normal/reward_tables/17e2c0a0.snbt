@@ -1,0 +1,39 @@
+{
+	title: "Tasty reward",
+	loot_size: 1,
+	rewards: [{
+		icon: "ic2:filled_tin_can 64",
+		item: "ic2:filled_tin_can",
+		count: 64
+	},
+	{
+		item: {
+			id: "industrialforegoing:meat_feeder",
+			tag: {
+				Fluid: {
+					FluidName: "meat",
+					Amount: 128000
+				}
+			}
+		}
+	},
+	{
+		item: {
+			id: "thermalinnovation:quiver",
+			tag: {
+				enchantmentColor: 3887386,
+				ench: [{}],
+				Mode: 1,
+				Fluid: {
+					FluidName: "potion",
+					Amount: 30000,
+					Tag: {
+						Potion: "cyclicmagic:saturation"
+					}
+				},
+				Arrows: 600
+			},
+			Damage: 4s
+		}
+	}]
+}

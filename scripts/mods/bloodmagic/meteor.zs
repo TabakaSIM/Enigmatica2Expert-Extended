@@ -10,7 +10,9 @@
 #reloadable
 
 import crafttweaker.data.IData;
+import crafttweaker.item.IItemDefinition;
 import crafttweaker.item.IItemStack;
+import crafttweaker.entity.IEntityItem;
 import crafttweaker.world.IBlockPos;
 import crafttweaker.world.IWorld;
 import crafttweaker.event.PlayerLoggedInEvent;
@@ -63,8 +65,6 @@ function trySpawnMeteor(world as IWorld, x as int, z as int) as void {
   ) return;
 
   spawnMeteor(world, rndPos, meteorCatalyst);
-
-  // server.commandManager.executeCommandSilent(server, '/say §8spawned:['~rndPos.x~':'~rndPos.y~':'~rndPos.z~']');
 }
 
 function spawnMeteor(world as IWorld, pos as IBlockPos, stack as IItemStack) as void {
@@ -84,3 +84,36 @@ function spawnMeteor(world as IWorld, pos as IBlockPos, stack as IItemStack) as 
   } as IData;
   meteor.updateNBT(newData);
 }
+
+static autoRemoveItems as IItemDefinition[][int] = {
+  122: [
+    <additionalcompression:flint_compressed:1>.definition,
+    <biomesoplenty:ash>.definition,
+    <contenttweaker:compressed_basalt_double>.definition,
+    <contenttweaker:compressed_crushed_skystone>.definition,
+    <minecraft:gravel>.definition,
+    <minecraft:magma>.definition,
+    <minecraft:stone>.definition,
+    <quark:basalt>.definition,
+    <advancedrocketry:basalt>.definition,
+  ],
+  123: [
+    <advancedrocketry:hotturf>.definition,
+    <minecraft:stone:5>.definition,
+    <tconstruct:brownstone>.definition,
+    <exnihilocreatio:block_andesite_crushed>.definition,
+  ],
+} as IItemDefinition[][int];
+
+// Remove items spawned by meteor hitting the ground
+events.onEntityJoinWorld(function(e as crafttweaker.event.EntityJoinWorldEvent) {
+  if (e.world.remote) return;
+  val blacklist = autoRemoveItems[e.world.dimension];
+  if (isNull(blacklist)) return;
+  val entity = e.entity;
+  if (!(entity instanceof IEntityItem)) return;
+  val entityItem as IEntityItem = entity;
+  val item = entityItem.item;
+  if (isNull(item) || !(blacklist has item.definition)) return;
+  entityItem.native.lifespan = 40;
+});

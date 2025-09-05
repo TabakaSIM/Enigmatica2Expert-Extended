@@ -14,5 +14,11 @@
 		uid: "77c53124",
 		type: "choice",
 		table: 34
+	},
+	{
+		uid: "ea79d193",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🌡️Thermal Expansion\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

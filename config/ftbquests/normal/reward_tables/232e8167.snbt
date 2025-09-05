@@ -1,0 +1,19 @@
+{
+	title: "Small Curvy Pipes",
+	loot_size: 1,
+	rewards: [{
+		icon: "curvy_pipes:pipe 16 1",
+		item: "curvy_pipes:pipe 1 1",
+		count: 16
+	},
+	{
+		icon: "curvy_pipes:pipe 16 6",
+		item: "curvy_pipes:pipe 1 6",
+		count: 16
+	},
+	{
+		icon: "curvy_pipes:pipe 16 11",
+		item: "curvy_pipes:pipe 1 11",
+		count: 16
+	}]
+}

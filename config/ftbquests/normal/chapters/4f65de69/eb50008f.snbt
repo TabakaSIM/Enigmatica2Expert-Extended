@@ -19,10 +19,10 @@
 			item: "appliedenergistics2:material"
 		},
 		{
+			id: "tconstruct:sharpening_kit",
 			tag: {
 				Material: "treatedwood"
-			},
-			id: "tconstruct:sharpening_kit"
+			}
 		}]
 	}]
 }

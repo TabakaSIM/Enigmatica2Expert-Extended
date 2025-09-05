@@ -13,8 +13,8 @@
 		uid: "4930639d",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "thaumicwonders:void_fortress_helm"
+			id: "thaumicwonders:void_fortress_helm",
+			tag: {}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -23,8 +23,8 @@
 		uid: "b455eb8a",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "thaumicwonders:void_fortress_chest"
+			id: "thaumicwonders:void_fortress_chest",
+			tag: {}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -33,8 +33,8 @@
 		uid: "5a131fd2",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "thaumicwonders:void_fortress_legs"
+			id: "thaumicwonders:void_fortress_legs",
+			tag: {}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -44,10 +44,10 @@
 		type: "custom",
 		title: "{e2ee.quest.uncommon}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

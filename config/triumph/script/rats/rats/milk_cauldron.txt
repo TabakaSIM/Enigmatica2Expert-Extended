@@ -1,0 +1,7 @@
+setIcon(<minecraft:milk_bucket>)
+setTranslatedTitle("advancements.rats.cauldron_milk.title")
+setTranslatedDescription("advancements.rats.cauldron_milk.description")
+addParent("rats:rats/root")
+
+criteria = addCriteria("cauldron_milk", "minecraft:placed_block")
+criteria.setItem(<minecraft:milk_bucket>)

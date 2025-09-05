@@ -60,7 +60,7 @@ visSiphon_Trait.localizedName = game.localize('e2ee.tconstruct.material.vis_siph
 visSiphon_Trait.localizedDescription = game.localize('e2ee.tconstruct.material.vis_siphon.description');
 visSiphon_Trait.maxLevel = 1;
 visSiphon_Trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
-  if (world.isRemote()) return; // world is remote
+  if (world.remote) return; // world is remote
   if (!owner instanceof IPlayer) return; // no player
   if (tool.damage == 0) return; // tool max durability
   if (world.getVis(owner.position) < 1.0f) return; // no vis in aura
@@ -76,7 +76,7 @@ visVacuum_Trait.localizedName = game.localize('e2ee.tconstruct.material.vis_vacu
 visVacuum_Trait.localizedDescription = game.localize('e2ee.tconstruct.material.vis_vacuum.description');
 visVacuum_Trait.maxLevel = 4;
 visVacuum_Trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
-  if (world.isRemote()) return; // world is remote
+  if (world.remote) return; // world is remote
   if (!owner instanceof IPlayer) return; // no player
   if (tool.damage == 0) return; // tool max durability
   for i in -1 .. 2 {
@@ -106,7 +106,7 @@ visSiphonArmor_Trait.localizedName = game.localize('e2ee.tconstruct.material.vis
 visSiphonArmor_Trait.localizedDescription = game.localize('e2ee.tconstruct.material.vis_siphon.description');
 visSiphonArmor_Trait.maxLevel = 1;
 visSiphonArmor_Trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
-  if (world.isRemote()) return; // world is remote
+  if (world.remote) return; // world is remote
   if (!owner instanceof IPlayer) return; // no player
   if (tool.damage == 0) return; // tool max durability
   if (world.getVis(owner.position) < 1.0f) return; // no vis in aura
@@ -130,18 +130,18 @@ equilibrium_Trait.localizedDescription = game.localize('e2ee.tconstruct.material
 
 // Bonus mining speed depending on vis in aura
 equilibrium_Trait.getMiningSpeed = function (trait, tool, event) {
-  if (event.player.world.isRemote()) return; // world is remote
+  if (event.player.world.remote) return; // world is remote
   event.newSpeed = event.newSpeed + (event.originalSpeed * min(2.0f, event.player.world.getVis(event.position) * 0.005f) as float);
 };
 // Bonus dmg multiplier depending on vis in aura
 equilibrium_Trait.calcDamage = function (trait, tool, attacker, target, originalDamage, newDamage, isCritical) {
-  if (attacker.world.isRemote()) return newDamage; // world is not remote
+  if (attacker.world.remote) return newDamage; // world is not remote
   if (!attacker instanceof IPlayer) return newDamage; // not player
   return newDamage * ((1 + min(3.0f, attacker.world.getVis(attacker.position) * 0.01f)) as float);
 };
 // Relese vis on kill
 equilibrium_Trait.afterHit = function (trait, tool, attacker, target, damageDealt, wasCritical, wasHit) {
-  if (attacker.world.isRemote()) return; // world is remote
+  if (attacker.world.remote) return; // world is remote
   if (target.health <= 0 && wasHit) {
     attacker.world.addVis(attacker.position, (target.maxHealth / 2.0f) as float); // release vis
     (attacker.world.native as WorldServer).spawnParticle(EnumParticleTypes.END_ROD, target.x, entityEyeHeight(target), target.z, 50, 5, 1, 5, 0, 0);
@@ -162,7 +162,7 @@ equilibriumArmor_Trait.color = 2852604;
 equilibriumArmor_Trait.localizedName = game.localize('e2ee.tconstruct.material.vis_equilibrium.name');
 equilibriumArmor_Trait.localizedDescription = game.localize('e2ee.tconstruct.material.vis_equilibrium.description');
 equilibriumArmor_Trait.getModifications = function (trait, player, mods, armor, damageSource, damage, index) {
-  if (!player.world.isRemote()) {
+  if (!player.world.remote) {
     mods.effectiveness += max(3.0f, player.world.getVis(player.position) * 0.01f);
   }
   return mods;
@@ -291,7 +291,7 @@ forbidden_Trait.localizedName = game.localize('e2ee.tconstruct.material.forbidde
 forbidden_Trait.localizedDescription = game.localize('e2ee.tconstruct.material.forbidden.description');
 
 forbidden_Trait.onHit = function (trait, tool, attacker, target, damage, isCritical) {
-  if (attacker.world.isRemote()) return;
+  if (attacker.world.remote) return;
   if (!attacker instanceof IPlayer) return;
   val player as IPlayer = attacker;
   val warp as int = player.warpNormal + player.warpTemporary + player.warpPermanent;
@@ -370,7 +370,7 @@ function speakRandom(player as IPlayer, world as IWorld) as void {
 }
 
 possessed_Trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
-  if (world.isRemote()
+  if (world.remote
     || world.time % 6000 != 0
     || !checkIfWeapon(tool)
     || !owner instanceof IPlayer
@@ -421,7 +421,7 @@ function porous(player as IPlayer) as void {
 }
 
 porous_Trait.onArmorTick = function (trait, armor, world, player) {
-  if (world.isRemote()) return;
+  if (world.remote) return;
   // if(!checkArmorType) return;
   porous(player);
 };
@@ -459,7 +459,7 @@ eldritchRetribution_trait.localizedName = game.localize('e2ee.tconstruct.materia
 eldritchRetribution_trait.localizedDescription = game.localize('e2ee.tconstruct.material.eldritch_retribution.description');
 
 eldritchRetribution_trait.onHurt = function (trait, armor, player, source, damage, newDamage, evt) {
-  if (source.trueSource instanceof IEntityLivingBase & !player.world.isRemote() & player.warpNormal + player.warpTemporary + player.warpPermanent >= 100) {
+  if (source.trueSource instanceof IEntityLivingBase & !player.world.remote & player.warpNormal + player.warpTemporary + player.warpPermanent >= 100) {
     val mobTrue as IEntityLivingBase = source.trueSource;
     val i = player.world.random.nextInt(4);
     if (i == 0) {
@@ -513,7 +513,7 @@ gaze_trait.localizedDescription = game.localize('e2ee.tconstruct.material.gaze.d
 static gazeUpdateTime as int = 80;
 
 function gazeMechanic(world as IWorld, player as IPlayer) as void {
-  if (world.isRemote()
+  if (world.remote
     || isNull(player)) {
     return;
   }
@@ -601,7 +601,7 @@ researcherTrait.color = 16744631;
 researcherTrait.localizedName = game.localize('e2ee.tconstruct.material.researcher.name');
 researcherTrait.localizedDescription = game.localize('e2ee.tconstruct.material.researcher.description');
 researcherTrait.calcDamage = function (trait, tool, attacker, target, originalDamage, newDamage, isCritical) {
-  if (target.world.isRemote()
+  if (target.world.remote
     || !attacker instanceof IPlayer) {
     return newDamage;
   }
@@ -619,7 +619,7 @@ researcherTrait.calcDamage = function (trait, tool, attacker, target, originalDa
 };
 
 researcherTrait.onHit = function (trait, tool, attacker, target, damage, isCritical) {
-  if (target.world.isRemote()
+  if (target.world.remote
     || !attacker instanceof IPlayer) {
     return;
   }
@@ -710,7 +710,7 @@ ____ _    _  _ _  _    ____ ___ ____ _ _  _ ____    ___ ____ ____    _  _ ___  _
 */
 
 researcherTrait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
-  if (world.isRemote()) return;
+  if (world.remote) return;
   if (!owner instanceof IPlayer) return;
   val player as IPlayer = owner;
 
@@ -770,7 +770,7 @@ function checkRefineEnchant(tool as IItemStack) as int {
 
 researcherTrait.onBlockHarvestDrops = function (trait, tool, event) {
   // DROP BONUS crystalized chunks
-  if (event.player.world.isRemote()) return; // world is remote
+  if (event.player.world.remote) return; // world is remote
 
   if (!checkTool(tool)) return;
   val lvl = checkRefineEnchant(tool);
@@ -933,7 +933,7 @@ robust_trait.localizedDescription = game.localize('e2ee.tconstruct.material.robu
 
 robust_trait.onArmorEquip = function (trait, armor, player, index) {
   if (isNull(player)
-    || player.world.isRemote()) {
+    || player.world.remote) {
     return;
   }
 
@@ -946,7 +946,7 @@ robust_trait.onArmorEquip = function (trait, armor, player, index) {
 
 robust_trait.onArmorRemove = function (trait, armor, player, index) {
   if (isNull(player)
-    || player.world.isRemote()) {
+    || player.world.remote) {
     return;
   }
 

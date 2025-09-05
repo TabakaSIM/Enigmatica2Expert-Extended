@@ -1,4 +1,4 @@
-#modloaded iceandfire
+#modloaded iceandfire tconstruct
 
 import crafttweaker.item.IItemStack;
 
@@ -206,7 +206,7 @@ mods.iceandfire.recipes.addIceDragonForgeRecipe(<integrateddynamics:crystalized_
 // ######################################################################
 
 // Compressed ice variant
-utils.compact(utils.tryCatch('mctsmelteryio:iceball', <iceandfire:dragon_ice>), <iceandfire:dragon_ice>);
+utils.compact(<mctsmelteryio:iceball> ?? <iceandfire:dragon_ice>, <iceandfire:dragon_ice>);
 
 // Simplify bricks for less grind
 remakeEx(<iceandfire:dragonforge_fire_brick> * 2, [
@@ -256,10 +256,13 @@ mods.iceandfire.recipes.addIceDragonForgeRecipe(
   <scalinghealth:heartcontainer>);
 
 // Alt for non-dragon players
-scripts.processUtils.avdRockXmlRecipeEx('Crystallizer', [<cyclicmagic:heart_toxic>], [<fluid:lifeessence> * 1000], [<scalinghealth:heartcontainer>], null, { power: 100000, timeRequired: 20 });
-
-// [Crystal Matrix Ingot] from [Diamond Lattice][+1]
-scripts.processUtils.avdRockXmlRecipeEx('PrecisionLaserEtcher', [<ore:netherStar>, <ore:gemDilithium>], null, [<avaritia:resource:1>], null, { power: 100000, timeRequired: 20 });
+mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
+  .input(<cyclicmagic:heart_toxic>)
+  .inputLiquid(<fluid:lifeessence> * 1000)
+  .outputItem(<scalinghealth:heartcontainer>)
+  .power(100000)
+  .timeRequired(20)
+  .build();
 
 // [Fire Dragonsteel Ingot] from [Fire Dragon Blood][+1]
 scripts.process.alloy([
@@ -347,20 +350,26 @@ scripts.do.entity_kill_entity.add('minecraft:slime', 'iceandfire:if_cockatrice',
 
 // Dragon Scales
 val listConversionScales as IItemStack[] = [
-  <ic2:plate:10>,  <iceandfire:dragonscales_red>,
-  <ic2:plate:14>,  <iceandfire:dragonscales_green>,
-  <ic2:plate:9>,   <iceandfire:dragonscales_bronze>,
-  <ic2:plate:15>,  <iceandfire:dragonscales_gray>,
-  <ic2:plate:16>,  <iceandfire:dragonscales_blue>,
-  <ic2:plate:17>,  <iceandfire:dragonscales_white>,
-  <ic2:plate:13>,  <iceandfire:dragonscales_sapphire>,
-  <ic2:plate:12>,  <iceandfire:dragonscales_silver>,
+  <ic2:plate:10>,  <iceandfire:dragonscales_red>, <iceandfire:dragonscale_red>,
+  <ic2:plate:14>,  <iceandfire:dragonscales_green>, <iceandfire:dragonscale_green>,
+  <ic2:plate:9>,   <iceandfire:dragonscales_bronze>,  <iceandfire:dragonscale_bronze>,
+  <ic2:plate:15>,  <iceandfire:dragonscales_gray>, <iceandfire:dragonscale_gray>,
+  <ic2:plate:16>,  <iceandfire:dragonscales_blue>, <iceandfire:dragonscale_blue>,
+  <ic2:plate:17>,  <iceandfire:dragonscales_white>, <iceandfire:dragonscale_white>,
+  <ic2:plate:13>,  <iceandfire:dragonscales_sapphire>, <iceandfire:dragonscale_sapphire>,
+  <ic2:plate:12>,  <iceandfire:dragonscales_silver>, <iceandfire:dragonscale_silver>,
 ];
 
 for i, input in listConversionScales {
-  if (i % 2 != 0) continue;
+  if (i % 3 != 0) continue;
+
+  // Plate -> Scale
   val output = listConversionScales[i + 1];
   mods.rats.recipes.addArcheologistRatRecipe(input, output);
+
+  // Scale Block -> Plate
+  val block = listConversionScales[i + 2];
+  mods.rats.recipes.addArcheologistRatRecipe(block, input);
 
   // [Dragon Scales] from [Dragon Scale]
   recipes.addShapeless(output, [<mysticalagradditions:stuff:3>, input]);

@@ -13,17 +13,17 @@
 		type: "item",
 		items: [{
 			ForgeCaps: {
-				"plustic:musicofthespheres_cap": {
-					Items: [],
-					Size: 1
-				},
 				"plustic:": {
-					Items: [],
-					Size: 1
+					Size: 1,
+					Items: []
 				},
 				"plustic:fruitsalad_cap": {
-					Items: [],
-					Size: 5
+					Size: 5,
+					Items: []
+				},
+				"plustic:musicofthespheres_cap": {
+					Size: 1,
+					Items: []
 				}
 			},
 			id: "tconstruct:lumberaxe"
@@ -40,62 +40,62 @@
 		uid: "9c8a4099",
 		type: "item",
 		item: {
+			id: "forestry:sapling",
 			tag: {
 				IsAnalyzed: 0b,
 				Genome: {
 					Chromosomes: [{
-						Slot: 0b,
+						UID1: "forestry.treeCherry",
 						UID0: "forestry.treeCherry",
-						UID1: "forestry.treeCherry"
+						Slot: 0b
 					},
 					{
-						Slot: 1b,
+						UID1: "forestry.heightSmaller",
 						UID0: "forestry.heightSmaller",
-						UID1: "forestry.heightSmaller"
+						Slot: 1b
 					},
 					{
-						Slot: 2b,
+						UID1: "forestry.saplingsLow",
 						UID0: "forestry.saplingsLow",
-						UID1: "forestry.saplingsLow"
+						Slot: 2b
 					},
 					{
-						Slot: 3b,
+						UID1: "forestry.fruitCherry",
 						UID0: "forestry.fruitCherry",
-						UID1: "forestry.fruitCherry"
+						Slot: 3b
 					},
 					{
-						Slot: 4b,
+						UID1: "forestry.yieldAverage",
 						UID0: "forestry.yieldAverage",
-						UID1: "forestry.yieldAverage"
+						Slot: 4b
 					},
 					{
-						Slot: 5b,
+						UID1: "forestry.sappinessLow",
 						UID0: "forestry.sappinessLow",
-						UID1: "forestry.sappinessLow"
+						Slot: 5b
 					},
 					{
-						Slot: 6b,
+						UID1: "forestry.leavesNone",
 						UID0: "forestry.leavesNone",
-						UID1: "forestry.leavesNone"
+						Slot: 6b
 					},
 					{
-						Slot: 7b,
+						UID1: "forestry.maturationAverage",
 						UID0: "forestry.maturationAverage",
-						UID1: "forestry.maturationAverage"
+						Slot: 7b
 					},
 					{
-						Slot: 8b,
+						UID1: "forestry.i1d",
 						UID0: "forestry.i1d",
-						UID1: "forestry.i1d"
+						Slot: 8b
 					},
 					{
-						Slot: 9b,
+						UID1: "forestry.fireproofFalse",
 						UID0: "forestry.fireproofFalse",
-						UID1: "forestry.fireproofFalse"
+						Slot: 9b
 					}]
 				}
-			},
-			id: "forestry:sapling"
+			}
 		}
 	}]
 }

@@ -1642,10 +1642,8 @@ function calcColor(lore as IData) as int {
   return r / l * 65536 + g / l * 256 + b / l;
 }
 
-function haveLoremError(lorem as IData) as bool{
-  if(lorem.length==0) return false;
-  
-  for i in 0 .. lorem.length{
+function haveLoremError(lorem as IData) as bool{  
+  for i in 0 .. lorem.length {
     if(!(loreUnColor has lorem[i])) return true;
   }
 
@@ -1670,7 +1668,16 @@ recipes.addShapeless('augmentMithminiteScythe', <thaumadditions:mithminite_scyth
     return scythe.withTag(newTag);
 
   },
-  null);
+  function(out, cInfo, player){
+    if(isNull(player)) return;
+
+    val researchName = loreUnColor[out.tag.display.Lore[out.tag.display.Lore.length - 1]];
+
+    if(!player.thaumcraftKnowledge.isResearchComplete('!' ~ researchName ~ '_seal')){
+      player.thaumcraftKnowledge.addResearch('!' ~ researchName ~ '_seal');
+      player.sendPlaySoundPacket("thaumcraft:whispers", 'ambient', player.position, 1.0f, player.world.random.nextFloat(0.8f, 1.0f));
+    }
+  });
 
 //#################################################################################
 

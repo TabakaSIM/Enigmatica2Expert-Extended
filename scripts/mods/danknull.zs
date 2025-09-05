@@ -9,26 +9,46 @@ for i in 1 .. 6 {
   recipes.removeByRecipeName('danknull:dank_null_' ~ i);
 }
 
-// Change panel recipes
-function dankPanelCraft(index as int, matPrimary as IIngredient, matSecondary as IIngredient) {
-  val recipeName = 'danknull:dank_null_panel_' ~ index;
-  val item = itemUtils.getItem(recipeName);
-  val cb = <minecraft:coal_block>;
-
-  recipes.removeByRecipeName(recipeName);
-  mods.extendedcrafting.EnderCrafting.addShaped(item, [
-    [matSecondary, cb, matSecondary],
-    [cb, matPrimary, cb],
-    [matSecondary, cb, matSecondary],
-  ] as IIngredient[][]);
-}
-
-// dankPanelCraft(0, <ore:paneGlassRed>,	<ore:blockRedstone>);
-// dankPanelCraft(1, <ic2:te:111>, 			<ore:blockLapis>);
-dankPanelCraft(2, <ic2:te:112>, <ore:blockFakeIron>);
-dankPanelCraft(3, <ic2:te:113>, <ore:blockGold>);
-dankPanelCraft(4, <ic2:te:114>, <ore:blockDiamond>);
-dankPanelCraft(5, <ic2:te:115>, <ore:blockEmerald>);
+craft.remake(<danknull:dank_null_panel_1>, ['pretty',
+  '□ © □',
+  '© G ©',
+  '□ © □'], {
+  '□': <ore:plateLapis>,
+  '©': <ore:blockCoal>,
+  'G': <minecraft:stained_glass_pane:11>,
+});
+craft.remake(<danknull:dank_null_panel_2>, ['pretty',
+  '□ © □',
+  '© I ©',
+  '□ © □'], {
+  '□': <ore:plateDenseIron>,
+  '©': <ore:blockCoal>,
+  'I': <ic2:te:112>,
+});
+craft.remake(<danknull:dank_null_panel_3>, ['pretty',
+  '□ © □',
+  '© B ©',
+  '□ © □'], {
+  '□': <ore:plateDenseGold>,
+  '©': <ore:blockCoal>,
+  'B': <ic2:te:113>,
+});
+craft.remake(<danknull:dank_null_panel_4>, ['pretty',
+  '* © *',
+  '© S ©',
+  '* © *'], {
+  '*': <actuallyadditions:block_crystal:2>,
+  '©': <ore:blockCoal>,
+  'S': <ic2:te:114>,
+});
+craft.remake(<danknull:dank_null_panel_5>, ['pretty',
+  '* © *',
+  '© I ©',
+  '* © *'], {
+  '*': <actuallyadditions:block_crystal:4>,
+  '©': <ore:blockCoal>,
+  'I': <ic2:te:115>,
+});
 
 // [/dank/null Docking Station] from [Sky Stone Block][+2]
 craft.remake(<danknull:danknull_dock>, ['pretty',

@@ -771,7 +771,7 @@
       <input name="itemPulsatingPowder"/>
       <input name="ingotVibrantAlloy"/>
       <input name="ingotSentientMetal"/>
-      <output name="enderio:item_alloy_endergy_ingot:1"/>
+      <output name="enderio:item_alloy_endergy_ingot:1" amount="2"/>
     </alloying>
   </recipe>
   <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->
@@ -780,7 +780,7 @@
       <input name="itemEnderCrystalPowder"/>
       <input name="ingotCrystallineAlloy"/>
       <input name="ingotPinkMetal"/>
-      <output name="enderio:item_alloy_endergy_ingot:4"/>
+      <output name="enderio:item_alloy_endergy_ingot:4" amount="2"/>
     </alloying>
   </recipe>
   <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->
@@ -789,7 +789,7 @@
       <input name="itemVibrantPowder"/>
       <input name="ingotCrystallinePinkSlime"/>
       <input name="ingotThermoconducting"/>
-      <output name="enderio:item_alloy_endergy_ingot:2"/>
+      <output name="enderio:item_alloy_endergy_ingot:2" amount="2"/>
     </alloying>
   </recipe>
   <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->
@@ -816,7 +816,7 @@
       <input name="itemPrecientPowder"/>
       <input name="ingotMelodicAlloy"/>
       <input name="ingotUUMatter"/>
-      <output name="enderio:item_alloy_endergy_ingot:3"/>
+      <output name="enderio:item_alloy_endergy_ingot:3" amount="2"/>
     </alloying>
   </recipe>
   <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->
@@ -835,6 +835,14 @@
       <input name="jaopca:item_geardraconium" amount="2"/>
       <input name="draconicevolution:infused_obsidian"/>
       <output name="draconicevolution:draconic_core" amount="2"/>
+    </alloying>
+  </recipe>
+  <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->
+  <recipe name="Elektron60-Alloy Ingot">
+    <alloying energy="10000">
+      <input name="ingotMagnesium26"/>
+      <input name="ingotCobalt60"/>
+      <output name="contenttweaker:elektron60_ingot" amount="4"/>
     </alloying>
   </recipe>
   <!-- Recipe below generated automatically. Do not make changes or they gonna be rewritten. -->

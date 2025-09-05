@@ -5,22 +5,22 @@
 	},
 	{
 		item: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		}
 	},
 	{
 		item: {
+			id: "extrautils2:drum",
 			tag: {
 				Fluid: {
-					Amount: 4096000,
-					FluidName: "biofuel"
+					FluidName: "biofuel",
+					Amount: 4096000
 				}
 			},
-			Damage: 2s,
-			id: "extrautils2:drum"
+			Damage: 2s
 		}
 	}]
 }

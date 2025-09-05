@@ -17,16 +17,16 @@
 		uid: "323cdf4f",
 		type: "item",
 		items: [{
+			id: "tconstruct:sharpening_kit",
 			tag: {
 				Material: "obsidian"
-			},
-			id: "tconstruct:sharpening_kit"
+			}
 		},
 		{
+			id: "tconstruct:sharpening_kit",
 			tag: {
 				Material: "sky_stone"
-			},
-			id: "tconstruct:sharpening_kit"
+			}
 		}],
 		ignore_nbt: 2b
 	}]

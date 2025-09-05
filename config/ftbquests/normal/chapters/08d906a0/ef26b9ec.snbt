@@ -12,16 +12,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "treeLeaves"
+					data: "treeLeaves",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any treeLeaves"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}],
 		count: 36L
 	},

@@ -1,7 +1,7 @@
 #reloadable
 #priority -1500
 #ignoreBracketErrors
-#modloaded zenutils ctintegration
+#modloaded zenutils ctintegration scalinghealth
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.world.IWorld;
@@ -42,11 +42,11 @@ Forbidder()
 .onOpen('cofh.thermaldynamics.gui.container.ContainerDuctConnection')
 .value(2)
 
-.stack(<nuclearcraft:water_source>).value(2).events('pickup place look')
+.stack(<nuclearcraft:water_source>).value(2).events('pickup place interact')
 .stack(<openblocks:hang_glider>).value(2).events('use')
-.stack(<nuclearcraft:water_source_compact>).value(3).events('pickup place look')
-.stack(<nuclearcraft:water_source_dense>).value(4).events('pickup place look')
-.stack(<scannable:scanner>).onOpen('li.cil.scannable.common.container.ContainerScanner').value(8).events('pickup')
+.stack(<nuclearcraft:water_source_compact>).value(3).events('pickup place interact craft')
+.stack(<nuclearcraft:water_source_dense>).value(4).events('pickup place interact craft')
+.stack(<scannable:scanner>).onOpen('li.cil.scannable.common.container.ContainerScanner').value(8)
 
 .stacks('conduits', [
   <enderio:item_item_conduit>,
@@ -78,19 +78,20 @@ Forbidder()
   <enderio:item_endergy_conduit:11>,
 ])
 .onOpen('crazypants.enderio.conduits.gui.ExternalConnectionContainer')
-.value(10).events('pickup craft')
+.value(10).events('place interact', [<blockstate:enderio:block_conduit_bundle>])
 
 // Ender Storage doesnt have container event
 .stacks('enderstorage', [
   <enderstorage:ender_storage>,
   <enderstorage:ender_storage:1>,
 ])
-.value(20).events('pickup craft place look')
+.onOpen('codechicken.enderstorage.container.ContainerEnderItemStorage')
+.value(20).events('pickup craft place interact')
 
 .stack(<gendustry:imprinter>).onOpen('net.bdew.gendustry.machines.imprinter.ContainerImprinter').value(40).events('pickup craft')
 .stack(<gendustry:replicator>).onOpen('net.bdew.gendustry.machines.replicator.ContainerReplicator').value(60).events('pickup craft')
 
-.stack(<appliedenergistics2:controller>).value(100).events('pickup craft place look replicate')
+.stack(<appliedenergistics2:controller>).value(100).events('pickup craft place interact replicate')
 
 .stacks('fluxnetworks', [
   <fluxnetworks:fluxpoint>,

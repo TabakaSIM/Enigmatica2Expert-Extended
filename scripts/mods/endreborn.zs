@@ -50,7 +50,7 @@ recipes.remove(<endreborn:block_decorative_lormyte>);
 val LS = <endreborn:item_lormyte_crystal>;
 recipes.addShapeless(LS * 9, [<endreborn:block_decorative_lormyte>]);
 recipes.addShapeless(<endreborn:block_decorative_lormyte>, [LS, LS, LS, LS, LS, LS, LS, LS, LS]);
-scripts.lib.dropt.addDrop(<endreborn:block_lormyte_crystal>, <endreborn:item_lormyte_crystal>);
+scripts.lib.dropt.addDrop(<endreborn:block_lormyte_crystal>, [<endreborn:item_lormyte_crystal>]);
 
 // Fix automatic recipe
 mods.actuallyadditions.Crusher.removeRecipe(<endreborn:death_essence>);
@@ -244,4 +244,12 @@ craft.shapeless(<endreborn:item_ingot_wolframium>, '‚‚‚‚‚‚‚‚‚'
   '‚': <jaopca:item_nuggettungsten>,
 });
 
+// For some reason this not working
+for i, oreName in 'clusterTungsten dirtyGemAstralStarmetal oreTungsten'.split(' ') {
+  val input = oreDict[oreName].firstItem;
+  val wrong = <jaopca:item_nuggettungsten>;
+  val correct = <endreborn:wolframium_nugget> % 33;
+  mods.thaumcraft.SmeltingBonus.removeSmeltingBonus(input, wrong);
+  mods.thaumcraft.SmeltingBonus.addSmeltingBonus(input, correct);
+}
 // ----------------------------------------------------------------------------

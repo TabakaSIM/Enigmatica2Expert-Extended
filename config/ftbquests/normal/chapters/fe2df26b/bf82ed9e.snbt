@@ -1,20 +1,20 @@
 {
 	title: "{q.applied_energetics.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 126,
-			TrophyColorBlue: 149,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 89,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 2s,
 				Count: 1b,
-				id: "chisel:futura"
+				id: "chisel:futura",
+				Damage: 2s
 			},
+			TrophyColorBlue: 149,
+			TrophyColorRed: 126,
 			TrophyName: "§3Applied Energetics Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 6.0d,
 	y: 3.0d,
@@ -35,6 +35,7 @@
 		"ff8470d4",
 		"c725a7f7",
 		"882dc2b8",
+		"2c210bb9",
 		"75e96e73",
 		"299d0e81",
 		"fb831b5c",
@@ -58,20 +59,20 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 126,
-				TrophyColorBlue: 149,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 89,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 2s,
 					Count: 1b,
-					id: "chisel:futura"
+					id: "chisel:futura",
+					Damage: 2s
 				},
+				TrophyColorBlue: 149,
+				TrophyColorRed: 126,
 				TrophyName: "§3Applied Energetics Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

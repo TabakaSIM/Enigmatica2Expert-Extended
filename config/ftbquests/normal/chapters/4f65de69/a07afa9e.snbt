@@ -2,20 +2,45 @@
 	title: "{q.getting_started.harder_branch_mining.name}",
 	icon: {
 		ForgeCaps: {
-			"plustic:musicofthespheres_cap": {
-				Items: [],
-				Size: 1
-			},
 			"plustic:": {
-				Items: [],
-				Size: 1
+				Size: 1,
+				Items: []
 			},
 			"plustic:fruitsalad_cap": {
-				Items: [],
-				Size: 5
+				Size: 5,
+				Items: []
+			},
+			"plustic:musicofthespheres_cap": {
+				Size: 1,
+				Items: []
 			}
 		},
+		id: "tconstruct:pickaxe",
 		tag: {
+			StatsOriginal: {
+				AttackSpeedMultiplier: 1.0f,
+				MiningSpeed: 1.5f,
+				FreeModifiers: 3,
+				Durability: 1,
+				HarvestLevel: 0,
+				Attack: 2.25f
+			},
+			Stats: {
+				AttackSpeedMultiplier: 1.0f,
+				MiningSpeed: 1.5f,
+				FreeModifiers: 2,
+				Durability: 1,
+				HarvestLevel: 0,
+				Attack: 2.25f,
+				Broken: 1b
+			},
+			Special: {
+				Categories: [
+					"aoe",
+					"tool",
+					"harvest"
+				]
+			},
 			TinkerData: {
 				Materials: [
 					"stone",
@@ -26,55 +51,30 @@
 					"toolleveling"
 				]
 			},
-			Stats: {
-				MiningSpeed: 1.5f,
-				HarvestLevel: 0,
-				Broken: 1b,
-				FreeModifiers: 2,
-				AttackSpeedMultiplier: 1.0f,
-				Attack: 2.25f,
-				Durability: 1
-			},
-			Special: {
-				Categories: [
-					"aoe",
-					"tool",
-					"harvest"
-				]
-			},
 			Modifiers: [{
-				color: -6710887,
 				identifier: "cheap",
-				level: 1
-			},
-			{
 				color: -6710887,
-				identifier: "cheapskate",
 				level: 1
 			},
 			{
-				color: 16777215,
+				identifier: "cheapskate",
+				color: -6710887,
+				level: 1
+			},
+			{
 				identifier: "toolleveling",
+				color: 16777215,
 				level: 1,
 				bonus_modifiers: 0,
 				xp: 1
 			}],
-			StatsOriginal: {
-				FreeModifiers: 3,
-				MiningSpeed: 1.5f,
-				AttackSpeedMultiplier: 1.0f,
-				HarvestLevel: 0,
-				Attack: 2.25f,
-				Durability: 1
-			},
 			Traits: [
 				"cheap",
 				"cheapskate",
 				"toolleveling"
 			]
 		},
-		Damage: 1s,
-		id: "tconstruct:pickaxe"
+		Damage: 1s
 	},
 	x: 3.625d,
 	y: 1.0d,

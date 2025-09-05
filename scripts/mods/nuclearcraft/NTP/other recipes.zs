@@ -1,9 +1,13 @@
-#modloaded nuclearcraft
+#modloaded nuclearcraft qmd
 
 import crafttweaker.item.IIngredient;
 
 // elektron
-mods.nuclearcraft.AlloyFurnace.addRecipe(<ore:ingotMagnesium26>, <ore:ingotCobalt60>, <contenttweaker:elektron60_ingot> * 4);
+scripts.process.alloy(
+  [<ore:ingotMagnesium26>, <ore:ingotCobalt60>],
+  <contenttweaker:elektron60_ingot> * 4,
+  'except: kiln');
+
 // recipes.addShapeless("elektron2block",<contenttweaker:elektron60_block>,[<ore:ingotElektron60>*9]);
 recipes.addShapeless('block2elektron', <contenttweaker:elektron60_ingot> * 9, [<ore:blockElektron60>]);
 val blocked = <ore:ingotElektron60>;

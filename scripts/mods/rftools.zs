@@ -161,9 +161,9 @@ recipes.addShaped('rftools_storage_module_2', <rftools:storage_module:2>, [
 // Harder card recipe
 recipes.removeByRecipeName('rftools:powercell_card');
 recipes.addShaped(<rftools:powercell_card> * 4, [
-  [<ore:dustEndstone>, <computercraft:printout>, <ore:dustEndstone>],
-  [<computercraft:printout>, <rats:charged_creeper_chunk>, <computercraft:printout>],
-  [<ore:dustEndstone>, <computercraft:printout>, <ore:dustEndstone>]]);
+  [<ore:dustEndstone>, <rats:charged_creeper_chunk>, <ore:dustEndstone>],
+  [<rats:charged_creeper_chunk>, <computercraft:printout:*>, <rats:charged_creeper_chunk>],
+  [<ore:dustEndstone>, <rats:charged_creeper_chunk>, <ore:dustEndstone>]]);
 
 // ------------------------------------------------
 // Power Cells

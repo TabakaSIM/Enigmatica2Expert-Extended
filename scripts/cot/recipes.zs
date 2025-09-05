@@ -2,14 +2,12 @@
 #reloadable
 
 import crafttweaker.item.IIngredient;
+import crafttweaker.item.IItemStack;
 
 furnace.setFuel(<contenttweaker:conglomerate_of_coal>, 60000);
 furnace.setFuel(<contenttweaker:blasted_coal>, 120000);
 furnace.setFuel(<contenttweaker:empowered_phosphor>, 180000);
 furnace.setFuel(<contenttweaker:saturated_phosphor>, 450000);
-
-// Since Heavy have negative durability, surikens becomes infinite
-mods.tconstruct.Casting.removeTableRecipe(<tconstruct:knife_blade>.withTag({ Material: 'heavy' }));
 
 // Tallow into biomass
 scripts.process.compress(<ore:tallow> * 64, <contenttweaker:compressed_tallow>, 'except: compressor');
@@ -39,7 +37,7 @@ craft.remake(<exnihilocreatio:item_mesh:1>, ['pretty',
 // Compressed
 val B = <ore:stoneBasalt>;
 recipes.addShapeless(<contenttweaker:compressed_basalt>, [B, B, B, B, B, B, B, B, B]);
-recipes.addShapeless(utils.tryCatch("chisel:basalt2", 7, <quark:basalt>) * 9, [<contenttweaker:compressed_basalt>]);
+recipes.addShapeless((<chisel:basalt2:7> ?? <quark:basalt>) * 9, [<contenttweaker:compressed_basalt>]);
 utils.compact(<contenttweaker:compressed_basalt>, <contenttweaker:compressed_basalt_double>);
 
 val C = <biomesoplenty:coral:*>;
@@ -116,9 +114,9 @@ mods.tconstruct.Casting.addTableRecipe(<opencomputers:material:11>, <tconstruct:
 mods.tconstruct.Casting.addBasinRecipe(<opencomputers:case1>, null, <liquid:electronics>, 144 * 9);
 
 // Anglesite - Highest tier of Tech mods crystals
-mods.extendedcrafting.CombinationCrafting.addRecipe(<contenttweaker:ore_anglesite>, 100000000, 1000000,
-  <additionalcompression:gravelend_compressed:2>, [
-    <ore:singularityEntangled>,
+mods.extendedcrafting.CombinationCrafting.addRecipe(<contenttweaker:item_ore_anglesite>, 100000000, 1000000,
+  <additionalcompression:gravelend_compressed:1>, [
+    <ore:itemEntangled>,
     <biomesoplenty:terrestrial_artifact>,
     <ore:clathrateGlowstone>,
     <ore:clathrateRedstone>,
@@ -165,24 +163,42 @@ val benitoiteIngrs = [
 ] as IIngredient[];
 
 mods.extendedcrafting.CombinationCrafting.addRecipe(
-  <contenttweaker:ore_benitoite>, 100000000, 1000000,
-  <additionalcompression:gravelnether_compressed:2>,
+  <contenttweaker:item_ore_benitoite>, 100000000, 1000000,
+  <additionalcompression:gravelnether_compressed:1>,
   benitoiteIngrs
 );
 
 mods.thaumcraft.Infusion.registerRecipe(
   'benitoite', // Name
   'INFUSION', // Research
-  <contenttweaker:ore_benitoite>, // Output
+  <contenttweaker:item_ore_benitoite>, // Output
   15, // Instability
   [<aspect:sanguis> * 1000, <aspect:mana> * 1000, <aspect:draco> * 1000],
-  <additionalcompression:gravelnether_compressed:2>, // CentralItem
+  <additionalcompression:gravelnether_compressed:1>, // CentralItem
   benitoiteIngrs
 );
 
 // Benefication of Anglesite and Benitoite
-scripts.process.beneficiate(<contenttweaker:ore_anglesite>, 'Anglesite', 1, { exceptions: 'only: Grindstone' });
-scripts.process.beneficiate(<contenttweaker:ore_benitoite>, 'Benitoite', 1, { exceptions: 'only: Grindstone' });
+// Note: 'exceptions' field here could only accept normal whitelist, no 'only:' or 'strict:' modifiers
+scripts.process.beneficiate(<contenttweaker:ore_anglesite>, 'Anglesite', 1);
+scripts.process.beneficiate(<contenttweaker:ore_benitoite>, 'Benitoite', 1);
+
+// Remove excess items added by ExNihilo
+function cleanupExnihilo(base as IItemStack) as void {
+  // Remove Ingot
+  val ingot = base.definition.makeStack(3);
+  mods.immersiveengineering.ArcFurnace.removeRecipe(ingot);
+
+  // Remove Dust
+  val dust = base.definition.makeStack(2);
+  mods.immersiveengineering.Crusher.removeRecipe(dust);
+}
+
+cleanupExnihilo(<contenttweaker:item_ore_anglesite>);
+cleanupExnihilo(<contenttweaker:item_ore_benitoite>);
+
+mods.bloodmagic.AlchemyTable.removeRecipe([<contenttweaker:ore_anglesite>, <bloodmagic:cutting_fluid>]);
+mods.bloodmagic.AlchemyTable.removeRecipe([<contenttweaker:ore_benitoite>, <bloodmagic:cutting_fluid>]);
 
 // Perfect Fuel is best fluid fuel in game
 mods.tconstruct.Alloy.addRecipe(<liquid:perfect_fuel>, [
@@ -194,28 +210,6 @@ mods.tconstruct.Alloy.addRecipe(<liquid:perfect_fuel>, [
 // Usage for Perfect Fuel
 mods.enderio.CombustionGen.addFuel(<fluid:perfect_fuel>, 20000, 1500000);
 mods.thermalexpansion.MagmaticDynamo.addFuel(<fluid:perfect_fuel>, 2000000000);
-
-// -------------------------------------------------------------------
-// Singularities
-// -------------------------------------------------------------------
-var needPowerStr = mods.zenutils.StaticString.format('%,d', <contenttweaker:woodweave_singularity>.maxDamage).replaceAll(',', '§8,§6');
-scripts.lib.tooltip.desc.jei(<contenttweaker:woodweave_singularity>, 'singularity.woodweave', needPowerStr);
-
-scripts.do.diverse.addRecipe(
-  'Woodweave Singularity',
-  <avaritia:singularity>,
-  <contenttweaker:woodweave_singularity>,
-  <ore:plankFireproof>
-);
-
-needPowerStr = mods.zenutils.StaticString.format('%,d', <contenttweaker:fish_singularity>.maxDamage).replaceAll(',', '§8,§6');
-scripts.lib.tooltip.desc.jei(<contenttweaker:fish_singularity>, 'singularity.fish', needPowerStr);
-scripts.do.diverse.addRecipe(
-  'Fish Singularity',
-  <avaritia:singularity>,
-  <contenttweaker:fish_singularity>,
-  <ore:listAllfishraw>
-);
 
 // -------------------------------------------------------------------
 

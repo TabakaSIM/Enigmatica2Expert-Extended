@@ -1,0 +1,9 @@
+setIcon(<nuclearcraft:part>)
+setTranslatedTitle("advancement.nuclearcraft.manufactory.name")
+setTranslatedDescription("advancement.nuclearcraft.manufactory.desc")
+addParent("nuclearcraft:root")
+setShowToast(false)
+setAnnounceToChat(false)
+
+criteria = addCriteria("has_item", "minecraft:inventory_changed")
+criteria.addItem(<nuclearcraft:part>)

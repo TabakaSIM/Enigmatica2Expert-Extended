@@ -1,4 +1,4 @@
-#modloaded zenutils ctintegration
+#modloaded zenutils ctintegration ftblib ftbutilities
 #priority 1000
 #reloadable
 
@@ -25,6 +25,14 @@ x.addSubCommand(
   'information about §lloaded chunks',
   function (command as ZenCommand, server as IServer, sender as ZenUtilsCommandSender, args as string[]) as IData {
     return scripts.commands.perf.chunks.show(getCommandSenderAsPlayer(sender));
+  }
+);
+
+x.addSubCommand(
+  'entities',
+  'information about §lloaded entities',
+  function (command as ZenCommand, server as IServer, sender as ZenUtilsCommandSender, args as string[]) as IData {
+    return scripts.commands.perf.entities.show(getCommandSenderAsPlayer(sender));
   }
 );
 

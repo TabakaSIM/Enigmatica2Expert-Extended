@@ -16,14 +16,14 @@
 		uid: "5eb284a4",
 		type: "item",
 		item: {
+			id: "rustic:elixir",
 			tag: {
 				ElixirEffects: [{
 					Duration: 9600,
 					Effect: "minecraft:haste",
 					Amplifier: 3
 				}]
-			},
-			id: "rustic:elixir"
+			}
 		}
 	}]
 }

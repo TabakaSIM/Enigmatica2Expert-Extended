@@ -28,7 +28,7 @@ recipes.remove(<gendustry:mutagen_tank>);
 recipes.addShaped('Mutagen Tank',
   <gendustry:mutagen_tank>,
   [[<ore:plateTin>, <ore:blockGlass>, <ore:plateTin>],
-    [<ore:plateTin>, <aeadditions:certustank>, <ore:plateTin>],
+    [<ore:plateTin>, <enderio:block_omni_reservoir>, <ore:plateTin>],
     [<ore:plateTin>, <ore:blockGlass>, <ore:plateTin>]]);
 
 // Upgrade Frame

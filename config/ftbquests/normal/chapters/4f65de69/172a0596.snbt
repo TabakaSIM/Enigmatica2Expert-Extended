@@ -16,16 +16,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "slabWood"
+					data: "slabWood",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any slabWood"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}]
 	},
 	{

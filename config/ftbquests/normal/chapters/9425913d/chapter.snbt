@@ -50,5 +50,16 @@
 		hover: [],
 		click: "",
 		dev: 0b
+	},
+	{
+		x: 6.5d,
+		y: 7.2d,
+		width: 18.0d,
+		height: 1.0d,
+		rotation: 0.0d,
+		image: "modpack:textures/gui/black_square_30_percent.png",
+		hover: [],
+		click: "",
+		dev: 0b
 	}]
 }

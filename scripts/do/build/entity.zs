@@ -6,10 +6,10 @@
  */
 
 // Zenutils required to run late CoT function and use <cotBlock:> bracket handlers
-#modloaded zenutils
+#modloaded zenutils requious
 
 // Need to be set between Utils and build_mob.add() users
-#priority 2000
+#priority 950
 #reloadable
 
 import crafttweaker.block.IBlockState;
@@ -20,6 +20,8 @@ import crafttweaker.block.IBlock;
 import crafttweaker.world.IBlockPos;
 import crafttweaker.world.IWorld;
 import native.net.minecraft.util.EnumParticleTypes;
+
+import scripts.jei.entity_drop.getEntityDropTable;
 
 zenClass MobBuild {
   // Static data
@@ -139,7 +141,22 @@ zenClass MobBuild {
 
       val r = rotate(face, offset.x, offset.z);
       val truePos = Position3f.create(r[0] + pos.x + shiftX, offset.y + pos.y + shiftY, r[1] + pos.z + shiftZ);
-      utils.spawnGenericCreature(world, entity.id, truePos.x, truePos.y, truePos.z - 0.1, face);
+
+      if ((world.getWorldInfo().difficulty == "PEACEFUL") && (utils.isHostile(world, entity.id))) {
+        // Peaceful handling of hostile mobs
+        for item in getEntityDropTable(entity) {
+          val remainder = item.amount % 100;
+          var spawnAmount = item.amount;
+          if (remainder != 0) { spawnAmount -= remainder >= world.random.nextInt(100) ? remainder - 100 : remainder; }
+          spawnAmount /= 100;
+          if spawnAmount == 0 continue;
+          val entItem = (item * spawnAmount).createEntityItem(world, truePos.x, truePos.y, truePos.z);
+          world.spawnEntity(entItem);
+        }
+      } else {
+        // Peaceful non-hostile and non-peaceful handling
+        utils.spawnGenericCreature(world, entity.id, truePos.x, truePos.y, truePos.z - 0.1, face);
+      }
 
       spawnFnc(world, truePos);
 
@@ -166,23 +183,29 @@ zenClass MobBuild {
   }
 }
 
-static builds as MobBuild[IEntityDefinition] = {} as MobBuild[IEntityDefinition];
+static builds as MobBuild[] = [] as MobBuild[];
 
 function add(entity as IEntityDefinition, volume as string[][], map as IItemStack[string], spawnFnc as function(IWorld,Position3f)void = null) as MobBuild {
   val m =  MobBuild();
+
+  if (isNull(entity)) return m;
+
   m.entity = entity;
   m.volume = volume;
   m.map = map;
   m.spawnFnc = spawnFnc;
-  builds[entity] = m;
+  builds += m;
 
   if (utils.DEBUG) {
     var s = '';
     s ~= '\n"input-types": {\n';
     var k = 0;
     for c, item in map {
+      if (isNull(item)) continue;
       val block = item.asBlock();
-      s ~= (k == 0 ? '' : ',\n') ~ '  "' ~ c ~ '": { "id": "' ~ block.definition.id ~ '", "ignore-meta": true }';
+      s ~= (k == 0 ? '' : ',\n') ~ '  "' ~ c
+        ~ '": { "id": "' ~ block.definition.id ~ '", '
+        ~ (block.meta == 0 ? '"ignore-meta": true' : '"meta": ' ~ block.meta) ~ ' }';
       k += 1;
     }
     s ~= '\n},\n"shape": [';
@@ -195,18 +218,18 @@ function add(entity as IEntityDefinition, volume as string[][], map as IItemStac
     }
     s ~= '\n  ]\n]';
 
-    val fileName = entity.id.replaceAll(':', '_');
-    utils.log('Add Build Mob recipe for file config/compactmachines3/recipes/' ~ fileName ~ '.json'
+    var fileName = getFreeFileName(entity.id.replaceAll(':', '_'));
+    utils.log('Save this into file "config/compactmachines3/recipes/' ~ fileName ~ '.json"'
     ~ '\n{'
     ~ '\n  "name": "compactmachines3:' ~ fileName ~ '",'
     ~ '\n'
     ~ '\n  "target-item": "minecraft:spawn_egg",'
     ~ '\n  "target-nbt": "{EntityTag:{id:\\"' ~ entity.id ~ '\\"}}",'
     ~ '\n'
-    ~ '\n  "catalyst": "minecraft:spawn_egg",'
-    ~ '\n  "catalyst-nbt": "{EntityTag:{id:\\"' ~ entity.id ~ '\\"}}",'
+    ~ '\n  "catalyst": "engineersdecor:sign_caution",'
+    ~ '\n  "catalyst-nbt": "{display:{LocName:\\"tooltips.lang.not_compact_recipe\\"}}",'
     ~ '\n'
-    ~ '  ' ~ s.replaceAll('\n(.)', '\n  $1')
+    ~ s.replaceAll('\n(.)', '\n  $1')
     ~ '\n}\n'
     );
   }
@@ -214,8 +237,22 @@ function add(entity as IEntityDefinition, volume as string[][], map as IItemStac
   return m;
 }
 
+static existingFileNames as bool[string] = {} as bool[string];
+function getFreeFileName(fileName as string) as string {
+  var i = 0;
+  var newName = fileName;
+  while true {
+    if (!(existingFileNames has newName)) {
+      existingFileNames[newName] = true;
+      return newName;
+    }
+    newName = fileName ~ '_' ~ i;
+    i += 1;
+  }
+}
+
 function build(world as IWorld, pos as IBlockPos, state as IBlockState) as void {
-  for entity, build in builds {
+  for index, build in builds {
     if (!(state.block has build.getCore())) continue;
 
     if (build.make(world, pos)) return;

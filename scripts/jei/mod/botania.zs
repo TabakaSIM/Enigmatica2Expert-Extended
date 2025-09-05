@@ -4,6 +4,8 @@
 import mods.requious.AssemblyRecipe;
 import mods.requious.SlotVisual;
 
+scripts.jei.crafting_hints.addInsOutCatl([], <botania:bifrost>, <botania:rainbowrod>);
+
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
 val x = <assembly:petro_petunia>;

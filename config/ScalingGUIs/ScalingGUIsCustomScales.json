@@ -1,12 +1,8 @@
 {
   "guiScale": 3,
   "hudScale": 3,
-  "tooltipScale": 2,
+  "tooltipScale": 9,
   "customIndividualGuiScales": {
-    "us.getfluxed.controlsearch.client.gui.GuiNewControls": {
-      "scale": 2,
-      "name": "us.getfluxed.controlsearch.client.gui.GuiNewControls"
-    },
     "com.github.terminatornl.laggoggles.client.gui.GuiScanResultsWorld": {
       "scale": 1,
       "name": "com.github.terminatornl.laggoggles.client.gui.GuiScanResultsWorld"

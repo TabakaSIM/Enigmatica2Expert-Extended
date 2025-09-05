@@ -2,9 +2,29 @@
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
+import mods.requious.AssemblyRecipe;
 
-Purge(<actuallyadditions:block_grinder>);
-Purge(<actuallyadditions:block_grinder_double>);
+mods.jei.JEI.hideCategory('actuallyadditions.crushing');
+
+val x = <assembly:crafting_hints>;
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addFluidOutput('fluid_out', <liquid:canolaoil> * 80);
+})
+  .requireItem('input0', <actuallyadditions:block_canola_press>)
+  .requireItem('input5', <actuallyadditions:item_misc:13>)
+);
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addFluidOutput('fluid_out', <liquid:refinedcanolaoil> * 80);
+})
+  .requireFluid('fluid_in', <liquid:canolaoil> * 80)
+  .requireItem('input0', <actuallyadditions:block_fermenting_barrel>)
+);
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addFluidOutput('fluid_out', <liquid:blockfluidantimatter> * 1000);
+})
+  .requireFluid('fluid_in', <liquid:lifeessence> * 1000)
+  .requireItem('input0', <cyclicmagic:ender_lightning>)
+);
 
 // Black Quartz Block recipe remakes
 // Black Quartz Pillar
@@ -205,15 +225,6 @@ recipes.addShaped('Atomic Reconstructor',
     [<ore:dustRedstone>, <actuallyadditions:block_misc:9>, null],
     [<ore:plateSteel>, <forestry:thermionic_tubes:4>, <ore:plateSteel>]]);
 
-// Removing Recipes
-Purge(<actuallyadditions:item_dust>).ores([<ore:dustIron>]).furn();
-Purge(<actuallyadditions:item_dust:1>).ores([<ore:dustGold>]).furn();
-Purge(<actuallyadditions:item_dust:2>).ores([<ore:dustDiamond>]).furn();
-Purge(<actuallyadditions:item_dust:4>).ores([<ore:dustLapis>]).furn();
-Purge(<actuallyadditions:item_dust:6>).ores([<ore:dustCoal>]).furn();
-Purge(<actuallyadditions:block_misc:5>).ores([<ore:blockCharcoal>]).furn();
-
-
 // *======= Empowerer =======*
 
 // mods.actuallyadditions.Empowerer.addRecipe(IItemStack output, IItemStack input, IItemStack modifier1, IItemStack modifier2, IItemStack modifier3, IItemStack modifier4, int energyPerStand, int time, @Optional float[] particleColourArray);
@@ -254,7 +265,14 @@ mods.actuallyadditions.Empowerer.addRecipe(<actuallyadditions:block_crystal_empo
 
 // *======= BallOfFur =======*
 
-// Weight of standart AA drops
+/*
+
+Default drops:
+https://github.com/Ellpeck/ActuallyAdditions/blob/1.12.2/src/main/java/de/ellpeck/actuallyadditions/mod/recipe/HairyBallHandler.java
+
+*/
+
+// Weight of default AA drops
 var weight = 100 + 2 + 1 + 80 + 60 + 10 + 40 + 60 + 30 + 70 + 40 + 40 + 10 + 6 + 30 + 2 + 20 + 10 + 3 + 40 + 50 + 30 + 4 + 20;
 
 val listCatFur as string[] = [
@@ -377,14 +395,11 @@ scripts.process.crush(<ore:gemQuartzBlack>, <actuallyadditions:item_dust:7>, cru
 scripts.process.crush(<ore:blockQuartzBlack>, <actuallyadditions:item_dust:7> * 9, crushExceptions, null, null);
 
 // Missed Crushed Emerald recipe
-scripts.process.crush(<ore:gemEmerald>, <actuallyadditions:item_dust:3>, 'Only: Grindstone AEGrinder', null, null);
-
-// Manually add silver secondary output
-scripts.process.crush(<ore:oreGold>, <thermalfoundation:material:1> * 2, 'strict: eu2crusher', [<contenttweaker:dust_tiny_silver>], [1.0f]);
+scripts.process.crush(<ore:gemEmerald>, <actuallyadditions:item_dust:3>, 'Only: AEGrinder', null, null);
 
 // Recycle Quark crystals
 function recycleCrystal(input as IItemStack, output as IItemStack) {
-  scripts.process.crush(input, output, 'Macerator Grindstone AEGrinder ThermalCentrifuge mekCrusher MekEnrichment SagMill', null, null);
+  scripts.process.crush(input, output, 'Macerator AEGrinder ThermalCentrifuge mekCrusher SagMill', null, null);
   scripts.processWork.workEx('SagMill', null, [input], null, [output], null, null, null, { bonusType: 'MULTIPLY_OUTPUT' });
 }
 recycleCrystal(<quark:crystal:1>, <actuallyadditions:item_crystal_shard> * 3);
@@ -409,11 +424,8 @@ scripts.process.squeeze([<actuallyadditions:item_misc:13>], <liquid:canolaoil> *
 // Storage crate remake
 
 // [Storage_Crate_Keeper] from [Black_Quartz][+1]
-craft.remake(<actuallyadditions:item_crate_keeper>, ['pretty',
-  '  #  ',
-  '# • #',
-  '  #  '], {
-  '•': <ore:gemQuartzBlack>, // Black Quartz
+craft.reshapeless(<actuallyadditions:item_crate_keeper>, '•#', {
+  '•': <ore:nuggetQuartzBlack>,
   '#': <ore:plankWood>, // Oak Wood Planks
 });
 
@@ -481,7 +493,7 @@ craft.remake(<actuallyadditions:item_water_removal_ring>, ['pretty',
   '☼ R ☼',
   'S ☼ S'], {
   'R': <actuallyadditions:item_misc:6>, // Ring
-  'S': utils.tryCatch('openblocks:sponge', <minecraft:sponge>), // Sponge
+  'S': <openblocks:sponge> ?? <minecraft:sponge>, // Sponge
   '☼': <ore:crystalPalis>, // Palis Crystal
 });
 
@@ -618,16 +630,14 @@ craft.remake(<actuallyadditions:block_misc:8>, ['pretty',
 });
 
 // [Basic Coil] from [Aluminum Ingot*2][+2]
-scripts.processUtils.avdRockXmlRecipeEx('PrecisionAssembler',
-  [<ore:stickWood> * 36, <ore:ingotAluminium> * 24, <ore:ingotFakeIron> * 24], null,
-  [<actuallyadditions:item_misc:7> * 12], null, { power: 70000, timeRequired: 20 }
-);
+mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionAssembler').builder()
+  .inputOre(<ore:stickWood>, 36).inputOre(<ore:ingotAluminium>, 24).inputOre(<ore:ingotFakeIron>, 24)
+  .outputItem(<actuallyadditions:item_misc:7> * 12).power(70000).timeRequired(20).build();
 
 // [Advanced Coil] from [Aluminum Ingot*2][+3]
-scripts.processUtils.avdRockXmlRecipeEx('PrecisionAssembler',
-  [<forestry:oak_stick> * 60, <ore:ingotGold> * 12, <ore:ingotAluminium> * 24, <ore:ingotFakeIron> * 24], null,
-  [<actuallyadditions:item_misc:8> * 12], null, { power: 140000, timeRequired: 40 }
-);
+mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionAssembler').builder()
+  .input(<forestry:oak_stick> * 60).inputOre(<ore:ingotGold>, 12).inputOre(<ore:ingotAluminium>, 24).inputOre(<ore:ingotFakeIron>, 24)
+  .outputItem(<actuallyadditions:item_misc:8> * 12).power(140000).timeRequired(40).build();
 
 // New dough mechanic
 recipes.remove(<actuallyadditions:item_misc:4>);

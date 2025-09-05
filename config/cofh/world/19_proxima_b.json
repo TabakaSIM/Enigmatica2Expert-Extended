@@ -64,7 +64,6 @@
 					{"type": "sequential","generators": [{"block": "minecraft:stone","material": "iceandfire:frozen_stone","cluster-size": 30},
 							{"block": {"name":"biomesoplenty:gem_ore", "metadata": 6},"cluster-size": 10,"type": "large-vein"},
 							{"block": "libvulpes:ore0","cluster-size": 20,"type": "large-vein"},
-							{"block": "mysticalagriculture:prosperity_ore","cluster-size": 10,"type": "large-vein"},
 							{"block": "minecraft:emerald_ore","cluster-size": 10,"type": "large-vein"}
 						]},
 					{"type": "sequential","generators": [{"block": "minecraft:stone","material": "iceandfire:frozen_stone","cluster-size": 30},

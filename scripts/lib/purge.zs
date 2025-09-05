@@ -1,4 +1,4 @@
-
+#modloaded zenutils
 #priority 3900
 #reloadable
 
@@ -7,6 +7,8 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.oredict.IOreDictEntry;
 
 zenClass CPurge {
+  val purgedList as [IIngredient] = [] as [IIngredient];
+
   val ingr as IIngredient;
 
 	zenConstructor() { }
@@ -14,6 +16,8 @@ zenClass CPurge {
 	function purge(_ingr as IIngredient) as CPurge {
     ingr = _ingr;
     if (isNull(ingr)) return this;
+
+    if (utils.DEBUG) purgedList += ingr;
 
     for item in ingr.items {
       val actItem = actualItem(item);
@@ -68,6 +72,13 @@ zenClass CPurge {
       : item;
   }
 
+  function isPurged(item as IItemStack) as bool {
+    val it = item.damage == 32767 ? item.withDamage(0) : item;
+    for purgedIngr in purgedList {
+      if (purgedIngr has it) return true;
+    }
+    return false;
+  }
 }
 
 static purge as CPurge = CPurge();

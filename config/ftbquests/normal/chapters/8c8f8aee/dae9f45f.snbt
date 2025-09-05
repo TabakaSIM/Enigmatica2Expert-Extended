@@ -13,5 +13,11 @@
 		uid: "9b9ade97",
 		type: "item",
 		item: "actuallyadditions:item_laser_wrench"
+	},
+	{
+		uid: "32e17b74",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🧰Actually Additions\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

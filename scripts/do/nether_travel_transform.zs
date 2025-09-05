@@ -5,6 +5,7 @@ Spawn entities when entity item travel into Nether
 */
 
 #modloaded requious
+#ignoreBracketErrors
 
 // List of recipes
 val netherPortalEntityConversion = {
@@ -13,6 +14,7 @@ val netherPortalEntityConversion = {
 
 // Add JEI entries
 for entityItem, entityDef in netherPortalEntityConversion {
+  if (isNull(entityDef)) continue;
   scripts.jei.crafting_hints.addInsOutCatl([<forestry:butterfly_ge:*>], entityDef.asStack(), <minecraft:obsidian>);
 }
 
@@ -23,7 +25,7 @@ val nehterTravelBlacklist = {
 
 events.onEntityTravelToDimension(function (e as crafttweaker.event.EntityTravelToDimensionEvent) {
   val world = e.entity.world;
-  if (e.entity.world.isRemote()) return;
+  if (e.entity.world.remote) return;
   if (e.dimension != -1 as int) return;
 
   // Wasps cant travel to Nether

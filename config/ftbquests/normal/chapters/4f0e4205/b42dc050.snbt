@@ -32,5 +32,11 @@
 		type: "command",
 		auto: "invisible",
 		command: "/advancement grant @p only twilightforest:magic_map"
+	},
+	{
+		uid: "58c634b6",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🌳The Twilight Forest\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

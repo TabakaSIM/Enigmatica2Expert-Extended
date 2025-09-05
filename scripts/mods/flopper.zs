@@ -6,5 +6,5 @@ craft.remake(<flopper:flopper>, ['pretty',
   'A D A',
   '  A  '], {
   'A': <minecraft:stone:6>,     // Polished Andesite
-  'D': <tconstruct:dried_clay>, // Dried Clay
+  'D': <tconstruct:materials:2>,
 });

@@ -25,16 +25,25 @@
 		type: "item",
 		title: "Seal Symbol",
 		items: [{
+			id: "thaumadditions:seal_symbol",
 			tag: {
 				Aspect: ""
-			},
-			id: "thaumadditions:seal_symbol"
+			}
 		}],
 		ignore_nbt: 1b
 	}],
 	rewards: [{
-		uid: "57767f96",
-		type: "loot",
-		table: 2
+		uid: "eae71db8",
+		type: "custom",
+		title: "{e2ee.quest.rare}",
+		icon: {
+			id: "ftbquests:lootcrate",
+			tag: {
+				type: "rare"
+			}
+		},
+		tags: [
+			"loot"
+		]
 	}]
 }

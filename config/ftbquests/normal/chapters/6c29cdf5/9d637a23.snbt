@@ -20,7 +20,7 @@
 		{
 			item: "botania:unholycloak"
 		}],
-		ignore_damage: true,
+		ignore_damage: 1b,
 		ignore_nbt: 1b
 	}],
 	rewards: [{

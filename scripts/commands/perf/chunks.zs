@@ -1,19 +1,21 @@
-#modloaded zenutils ctintegration
+#modloaded zenutils ctintegration ftblib ftbutilities
 #priority 1500
 #reloadable
 
 import crafttweaker.data.IData;
 import crafttweaker.player.IPlayer;
+import crafttweaker.util.Math.floor;
 import crafttweaker.world.IWorld;
+import mods.zenutils.NetworkHandler;
 import mods.zenutils.StringList;
 import native.com.feed_the_beast.ftblib.lib.math.ChunkDimPos;
 import native.com.feed_the_beast.ftbutilities.data.ClaimedChunks;
 import native.net.minecraft.tileentity.TileEntity;
-import native.net.minecraft.world.gen.ChunkProviderServer;
-import native.net.minecraft.world.chunk.Chunk;
 import native.net.minecraft.world.World;
+import native.net.minecraft.world.chunk.Chunk;
+import native.net.minecraft.world.gen.ChunkProviderServer;
+
 import scripts.commands.perf.loaders.forEachChunkLoader;
-import mods.zenutils.NetworkHandler;
 
 // ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀
 // ▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄█▀ ▄
@@ -28,7 +30,7 @@ function show(player as IPlayer) as IData {
   val data = arrayOf(
     server.native.worlds.length,
     null as IData) as IData[];
-  
+
   var totalChunksLoaded = 0;
   val titlesList = StringList.empty();
 
@@ -39,29 +41,36 @@ function show(player as IPlayer) as IData {
 
     val dim = world.wrapper.dimension as int;
 
-    // Claimed chunk teams
-    val claims = intArrayOf(chunks.length / 2, -1);
+    /*
+      Claimed chunk teams
+
+      Rules:
+      `0` - no claim
+      `index * 2 + 1` when claimed
+      `index * 2 + 2` when forced
+
+    */
+    val claims = intArrayOf(chunks.length / 2, 0);
     for i in 0 .. chunks.length / 2 {
-      val chunkDimPos = ChunkDimPos(chunks[i*2], chunks[i*2+1], dim);
+      val chunkDimPos = ChunkDimPos(chunks[i * 2], chunks[i * 2 + 1], dim);
       val claimedChunk = ClaimedChunks.instance.getChunk(chunkDimPos);
-      if (!isNull(claimedChunk)) {
-        val title = claimedChunk.team.commandTitle.unformattedText;
-        val index = titlesList.indexOf(title);
-        if (index >= 0) {
-          claims[i] = index;
-        } else {
-          claims[i] = titlesList.size;
-          titlesList.add(title);
-        }
+      if (isNull(claimedChunk)) continue;
+
+      val title = claimedChunk.team.commandTitle.unformattedText;
+      var index = titlesList.indexOf(title);
+      if (0 > index) {
+        index = titlesList.size;
+        titlesList.add(title);
       }
+      claims[i] = index * 2 + 1 + (claimedChunk.forced ? 1 : 0);
     }
 
     data[i] = {
-      dim: dim,
-      chunks: chunks,
+      dim    : dim,
+      chunks : chunks,
       players: getWorldPlayers(world.wrapper),
       anchors: getAnchoredChunks(world.wrapper),
-      claims: claims,
+      claims : claims,
     } as IData;
   }
 
@@ -70,8 +79,8 @@ function show(player as IPlayer) as IData {
 
   send(player, {
     viewDistance: server.native.playerList.viewDistance as int,
-    worlds: IData.createDataList(data),
-    titles: titles,
+    worlds      : IData.createDataList(data),
+    titles      : titles,
   });
 
   return [
@@ -83,19 +92,18 @@ function show(player as IPlayer) as IData {
   ];
 }
 
-
 zenClass AnchorCounter {
-  zenConstructor(){}
+  zenConstructor() {}
   var anchors as int[] = [] as int[];
 }
 static anchorCounter as AnchorCounter = AnchorCounter();
 
 function getAnchoredChunks(world as IWorld) as int[] {
   anchorCounter.anchors = [];
-  var total = forEachChunkLoader(world, function(te as TileEntity) as void {
+  val total = forEachChunkLoader(world, function (te as TileEntity) as void {
     val pos = te.pos;
-    anchorCounter.anchors += pos.x / 16;
-    anchorCounter.anchors += pos.z / 16;
+    anchorCounter.anchors += floor(pos.x as float / 16);
+    anchorCounter.anchors += floor(pos.z as float / 16);
   });
   return anchorCounter.anchors;
 }
@@ -107,8 +115,8 @@ function getLoadedChunks(world as World) as int[] {
   for chunk in loadedChunks { chunkCount += 1; }
   val result = intArrayOf(chunkCount * 2);
   for i, chunk in loadedChunks {
-    result[i*2  ] = (chunk as Chunk).x;
-    result[i*2+1] = (chunk as Chunk).z;
+    result[i * 2] = (chunk as Chunk).x;
+    result[i * 2 + 1] = (chunk as Chunk).z;
   }
   return result;
 }
@@ -117,14 +125,14 @@ function getWorldPlayers(world as IWorld) as int[] {
   // Get indexes of chunks loaded by players
   val players = intArrayOf(world.getPlayers().length * 2);
   for i, p in world.getPlayers() {
-    players[i*2  ] = (p.x / 16) as int;
-    players[i*2+1] = (p.z / 16) as int;
+    players[i * 2] = floor(p.x / 16);
+    players[i * 2 + 1] = floor(p.z / 16);
   }
   return players;
 }
 
 function send(player as IPlayer, data as IData) as void {
-  utils.log('🌍 sent to client:\n'~data.asString());
+  utils.log(`🌍 sent to client:\n${data.asString()}`);
   NetworkHandler.sendTo('perf_chunks',
     player, function (b) { b.writeData(data); });
 }

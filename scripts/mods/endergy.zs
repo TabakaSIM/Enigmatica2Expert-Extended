@@ -70,6 +70,8 @@ val alloyTiers = [
   [<ore:ingotStellarAlloy>         , <ore:itemPrecientPowder>    , <ore:ingotUUMatter>]        ,
 ] as IOreDictEntry[][];
 
+val ALLOY_RESULT_AMOUNT = 2;
+
 for i, list in alloyTiers {
   if (list.length < 3) continue;
 
@@ -77,14 +79,14 @@ for i, list in alloyTiers {
     list[1],
     alloyTiers[i - 1][0],
     list[2]
-  ], list[0].firstItem, 'AdvRockArc');
+  ], list[0].firstItem * ALLOY_RESULT_AMOUNT, 'AdvRockArc');
 
   val outBlock = getBlockOrNine(list[0]);
   scripts.process.alloy([
     getBlockOrNine(list[1]),
     getBlockOrNine(alloyTiers[i - 1][0]),
     getBlockOrNine(list[2]),
-  ], outBlock.items[0] * outBlock.amount, 'only: AdvRockArc');
+  ], outBlock.items[0] * (outBlock.amount * ALLOY_RESULT_AMOUNT), 'only: AdvRockArc');
 }
 
 // [Stellar Energy Conduit]*8 from [Infinity Reagent][+2]
@@ -132,10 +134,14 @@ mods.tconstruct.Alloy.addRecipe(<liquid:vivid_alloy> * 144, [
 ]);
 
 // Multiblock Machine recipe
-scripts.processUtils.avdRockXmlRecipeEx('PrecisionAssembler', [
-  <ore:blockEnderium>, // Block of Enderium
-  <ore:blockAlumite>, // Alumite Block
-  <draconicevolution:infused_obsidian>, // Draconium Infused Obsidian
-  <ore:blockPlutonium242>, // Plutonium-242 Block
-], [<fluid:mutagen> * 1000], [<enderio:block_alloy_endergy:6>], null, { power: 160000, timeRequired: 20 });
+mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionAssembler').builder()
+  .inputOre(<ore:blockEnderium>) // Block of Enderium
+  .input(<ore:blockAlumite>) // Alumite Block
+  .input(<draconicevolution:infused_obsidian>) // Draconium Infused Obsidian
+  .input(<ore:blockPlutonium242>) // Plutonium-242 Block
+  .inputLiquid(<fluid:mutagen> * 1000)
+  .outputItem(<enderio:block_alloy_endergy:6>)
+  .power(160000)
+  .timeRequired(20)
+  .build();
 //////////////////////////////////////////////////

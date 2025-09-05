@@ -1,20 +1,20 @@
 {
 	title: "{q.twilight_forest.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 31,
-			TrophyColorBlue: 0,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 209,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 0s,
 				Count: 1b,
-				id: "twilightforest:miniature_structure"
+				id: "twilightforest:miniature_structure",
+				Damage: 0s
 			},
+			TrophyColorBlue: 0,
+			TrophyColorRed: 31,
 			TrophyName: "Twilight Forest Master Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 9.75d,
 	y: 2.25d,
@@ -28,6 +28,7 @@
 		"6be282e4",
 		"f5163b70",
 		"9fe9e32e",
+		"5e50b7d9",
 		"14296664",
 		"95b739d8",
 		"1ae426b4",
@@ -48,20 +49,20 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 31,
-				TrophyColorBlue: 0,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 209,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 0s,
 					Count: 1b,
-					id: "twilightforest:miniature_structure"
+					id: "twilightforest:miniature_structure",
+					Damage: 0s
 				},
+				TrophyColorBlue: 0,
+				TrophyColorRed: 31,
 				TrophyName: "Twilight Forest Master Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

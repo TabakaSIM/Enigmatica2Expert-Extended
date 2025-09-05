@@ -1,23 +1,23 @@
 {
 	title: "{q.botania.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 71,
-			TrophyColorBlue: 181,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 127,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 0s,
 				Count: 1b,
 				id: "botania:pool",
 				tag: {
 					RenderFull: 1b
-				}
+				},
+				Damage: 0s
 			},
+			TrophyColorBlue: 181,
+			TrophyColorRed: 71,
 			TrophyName: "§bBotania Master Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 10.0d,
 	y: 6.4d,
@@ -117,23 +117,23 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 71,
-				TrophyColorBlue: 181,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 127,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 0s,
 					Count: 1b,
 					id: "botania:pool",
 					tag: {
 						RenderFull: 1b
-					}
+					},
+					Damage: 0s
 				},
+				TrophyColorBlue: 181,
+				TrophyColorRed: 71,
 				TrophyName: "§bBotania Master Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

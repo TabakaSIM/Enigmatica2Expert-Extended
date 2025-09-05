@@ -15,16 +15,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "logWood"
+					data: "logWood",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any logWood"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}],
 		count: 8L
 	}],

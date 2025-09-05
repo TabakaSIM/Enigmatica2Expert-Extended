@@ -169,6 +169,17 @@ mods.thaumcraft.Infusion.registerRecipe(
     'D': <cyclicmagic:dice>, // Dice
   }).spiral(1));
 
+for relic in [
+  <botania:infinitefruit>,
+  <botania:kingkey>,
+  <botania:flugeleye>,
+  <botania:lokiring>,
+  <botania:odinring>,
+  <botania:thorring>,
+] as IItemStack[] {
+  recipes.addShapeless(relic, [relic.anyDamage().reuse(), <botania:dice>]);
+}
+
 // Livingrock
 mods.botania.PureDaisy.removeRecipe(<botania:livingrock>);
 mods.botania.PureDaisy.addRecipe(<thaumcraft:stone_arcane>, <botania:livingrock>);
@@ -306,7 +317,7 @@ function remakeRune(rune as IItemStack, ingrList as IIngredient[], mana as int) 
 /* Spring */  remakeRune(<botania:rune:4>,     [<ore:runeWaterB>, <ore:runeFireB>, <astralsorcery:blockinfusedwood>, <ore:flower>, <ore:nitor>], 10000);
 /* Summer */  remakeRune(<botania:rune:5>,     [<ore:runeEarthB>, <ore:runeAirB>, <ore:treeSapling>, <ore:nuggetBrass>, <ore:livingwood>], 10000);
 /* Autumn */  remakeRune(<botania:rune:6>,     [<ore:runeFireB>, <ore:runeAirB>, <ore:quicksilver>, <minecraft:deadbush>, <ore:stoneMetamorphic>], 10000);
-/* Winter */  remakeRune(<botania:rune:7>,     [<ore:runeWaterB>, <ore:runeEarthB>, utils.tryCatch('mctsmelteryio:iceball', <iceandfire:dragon_ice>), <astralsorcery:itemusabledust>, <ore:blockSalt>], 10000);
+/* Winter */  remakeRune(<botania:rune:7>,     [<ore:runeWaterB>, <ore:runeEarthB>, <mctsmelteryio:iceball> ?? <iceandfire:dragon_ice>, <astralsorcery:itemusabledust>, <ore:blockSalt>], 10000);
 /* Mana */    remakeRune(<botania:rune:8>,     [<ore:manaPearl>, <ore:powderMana>, <ore:quartzMana>, <ore:manaDiamond>, <ore:clothManaweave>], 20000);
 /* Lust */    remakeRune(<botania:rune:9>,     [<ore:manaDiamond>, <ore:manaDiamond>, <botania:rune:5>, <botania:rune:5>, <botania:rune:3>, <botania:rune:3>], 25000);
 /* Gluttony */remakeRune(<botania:rune:10>,    [<ore:manaDiamond>, <ore:manaDiamond>, <botania:rune:7>, <botania:rune:7>, <botania:rune:1>, <botania:rune:1>], 25000);
@@ -425,6 +436,10 @@ craft.make(<botania:blackholetalisman>, ['pretty',
 // [Dilithium Crystal] from [Dilithium Dust]
 mods.botania.ManaInfusion.addInfusion(<libvulpes:productgem>, <ore:dustDilithium>, 10000);
 
+// 🚒 Inworld crafting
+recipes.remove(<botania:bifrostperm>);
+furnace.addRecipe(<botania:bifrostperm>, <botania:bifrost>, 1.0);
+
 // ////////////////////////////////////////////////////////////////
 // Rods rework
 // ////////////////////////////////////////////////////////////////
@@ -456,7 +471,7 @@ recipes.removeByRecipeName('botania:skydirtrod');   recipes.addShapeless(<botani
 for i in 0 .. 16 {
   scripts.lib.dropt.addDrop(
     <botania:mushroom>.definition.makeStack(i),
-    <botania:petal>.definition.makeStack(i),
+    [<botania:petal>.definition.makeStack(i)],
     1.25, 'shears;-1;-1');
 }
 // ////////////////////////////////////////////////////////////////

@@ -12,16 +12,16 @@
 		uid: "4b5f3495",
 		type: "item",
 		items: [{
+			id: "nuclearcraft:lithium_ion_battery_basic",
 			tag: {
-				capacity: 32000000,
-				energy: 0,
 				maxTransfer: 1600000,
 				energyStorage: {
 					capacity: 32000000L,
 					energy: 0L
-				}
-			},
-			id: "nuclearcraft:lithium_ion_battery_basic"
+				},
+				capacity: 32000000,
+				energy: 0
+			}
 		}],
 		ignore_nbt: 1b
 	}],
@@ -30,10 +30,10 @@
 		type: "custom",
 		title: "{e2ee.quest.uncommon}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

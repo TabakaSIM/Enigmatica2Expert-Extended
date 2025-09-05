@@ -30,13 +30,11 @@ for ore_entry in oreDict {
 
     for item in oreBlock.items {
       val asBlock = item.asBlock();
-      if (isNull(asBlock) || asBlock.definition.id == 'minecraft:air') continue;
-      val oreBlockState = asBlock.definition.getStateFromMeta(item.damage);
+      val asBlockDef = asBlock.definition;
+      if (isNull(asBlockDef) || asBlockDef.id == 'minecraft:air') continue;
+      val oreBlockState = asBlockDef.getStateFromMeta(item.damage);
       val baseChance = 1.0 / 3.0;
-      scripts.do.burnt_in_fluid.add(ore_entry.itemArray[0].definition.id, oreBlockState, 'stone', baseChance);
-      scripts.processWork.work(['ARCrystallizer'], null,
-        [ore_entry * ((1.0 / baseChance) as int * 8)], [<liquid:ic2construction_foam> * 8000],
-        [item * 8], null, null, null);
+      scripts.do.burnt_in_fluid.add(ore_entry, oreBlockState, 'stone', baseChance);
       break;
     }
     continue;
@@ -115,6 +113,33 @@ for ore_entry in oreDict {
     if (isNull(output) || output.empty) continue;
 
     mods.ic2.OreWasher.addRecipe([output.firstItem], ore_entry);
+
+    continue;
+  }
+
+  // Small Plate Press
+  ore_name = getOreName(name, 'plate');
+  if (!isNull(ore_name)) {
+    if (ore_name == 'Aluminum' || ore_name == 'Concrete') continue;
+
+    val second = oreDict.get('block' ~ ore_name);
+    if (isNull(second) || second.empty) continue;
+
+    mods.advancedrocketry.RecipeTweaker.forMachine('SmallPlatePresser').builder()
+      .inputOre(second).outputItem(ore_entry.firstItem * 6).build();
+
+    continue;
+  }
+  
+  ore_name = getOreName(name, 'blockSheetmetal');
+  if (!isNull(ore_name)) {
+    if (ore_name == 'Aluminum') continue;
+
+    val output = oreDict.get('stick' ~ ore_name);
+    if (isNull(output) || output.empty) continue;
+
+    mods.advancedrocketry.RecipeTweaker.forMachine('SmallPlatePresser').builder()
+      .inputOre(ore_entry).outputItem(output.firstItem * 3).build();
 
     continue;
   }

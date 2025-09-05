@@ -1,25 +1,25 @@
 {
 	title: "{q.astral_sorcery.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 240,
-			TrophyColorBlue: 240,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 240,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 0s,
 				Count: 1b,
 				id: "astralsorcery:blockcelestialcollectorcrystal",
 				tag: {
 					astralsorcery: {
 						collectorType: 1
 					}
-				}
+				},
+				Damage: 0s
 			},
+			TrophyColorBlue: 240,
+			TrophyColorRed: 240,
 			TrophyName: "§1Astralsorcery Master Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 6.75d,
 	y: 5.25d,
@@ -62,25 +62,25 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 240,
-				TrophyColorBlue: 240,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 240,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 0s,
 					Count: 1b,
 					id: "astralsorcery:blockcelestialcollectorcrystal",
 					tag: {
 						astralsorcery: {
 							collectorType: 1
 						}
-					}
+					},
+					Damage: 0s
 				},
+				TrophyColorBlue: 240,
+				TrophyColorRed: 240,
 				TrophyName: "§1Astralsorcery Master Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

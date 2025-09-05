@@ -1,6 +1,7 @@
-#modloaded ctintegration draconicevolution
+#modloaded ctintegration
 #reloadable
 #priority -6000
+#ignoreBracketErrors
 
 import crafttweaker.block.IBlock;
 import crafttweaker.block.IBlockState;
@@ -11,6 +12,9 @@ import crafttweaker.world.IWorld;
 import crafttweaker.entity.IEntity;
 import crafttweaker.world.IBlockPos;
 import native.net.minecraft.item.ItemStack;
+import mods.zenutils.StringList;
+import scripts.lib.purge.purge;
+import scripts.do.portal_spread.utils.stateToItem;
 
 function giveChest(player as IPlayer, items as IItemStack[]) as void {
   var tag = {
@@ -33,7 +37,7 @@ function forEachBlockState(callback as function(IItemStack,IBlockState)void) as 
     ) continue;
 
     var lastMeta = -1 as int; // Remember, -1 is not integer by default
-    for sub in item.subItems {
+    for sub in item.subItems { // Remember - .subItems return different values on server
       if (lastMeta == sub.damage) continue;
       lastMeta = sub.damage;
       val state = utils.getStateFromItem(sub);
@@ -77,6 +81,57 @@ function dumpOreBlocks() {
   print('##################################################');
 }
 
+function dumpMiningLevelChart(world as IWorld, player as IPlayer, pos as IBlockPos) as void {
+  var totalStates as int[] = [0];
+  player.sendMessage('§8Counting states...');
+  forEachBlockState(function (item as IItemStack, state as IBlockState) as void {
+    totalStates[0] = totalStates[0] + 1;
+  });
+  player.sendMessage('§8Total: §6'~totalStates[0]~' §8looking...');
+
+  val states as IBlockState[] = arrayOf(totalStates[0], null as IBlockState);
+  val sorter = StringList.empty();
+  forEachBlockState(function (item as IItemStack, state as IBlockState) as void {
+    val def = state.block.definition;
+    if (def.id.startsWith('pointer:')) return; // erroring
+
+    val tool = def.getHarvestTool(state);
+    val harvLevel = def.getHarvestLevel(state);
+    if (tool == '' || harvLevel < 1) return;
+
+    if (purge.isPurged(item)) return; // Purged
+
+    states[sorter.size] = state;
+    sorter.add(state.commandString~':::'~sorter.size);
+    print('~~ found block: '~harvLevel~' '~state.commandString);
+  });
+
+  val sorted = sorter.toArray();
+  mods.ctintegration.util.ArrayUtil.sort(sorted);
+
+  player.sendMessage('§8Building §6'~sorted.length~' §8entries...');
+  val stack = intArrayOf(100, 0);
+  for str in sorted {
+    val separator = str.indexOf(':::');
+    val index = str.substring(separator + 3) as int;
+    val state = states[index];
+    val def = state.block.definition;
+    val harvLevel = def.getHarvestLevel(state);
+
+    if (stack[harvLevel] > 256) continue; // skip if too huge bar
+
+    val newPos = pos.north(stack[harvLevel]).east(harvLevel);
+    stack[harvLevel] = stack[harvLevel] + 1;
+
+    val present = world.getBlockState(newPos);
+    // if (!present.isReplaceable(world, newPos)) {
+    //   player.sendMessage('§8Cant replace block on: [§6'~newPos.x~'§8:§6'~newPos.y~'§8:§6'~newPos.z~'§8]');
+    //   return;
+    // }
+    world.native.setBlockState(newPos, state, 2 | 4); // 2 = send to clients, 4 = don't notify neighbors
+  }
+}
+
 function dumpLightSources(player as IPlayer) as void {
   for light in 13 .. 16 {
     var items = [] as IItemStack[];
@@ -116,10 +171,17 @@ function dumpTraits() as void {
 }
 
 events.onPlayerLeftClickBlock(function (e as crafttweaker.event.PlayerLeftClickBlockEvent) {
-  if (e.player.world.isRemote()) return;
+  if (e.player.world.remote) return;
+  if (isNull(e.player.currentItem)) return;
+
+  if (<minecraft:arrow> has e.player.currentItem) {
+    dumpMiningLevelChart(e.world, e.player, e.position.up(1));
+    e.cancel();
+    return;
+  }
+
   if (
-    isNull(e.player.currentItem)
-    || !(<minecraft:stick> has e.player.currentItem)
+    !(<minecraft:stick> has e.player.currentItem)
     // || e.block.definition.id != 'minecraft:bedrock'
   ) return;
 
@@ -128,7 +190,7 @@ events.onPlayerLeftClickBlock(function (e as crafttweaker.event.PlayerLeftClickB
     !isNull(data)
     && !isNull(data.variables)
   ) {
-    e.world.setBlockState(e.world.getBlockState(e.position), 
+    e.world.setBlockState(e.world.getBlockState(e.position),
     data.deepUpdate(
       { variables: { owner: "TrashboxBobylev", ownerUUID: "00c79cbd-42b7-4397-92ac-e269113e2d37" } },
       mods.zenutils.DataUpdateOperation.MERGE)
@@ -199,20 +261,3 @@ events.onPlayerInteractBlock(function (e as crafttweaker.event.PlayerInteractBlo
   player.sendMessage('§8Printed ' ~ itemsList.length ~ ' items');
   e.cancel();
 });
-
-// events.onEntityStruckByLightning(function(e as crafttweaker.event.EntityStruckByLightningEvent){
-//   server.commandManager.executeCommandSilent(server, '/say §8Lightning §8striked §6'~e.entity.id);
-// });
-
-// events.onEntityLivingAttacked(function(e as crafttweaker.event.EntityLivingAttackedEvent){
-//   server.commandManager.executeCommandSilent(server,
-//     '/say §atype:§r '~e.damageSource.damageType
-//     ~' §ahas inmmediate:§r '~!isNull(e.damageSource.immediateSource)
-//     ~' §ahas true:§r '~!isNull(e.damageSource.trueSource)
-//     ~' §atrue:§r '~!isNull(e.damageSource.trueSource.)
-//   );
-//   if(isNull(e.damageSource) || isNull(e.damageSource.trueSource)) return;
-//   val source = isNull(e.damageSource.trueSource.definition) ? '' : '§asource_id:§r '~e.damageSource.trueSource.definition.id;
-//   server.commandManager.executeCommandSilent(server, '/say '~source);
-
-// });

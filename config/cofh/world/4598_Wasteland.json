@@ -1,0 +1,20 @@
+{
+  "populate": {
+    "wasteland_portal_lake": {
+      "distribution": "uniform",
+      "generator": {
+        "type": "lake",
+        "block": "nuclearcraft:wasteland_portal",
+        "outline-block": "trinity:radioactive_earth",
+        "use-material": true,
+        "material": "nuclearcraft:wasteland_earth"
+      },
+      "cluster-count": 1,
+      "min-height": 50,
+      "max-height": 90,
+      "follow-terrain": true,
+      "dimension": { "restriction": "whitelist", "value": [5498] }
+    }
+
+  }
+}

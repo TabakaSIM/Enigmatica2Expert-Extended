@@ -103,11 +103,10 @@ function sawWood(input as IIngredient, output as IItemStack, exceptions as strin
 // 📦 → 📦 + [📦]?
 function crush(input as IIngredient, output as IItemStack, exceptions as string = null, extra as IItemStack[] = null, extraChance as float[] = null, opts as IData = null) {
   for machine in [
-    'Macerator', 'eu2Crusher',
+    'Macerator',
     'IECrusher', 'SagMill',
-    'Grindstone', 'AEGrinder', 'ThermalCentrifuge',
+    'AEGrinder', 'ThermalCentrifuge',
     'Pulverizer', 'mekCrusher', 'crushingBlock',
-    'MekEnrichment',
   ] as string[] {
     workEx(machine, exceptions, [input], null, [output], null, extra, extraChance, opts);
   }
@@ -133,9 +132,9 @@ function mash(input as IIngredient, output as IItemStack, exceptions as string =
 
 // Alloy two or more metals into one
 // [📦+] → 📦
-function alloy(input as IIngredient[], output as IItemStack, exceptions as string = null) {
+function alloy(input as IIngredient[], output as IItemStack, exceptions as string = null, extra as IItemStack[] = null, extraChance as float[] = null, opts as IData = null) {
   work(['alloyFurnace', 'induction', 'alloySmelter', 'ArcFurnace', 'AdvRockArc', 'kiln'],
-    exceptions, input, null, [output], null, null, null);
+    exceptions, input, null, [output], null, extra, extraChance, opts);
 }
 
 // Takes plant or seed and grow it
@@ -158,7 +157,6 @@ function crushRock(input as IIngredient, output as IItemStack[], chances as floa
 function squeeze(input as IIngredient[], fluidOutput as ILiquidStack, exceptions as string = null, itemOutput as IItemStack = null) {
   work(['CrushingTub']       , exceptions, input, null, [iF(itemOutput, 0.5)]        , [lF(fluidOutput, 0.5)]     , null  , null);
   work(['Squeezer']          , exceptions, input, null, [iF(itemOutput, 0.5)]        , [lF(fluidOutput, 0.666667)], null  , null);
-  work(['MechanicalSqueezer'], exceptions, input, null, [iF(itemOutput, 0.5)]        , [lF(fluidOutput, 0.75)]    , null  , null);
   work(['ForestrySqueezer']  , exceptions, input, null, [iF(itemOutput, 0.5)]        , [lF(fluidOutput, 0.9)]     , null  , null);
   work(['TECentrifuge']      , exceptions, input, null, [iF(itemOutput, 0.75)]       , [fluidOutput]              , null  , null);
   work(['IndustrialSqueezer'], exceptions, input, null, [itemOutput]                 , [fluidOutput]              , null  , null);
@@ -276,12 +274,12 @@ function beneficiate(
     }
 
     // All crushing methods except sag mill
-    crush(input, dustOrGem, `${exceptions} macerator thermalCentrifuge crushingBlock SAGMill`, extraList, extraChances, { bonusType: 'MULTIPLY_OUTPUT' });
+    crush(input, dustOrGem, `${exceptions} macerator thermalCentrifuge crushingBlock SAGMill`, extraList, extraChances);
 
     // Sag mill separately since work too fast and too much output
     val sagmillChances = floatArrayOf(extraChances.length, 1.0f);
     for i, chance in extraChances { sagmillChances[i] = chance / 2.0f; }
-    crush(input, dustOrGem * (3.0 / 4 * dustOrGem.amount) as int, `${exceptions} only: SAGMill`, extraList, sagmillChances, { bonusType: 'MULTIPLY_OUTPUT' });
+    crush(input, dustOrGem * (3.0 / 4 * dustOrGem.amount) as int, 'only: SAGMill', extraList, sagmillChances, { bonusType: 'MULTIPLY_OUTPUT' });
 
     if (extraList.length >= 3) {
       workEx('massspectrometer', null, [input], null, [

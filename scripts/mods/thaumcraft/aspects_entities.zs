@@ -1,10 +1,10 @@
+#modloaded thaumcraft randomtweaker
+
 import crafttweaker.item.IItemStack;
 import crafttweaker.item.IIngredient;
 import crafttweaker.data.IData;
 import thaumcraft.aspect.CTAspectStack;
 import crafttweaker.entity.IEntityDefinition;
-
-#modloaded thaumcraft randomtweaker
 
 /* 
 ___  ____ ___ ___ ____ ____    ____ _  _ _ _  _ ____ _    ____ 

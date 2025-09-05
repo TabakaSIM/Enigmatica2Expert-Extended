@@ -1,4 +1,4 @@
-#modloaded requious
+#modloaded requious forestry
 #priority -100
 
 import mods.requious.AssemblyRecipe;

@@ -22,7 +22,7 @@
 		uid: "821225aa",
 		type: "command",
 		auto: "invisible",
-		command: "/say @p has completed Enigmatica 2: Expert - Extended, congratulations!"
+		command: "/tellraw @a [{\"text\":\"\\n# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"bold\":true,\"color\":\"aqua\"},\"`\",{\"text\":\" has completed \",\"color\":\"white\"},\"**\",{\"translate\":\"Enigmatica 2: Expert - Extended\",\"color\":\"gold\",\"bold\":true},\"**\",{\"text\":\", congratulations!\\n🎉🎉🎉\",\"color\":\"white\"}]}]"
 	},
 	{
 		uid: "ea9c1dad",

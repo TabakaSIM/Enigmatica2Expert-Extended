@@ -103,6 +103,6 @@ craft.remake(<xnet:redstone_proxy>, ['pretty',
   '  ♥  ',
   '♥ F ♥',
   '  ♥  '], {
-  '♥': <deepmoblearning:soot_covered_redstone>, // Soot-covered Redstone
+  '♥': <psi:material:3>,
   'F': <xnet:facade>, // Facade
 });

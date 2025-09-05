@@ -13,5 +13,11 @@
 		uid: "6bd6ed93",
 		type: "xp_levels",
 		xp_levels: 30
+	},
+	{
+		uid: "7eb0c75d",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"⬛Environmental Tech\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

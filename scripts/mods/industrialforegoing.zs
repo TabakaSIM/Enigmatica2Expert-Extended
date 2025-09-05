@@ -122,13 +122,16 @@ scripts.mods.extendedcrafting_engineering.remakeAlted(
   '■': <mekanism:plasticblock:15>,
 });
 
-// Mob Duplicator
-recipes.remove(<industrialforegoing:mob_duplicator>);
-recipes.addShapedMirrored('Mob Duplicator',
-  <industrialforegoing:mob_duplicator>,
-  [[<ore:itemRubber>, <ore:itemRubber>, <ore:itemRubber>],
-    [<exnihilocreatio:item_doll>, <teslacorelib:machine_case>, <exnihilocreatio:item_doll:1>],
-    [<ore:blockEmerald>, <thermalexpansion:frame:147>, <ore:blockEmerald>]]);
+craft.remake(<industrialforegoing:mob_duplicator>, ['pretty',
+  'R R R',
+  'B a B',
+  'M i M'], {
+  'R': <ore:itemRubber>,
+  'B': <exnihilocreatio:item_doll:*>,
+  'a': <teslacorelib:machine_case>,
+  'M': <darkutils:monolith>,
+  'i': <contenttweaker:machine_case_singularity>,
+});
 
 // [Laser Drill] from [Machine Frame][+4]
 craft.remake(<industrialforegoing:laser_drill>, ['pretty',

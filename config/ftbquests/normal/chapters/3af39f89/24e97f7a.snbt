@@ -1,20 +1,20 @@
 {
 	title: "{q.thermal_expansion.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 49,
-			TrophyColorBlue: 88,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 99,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 148s,
 				Count: 2b,
-				id: "thermalexpansion:frame"
+				id: "thermalexpansion:frame",
+				Damage: 148s
 			},
+			TrophyColorBlue: 88,
+			TrophyColorRed: 49,
 			TrophyName: "Thermal Expansion Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 15.0d,
 	y: 7.5d,
@@ -78,20 +78,20 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 49,
-				TrophyColorBlue: 88,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 99,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 148s,
 					Count: 2b,
-					id: "thermalexpansion:frame"
+					id: "thermalexpansion:frame",
+					Damage: 148s
 				},
+				TrophyColorBlue: 88,
+				TrophyColorRed: 49,
 				TrophyName: "Thermal Expansion Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

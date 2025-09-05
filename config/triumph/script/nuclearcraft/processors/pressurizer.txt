@@ -1,0 +1,9 @@
+setIcon(<nuclearcraft:part>)
+setTranslatedTitle("advancement.nuclearcraft.pressurizer.name")
+setTranslatedDescription("advancement.nuclearcraft.pressurizer.desc")
+addParent("nuclearcraft:processors/crystallizer")
+setShowToast(false)
+setAnnounceToChat(false)
+
+criteria = addCriteria("has_item", "minecraft:inventory_changed")
+criteria.addItem(<nuclearcraft:part>)

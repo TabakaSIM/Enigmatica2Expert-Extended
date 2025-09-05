@@ -29,3 +29,25 @@ mods.exnihilocreatio.Ore.addRecipe(
   },
   'Tungsten'
 );
+
+mods.exnihilocreatio.Ore.addRecipe(
+  'anglesite',
+  'FACB20',
+  <ore:oreAnglesite>.firstItem,
+  {
+    'en_us': '§6Anglesite',
+    'ru_ru': '§6Англезит',
+  },
+  'Anglesite'
+);
+
+mods.exnihilocreatio.Ore.addRecipe(
+  'benitoite',
+  '0D7DFC',
+  <ore:oreBenitoite>.firstItem,
+  {
+    'en_us': '§bBenitoite',
+    'ru_ru': '§bБенитоит',
+  },
+  'Benitoite'
+);

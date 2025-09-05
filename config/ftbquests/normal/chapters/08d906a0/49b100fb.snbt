@@ -9,15 +9,15 @@
 		uid: "6112533d",
 		type: "item",
 		items: [{
+			id: "tconstruct:rack",
 			tag: {
 				textureBlock: {
-					Damage: 0s,
 					id: "minecraft:wooden_slab",
-					Count: 1
+					Count: 1,
+					Damage: 0s
 				}
 			},
-			Damage: 1s,
-			id: "tconstruct:rack"
+			Damage: 1s
 		}]
 	}],
 	rewards: [{

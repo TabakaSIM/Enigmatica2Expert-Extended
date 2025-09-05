@@ -1,4 +1,4 @@
-#modloaded jei
+#modloaded jei ctintegration
 #ignoreBracketErrors
 #reloadable
 
@@ -65,7 +65,6 @@ for item in [
   <ic2:upgrade:4>,
   <ic2:upgrade:6>,
   <immersivetech:stone_decoration>,
-  <minecraft:torch>,
   <oeintegration:excavatemodifier>,
   <openblocks:tank>,
   <openblocks:trophy>.withTag({entity_id:'minecraft:blaze'}),
@@ -105,7 +104,11 @@ for item in [
 /**/
 ] as IItemStack[] {
   if (isNull(item)) continue;
-  desc.both(item);
+
+  // Special case for Vis Salt, since it would error if doesnt have aspect NBT tag,
+  // but if we add NBT tag, only specific one will be described.
+  if (<thaumadditions:salt_essence> has item) desc.tooltip(item);
+  else desc.both(item);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -172,30 +175,10 @@ desc.jei(<ic2:wrench>, 'ic2wrench');
 
 // Thermal Expansion Resonant Machine Frame (Full)
 desc.jei(<thermalexpansion:frame:148>, 'requires.rf', '100.000.000');
-desc.jei(<computercraft:printout>.withTag({ pages: 1 }), "§fPrint with §eComputer Craft§r's §bPrinter");
 
 // Tool Forge
 desc.tooltipRaw(<tconstruct:toolforge>.anyDamage(), desc.local('forge_from_metal'));
 desc.tooltipRaw(<conarm:armorforge>.anyDamage(), desc.local('forge_from_metal'));
-
-// Space Ores
-for item in [
-  <thermalfoundation:ore_fluid:4>,
-  <thermalfoundation:ore_fluid:3>,
-  <thermalfoundation:ore_fluid:2>,
-  <libvulpes:ore0>,
-  <thermalfoundation:ore:7>,
-  <thermalfoundation:ore:8>,
-  <rftools:dimensional_shard_ore>,
-  <mysticalagriculture:prosperity_ore>,
-  <draconicevolution:draconium_ore:1>,
-  <draconicevolution:draconium_ore:2>,
-  <thermalfoundation:material:893>,
-  <thermalfoundation:material:894>,
-  <thermalfoundation:material:895>,
-] as IItemStack[] {
-  desc.jei(item, 'space_gen');
-}
 
 // Mekanism Factories
 desc.both(<mekanism:machineblock:5>, 'mekanism_factories');
@@ -203,6 +186,9 @@ desc.both(<mekanism:machineblock:6>, 'mekanism_factories');
 desc.both(<mekanism:machineblock:7>, 'mekanism_factories');
 desc.both(<libvulpes:productingot:7>, 'obtained.fabricator_or_excavator'); // Titanium Ingot
 desc.both(<mekanism:tierinstaller:3>, 'mekanism_t_ultimate');
+
+// Remove the TMG Death List from the inventory and drop it on the ground. This prevents a nested NBT issue.
+scripts.lib.tooltip.desc.both(<tombmanygraves:death_list>, 'dropper_into_world');
 
 desc.tooltip(<industrialforegoing:mob_relocator>, 'industrialforegoing:mob_relocator',
 /* Inject_js(config('config/industrialforegoing.cfg').machines.mob_relocator.damage) */

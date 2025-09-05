@@ -26,6 +26,6 @@
 		uid: "9714efcf",
 		type: "command",
 		auto: "invisible",
-		command: "/say Baa-a-a-a"
+		command: "/say 🐑Baa-a-a-a"
 	}]
 }

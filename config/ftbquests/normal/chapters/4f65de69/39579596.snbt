@@ -20,16 +20,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "oreCobalt"
+					data: "oreCobalt",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any oreCobalt"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}]
 	},
 	{
@@ -39,16 +39,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "oreArdite"
+					data: "oreArdite",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any oreArdite"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}]
 	},
 	{

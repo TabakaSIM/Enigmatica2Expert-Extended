@@ -116,7 +116,7 @@ recipes.addShaped('Luminous Crafting Table - RecipeAction', <astralsorcery:block
   'A': <thaumcraft:arcane_workbench>, // Arcane Workbench
 }).shaped(), null, function (out, cInfo, player) {
   if (isNull(player)) return;
-  if (player.world.isRemote()) return;
+  if (player.world.remote) return;
   val server = player.server;
   server.commandManager.executeCommandSilent(server, '/astralsorcery research ' ~ player.name ~ ' BASIC_CRAFT');
 });
@@ -149,6 +149,3 @@ craft.make(<astralsorcery:blockmachine:1>, ['pretty',
   '≢': <ore:plankTreatedWood>, // Treated Wood Planks
   '#': <ore:stickTreatedWood>, // Treated Stick
 });
-
-// Quartz dust compat
-scripts.process.crush(<ore:gemQuartz>, <appliedenergistics2:material:3>, 'only: Grindstone');

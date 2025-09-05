@@ -325,7 +325,7 @@ for id in livingBaseEntities {
 }
 
 events.onPlayerLeftClickBlock(function (e as crafttweaker.event.PlayerLeftClickBlockEvent) {
-  if (e.player.world.isRemote()) return;
+  if (e.player.world.remote) return;
   if (
     isNull(e.player.currentItem)
     || !(<minecraft:stick> has e.player.currentItem)

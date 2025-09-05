@@ -19,6 +19,7 @@
 		uid: "a4ae444c",
 		type: "item",
 		item: {
+			id: "opencomputers:upgrade",
 			tag: {
 				"oc:data": {
 					node: {
@@ -26,8 +27,7 @@
 					}
 				}
 			},
-			Damage: 3s,
-			id: "opencomputers:upgrade"
+			Damage: 3s
 		}
 	}]
 }

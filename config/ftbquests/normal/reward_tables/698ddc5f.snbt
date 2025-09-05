@@ -225,210 +225,210 @@
 	},
 	{
 		item: {
+			id: "appliedenergistics2:color_applicator",
 			tag: {
-				"#9": {
-					Req: 0L,
-					Damage: 6s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				internalCurrentPower: 20000.0d,
 				"#10": {
-					Req: 0L,
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
 					Damage: 11s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				"#14": {
-					Req: 0L,
-					Damage: 5s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				"#5": {
-					Req: 0L,
-					Damage: 12s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				"@9": 192,
-				color: {
-					Damage: 0s,
-					id: "minecraft:snowball",
-					Count: 1
-				},
-				"@8": 192,
-				"@7": 192,
-				"@6": 192,
-				"@5": 192,
-				"@3": 192,
-				"@2": 192,
-				"@12": 192,
-				"#15": {
-					Req: 0L,
-					Damage: 14s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
+					Req: 0L
 				},
 				"#11": {
-					Req: 0L,
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
 					Damage: 15s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
+					Req: 0L
 				},
-				it: 16s,
-				"#13": {
-					Req: 0L,
-					Damage: 0s,
-					id: "appliedenergistics2:paint_ball",
+				color: {
+					id: "minecraft:snowball",
 					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				"@10": 192,
-				internalMaxPower: 20000.0d,
-				"@13": 192,
-				"@15": 192,
-				"@0": 192,
-				"@11": 192,
-				"@1": 192,
-				"@4": 192,
-				"@14": 192,
-				"#7": {
-					Req: 0L,
-					Damage: 8s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				"#3": {
-					Req: 0L,
-					Damage: 2s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
+					Damage: 0s
 				},
 				"#12": {
-					Req: 0L,
-					Damage: 3s,
+					Craft: 0b,
+					Cnt: 192L,
 					id: "appliedenergistics2:paint_ball",
 					Count: 1,
+					Damage: 3s,
+					Req: 0L
+				},
+				"#13": {
+					Craft: 0b,
 					Cnt: 192L,
-					Craft: 0b
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 0s,
+					Req: 0L
+				},
+				"#14": {
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 5s,
+					Req: 0L
+				},
+				"#15": {
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 14s,
+					Req: 0L
 				},
 				ic: 3072,
-				"#8": {
-					Req: 0L,
-					Damage: 1s,
+				"@10": 192,
+				"@11": 192,
+				"@12": 192,
+				"@13": 192,
+				"@14": 192,
+				"@15": 192,
+				internalMaxPower: 20000.0d,
+				it: 16s,
+				"#0": {
+					Craft: 0b,
+					Cnt: 192L,
 					id: "appliedenergistics2:paint_ball",
 					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				"#4": {
-					Req: 0L,
-					Damage: 4s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
-				},
-				"#6": {
-					Req: 0L,
-					Damage: 9s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
+					Damage: 10s,
+					Req: 0L
 				},
 				"#1": {
-					Req: 0L,
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
 					Damage: 7s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
+					Req: 0L
 				},
+				internalCurrentPower: 20000.0d,
 				"#2": {
-					Req: 0L,
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
 					Damage: 13s,
-					id: "appliedenergistics2:paint_ball",
-					Count: 1,
-					Cnt: 192L,
-					Craft: 0b
+					Req: 0L
 				},
-				"#0": {
-					Req: 0L,
-					Damage: 10s,
+				"@0": 192,
+				"#3": {
+					Craft: 0b,
+					Cnt: 192L,
 					id: "appliedenergistics2:paint_ball",
 					Count: 1,
+					Damage: 2s,
+					Req: 0L
+				},
+				"@1": 192,
+				"#4": {
+					Craft: 0b,
 					Cnt: 192L,
-					Craft: 0b
-				}
-			},
-			id: "appliedenergistics2:color_applicator"
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 4s,
+					Req: 0L
+				},
+				"#5": {
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 12s,
+					Req: 0L
+				},
+				"@2": 192,
+				"@3": 192,
+				"#6": {
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 9s,
+					Req: 0L
+				},
+				"@4": 192,
+				"#7": {
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 8s,
+					Req: 0L
+				},
+				"@5": 192,
+				"#8": {
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 1s,
+					Req: 0L
+				},
+				"#9": {
+					Craft: 0b,
+					Cnt: 192L,
+					id: "appliedenergistics2:paint_ball",
+					Count: 1,
+					Damage: 6s,
+					Req: 0L
+				},
+				"@6": 192,
+				"@7": 192,
+				"@8": 192,
+				"@9": 192
+			}
 		}
 	},
 	{
 		item: {
+			id: "openblocks:dev_null",
 			tag: {
-				inventory: {
-					size: 1,
-					Items: [{
-						Slot: 0b,
-						Damage: 0s,
-						id: "engineersdecor:gas_concrete",
-						Count: 64
-					}]
-				},
 				enchantmentColor: 4408131,
+				ench: [{}],
 				Unbreakable: 1b,
 				infinite: {
-					Damage: 0s,
 					id: "engineersdecor:gas_concrete",
-					Count: 1
+					Count: 1,
+					Damage: 0s
 				},
-				ench: [{}]
-			},
-			id: "openblocks:dev_null"
-		}
-	},
-	{
-		item: {
-			tag: {
 				inventory: {
 					size: 1,
 					Items: [{
 						Slot: 0b,
-						Damage: 0s,
-						id: "sonarcore:reinforcedstonebrick",
-						Count: 64
+						id: "engineersdecor:gas_concrete",
+						Count: 64,
+						Damage: 0s
 					}]
-				},
+				}
+			}
+		}
+	},
+	{
+		item: {
+			id: "openblocks:dev_null",
+			tag: {
 				enchantmentColor: 4408131,
+				ench: [{}],
 				Unbreakable: 1b,
 				infinite: {
-					Damage: 0s,
 					id: "sonarcore:reinforcedstonebrick",
-					Count: 1
+					Count: 1,
+					Damage: 0s
 				},
-				ench: [{}]
-			},
-			id: "openblocks:dev_null"
+				inventory: {
+					size: 1,
+					Items: [{
+						Slot: 0b,
+						id: "sonarcore:reinforcedstonebrick",
+						Count: 64,
+						Damage: 0s
+					}]
+				}
+			}
 		}
 	},
 	{
@@ -446,8 +446,8 @@
 		color: 5585751,
 		drops: {
 			boss: 0,
-			monster: 0,
-			passive: 0
+			passive: 0,
+			monster: 0
 		}
 	}
 }

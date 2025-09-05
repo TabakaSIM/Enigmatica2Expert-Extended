@@ -14,5 +14,11 @@
 		uid: "9af656c4",
 		type: "item",
 		item: "extrautils2:enderlilly"
+	},
+	{
+		uid: "71943ddb",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"👜Extra Utilities 2\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

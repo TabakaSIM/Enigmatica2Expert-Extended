@@ -1,4 +1,4 @@
-#modloaded opencomputers
+#modloaded opencomputers chisel
 
 import crafttweaker.data.IData;
 import crafttweaker.item.IItemStack;

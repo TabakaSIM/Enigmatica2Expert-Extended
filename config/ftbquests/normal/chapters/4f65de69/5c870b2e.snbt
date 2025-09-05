@@ -1,11 +1,11 @@
 {
 	title: "{q.getting_started.harvest_level_12.name}",
 	icon: {
+		id: "tconstruct:sharpening_kit",
+		Count: 12,
 		tag: {
 			Material: "ma.supremium"
-		},
-		Count: 12,
-		id: "tconstruct:sharpening_kit"
+		}
 	},
 	x: 15.6d,
 	y: 3.5d,
@@ -24,6 +24,15 @@
 		},
 		{
 			item: "tconevo:metal 1 20"
+		},
+		{
+			item: "tconevo:metal 1 5"
+		},
+		{
+			item: "redstonerepository:material 1 1"
+		},
+		{
+			item: "redstonerepository:material 1 5"
 		}],
 		count: 2L
 	}],
@@ -32,10 +41,10 @@
 		type: "custom",
 		title: "{e2ee.quest.legendary}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "legendary"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

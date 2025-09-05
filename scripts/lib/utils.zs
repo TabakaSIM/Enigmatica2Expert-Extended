@@ -5,6 +5,7 @@
  * @link https://github.com/Krutoy242
  */
 
+#modloaded zenutils
 #priority 4000
 #reloadable
 
@@ -22,6 +23,7 @@ import mods.zenutils.StaticString;
 import native.net.minecraft.util.SoundCategory;
 import native.net.minecraft.util.SoundEvent;
 import native.net.minecraft.util.EnumParticleTypes;
+import native.net.minecraft.entity.monster.EntityMob;
 
 zenClass Utils {
   var DEBUG as bool = false;
@@ -85,30 +87,31 @@ zenClass Utils {
     return null;
   }
 
+  function fakeIngredient(displayed as IIngredient, actual as IIngredient) as IIngredient {
+    return actual;
+    // TODO: Fix not working in recipes
+    // return displayed.only(function (item) {
+    //   return actual has item;
+    // });
+  }
+
   /**
    * Name that only display over ingredient but not actually require it on craft
    * Idea from:
    * https://github.com/DoremySwee/Art-of-Enigma/blob/2465b90209ced64f5a1ca65ffdd17b6d60e2206c/scripts/recipes/libs/Misc.zs#L47-L67
    */
-  function tempName(ins as IIngredient, local as string) as IIngredient {
+  function tempName(ins as IIngredient, local as string, colorID as int = 6) as IIngredient {
     var result as IIngredient = null;
     for i in ins.items {
-      var tag = {
-        'display'           : { LocName: local },
-        'Quark:RuneColor'   : 6,
-        'Quark:RuneAttached': 1 as byte,
-      } as IData + shimmerTag;
-      if (i.hasTag) tag = i.tag.deepUpdate(tag);
-      if (isNull(result)) result = i.updateTag(tag, false);
-      else result |= i.updateTag(tag, false);
+      val item = locName(shine(i, colorID), local);
+      if (isNull(result)) result = item;
+      else result |= item;
     }
 
     // Guard for uninitialized oredicts
     if (isNull(result)) return ins;
 
-    return result.only(function (item) {
-      return ins.matches(item);
-    });
+    return fakeIngredient(result, ins);
   }
 
   function reuse(ins as IIngredient) as IIngredient {
@@ -292,20 +295,6 @@ zenClass Utils {
     return out.withTag(newTag);
   };
 
-  // Try to get item by string. If fail - return second vaiant
-  function tryCatch(first as string, meta as int, second as IItemStack) as IItemStack {
-    val item = itemUtils.getItem(first, meta);
-    return isNull(item) ? second : item;
-  }
-
-  function tryCatch(first as string, second as IItemStack) as IItemStack {
-    return tryCatch(first, 0, second);
-  }
-
-  function tryCatch(first as IItemStack, second as IItemStack) as IItemStack {
-    return isNull(first) ? second : first;
-  }
-
   // Safe get item with nbt tag and amount
   function get(id as string) as IItemStack { return get(id, 0, 1, null); }
   function get(id as string, meta as short) as IItemStack { return get(id, meta, 1, null); }
@@ -408,9 +397,24 @@ zenClass Utils {
   };
 
   // Get Shimmer enchant + Random Things colored shining
-  var shimmerTag as IData = <enchantment:minecraft:protection>.makeEnchantment(1).makeTag();
+  val shimmerTag as IData = { ench: [{}] };
   function shiningTag(color as int) as IData {
     return { enchantmentColor: color } as IData + shimmerTag;
+  }
+
+  function shine(item as IItemStack, colorID as int = 6) as IItemStack {
+    if (isNull(item)) return null;
+    return item.withTag(item.tag.deepUpdate(shimmerTag + {
+        'Quark:RuneColor'   : colorID,
+        'Quark:RuneAttached': 1 as byte,
+      }, mods.zenutils.DataUpdateOperation.MERGE));
+  }
+
+  function locName(item as IItemStack, local as string) as IItemStack {
+    if (isNull(item)) return null;
+    return item.withTag(item.tag.deepUpdate(shimmerTag + {
+        display: { LocName: local },
+      }, mods.zenutils.DataUpdateOperation.MERGE));
   }
 
   function addEnchRecipe(output as IItemStack, ench as crafttweaker.enchantments.IEnchantmentDefinition, inputs as IIngredient[][]) as void {
@@ -440,11 +444,28 @@ zenClass Utils {
     entityliving.playLivingSound();
   }
 
+  // Check if mob is Hostile (Can't spawn in peaceful)
+  function isHostile(worldIn as IWorld, entityID as string) as bool {
+    val entityResource = native.net.minecraft.util.ResourceLocation(entityID);
+    val worldNative = worldIn.native;
+    val entity = native.net.minecraft.entity.EntityList.createEntityByIDFromName(entityResource, worldNative);
+
+    if (entity instanceof EntityMob) return true;
+
+    // Excetptions
+    if (entityID == "iceandfire:seaserpent") {
+      return true;
+    }
+
+    return false;
+  }
+
   // Convert item to block.
   // Handle special cases when `asBlock` not propertly working
   function getStateFromItem(item as IItemStack) as IBlockState {
     if (isNull(item)) return null;
-    val block = item.asBlock();
+    val trueItem = item.damage == 32767 ? item.withDamage(0) : item;
+    val block = trueItem.asBlock();
     if (isNull(block)) return null;
     val def = block.definition;
     val state = def.getStateFromMeta(block.meta);
@@ -460,6 +481,21 @@ zenClass Utils {
       native.net.minecraft.util.ResourceLocation(split[0], sound.substring(split[0].length + 1))
     ) as SoundEvent;
     world.native.playSound(null, pos, soundRes, SoundCategory.AMBIENT, volume, pitch);
+  }
+
+  // Taken from modpack IsolatedCrystal3
+  function toUpperCamelCase(arg as string) as string {
+    if (arg.contains("_")) {
+      var splitResult = arg.split("_");
+      var temp = "";
+      for i, j in splitResult {
+        if (j.length <= 0) continue;
+        temp ~= (temp == '' ? '' : ' ') ~ j[0].toUpperCase() ~ j.substring(1);
+      }
+      return temp;
+    } else if (arg[0].toUpperCase() != arg[0]) {
+      return arg[0].toUpperCase() ~ arg.substring(1);
+    } else return arg;
   }
 }
 global utils as Utils = Utils();

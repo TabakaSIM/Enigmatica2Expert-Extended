@@ -41,8 +41,8 @@ ftbutilities.chunkloader.max_chunks: 60
 power: 50
 parent: conflux_iv
 ftbutilities.chat.name_format: <&d&l{name}&r>
-ftbutilities.claims.max_chunks: 500
-ftbutilities.chunkloader.max_chunks: 100
+ftbutilities.claims.max_chunks: 2000
+ftbutilities.chunkloader.max_chunks: 300
 
 [admin]
 power: 100

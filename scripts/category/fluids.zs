@@ -3,8 +3,8 @@
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
-import mods.fluidintetweaker.FBTweaker;
 import mods.fluidintetweaker.FITweaker;
+import mods.fluidintetweaker.interaction.Condition;
 
 // Chalice interactions
 val chaliceGrid = {
@@ -16,17 +16,17 @@ val chaliceGrid = {
   [<liquid:lifeessence>, <liquid:lava>]                                     : [<tconstruct:slime:3>, <thaumcraft:flesh_block>, <minecraft:nether_wart_block>],
   [<liquid:lifeessence>, <liquid:astralsorcery.liquidstarlight>]            : [<harvestcraft:honey>, <harvestcraft:honeycomb>, <biomesoplenty:honey_block>],
   [<liquid:lifeessence>, <liquid:cloud_seed_concentrated>]                  : [<thermalfoundation:rockwool:7>, <minecraft:wool>, <minecraft:wool:2>],
-  [<liquid:hot_mercury>, <liquid:water>]                                    : [<mekanism:saltblock>, <additionalcompression:dustsugar_compressed:1>, <additionalcompression:dustgunpowder_compressed>],
-  [<liquid:hot_mercury>, <liquid:lava>]                                     : [<minecraft:magma>, <additionalcompression:flint_compressed:1>, <additionalcompression:coal_compressed:2>],
-  [<liquid:hot_mercury>, <liquid:astralsorcery.liquidstarlight>]            : [<quark:sugar_block>, <biomesoplenty:white_sand>, <astralsorcery:blockmarble>],
-  [<liquid:hot_mercury>, <liquid:cloud_seed_concentrated>]                  : [<enderio:block_fused_quartz>, <mysticalagriculture:storage:5>, <biomesoplenty:crystal>],
-  [<liquid:hot_mercury>, <liquid:lifeessence>]                              : [<excompressum:compressed_block:6>, <minecraft:bone_block>, <iceandfire:dragon_bone_block>],
+  [<liquid:plasma>, <liquid:water>]                                         : [<mekanism:saltblock>, <additionalcompression:dustsugar_compressed:1>, <additionalcompression:dustgunpowder_compressed>],
+  [<liquid:plasma>, <liquid:lava>]                                          : [<minecraft:magma>, <additionalcompression:flint_compressed:1>, <additionalcompression:coal_compressed:2>],
+  //[<liquid:plasma>, <liquid:astralsorcery.liquidstarlight>]                 : [<quark:sugar_block>, <biomesoplenty:white_sand>, <astralsorcery:blockmarble>], // For some reason, Starlight+Water=Sand triggered faster than custom interaction
+  [<liquid:plasma>, <liquid:cloud_seed_concentrated>]                       : [<enderio:block_fused_quartz>, <mysticalagriculture:storage:5>, <biomesoplenty:crystal>],
+  [<liquid:plasma>, <liquid:lifeessence>]                                   : [<excompressum:compressed_block:6>, <minecraft:bone_block>, <iceandfire:dragon_bone_block>],
   [<liquid:ic2uu_matter>, <liquid:water>]                                   : [<quark:crystal:0>, <quark:crystal:6>, <actuallyadditions:block_crystal:2>],
   [<liquid:ic2uu_matter>, <liquid:lava>]                                    : [<advancedrocketry:basalt>, <draconicevolution:infused_obsidian>, <draconicevolution:draconium_block>],
   [<liquid:ic2uu_matter>, <liquid:astralsorcery.liquidstarlight>]           : [<quark:marble>, <minecraft:quartz_block>, <thermalfoundation:storage:7>],
   [<liquid:ic2uu_matter>, <liquid:cloud_seed_concentrated>]                 : [<randomthings:superlubricentice>, <nuclearcraft:supercold_ice>, <enderio:block_alloy:6>],
   [<liquid:ic2uu_matter>, <liquid:lifeessence>]                             : [<additionalcompression:meatbeef_compressed>, <minecraft:nether_wart_block>, <tconevo:metal_block:5>],
-  [<liquid:ic2uu_matter>, <liquid:hot_mercury>]                             : [<enderio:block_infinity>, <minecraft:obsidian>, <tconevo:metal_block:7>],
+  [<liquid:ic2uu_matter>, <liquid:plasma>]                                  : [<enderio:block_infinity>, <minecraft:obsidian>, <tconevo:metal_block:7>],
 } as IItemStack[][ILiquidStack[]]$orderly;
 
 // ### Honorable mentions: ####
@@ -64,30 +64,7 @@ for lList, itList in chaliceGrid {
 
 // *======= Fuels =======*
 
-/* Patchouli_js("Liquids/Smeltery Fuels", {
-  item: "tconstruct:smeltery_controller",
-  _text: `
-    $(l)Smeltery/$ melting temperatures was tweaked. Some metals $(l)require/$ better fuels than $(#d31)lava/$.
-    All fuels consume $(l)50/$mb.
-    $(l)Temperature/$ of fuel affect melting speed.
-    $(l)Time/$ is number of ticks fuel will burn.`});
-
-Patchouli_js("Liquids/Smeltery Fuels",
-  paged({
-    item: "tconstruct:smeltery_controller",
-    type: "item_list"
-  }, 7,
-  from_crafttweaker_log(/Register Smeltery fuel. Temp: (?<temp>\d+), Burn time: (?<time>\d+), Name: (?<name>.*)/gm)
-  .map(o=>o.groups)
-
-  // Default fuels
-  .concat([{temp:1300, time:80, name:"lava"}])
-
-  .sort((a,b)=>b.temp*b.time - a.temp*a.time)
-  .map(o=>[wrap_bucket(o.name), `${o.temp}°К, ${o.time} ticks`])
-)) */
-
-for pos, names in utils.graph([
+static smelteryFuels as string[][double[string]] = utils.graph([
 // ↑ Duration
   '                                                          l           o        p',
   '       a              f  g                      k                               ',
@@ -122,7 +99,7 @@ for pos, names in utils.graph([
   'k': ['ic2uu_matter', 'enrichedlava'],
   'l': [],
   'n': ['empoweredoil'],
-  'o': ['plasma', 'hot_mercury', 'perfect_fuel'],
+  'o': ['plasma', 'high_pressure_mercury', 'perfect_fuel'],
   'p': ['infinity_metal'],
 
   // Non-fuel Metals
@@ -132,7 +109,9 @@ for pos, names in utils.graph([
   '4': ['xu_demonic_metal', 'mirion', 'signalum', 'lumium', 'crystalline_alloy', 'melodic_alloy', 'crystalline_pink_slime'],
   '5': ['xu_enchanted_metal', 'xu_evil_metal', 'fierymetal', 'crystal_matrix'],
   '6': ['stellar_alloy', 'osgloglas', 'enderium', 'gelid_enderium', 'supremium', 'refinedglowstone', 'refinedobsidian'],
-}) {
+});
+
+for pos, names in smelteryFuels {
   for name in names {
     val temp = pos.x as int;
     val time = pos.y as int;
@@ -142,8 +121,53 @@ for pos, names in utils.graph([
     liquid.definition.temperature = temp;
 
     if (time != 0) {
-      utils.log('Register Smeltery fuel. Temp: ' ~ temp ~ ', Burn time: ' ~ time ~ ', Name: ' ~ name);
       mods.tconstruct.Fuel.registerFuel(liquid * 50, time);
     }
   }
 }
+
+// Custom special interactions
+FITweaker.addRecipe(utils.getStateFromItem(<advancedrocketry:vitrifiedsand>),
+  <liquid:pyrotheum>, false,
+  utils.getStateFromItem(<extrautils2:decorativesolid:4>));
+
+FITweaker.addRecipe(utils.getStateFromItem(<extrautils2:decorativesolid:4>),
+  <liquid:enrichedlava>, false,
+  utils.getStateFromItem(<minecraft:glass>));
+
+// Restore default AS interactions
+// This will allow compat with XU2 nodes
+// Taken from modpack IsolatedCrystal3
+// https://github.com/friendlyhj/IsolatedCrystal3/blob/e02e0901bb6df8f43a7b05ad22f2d761d69c7145/.minecraft/scripts/recipes/tier2/fluidinteractions.zs
+FITweaker.addRecipe(
+  <liquid:lava>,
+  <liquid:astralsorcery.liquidstarlight>,
+  FITweaker.outputBuilder()
+    .addEvent(
+      FITweaker.eventBuilder()
+        .createSetBlockEvent(<blockstate:minecraft:sand>)
+    )
+    .addEvent(
+      FITweaker.eventBuilder()
+        .createSetBlockEvent(<blockstate:astralsorcery:blockcustomsandore>)
+        .addCondition(Condition.byChance, [1.0f / 900.0f])
+    )
+);
+
+FITweaker.addRecipe(
+  <liquid:water>,
+  <liquid:astralsorcery.liquidstarlight>,
+  <blockstate:minecraft:ice>
+);
+
+FITweaker.addRecipe(
+  <liquid:petrotheum>,
+  <liquid:astralsorcery.liquidstarlight>,
+  <blockstate:minecraft:gravel>
+);
+
+FITweaker.addRecipe(
+  <liquid:pyrotheum>,
+  <liquid:astralsorcery.liquidstarlight>,
+  <blockstate:minecraft:glass>
+);

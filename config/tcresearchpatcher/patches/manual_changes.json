@@ -945,4 +945,47 @@
   "path":"key"}
 ]}
 
+,{"key":"TT_INFUSED_CROPS","ops":[
+  {"op":"remove",
+  "path":"key"}
+]}
+
+,{"key":"TWOND_DIMENSIONAL_RIPPER","ops":[
+  {"op":"replace",
+  "path":"parents",
+  "value": ["TWOND_BASE", "~FLUX", "~ARCANEBORE", "~BASEELDRITCH"]}
+]}
+
+,{"key":"ESSENTIASTORAGE1k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_1k"]}
+  ,{"op":"remove",
+  "path":"stages/0/required_item"}
+]},
+
+{"key":"ESSENTIASTORAGE4k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_4k"]}
+  ,{"op":"remove",
+  "path":"stages/0/required_item"}
+]},
+
+{"key":"ESSENTIASTORAGE16k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_16k"]}
+  ,{"op":"remove",
+  "path":"stages/0/required_item"}
+]},
+
+{"key":"ESSENTIASTORAGE64k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_64k"]}
+  ,{"op":"remove",
+  "path":"stages/0/required_item"}
+]}
+
 ]

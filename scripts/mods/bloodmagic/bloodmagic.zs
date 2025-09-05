@@ -1,16 +1,41 @@
+#ignoreBracketErrors
 #modloaded bloodmagic
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.item.IIngredient;
 
-// Add JEI hint for custom Imperfect zombie feature
-scripts.jei.crafting_hints.fill(null, <liquid:lifeessence> * 5000, <scalinghealth:crystalshard> * 3, <littletiles:multitiles>.withTag({tiles: [{bBox: [0, 0, 0, 1, 1, 1] as int[], tile: {block: "bloodmagic:ritual_stone"}}, {bBox: [0, 1, 0, 1, 2, 1] as int[], tile: {block: "minecraft:coal_block"}}], min: [0, 0, 0] as int[], size: [1, 2, 1] as int[], grid: 1, count: 2}));
+<bloodmagic:living_armour_helmet>.maxDamage = 900;
+<bloodmagic:living_armour_chest>.maxDamage = 900;
+<bloodmagic:living_armour_leggings>.maxDamage = 900;
+<bloodmagic:living_armour_boots>.maxDamage = 900;
+<bloodmagic:sentient_armour_helmet>.maxDamage = 1200;
+<bloodmagic:sentient_armour_chest>.maxDamage = 1200;
+<bloodmagic:sentient_armour_leggings>.maxDamage = 1200;
+<bloodmagic:sentient_armour_boots>.maxDamage = 1200;
 
+// Add JEI hint for custom Imperfect zombie feature
+var previevRitual as IItemStack = <littletiles:multitiles>.withTag({tiles: [{
+    bBox: [0, 0, 0, 1, 1, 1] as int[], tile: {block: "bloodmagic:ritual_stone"}
+  }, {
+    bBox: [0, 1, 0, 1, 2, 1] as int[], tile: {block: "minecraft:coal_block"}
+  }], min: [0, 0, 0] as int[], size: [1, 2, 1] as int[], grid: 1, count: 2});
+scripts.jei.crafting_hints.fill(
+  null,
+  <liquid:lifeessence>,
+  <scalinghealth:crystalshard> * 3,
+  isNull(previevRitual) ? <bloodmagic:ritual_stone>: previevRitual
+);
+
+previevRitual = <littletiles:multitiles>.withTag({tiles: [{
+    boxes: [[0, 0, 1, 1, 1, 2] as int[], [1, 0, 0, 2, 1, 1] as int[], [1, 0, 2, 2, 1, 3] as int[], [2, 0, 1, 3, 1, 2] as int[]], tile: {block: "bloodmagic:ritual_stone:2"}
+  }, {
+    bBox: [1, 0, 1, 2, 1, 2] as int[], tile: {block: "bloodmagic:ritual_stone"}
+  }], min: [0, 0, 0] as int[], size: [3, 1, 3] as int[], grid: 1, count: 5});
 <assembly:crafting_hints>.addJEIRecipe(mods.requious.AssemblyRecipe.create(function (c) {
   c.addFluidOutput('fluid_out', <fluid:pyrotheum> * 1000);
 })
   .requireFluid('fluid_in', <liquid:lifeessence> * 500)
-  .requireItem('input0', <littletiles:multitiles>.withTag({tiles: [{boxes: [[0, 0, 1, 1, 1, 2] as int[], [1, 0, 0, 2, 1, 1] as int[], [1, 0, 2, 2, 1, 3] as int[], [2, 0, 1, 3, 1, 2] as int[]], tile: {block: "bloodmagic:ritual_stone:2"}}, {bBox: [1, 0, 1, 2, 1, 2] as int[], tile: {block: "bloodmagic:ritual_stone"}}], min: [0, 0, 0] as int[], size: [3, 1, 3] as int[], grid: 1, count: 5}))
+  .requireItem('input0', isNull(previevRitual) ? <bloodmagic:ritual_stone>: previevRitual)
 );
 
 // Blood Orb Oredicts
@@ -219,7 +244,7 @@ mods.jei.JEI.addItem(crDgr);
 
 val capRune = <bloodmagic:blood_rune:7>;
 val sprIng = <randomthings:ingredient:3>;
-val bldTnk = <bloodmagic:blood_tank:7>.withTag({ Fluid: { FluidName: 'lifeessence', Amount: 2048000 } });
+val bldTnk = <contenttweaker:meat_singularity>;
 val antBck = Bucket('blockfluidantimatter');
 mods.extendedcrafting.TableCrafting.addShaped(0, crDgr, [
   [null, null, null, null, null, <ore:nuggetDraconicMetal>, sprIng],
@@ -455,40 +480,41 @@ _.uniqBy([
     let mapChars = ''
     const inputSerialized = []
     dustInputOres.forEach((s, i) => {
-      const char = 'ABCDEF'[i]
-      mapChars += char.repeat(filteredInputs[i].amount)
-      inputSerialized.push(`${char}: ${s.commandString}`)
+      let index = dustInputOres.findIndex((o, j) => j < i && o.commandString === s.commandString)
+      const fresh = index === -1
+      if (fresh) index = i
+      const char = 'ABCDEF'[index]
+      mapChars += char.repeat(filteredInputs[index].amount)
+      if (fresh) inputSerialized.push(`${char}: ${s.commandString}`)
     })
 
     return [
+      mapChars.length > 6 ? '//' : '  ',
       `magicAlloy(`,
       outputDust.commandString,
       ...(r.output.items[0].amount == 1
         ? ['', '']
         : [` * `, r.output.items[0].amount]),
       `, '`,
-      mapChars,
-      `',`,
+      `${mapChars}',`,
       `{${inputSerialized.join(', ')}});`,
     ]
   })
   .filter(Boolean)
-  .sort((a, b) => naturalSort(String(a), String(b))), r => String(r))
-  .map(arr => [arr[5].length > 5 ? '//' : '', ...arr])
+  .sort((a, b) => naturalSort(String(a?.slice(1)), String(b?.slice(1)))), r => String(r))
 )*/
-  magicAlloy(<advancedrocketry:productdust:1> * 2, 'AB            ',{A: <libvulpes:productdust:7>, B: <thermalfoundation:material:71>});
-//magicAlloy(<advancedrocketry:productdust>   * 3, 'AAAAAAABBB    ',{A: <thermalfoundation:material:68>, B: <libvulpes:productdust:7>});
-  magicAlloy(<qmd:chemical_dust:7>               , 'AB            ',{A: <qmd:dust:7>, B: <thermalfoundation:material:771>});
-  magicAlloy(<thermalfoundation:material:96>     , 'ABBBB         ',{A: <thermalfoundation:material>, B: <nuclearcraft:dust:8>});
-  magicAlloy(<thermalfoundation:material:96>     , 'ABBBB         ',{A: <thermalfoundation:material>, B: <thermalfoundation:material:768>});
-  magicAlloy(<thermalfoundation:material:96>     , 'ABBCC         ',{A: <thermalfoundation:material>, B: <thermalfoundation:material:768>, C: <thermalfoundation:material:768>});
-  magicAlloy(<thermalfoundation:material:97>  * 2, 'AB            ',{A: <thermalfoundation:material:1>, B: <thermalfoundation:material:66>});
-  magicAlloy(<thermalfoundation:material:98>  * 3, 'AAB           ',{A: <thermalfoundation:material>, B: <thermalfoundation:material:69>});
-  magicAlloy(<thermalfoundation:material:98>  * 3, 'ABB           ',{A: <thermalfoundation:material:69>, B: <thermalfoundation:material>});
-  magicAlloy(<thermalfoundation:material:99>  * 4, 'AAAB          ',{A: <thermalfoundation:material:64>, B: <thermalfoundation:material:65>});
-  magicAlloy(<thermalfoundation:material:100> * 2, 'AB            ',{A: <thermalfoundation:material:64>, B: <thermalfoundation:material:69>});
+  magicAlloy(<advancedrocketry:productdust:1> * 2, 'AB',            {A: <libvulpes:productdust:7>, B: <thermalfoundation:material:71>});
+//magicAlloy(<advancedrocketry:productdust>   * 3, 'AAAAAAABBB',    {A: <thermalfoundation:material:68>, B: <libvulpes:productdust:7>});
+  magicAlloy(<qmd:chemical_dust:7>               , 'AB',            {A: <qmd:dust:7>, B: <thermalfoundation:material:771>});
+  magicAlloy(<thermalfoundation:material:96>     , 'ABBBB',         {A: <thermalfoundation:material>, B: <nuclearcraft:dust:8>});
+  magicAlloy(<thermalfoundation:material:96>     , 'ABBBB',         {A: <thermalfoundation:material>, B: <thermalfoundation:material:768>});
+  magicAlloy(<thermalfoundation:material:97>  * 2, 'AB',            {A: <thermalfoundation:material:1>, B: <thermalfoundation:material:66>});
+  magicAlloy(<thermalfoundation:material:98>  * 3, 'AAB',           {A: <thermalfoundation:material>, B: <thermalfoundation:material:69>});
+  magicAlloy(<thermalfoundation:material:98>  * 3, 'ABB',           {A: <thermalfoundation:material:69>, B: <thermalfoundation:material>});
+  magicAlloy(<thermalfoundation:material:99>  * 4, 'AAAB',          {A: <thermalfoundation:material:64>, B: <thermalfoundation:material:65>});
+  magicAlloy(<thermalfoundation:material:100> * 2, 'AB',            {A: <thermalfoundation:material:64>, B: <thermalfoundation:material:69>});
 //magicAlloy(<thermalfoundation:material:101> * 4, 'ABBBCCCCCCCCCC',{A: <thermalfoundation:material:64>, B: <thermalfoundation:material:66>, C: <minecraft:redstone>});
-//magicAlloy(<thermalfoundation:material:102> * 4, 'AAABCCCC      ',{A: <thermalfoundation:material:65>, B: <thermalfoundation:material:66>, C: <minecraft:glowstone_dust>});
+//magicAlloy(<thermalfoundation:material:102> * 4, 'AAABCCCC',      {A: <thermalfoundation:material:65>, B: <thermalfoundation:material:66>, C: <minecraft:glowstone_dust>});
 /**/
 
 // Specially manually setted alloys

@@ -9,7 +9,7 @@
 		uid: "47aa57e4",
 		type: "item",
 		items: [{
-			item: "tconstruct:dried_clay"
+			item: "tconstruct:materials 1 2"
 		}]
 	}],
 	rewards: [{

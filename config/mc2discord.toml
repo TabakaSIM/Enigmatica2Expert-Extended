@@ -42,13 +42,13 @@ lang = "en_us"
 	# Global variables only
 	stop = "```fix\nServer Stopped!\n```"
 	# Global variables and Player variables
-	join = "🔵 `${player_display_name}` *joined*"
+	join = "-# 🔵 `${player_display_name}` *joined*"
 	# Global variables and Player variables
-	leave = "🟠 `${player_display_name}` *left*"
+	leave = "-# 🟠 `${player_display_name}` *left*"
 	# Global variables, Player variables and Death variables
-	death = "💀 *${death_message}*"
+	death = "-# 💀 *${death_message}*"
 	# Global variables, Player variables and Advancement variables
-	advancement = "> `${player_display_name}` has made the advancement **${advancement_title}**\n> *${advancement_description}*"
+	advancement = "> -# `${player_display_name}` has made the advancement **${advancement_title}**\n> -# *${advancement_description}*"
 
 [Commands]
 	# Prefix used before each command. Minecraft default one is '/' (eg : /help)
@@ -66,7 +66,7 @@ lang = "en_us"
 	# see https://minecraft.gamepedia.com/Server.properties#op-permission-level
 	[[Commands.Command]]
 		id = 0
-		commands = ["list", "weather clear", "spark tps", "forge entity list"]
+		commands = ["list", "weather clear", "flare tps", "forge entity list"]
 		permission_level = 1
 		comment = ""
 
@@ -93,7 +93,7 @@ lang = "en_us"
 			id = 000000000000000000
 			update_period = 600
 			name_message = "📦Public-${online_players}-${max_players}"
-			topic_message = "IP: ???\nCommands: \n/spark tps, /list, /team info PlayeName, /leaderboards ftbutilities:time_played, /leaderboards ftbquests:progress"
+			topic_message = "IP: ???\nCommands: \n/flare tps, /list, /team info PlayeName, /leaderboards ftbutilities:time_played, /leaderboards ftbquests:progress"
 
 [Features]
 	# /!\ Account linking feature is disabled on 1.12.2 /!\ Enable account linking features (use /mc2discord restart to generate the associated config). Require SERVER MEMBERS INTENT to be enabled for all features to work

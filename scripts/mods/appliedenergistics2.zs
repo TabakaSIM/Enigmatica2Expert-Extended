@@ -1,4 +1,5 @@
 #modloaded appliedenergistics2
+#reloadable
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
@@ -131,7 +132,7 @@ craft.remake(<appliedenergistics2:molecular_assembler>, ['pretty',
 recipes.remove(<appliedenergistics2:grindstone>);
 recipes.addShapedMirrored('Grindstone',
   <appliedenergistics2:grindstone>,
-  [[<appliedenergistics2:smooth_sky_stone_block>, <ore:gearWood>, <appliedenergistics2:smooth_sky_stone_block>],
+  [[<appliedenergistics2:smooth_sky_stone_block>, <ore:gearStone>, <appliedenergistics2:smooth_sky_stone_block>],
     [<ore:crystalCertusQuartz>, <appliedenergistics2:smooth_sky_stone_block>, <ore:crystalCertusQuartz>],
     [<appliedenergistics2:sky_stone_block>, <ore:crystalCertusQuartz>, <appliedenergistics2:sky_stone_block>]]);
 
@@ -226,53 +227,34 @@ scripts.process.crush(<appliedenergistics2:sky_stone_block>, <appliedenergistics
 // Batch dust crushing
 scripts.process.crush(<appliedenergistics2:fluix_block>, <appliedenergistics2:material:8> * 4, 'only: SagMill', null, null);
 
-/*
-Patchouli_js('Items/Matter Cannon', [
-  {
-    icon: "appliedenergistics2:matter_cannon",
-    title: "Matter Cannon Ammo",
-    _text: `
-      This items can be used as ammo for $(l)Matter Cannon/$.
-      Number represent $(l)Atomic_Mass / 10/$, not actual damage!`
-  },
-  ...paged({
-    title: "Matter Cannon Ammo",
-    type:  "grid"
-  },
-    match_block_below(/^\s*<([^>]+)>\s*:\s*(\d+)\.0d?,$/gm)
-		.sort((a,b)=>b[2]-a[2])
-    .map(match=>match[1] +'#'+ Math.round(match[2] / 10))
-  )
-]) */
 // Matter cannon more matter
-val itemMass as double[IItemStack] = {
-  <tconevo:metal:42>                                 : 500.0,
-  <deepmoblearning:pristine_matter_zombie>           : 100.0,
-  <deepmoblearning:pristine_matter_skeleton>         : 100.0,
-  <deepmoblearning:pristine_matter_creeper>          : 100.0,
-  <deepmoblearning:pristine_matter_spider>           : 100.0,
-  <deepmoblearning:pristine_matter_slime>            : 100.0,
-  <deepmoblearning:pristine_matter_witch>            : 100.0,
-  <deepmoblearning:pristine_matter_blaze>            : 150.0,
-  <deepmoblearning:pristine_matter_ghast>            : 150.0,
-  <deepmoblearning:pristine_matter_wither_skeleton>  : 200.0,
-  <deepmoblearning:pristine_matter_enderman>         : 200.0,
-  <deepmoblearning:pristine_matter_wither>           : 250.0,
-  <deepmoblearning:pristine_matter_dragon>           : 400.0,
-  <deepmoblearning:pristine_matter_shulker>          : 150.0,
-  <deepmoblearning:pristine_matter_guardian>         : 150.0,
-  <deepmoblearning:pristine_matter_thermal_elemental>: 150.0,
-  <deepmoblearning:pristine_matter_tinker_slime>     : 100.0,
-  <deepmoblearning:pristine_matter_twilight_forest>  : 200.0,
-  <deepmoblearning:pristine_matter_twilight_swamp>   : 200.0,
-  <deepmoblearning:pristine_matter_twilight_darkwood>: 200.0,
-  <deepmoblearning:pristine_matter_twilight_glacier> : 200.0,
-} as double[IItemStack];
+static itemMass as double[IItemStack] = {
+  <tconevo:metal:42>: 5000.0,
+  <deepmoblearning:pristine_matter_dragon>: 3200.0,
+  <deepmoblearning:pristine_matter_wither>: 1250.0,
+  <deepmoblearning:pristine_matter_wither_skeleton>: 800.0,
+  <deepmoblearning:pristine_matter_twilight_swamp>: 800.0,
+  <deepmoblearning:pristine_matter_twilight_glacier>: 800.0,
+  <deepmoblearning:pristine_matter_twilight_forest>: 800.0,
+  <deepmoblearning:pristine_matter_twilight_darkwood>: 800.0,
+  <deepmoblearning:pristine_matter_enderman>: 800.0,
+  <deepmoblearning:pristine_matter_thermal_elemental>: 450.0,
+  <deepmoblearning:pristine_matter_shulker>: 450.0,
+  <deepmoblearning:pristine_matter_guardian>: 450.0,
+  <deepmoblearning:pristine_matter_ghast>: 450.0,
+  <deepmoblearning:pristine_matter_blaze>: 450.0,
+  <deepmoblearning:pristine_matter_zombie>: 200.0,
+  <deepmoblearning:pristine_matter_witch>: 200.0,
+  <deepmoblearning:pristine_matter_tinker_slime>: 200.0,
+  <deepmoblearning:pristine_matter_spider>: 200.0,
+  <deepmoblearning:pristine_matter_slime>: 200.0,
+  <deepmoblearning:pristine_matter_skeleton>: 200.0,
+  <deepmoblearning:pristine_matter_creeper>: 200.0,
+} as double[IItemStack]$orderly;
 
 for item, mass in itemMass {
-  if (!isNull(item)) {
-    mods.appliedenergistics2.Cannon.registerAmmo(item, mass);
-  }
+  if (isNull(item)) continue;
+  mods.appliedenergistics2.Cannon.registerAmmo(item, mass);
 }
 
 // [Printed (Every) Circuit] shortcut in [Cutting Machine]
@@ -493,6 +475,13 @@ regrind(<nuclearcraft:ingot:10>                 , <nuclearcraft:dust:10>);
 regrind(<nuclearcraft:ingot:11>                 , <nuclearcraft:dust:11>);
 regrind(<nuclearcraft:ingot:14>                 , <nuclearcraft:dust:14>);
 regrind(<nuclearcraft:ingot:15>                 , <nuclearcraft:dust:15>);
+regrind(<nuclearcraft:ingot2:1>                 , <nuclearcraft:dust2:1>);
+regrind(<nuclearcraft:ingot2:2>                 , <nuclearcraft:dust2:2>);
+regrind(<nuclearcraft:ingot2:3>                 , <nuclearcraft:dust2:3>);
+regrind(<nuclearcraft:ingot2:4>                 , <nuclearcraft:dust2:4>);
+regrind(<nuclearcraft:ingot2:5>                 , <nuclearcraft:dust2:5>);
+regrind(<nuclearcraft:ingot2:6>                 , <nuclearcraft:dust2:6>);
+regrind(<nuclearcraft:ingot2>                   , <nuclearcraft:dust2>);
 regrind(<psi:material:1>                        , <psi:material>);
 regrind(<qmd:ingot:1>                           , <qmd:dust:1>);
 regrind(<qmd:ingot:2>                           , <qmd:dust:2>);
@@ -502,6 +491,7 @@ regrind(<qmd:ingot:11>                          , <qmd:dust:11>);
 regrind(<qmd:ingot:12>                          , <qmd:dust:12>);
 regrind(<qmd:ingot:13>                          , <qmd:dust:13>);
 regrind(<qmd:ingot:14>                          , <qmd:dust:14>);
+regrind(<qmd:ingot:15>                          , <qmd:dust:15>);
 regrind(<qmd:ingot2:1>                          , <qmd:dust2:1>);
 regrind(<qmd:ingot2>                            , <qmd:dust2>);
 regrind(<redstonearsenal:material:32>           , <redstonearsenal:material>);
@@ -648,7 +638,7 @@ for i, inputs in storCompIngrs {
 recipes.addHiddenShapeless(
   'singularity_tag_clearing',
   <appliedenergistics2:material:48> * 2,
-  [<ore:singularityEntangled>, <ore:singularityEntangled>]
+  [<ore:itemEntangled>, <ore:itemEntangled>]
 );
 // and JEI recipe hint for it, it's added at both server and client to prevent strange data syncing issue
 recipes.addShapeless(

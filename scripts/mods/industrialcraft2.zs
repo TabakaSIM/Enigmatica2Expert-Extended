@@ -5,6 +5,7 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
 import crafttweaker.item.WeightedItemStack;
 import mods.ic2.ScrapBox;
+import mods.requious.AssemblyRecipe;
 
 import scripts.jei.mod.ic2.addCrop;
 
@@ -19,6 +20,38 @@ import scripts.jei.mod.ic2.addCrop;
 <ic2:rsh_condensator>.maxStackSize = 1;
 
 Purge(<ic2:te:76>); // Electrolyzer
+
+//////////////////////////////////////////////////////////////////////
+// JEI
+//////////////////////////////////////////////////////////////////////
+val x = <assembly:crafting_hints>;
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addItemOutput('output1', <ic2:resource>);
+})
+  .requireFluid('fluid_in', <fluid:ic2pahoehoe_lava> * 1000)
+);
+
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addFluidOutput('fluid_out', <fluid:ic2steam> * 1000);})
+  .requireFluid('fluid_in', <fluid:water> * 10)
+  .requireItem('input0', <ic2:te:34>));
+
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addFluidOutput('fluid_out', <fluid:ic2superheated_steam> * 1000);})
+  .requireFluid('fluid_in', <fluid:water> * 10)
+  .requireItem('input0', <ic2:te:34>));
+
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addItemOutput('output1', <ic2:foam> * 10);})
+  .requireFluid('fluid_in', <fluid:ic2construction_foam> * 1000)
+  .requireItem('input0', <ic2:foam_sprayer>));
+
+x.addJEIRecipe(AssemblyRecipe.create(function (c) {
+  c.addItemOutput('output1', <ic2:foam:1> * 10);})
+  .requireFluid('fluid_in', <fluid:ic2construction_foam> * 1000)
+  .requireItem('input5', <ic2:scaffold:2> * 10)
+  .requireItem('input0', <ic2:foam_sprayer>));
+//////////////////////////////////////////////////////////////////////
 
 // Hydrated Coal Dust recipe consumes containers that can store 1000mB + liquid, this fixes that
 recipes.addShapeless('ic2_hydrated_coal_dust_liquid_fix', <ic2:dust:3>, [<ore:dustCoal>, LiquidIngr('water')]);
@@ -174,7 +207,7 @@ scripts.mods.extendedcrafting_engineering.remakeAlted(
   '■': <tconstruct:large_plate>.withTag({ Material: 'iron' }),
 }, 6, {
   '□': <ore:plateTitanium>,
-  '■': <ore:blockConstructionAlloy>,
+  '■': <ore:blockFakeIron>,
 });
 
 recipes.addShapedMirrored('Basic Machine Casing2',
@@ -318,13 +351,15 @@ craft.remake(<ic2:te:8>, ['pretty',
 });
 
 // [Solar Panel] batch crafting
-scripts.processUtils.avdRockXmlRecipeEx(
-  'PrecisionAssembler', [
-    <ore:plateIron> * 64,
-    <ore:gemLapis> * 48,
-    <ore:circuitBasic> * 16,
-    <ore:dustCoal> * 16,
-  ], null, [<ic2:te:8> * 16], null, { power: 120000, timeRequired: 100 });
+mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionAssembler').builder()
+  .inputOre(<ore:plateIron>, 64)
+  .inputOre(<ore:gemLapis>, 48)
+  .inputOre(<ore:circuitBasic>, 16)
+  .inputOre(<ore:dustCoal>, 16)
+  .outputItem(<ic2:te:8> * 16)
+  .power(120000)
+  .timeRequired(100)
+  .build();
 
 // Remove Recycler (replaced by other machines)
 recipes.remove(<ic2:te:48>);
@@ -424,14 +459,15 @@ mods.nuclearcraft.FuelReprocessor.addRecipe(<ore:depletedFuelIC2U>,
 );
 
 // Batch crafting recipe for reflector, skipping microcraftings
-scripts.processUtils.avdRockXmlRecipeEx('PrecisionAssembler', [
-  <ore:plateCopper> * 64, // Copper Plate
-  <ore:dustTin> * 64,     // Pulverized Tin
-  <ore:dustCoal> * 64,    // Pulverized Coal
-  <ic2:crafting:4>,       // Iridium Reinforced Plate
-], null,
-[<ic2:iridium_reflector>], null, { power: 160000, timeRequired: 80 }
-);
+mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionAssembler').builder()
+  .inputOre(<ore:plateCopper>, 64) // Copper Plate
+  .input(<ore:dustTin> * 64)     // Pulverized Tin
+  .input(<ore:dustCoal> * 64)    // Pulverized Coal
+  .input(<ic2:crafting:4>)       // Iridium Reinforced Plate
+  .outputItem(<ic2:iridium_reflector>)
+  .power(160000)
+  .timeRequired(80)
+  .build();
 
 // Milk Powder
 scripts.process.evaporate(<fluid:milk> * 250, <ic2:dust:33>, 'No exceptions');
@@ -454,53 +490,6 @@ mods.actuallyadditions.Compost.addRecipe(<ic2:crop_res:2>, <minecraft:wool:13>, 
 
 // Scrap making from seed bags
 scripts.process.crush(<ic2:crop_seed_bag>, <ic2:crafting:23>, 'only: Macerator', null, null);
-
-function addScrapCrush(source as IItemStack, amount as int) as void {
-  scripts.process.crush(
-    source,
-    <ic2:crafting:23> * amount,
-    'only: Macerator SagMill',
-    [<ic2:crafting:23> * (amount / 2), <ic2:crafting:23> * (amount / 4)],
-    [0.5f, 0.5f]);
-}
-
-function addPieceCrush(source as IItemStack, amount as int) as void {
-  val itemStr = source.definition.id
-    + (source.damage != 0 ? ':' ~ source.damage : '');
-  val piece = <littletiles:blocklittletiles>.withTag({
-    bBox: [3, 3, 3, 5, 5, 5] as int[],
-    grid: 8,
-    tile: { block: itemStr }, block: itemStr});
-
-  val pieceAmount = min(64, amount);
-  scripts.process.crush(
-    source,
-    piece * pieceAmount,
-    'only: Macerator SagMill',
-    [piece * (pieceAmount / 2), piece * (pieceAmount / 4)],
-    [0.5f, 0.5f]);
-
-  val piece64 = <littletiles:blocklittletiles>.withTag({
-    bBox: [7, 7, 7, 8, 8, 8] as int[],
-    tile: { block: itemStr }, block: itemStr});
-
-  if (amount > 64) {
-    val piece64Amount = amount / 64;
-    scripts.process.crush(
-      piece,
-      piece64 * piece64Amount,
-      'only: Macerator SagMill',
-      [piece64 * (piece64Amount / 2), piece64 * (piece64Amount / 4)],
-      [0.5f, 0.5f]);
-  }
-
-  addScrapCrush(amount > 64 ? piece64 : piece, 64);
-}
-
-addScrapCrush(<rats:garbage_pile>, 16);
-addScrapCrush(<nuclearcraft:wasteland_earth>, 32);
-addPieceCrush(<trinity:radioactive_earth>, 64);
-addPieceCrush(<trinity:radioactive_earth2>, 4096);
 
 // --------------------------------------------------------------------------------------------
 // CROPS
@@ -618,7 +607,6 @@ mods.nuclearcraft.Melter.addRecipe(<ore:coal> | <ore:dustCoal>, <liquid:coal> * 
 furnace.setFuel(<ic2:dust:16>, 0);
 mods.mekanism.chemical.oxidizer.removeRecipe(<gas:sulfurdioxide>, <ic2:dust:16>);
 mods.mekanism.enrichment.removeRecipe(<ic2:dust:16>);
-mods.nuclearcraft.Melter.addRecipe(<ore:dustSulfur>, <liquid:sulfur> * 100);
 
 // -----------------------------------------
 // Other new recipes for crop res
@@ -660,7 +648,7 @@ craft.remake(<thermalfoundation:material:27>, ['pretty',
   'B # B',
   '  B  '], {
   'B': <ic2:crop_res:8>, // Bobs-Yer-Uncle-Ranks Berry
-  '#': <ore:gearWood>,   // Wooden Gear
+  '#': <ore:gearStone>,   // Wooden Gear
 });
 
 // [Quartzburnt] from [Black Quartz Block][+1]
@@ -688,7 +676,11 @@ recipes.addShapeless('firebox_ashes', <forestry:ash>, [<ic2:misc_resource>]);
 
 // Shortcut for AR
 // [Lapotron Crystal] from [Advanced Circuit][+1]
-scripts.processUtils.avdRockXmlRecipe('Crystallizer', [<ore:circuitAdvanced> * 4], [<fluid:lapis> * 10000], [<ic2:lapotron_crystal> * 4], null);
+mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
+  .inputOre(<ore:circuitAdvanced>, 4)
+  .inputLiquid(<fluid:lapis> * 10000)
+  .outputItem(<ic2:lapotron_crystal> * 4)
+  .build();
 
 // [Scaffold]*20 from [Stick][+1]
 craft.remake(<ic2:scaffold> * 20, ['pretty',

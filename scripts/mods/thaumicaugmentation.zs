@@ -82,3 +82,6 @@ mods.bloodmagic.AlchemyTable.addRecipe(<thaumcraft:stone_ancient> * 64, [<thaumc
 mods.bloodmagic.AlchemyTable.addRecipe(<thaumicaugmentation:stone>, [<thaumcraft:taint_rock>, <bloodmagic:slate:4>, <botania:manaresource:5>], 100000, 300, 5);
 mods.bloodmagic.AlchemyTable.addRecipe(<thaumicaugmentation:stone:1>, [<thaumcraft:taint_crust>, <bloodmagic:slate:4>, <botania:manaresource:5>], 100000, 300, 5);
 mods.bloodmagic.AlchemyTable.addRecipe(<thaumicaugmentation:stone:2>, [<thaumcraft:taint_soil>, <bloodmagic:slate:4>, <botania:manaresource:5>], 100000, 300, 5);
+
+// 🚒 Inworld crafting
+furnace.addRecipe(<thaumicaugmentation:urn:2>, <randomthings:beanpod>, 1.0);

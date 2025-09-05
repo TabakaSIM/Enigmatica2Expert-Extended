@@ -20,5 +20,11 @@
 		uid: "63b97aed",
 		type: "item",
 		item: "thaumadditions:thaumic_lectern"
+	},
+	{
+		uid: "4735339b",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"🦯Thaumcraft\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

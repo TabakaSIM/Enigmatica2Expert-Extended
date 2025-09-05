@@ -2,11 +2,11 @@
 	icon: {
 		ForgeCaps: {
 			Parent: {
-				energy: {
-					energy: 0L
-				},
 				augments: {
 					slots: 1
+				},
+				energy: {
+					energy: 0L
 				}
 			}
 		},
@@ -26,11 +26,11 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					energy: {
-						energy: 0L
-					},
 					augments: {
 						slots: 1
+					},
+					energy: {
+						energy: 0L
 					}
 				}
 			},
@@ -50,10 +50,10 @@
 		type: "custom",
 		title: "{e2ee.quest.uncommon}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

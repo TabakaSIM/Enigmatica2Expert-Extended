@@ -1,9 +1,15 @@
 {
 	icon: {
+		id: "opencomputers:print",
 		tag: {
+			lightLevel: 0b,
 			noclipOff: 0b,
-			isButtonMode: 0b,
+			isBeaconBase: 0b,
+			pressurePlate: 0b,
 			noclipOn: 0b,
+			isButtonMode: 0b,
+			label: "Companion Cube",
+			stateOn: [],
 			redstoneLevel: 0,
 			stateOff: [{
 				texture: "wool_colored_silver",
@@ -268,14 +274,8 @@
 					5b,
 					5b
 				]
-			}],
-			lightLevel: 0b,
-			label: "Companion Cube",
-			isBeaconBase: 0b,
-			pressurePlate: 0b,
-			stateOn: []
-		},
-		id: "opencomputers:print"
+			}]
+		}
 	},
 	x: 5.6d,
 	y: 6.5d,
@@ -296,18 +296,18 @@
 		uid: "00179815",
 		type: "item",
 		items: [{
+			id: "opencomputers:storage",
 			tag: {
-				"oc:color": 6,
 				"oc:data": {
 					"oc:fs.label": "oppm"
 				},
-				"oc:lootFactory": "opencomputers:oppm",
+				"oc:color": 6,
 				display: {
 					Name: "OPPM (Package Manager)"
-				}
+				},
+				"oc:lootFactory": "opencomputers:oppm"
 			},
-			Damage: 1s,
-			id: "opencomputers:storage"
+			Damage: 1s
 		}]
 	},
 	{
@@ -324,16 +324,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "dye"
+					data: "dye",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any dye"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}],
 		count: 4L
 	},
@@ -341,10 +341,16 @@
 		uid: "4a0a0bf1",
 		type: "item",
 		items: [{
+			id: "opencomputers:print",
 			tag: {
+				lightLevel: 0b,
 				noclipOff: 0b,
-				isButtonMode: 0b,
+				isBeaconBase: 0b,
+				pressurePlate: 0b,
 				noclipOn: 0b,
+				isButtonMode: 0b,
+				label: "Companion Cube",
+				stateOn: [],
 				redstoneLevel: 0,
 				stateOff: [{
 					texture: "wool_colored_silver",
@@ -609,14 +615,8 @@
 						5b,
 						5b
 					]
-				}],
-				lightLevel: 0b,
-				label: "Companion Cube",
-				isBeaconBase: 0b,
-				pressurePlate: 0b,
-				stateOn: []
-			},
-			id: "opencomputers:print"
+				}]
+			}
 		}]
 	}],
 	rewards: [{

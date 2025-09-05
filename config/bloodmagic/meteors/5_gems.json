@@ -20,7 +20,6 @@
     ,{"weight": 20,"oreName" : "oreApatite"}
     ,{"weight":120,"oreName" : "oreCertusQuartz"}
     ,{"weight": 90,"oreName" : "oreCinnabar"}
-    ,{"weight": 70,"oreName" : "oreProsperity"}
     ,{"weight": 20,"oreName" : "oreQuartzBlack"}
   ],
   "explosionStrength": 18.0,

@@ -33,7 +33,7 @@ craft.remake(<enderstorage:ender_pouch>, ['pretty',
   '▬ ▲ ▬'], {
   '▲': <ore:dustWither>, // Wither Ash
   'C': <minecraft:web>, // Cobweb
-  'E': <extendedcrafting:material:37>, // Ender Nugget
+  'E': <thermalfoundation:material:198>,
   'H': <harvestcraft:hardenedleatheritem>, // Hardened Leather
   '▬': <ore:ingotArdite>, // Ardite Ingot
   'M': <tconstruct:materials:19>, // Mending Moss

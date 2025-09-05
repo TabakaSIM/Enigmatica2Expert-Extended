@@ -1,12 +1,10 @@
 #modloaded integrateddynamics
+#ignoreBracketErrors
 
 /*
 # Aluminum / Osmium Squeezer Compatibility
 	mods.integrateddynamics.Squeezer.addRecipe(<mekanism:oreblock>, <mekanism:dust:2>, 0.75f, <mekanism:dust:2>);
 	mods.integrateddynamics.Squeezer.addRecipe(<thermalfoundation:ore:4>, <thermalfoundation:material:68>, 0.75f, <mekanism:dust:2>);
-
-	mods.integrateddynamics.MechanicalSqueezer.addRecipe(<mekanism:oreblock>, <mekanism:dust:2> * 2, 0.50f, <mekanism:dust:2>);
-	mods.integrateddynamics.MechanicalSqueezer.addRecipe(<thermalfoundation:ore:4>, <thermalfoundation:material:68> * 2, 0.50f, <thermalfoundation:material:68>);
 */
 
 // Generator
@@ -16,18 +14,6 @@ recipes.addShapedMirrored('IntegratedDynamics Generator',
   [[<integrateddynamics:crystalized_menril_chunk>, <ic2:te:46>, <integrateddynamics:crystalized_menril_chunk>],
     [<integrateddynamics:crystalized_menril_block>, <integrateddynamics:energy_battery>.withTag({}), <integrateddynamics:crystalized_menril_block>],
     [<integrateddynamics:crystalized_menril_chunk>, <ic2:te:46>, <integrateddynamics:crystalized_menril_chunk>]]);
-
-// [Mechanical Squeezer] from [Crushing Block][+4]
-craft.remake(<integrateddynamics:mechanical_squeezer>, ['pretty',
-  '¤ ■ ¤',
-  'Ϟ   Ϟ',
-  '□ * □'], {
-  '■': <mechanics:crushing_block>, // Crushing Block
-  '□': <ore:plateDenseLapis>,      // Dense Lapis Lazuli Plate
-  '¤': <ore:gearVibrant>,          // Vibrant Bimetal Gear
-  '*': <actuallyadditions:block_crystal_empowered:1>, // Empowered Palis Crystal Block
-  'Ϟ': <integrateddynamics:energy_battery>, // Energy Battery
-});
 
 // Mechanical Drying Basin
 recipes.remove(<integrateddynamics:mechanical_drying_basin>);
@@ -99,7 +85,7 @@ craft.remake(<integrateddynamics:energy_battery>.withTag({ energy: 0, capacity: 
   '□ ♥ □',
   '□ ◘ □'], {
   '♥': <additionalcompression:dustredstone_compressed:1>,
-  '□': utils.tryCatch(utils.get('openblocks:tank', 0, 1, { tank: { FluidName: 'menrilresin', Amount: 24000 } }), Bucket('menrilresin')),
+  '□': <openblocks:tank>.withTag({tank: { FluidName: 'menrilresin', Amount: 24000 }}) ?? Bucket('menrilresin'),
   '◘': <integrateddynamics:crystalized_chorus_block>, // Block of Crystalized Chorus
 });
 
@@ -134,12 +120,10 @@ craft.remake(<integratedtunnels:part_interface_fluid_item> * 4, ['pretty',
 // Remove cheaty Propolis recipe
 // Other machines output only %10 of propolis
 mods.integrateddynamics.Squeezer.removeRecipesWithOutput(<forestry:propolis>, <fluid:for.honey> * 180);
-mods.integrateddynamics.MechanicalSqueezer.removeRecipesWithOutput(<forestry:propolis>, <fluid:for.honey> * 180);
 
 // Fix Aluminum not squeezed
 val AD = <thermalfoundation:material:68>; // Aluminum Dust
 scripts.processWork.work(['Squeezer']          , null, [<thermalfoundation:ore:4>], null, [AD, AD], null, null, [1.0f, 0.75f]);
-scripts.processWork.work(['MechanicalSqueezer'], null, [<thermalfoundation:ore:4>], null, [AD * 2, AD], null, null, [1.0f, 0.5f]);
 
 // [Player Simulator] from [Turtle][+3]
 craft.remake(<integratedtunnels:part_player_simulator_item>, ['pretty',
@@ -167,9 +151,7 @@ scripts.process.fill(<ore:blockGlass>, <fluid:menrilresin> * 1000, <integratedte
 scripts.process.fill(<ore:blockGlass>, <fluid:liquidchorus> * 1000, <integratedterminals:chorus_glass>, 'except: Casting DryingBasin MechanicalDryingBasin', true);
 
 // Fix torch have black-purple texture on cycling ingredients
-// [Menril Stone Torch] from [Menril Berries][+1]
 recipes.removeByRecipeName("integrateddynamics:menril_torch_stone");
-craft.shapeless(<integrateddynamics:menril_torch_stone> * 4, '/A', {
-  '/': <ore:stickStone>,
-  'A': <integrateddynamics:menril_berries>,
-});
+recipes.addShapeless('integrateddynamics:on_the_dynamics_of_integration',
+  <integrateddynamics:menril_torch_stone> * 4,
+  [<ore:stickStone>,<integrateddynamics:menril_berries>]);

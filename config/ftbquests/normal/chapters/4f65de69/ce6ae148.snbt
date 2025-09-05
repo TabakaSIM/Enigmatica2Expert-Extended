@@ -2,21 +2,21 @@
 	title: "{q.getting_started.laser_gun.name}",
 	icon: {
 		ForgeCaps: {
-			"plustic:musicofthespheres_cap": {
-				Items: [],
-				Size: 1
-			},
 			"plustic:": {
-				Items: [],
-				Size: 1
+				Size: 1,
+				Items: []
 			},
 			"plustic:fruitsalad_cap": {
-				Items: [],
-				Size: 5
+				Size: 5,
+				Items: []
+			},
+			"plustic:musicofthespheres_cap": {
+				Size: 1,
+				Items: []
 			}
 		},
-		tag: {},
-		id: "plustic:laser_gun"
+		id: "plustic:laser_gun",
+		tag: {}
 	},
 	x: 14.1d,
 	y: 6.1d,
@@ -30,34 +30,34 @@
 		uid: "71157ac9",
 		type: "item",
 		items: [{
+			id: "plustic:laser_medium",
 			tag: {
 				Material: "prismarine"
-			},
-			id: "plustic:laser_medium"
+			}
 		},
 		{
+			id: "plustic:laser_medium",
 			tag: {
 				Material: "blaze"
-			},
-			id: "plustic:laser_medium"
+			}
 		},
 		{
+			id: "plustic:laser_medium",
 			tag: {
 				Material: "endrod"
-			},
-			id: "plustic:laser_medium"
+			}
 		},
 		{
+			id: "plustic:laser_medium",
 			tag: {
 				Material: "psigem"
-			},
-			id: "plustic:laser_medium"
+			}
 		},
 		{
+			id: "plustic:laser_medium",
 			tag: {
 				Material: "starmetal"
-			},
-			id: "plustic:laser_medium"
+			}
 		}],
 		ignore_nbt: 1b
 	},
@@ -65,34 +65,34 @@
 		uid: "2e3ab41e",
 		type: "item",
 		items: [{
+			id: "plustic:battery_cell",
 			tag: {
 				Material: "blaze"
-			},
-			id: "plustic:battery_cell"
+			}
 		},
 		{
+			id: "plustic:battery_cell",
 			tag: {
 				Material: "endrod"
-			},
-			id: "plustic:battery_cell"
+			}
 		},
 		{
+			id: "plustic:battery_cell",
 			tag: {
 				Material: "manyullyn"
-			},
-			id: "plustic:battery_cell"
+			}
 		},
 		{
+			id: "plustic:battery_cell",
 			tag: {
 				Material: "copper"
-			},
-			id: "plustic:battery_cell"
+			}
 		},
 		{
+			id: "plustic:battery_cell",
 			tag: {
 				Material: "silver"
-			},
-			id: "plustic:battery_cell"
+			}
 		}],
 		ignore_nbt: 1b
 	},
@@ -100,8 +100,8 @@
 		uid: "be507bb6",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "plustic:pipe_piece"
+			id: "plustic:pipe_piece",
+			tag: {}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b

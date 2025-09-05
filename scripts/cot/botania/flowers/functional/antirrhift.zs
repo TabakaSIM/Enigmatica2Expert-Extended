@@ -6,6 +6,7 @@ I need to set is a generating flower, to ensure binding to funtional spreader.
 (funtional flower is binded to mana pool) In lexica botania it will be marked as functional flower!
 */
 
+#modloaded randomtweaker botania
 #loader contenttweaker
 
 import mods.contenttweaker.VanillaFactory;
@@ -20,7 +21,7 @@ antirrhift.maxMana = 0;
 antirrhift.passiveFlower = false;
 antirrhift.range = 4;
 antirrhift.onUpdate = function (subtile, world, pos) {
-  if (world.isRemote()) return;
+  if (world.remote) return;
   if (!subtile.isValidBinding()) return;
   // get mana buffer
   val nWorld = world as World;

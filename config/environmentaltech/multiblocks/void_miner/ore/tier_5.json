@@ -211,11 +211,6 @@
       "id": "rftools:dimensional_shard_ore"
     },
     {
-      "target": "silver",
-      "weight": 11,
-      "id": "mysticalagriculture:prosperity_ore"
-    },
-    {
       "target": "purple",
       "weight": 30,
       "id": "endreborn:block_wolframium_ore"

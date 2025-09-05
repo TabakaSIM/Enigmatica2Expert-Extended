@@ -1,26 +1,26 @@
 #modloaded twilightforest
 #loader mixin
 
-import native.net.minecraft.block.Block;
-import native.net.minecraft.block.state.IBlockState;
-import native.net.minecraft.item.Item;
-import native.net.minecraft.item.ItemStack;
-import native.net.minecraft.item.crafting.IRecipe;
-import native.net.minecraft.world.World;
-import native.net.minecraft.util.math.BlockPos;
-import native.net.minecraft.util.ITickable;
+import mixin.CallbackInfo;
 import native.java.util.Random;
 import native.net.minecraft.block.BlockLeaves;
 import native.net.minecraft.block.BlockLog;
 import native.net.minecraft.block.BlockLog.EnumAxis;
+import native.net.minecraft.block.state.IBlockState;
 import native.net.minecraft.init.Blocks;
+import native.net.minecraft.inventory.IInventory;
 import native.net.minecraft.util.EnumParticleTypes;
+import native.net.minecraft.util.ITickable;
+import native.net.minecraft.util.math.BlockPos;
+import native.net.minecraft.world.World;
 import native.net.minecraft.world.WorldServer;
+import native.net.minecraftforge.oredict.OreDictionary;
 import native.twilightforest.block.BlockTFMagicLeaves;
 import native.twilightforest.block.BlockTFMagicLog;
 import native.twilightforest.block.BlockTFMagicLogSpecial;
 import native.twilightforest.enums.MagicWoodVariant;
-import mixin.CallbackInfoReturnable;
+import native.twilightforest.inventory.ContainerTFUncrafting;
+import native.twilightforest.inventory.InventoryTFGoblinUncrafting;
 
 #mixin {targets: "twilightforest.block.BlockTFMagicLogSpecial"}
 zenClass MixinBlockTFMagicLogSpecial {
@@ -42,7 +42,7 @@ zenClass MixinBlockTFMagicLogSpecial {
 
                     val dPos = pos.add(x, y, z);
                     val state = world.getBlockState(dPos);
-                    val block = state.getBlock();
+                    val block = state.block;
 
                     // print('~ '~toString(block));
 
@@ -85,7 +85,7 @@ zenClass MixinBlockTFMagicLogSpecial {
                     //             tickable.update();
                     //         }
                     //     }
-                    } else if (block.getTickRandomly()) {
+                    } else if (block.tickRandomly) {
                         // Update tickable blocks
                         block.updateTick(world, dPos, state, rand);
                     }
@@ -107,47 +107,31 @@ zenClass MixinBlockTFMagicLogSpecial {
 
 /*
 Add antidupe for [Uncrafting Table]
-Now Uncrafting Table mechanic improved - you cant uncraft items that have several recipes with 2+ recipes output with same ID but different tags.
-For example, you cant Uncraft Mekanism Tanks or Cubes, since before fix this was allowed to create Creative Tank from Basic one.
+Now Uncrafting Table mechanic improved - you can't get same item in output as in input.
+For example, you cant get Mekanism Tanks of higher tier from lower ones.
 */
 #mixin {targets: "twilightforest.inventory.ContainerTFUncrafting"}
 zenClass MixinContainerTFUncrafting {
-    #mixin Static
-    #mixin Inject {method: "getRecipesFor", at: {value: "RETURN"}, cancellable: true}
-    function filterRecipes(item as ItemStack, cir as CallbackInfoReturnable) as void {
-        val recipes as IRecipe[] = cir.getReturnValue() as IRecipe[];
-        val recipeMap as [IRecipe][string] = {};
-        for recipe in recipes {
-            val out = recipe.recipeOutput;
-            val registryKey as string = Item.REGISTRY.getNameForObject(out.item).toString() ~ ":" ~ out.metadata;
-            if (!(recipeMap has registryKey)) {
-                recipeMap[registryKey] = [] as [IRecipe]; 
-            }
-            var entry as [IRecipe] = recipeMap[registryKey];
-            entry += recipe;
-        }
-        var filterRecipes as [IRecipe] = [] as [IRecipe];
-        for key, recipeList in recipeMap {
-            if (recipeList.length == 1) {
-                filterRecipes += recipeList[0];
-                continue;
-            }
-            val firstOutput = recipeList[0].recipeOutput;
-            var allMatch as bool = true;
-            for recipe in recipeList {
-                val currentOutput = recipe.recipeOutput;
-                if (ItemStack.areItemStackTagsEqual(firstOutput, currentOutput)) {
-                    continue;
-                }
-                allMatch = false;
-                break;
-            }
-            if (allMatch) {
-                for recipe in recipeList {
-                    filterRecipes += recipe;
-                }
+    #mixin Shadow
+    val tinkerInput as IInventory;
+
+    #mixin Shadow
+    val uncraftingMatrix as InventoryTFGoblinUncrafting;
+
+    #mixin Inject {method: "func_75130_a", at: {value: "RETURN"}}
+    function onCraftMatrixChanged(inventory as IInventory, ci as CallbackInfo) as void {
+        // Check if the recipe result is the same as one of the uncrafting ingredients
+        val outputStack = tinkerInput.getStackInSlot(0);
+        for i in 0 .. 9 {
+            val ingredientStack = uncraftingMatrix.getStackInSlot(i);
+            if (
+                !ingredientStack.isEmpty() && !outputStack.isEmpty() && 
+                ingredientStack.item == outputStack.item &&
+                (ingredientStack.itemDamage == OreDictionary.WILDCARD_VALUE || ingredientStack.itemDamage == outputStack.itemDamage)
+            ) {
+                // Mark the stack to indicate it's banned
+                ContainerTFUncrafting.markStack(ingredientStack);
             }
         }
-        cir.setReturnValue(filterRecipes as IRecipe[]);
     }
 }

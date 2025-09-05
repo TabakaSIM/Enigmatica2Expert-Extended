@@ -189,8 +189,9 @@
 			<fogColor>0,0,0.2</fogColor>
 			<generateCaves>true</generateCaves>
 			<generateCraters>true</generateCraters>
-			<generateGeodes>true</generateGeodes>
 			<generateVolcanos>true</generateVolcanos>
+			<generateGeodes>true</generateGeodes>
+			<geodeOres>oreRutile,oreCinnabar,oreRuby,oreMagnesium,oreRedstone,oreCopper</geodeOres>
 			<gravitationalMultiplier>60</gravitationalMultiplier>
 			<hasRings>true</hasRings>
 			<oceanBlock>tconstruct:molten_obsidian</oceanBlock>
@@ -208,6 +209,8 @@
 			<orbitalDistance>20</orbitalDistance>
 			<rotationalPeriod>100000</rotationalPeriod>
 			<generateCaves>true</generateCaves>
+			<generateGeodes>true</generateGeodes>
+			<geodeOres>oreEndRedstone,oreEndRuby,oreEndArdite,oreEndCobalt,oreEndCopper,oreAmethyst,oreEnderBiomeEssence</geodeOres>
 			<fillerBlock>minecraft:stone:5</fillerBlock>
 		</planet>
 		<planet name="KELT-1b" DIMID="117" customIcon="gasgiantred">
@@ -245,6 +248,14 @@
 			<generateCaves>true</generateCaves>
 		</planet>
 		<planet name="Asteroid Belt" DIMID="124">
+			<artifact>avaritia:resource 6</artifact>
+			<skyColor>0.2,0.205,0.21</skyColor>
+			<fogColor>0.1,0.1,0.1</fogColor>
+			<fillerBlock>advancedrocketry:vitrifiedsand</fillerBlock>
+			<atmosphereDensity>0</atmosphereDensity>
+			<gravitationalMultiplier>90</gravitationalMultiplier>
+			<orbitalDistance>8</orbitalDistance>
+			<rotationalPeriod>18000000</rotationalPeriod>
 			<genType>2</genType>
 		</planet>
 		<planet name="Caveland" DIMID="125">

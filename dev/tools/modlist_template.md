@@ -20,7 +20,7 @@ Icon | Summary
   {{~{padStart cf2Addon.name 42 pre='[**'}~}}
 **]({{{padEnd cf2Addon.links.websiteUrl 75 post=')'}~}}
 <sup><sub>
-  {{~padEnd latestFile.fileName 49~}}
+  {{~padEnd installedFile.fileName 49~}}
 </sub></sup><br>
   {{~cf2Addon.summary}}
 {{/each}}
@@ -42,7 +42,6 @@ Mods that present only in `Extended` version:
 {{> list added}}
 {{/if}}
 {{#if removed}}
-
 ## 🔴 Removed from `E2E` Mods
 
 Mods that exists in `E2E` but __was removed__ in `E2E-Extended`

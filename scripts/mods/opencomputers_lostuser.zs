@@ -1,4 +1,4 @@
-#modloaded opencomputers
+#modloaded opencomputers appliedenergistics2
 
 /*
 

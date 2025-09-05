@@ -29,15 +29,15 @@
 			"distribution": "gaussian",
 			"generator": {
 				"type": "geode",
-				"block": "advancedrocketry:geode",
-				"crust": "forestry:ash_block_3",
+				"block": "forestry:ash_block_3",
+				"crust": "advancedrocketry:geode",
 				"hollow": true,
 				"filler": "air"
 			},
-			"cluster-count": 1,
-			"chunk-chance": 3,
-			"center-height": 14,
-			"spread": 10,
+			"cluster-count": 4,
+			"chunk-chance": 1,
+			"center-height": 24,
+			"spread": 20,
 			"dimension": {"restriction": "whitelist","value": [123]}
 		},
 

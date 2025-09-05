@@ -1,4 +1,5 @@
 #modloaded potioncore
+#ignoreBracketErrors
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
@@ -269,7 +270,8 @@ addBrewWithUpgrades(
 // add a recipe for a potion, splash potion and lingering potion
 function addBrew(basePotionName as string,
   ingredient as IIngredient,
-  potionName as string) {
+  potionName as string) as void {
+  if (isNull(ingredient) || ingredient.items.length <= 0) return;
   // brewing.addBrew(IIngredient input, IIngredient ingredient, IItemStack output, @Optional boolean hidden);
   brewing.addBrew(asPotion(basePotionName), ingredient, asPotion(potionName));
   brewing.addBrew(asSplashPotion(basePotionName), ingredient, asSplashPotion(potionName));

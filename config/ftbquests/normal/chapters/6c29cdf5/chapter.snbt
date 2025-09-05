@@ -1,11 +1,11 @@
 {
 	title: "{q.botania.name}",
 	icon: {
+		id: "botania:twigwand",
 		tag: {
-			color2: 3,
-			color1: 3
-		},
-		id: "botania:twigwand"
+			color1: 3,
+			color2: 3
+		}
 	},
 	description: [
 		"{q.botania.desc}"

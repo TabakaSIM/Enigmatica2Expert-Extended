@@ -1,14 +1,18 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
-  // typescript: { tsconfigPath: 'tsconfig.json' },
+  typescript: { tsconfigPath: 'tsconfig.json' },
   gitignore: false,
   rules    : {
     'no-console'                : 'off',
     'node/prefer-global/process': 'off',
+    'ts/no-floating-promises'   : 'error',
+    'ts/strict-boolean-expressions': 'off',
+    'ts/no-unsafe-assignment': 'off',
 
     // Override @antfu rules to my personal prefferences
     'style/key-spacing'            : ['error', { align: 'colon' }],
+    'style/no-extra-parens'        : ['error', 'all', {nestedBinaryExpressions: false, nestedConditionalExpressions: false }],
     'style/no-multi-spaces'        : 'off',
     'style/type-annotation-spacing': 'off',
     'antfu/if-newline'             : 'off',
@@ -34,12 +38,11 @@ export default antfu({
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars'   : 'error',
 
-    'perfectionist/sort-array-includes'  : 'error',
-    'perfectionist/sort-astro-attributes': 'error',
-    // 'perfectionist/sort-classes'         : 'error',
-    'perfectionist/sort-enums'           : 'error',
-    'perfectionist/sort-exports'         : 'error',
-    'perfectionist/sort-imports'         : ['error', {
+    // 'perfectionist/sort-classes': 'error',
+    'perfectionist/sort-array-includes': 'error',
+    'perfectionist/sort-enums'         : 'error',
+    'perfectionist/sort-exports'       : 'error',
+    'perfectionist/sort-imports'       : ['error', {
       type  : 'natural',
       groups: [
         'side-effect',
@@ -55,16 +58,14 @@ export default antfu({
         'unknown',
       ],
     }],
-    'perfectionist/sort-interfaces'       : 'error',
-    'perfectionist/sort-jsx-props'        : 'error',
-    'perfectionist/sort-maps'             : 'error',
-    'perfectionist/sort-named-exports'    : 'error',
-    'perfectionist/sort-named-imports'    : 'error',
-    'perfectionist/sort-object-types'     : 'error',
+    'perfectionist/sort-interfaces'   : 'error',
+    'perfectionist/sort-jsx-props'    : 'error',
+    'perfectionist/sort-maps'         : 'error',
+    'perfectionist/sort-named-exports': 'error',
+    'perfectionist/sort-named-imports': 'error',
+    'perfectionist/sort-object-types' : 'error',
+    'perfectionist/sort-union-types'  : 'error',
     // 'perfectionist/sort-objects': 'error',
-    'perfectionist/sort-svelte-attributes': 'error',
-    'perfectionist/sort-union-types'      : 'error',
-    'perfectionist/sort-vue-attributes'   : 'error',
   },
 }, {
   files: ['**/*.md'],

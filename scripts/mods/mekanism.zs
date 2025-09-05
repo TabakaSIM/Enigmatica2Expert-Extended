@@ -1,7 +1,10 @@
+#ignoreBracketErrors
 #modloaded mekanism nuclearcraft
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
+
+mods.jei.JEI.hideCategory('mekanism.energizedsmelter');
 
 // Clear tooltip for Osmium Ore since its not spawned everywhere
 (<mekanism:oreblock> as IIngredient).removeTooltip('.*LSHIFT.*');
@@ -257,6 +260,7 @@ Purge(<mekanism:oreblock:1>);
 Purge(<mekanism:oreblock:2>);
 
 // Tier applying
+recipes.addShapeless(<mekanism:machineblock:5>.withTag({mekData: {}}), [<mekanism:machineblock:10>, <mekanism:tierinstaller>]);
 recipes.addShapeless(<mekanism:machineblock:5>.withTag({ recipeType: 3, mekData: {} }), [<mekanism:machineblock:1>, <mekanism:tierinstaller>]);
 recipes.addShapeless(<mekanism:machineblock:6>.withTag({ recipeType: 3, mekData: {} }), [<mekanism:machineblock:5>.withTag({ recipeType: 3, mekData: {} }), <mekanism:tierinstaller:1>]);
 recipes.addShapeless(<mekanism:machineblock:7>.withTag({ recipeType: 3, mekData: {} }), [<mekanism:machineblock:6>.withTag({ recipeType: 3, mekData: {} }), <mekanism:tierinstaller:2>]);
@@ -402,14 +406,14 @@ craft.remake(<mekanism:gasupgrade>, ['pretty',
 );
 
 // Atomic disassembler
-recipes.removeShaped(<mekanism:atomicdisassembler>);
-val anyDragonsteelRod = <tconstruct:tough_tool_rod>.withTag({ Material: 'dragonsteel_ice' })
-| <tconstruct:tough_tool_rod>.withTag({ Material: 'dragonsteel_fire' });
-recipes.addShaped(<mekanism:atomicdisassembler>, [
-  [<ore:ingotPlatinum>, <mekanism:tierinstaller:3>, <ore:ingotPlatinum>],
-  [<ore:ingotPlatinum>, anyDragonsteelRod, null],
-  [null, anyDragonsteelRod, null],
-]);
+craft.remake(<mekanism:atomicdisassembler>, ['pretty',
+  '▬ E ▬',
+  '▬ -  ',
+  '  -  '], {
+  '▬': <ore:ingotVividAlloy>,
+  'E': <mekanism:tierinstaller:2>,
+  '-': <ore:dragonsteelIngot>,
+});
 
 mods.mekanism.enrichment.removeRecipe(<appliedenergistics2:crystal_seed>, <appliedenergistics2:material:10>);
 mods.mekanism.enrichment.removeRecipe(<appliedenergistics2:crystal_seed:600>, <appliedenergistics2:material:11>);
@@ -616,13 +620,9 @@ recipes.addShapeless('salt block', <mekanism:saltblock>, [<ore:itemSalt>,<ore:it
 
 // More infuser recipes
 recipes.remove(<nuclearcraft:glowing_mushroom>);
-for id in [
-  'betteranimalsplus:goose_egg',
-  'betteranimalsplus:turkey_egg',
-  'betteranimalsplus:pheasant_egg',
-] as string[] {
-  mods.mekanism.infuser.addRecipe('CARBON', 50, utils.tryCatch(id, <minecraft:egg> * 16), <enderio:item_material:50>);
-}
+mods.mekanism.infuser.addRecipe('CARBON',  50, <betteranimalsplus:goose_egg> ?? <minecraft:egg> * 16, <enderio:item_material:50>);
+mods.mekanism.infuser.addRecipe('CARBON',  50, <betteranimalsplus:turkey_egg> ?? <minecraft:egg> * 16, <enderio:item_material:50>);
+mods.mekanism.infuser.addRecipe('CARBON',  50, <betteranimalsplus:pheasant_egg> ?? <minecraft:egg> * 16, <enderio:item_material:50>);
 mods.mekanism.infuser.addRecipe('CARBON',  50, <industrialforegoing:pink_slime>, <enderio:item_material:50>);
 mods.mekanism.infuser.addRecipe('FUNGI' ,  20, <ore:dustGlowstone>, <nuclearcraft:glowing_mushroom>);
 mods.mekanism.infuser.addRecipe('BIO'   , 100, <ore:eternalLifeEssence> * 4, <botania:overgrowthseed>);
@@ -711,8 +711,7 @@ craft.remake(<mekanism:basicblock2:5>, ['pretty',
 
 // Fix squeezers have no recipe
 val OD = <mekanism:dust:2>;
-scripts.processWork.work(['Squeezer'],            null, [<ore:oreOsmium>], null, [OD  , OD], null, null, [0.75]);
-scripts.processWork.work(['MechanicalSqueezer'],  null, [<ore:oreOsmium>], null, [OD * 2, OD], null, null, [0.5]);
+scripts.processWork.work(['Squeezer'], null, [<ore:oreOsmium>], null, [OD  , OD], null, null, [0.75]);
 
 // Oredicting cheaper recipe
 // [Formulaic Assemblicator] from [Slag][+3]

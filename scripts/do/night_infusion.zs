@@ -1,4 +1,4 @@
-#modloaded ctintegration crafttweakerutils
+#modloaded ctintegration crafttweakerutils mysticalagriculture
 #reloadable
 
 import crafttweaker.world.IFacing;

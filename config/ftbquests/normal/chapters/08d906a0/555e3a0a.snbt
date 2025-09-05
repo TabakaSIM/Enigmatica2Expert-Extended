@@ -12,16 +12,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "plankTreatedWood"
+					data: "plankTreatedWood",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any plankTreatedWood"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}]
 	}],
 	rewards: [{

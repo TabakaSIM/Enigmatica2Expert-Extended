@@ -11,16 +11,6 @@ recipes.addShapeless('Cyclic Guide',
   <guideapi:cyclicmagic-guide>,
   [<minecraft:book>, <cyclicmagic:carbon_paper>]);
 
-// [Redstone Clock] from [Ectoplasm][+2]
-craft.remake(<cyclicmagic:clock>, ['pretty',
-  '■ ♥ ■',
-  '♥ E ♥',
-  '■ ♥ ■'], {
-  '■': <ore:blockPearl>, // Pearl Block
-  '♥': <randomthings:advancedredstonetorch_on>, // Advanced Redstone Torch
-  'E': <randomthings:ingredient:2>, // Ectoplasm
-});
-
 // Speed Charm + Elytra is too OP
 <cyclicmagic:charm_speed>.maxDamage = 100;
 
@@ -41,7 +31,7 @@ recipes.addShaped('Cyclic Shears', <cyclicmagic:shears_obsidian>, [
 // Harder Sleeping mat
 recipes.remove(<cyclicmagic:sleeping_mat>);
 recipes.addShapeless('Cyclic Sleep Mat', <cyclicmagic:sleeping_mat>, [
-  utils.tryCatch('travelersbackpack:sleeping_bag_bottom', <minecraft:rabbit_hide>), <ore:leather>]);
+  <travelersbackpack:sleeping_bag_bottom> ?? <minecraft:rabbit_hide>, <ore:leather>]);
 
 // [Void_Charm] from [Slime_Cube][+3]
 craft.remake(<cyclicmagic:charm_void>, ['pretty',
@@ -94,16 +84,6 @@ mods.tconstruct.Casting.addTableRecipe(<cyclicmagic:ender_pearl_mounted>, <endre
 recipes.remove(<cyclicmagic:soulstone>);
 mods.rockytweaks.Anvil.addRecipe(<cyclicmagic:ender_pearl_reuse>, <cyclicmagic:crystallized_obsidian>, <cyclicmagic:soulstone>, 45);
 mods.rockytweaks.Anvil.addRecipe(<cyclicmagic:ender_pearl_mounted>, <cyclicmagic:crystallized_obsidian>, <cyclicmagic:soulstone>, 45);
-
-// [Crystallized Amber] from [Chorus Glass][+3]
-craft.remake(<cyclicmagic:crystallized_amber>, ['pretty',
-  'M W',
-  '■ C'], {
-  'M': <tconstruct:materials:19>, // Mending Moss
-  'W': <randomthings:weatheregg>, // Weather Egg <Sun>
-  '■': <ore:blockAmber>, // Amber Block
-  'C': <integratedterminals:chorus_glass>, // Chorus Glass
-});
 
 // [Crystallized Obsidian] from [Chorus Glass][+3]
 craft.remake(<cyclicmagic:crystallized_obsidian>, ['pretty',
@@ -168,7 +148,7 @@ val packagerList = [
   [<minecraft:concrete_powder:14> * 8], [sa, gr, <ore:dyeRed>.firstItem],
   [<minecraft:concrete_powder:15> * 8], [sa, gr, <ore:dyeBlack>.firstItem],
 
-  [utils.tryCatch('mctsmelteryio:iceball', <iceandfire:dragon_ice>)], [<minecraft:snow> * 2],
+  [<mctsmelteryio:iceball> ?? <iceandfire:dragon_ice>], [<minecraft:snow> * 2],
 
   [<nuclearcraft:part:1>], [<ore:plateLead>.firstItem, <ic2:casing:4>, <ore:ingotTough>.firstItem * 4, <minecraft:redstone> * 4],
   [<nuclearcraft:part>], [<ore:plateLead>.firstItem, <ic2:casing:4>, <ore:ingotGraphite>.firstItem * 2],
@@ -219,6 +199,10 @@ for i, l in packagerList {
 
 */
 
+Hydrator.removeShapedRecipe(<minecraft:brown_mushroom_block>);
+Hydrator.removeShapedRecipe(<minecraft:red_mushroom_block>);
+Hydrator.removeShapedRecipe(<minecraft:farmland>);
+
 Hydrator.addRecipe(<thermalexpansion:florb>.withTag({ Fluid: 'water' }), [<thermalexpansion:florb>], 1000);
 
 // Asphalt Concrete
@@ -265,10 +249,6 @@ recipes.remove(<cyclicmagic:stone_pebble>);
 
 // Remove bugged recipe (Apple + Biomass => null)
 // Solidifier.removeShapedRecipe(null); # Cant remove sadly =(
-
-// Remake crystallized items to be bit harder
-Solidifier.removeShapedRecipe(<cyclicmagic:crystallized_amber>);
-Solidifier.addRecipe(<cyclicmagic:crystallized_amber>, [<randomthings:weatheregg>], 'amber', 1000);
 
 Solidifier.removeShapedRecipe(<cyclicmagic:crystallized_obsidian>);
 Solidifier.addRecipe(<cyclicmagic:crystallized_obsidian>, [<randomthings:weatheregg:1>], 'crystal', 1000);
@@ -333,16 +313,6 @@ craft.remake(<cyclicmagic:plate_push> * 8, ['pretty',
   'c': <ore:clay>, // Clay
   'd': <ore:dyeLime>,
   '▬': <ore:ingotIron>, // Iron Ingot
-});
-
-// [Empty Sack of Holding] from [Propolis][+2]
-craft.remake(<cyclicmagic:chest_sack_empty>, ['pretty',
-  '  s  ',
-  'B P B',
-  'B B B'], {
-  'P': <forestry:propolis:*>, // Propolis
-  'B': <ore:pelt>, // Brown Wolf Pelt
-  's': <ore:string>, // String
 });
 
 // [Ender Book] from [Tome of Knowledge][+3]

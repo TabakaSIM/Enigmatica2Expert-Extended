@@ -1,20 +1,20 @@
 {
 	title: "{q.extra_utilities.the_chapter_is_com.name}",
 	icon: {
+		id: "simple_trophies:trophy",
 		tag: {
-			TrophyColorRed: 228,
-			TrophyColorBlue: 55,
 			TrophyVariant: "gold",
 			TrophyColorGreen: 171,
 			TrophyShowsTooltip: 1b,
 			TrophyItem: {
-				Damage: 0s,
 				Count: 1b,
-				id: "extrautils2:suncrystal"
+				id: "extrautils2:suncrystal",
+				Damage: 0s
 			},
+			TrophyColorBlue: 55,
+			TrophyColorRed: 228,
 			TrophyName: "§eExtraUtils Master Trophy§r"
-		},
-		id: "simple_trophies:trophy"
+		}
 	},
 	x: 10.5d,
 	y: 5.25d,
@@ -24,7 +24,6 @@
 	hide_dependency_lines: 1b,
 	dependencies: [
 		"fc937313",
-		"d754f8d5",
 		"4b5cf25e",
 		"c4908819",
 		"45d1b85a",
@@ -83,20 +82,20 @@
 		team_reward: 1b,
 		auto: "enabled",
 		item: {
+			id: "simple_trophies:trophy",
 			tag: {
-				TrophyColorRed: 228,
-				TrophyColorBlue: 55,
 				TrophyVariant: "gold",
 				TrophyColorGreen: 171,
 				TrophyShowsTooltip: 1b,
 				TrophyItem: {
-					Damage: 0s,
 					Count: 1b,
-					id: "extrautils2:suncrystal"
+					id: "extrautils2:suncrystal",
+					Damage: 0s
 				},
+				TrophyColorBlue: 55,
+				TrophyColorRed: 228,
 				TrophyName: "§eExtraUtils Master Trophy§r"
-			},
-			id: "simple_trophies:trophy"
+			}
 		}
 	},
 	{

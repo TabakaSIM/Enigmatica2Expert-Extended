@@ -59,16 +59,16 @@
 		items: [{
 			ForgeCaps: {
 				Parent: {
-					id: "ore",
-					data: "wallAccelerator"
+					data: "wallAccelerator",
+					id: "ore"
 				}
 			},
+			id: "itemfilters:filter",
 			tag: {
 				display: {
 					Name: "Any wallAccelerator"
 				}
-			},
-			id: "itemfilters:filter"
+			}
 		}],
 		count: 108L
 	},
@@ -82,10 +82,10 @@
 		type: "custom",
 		title: "{e2ee.quest.uncommon}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

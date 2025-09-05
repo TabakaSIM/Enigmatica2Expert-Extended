@@ -1,0 +1,9 @@
+#PARSE_ESCAPES
+
+# --------------------------------------
+# Mixin functionality changes
+# --------------------------------------
+for.circuit.machine.speed.boost.1.description.1=Повышает скорость на 100%
+for.circuit.machine.speed.boost.1.description.2=Повышает потребление энергии на 5%
+for.circuit.machine.speed.boost.2.description.1=Повышает скорость на 500%
+for.circuit.machine.speed.boost.2.description.2=Повышает потребление энергии на 15%

@@ -1,4 +1,4 @@
-#modloaded zenutils ctintegration
+#modloaded zenutils ctintegration ftblib ftbutilities
 #priority 1600
 #reloadable
 
@@ -6,15 +6,16 @@ import crafttweaker.data.IData;
 import crafttweaker.player.IPlayer;
 import crafttweaker.world.IWorld;
 import native.net.minecraft.tileentity.TileEntity;
+import native.net.minecraft.util.ITickable;
 import native.net.minecraft.util.math.BlockPos;
 
 import scripts.do.hand_over_your_items.tellrawItemObj;
 
 zenClass Op {
   zenConstructor() {}
-  var reportPlayer as IPlayer = null;
+  var reportPlayer     as IPlayer = null;
   var firstDimReported as IWorld = null;
-  var total as int = 0;
+  var total            as int = 0;
 }
 static op as Op = Op();
 
@@ -24,7 +25,7 @@ events.register(function (e as crafttweaker.event.WorldTickEvent) {
 
   // Iterate first and all other worlds
   if (isNull(op.firstDimReported) || op.firstDimReported.dimension != e.world.dimension) {
-    var total = forEachChunkLoader(e.world, function(te as TileEntity) as void {
+    val total = forEachChunkLoader(e.world, function (te as TileEntity) as void {
       report(op.reportPlayer, e.world, te.getPos());
     });
     op.total += total;
@@ -34,7 +35,8 @@ events.register(function (e as crafttweaker.event.WorldTickEvent) {
   // This was a first dim in the list, mark it
   if (isNull(op.firstDimReported)) {
     op.firstDimReported = e.world;
-  } else if (op.firstDimReported.dimension == e.world.dimension) {
+  }
+  else if (op.firstDimReported.dimension == e.world.dimension) {
     // We made a loop and can output the results
     message(op.reportPlayer, [
       `§7(Click §6⚑§7 to teleport)`,
@@ -55,12 +57,16 @@ function forEachChunkLoader(world as IWorld, callback as function(TileEntity)voi
   for te in world.native.loadedTileEntityList {
     if (te.isInvalid()) continue;
     if (isChunkLoader(te)) callback(te);
-    total += 1;
+    if (te instanceof ITickable) total += 1;
   }
   return total;
 }
 
 function isChunkLoader(te as TileEntity) as bool {
+  // TODO: Fix partially modpack mod count
+  // We could use stringified classes to avoid NPE on mod removal
+  // But this still wont help for pointers
+  // val str = toString(te);
   return te instanceof native.ic2.core.block.machine.tileentity.TileEntityChunkloader
     || te instanceof native.com.rwtema.extrautils2.tile.TileChunkLoader
     || te instanceof native.lumien.randomthings.tileentity.TileEntityEnderAnchor
@@ -117,19 +123,19 @@ function tpMessage(
   extra as IData = null, extraTooltip as IData = null
 ) as IData {
   val posText = tpText(dim, x, y, z);
-  val tpToText = 'TP to ' ~ posText;
+  val tpToText = `§8TP to ${posText}`;
   var result = {
     text      : isNull(text) ? posText : text,
     hoverEvent: {
       action: 'show_text',
-      value : isNull(extraTooltip)
+      value : (isNull(extraTooltip) || extraTooltip.length <= 0)
         ? tpToText as IData
-        : [tpToText~'\n', extraTooltip],
+        : [`${tpToText}\n`, extraTooltip],
     },
     clickEvent: {
       action: 'run_command',
       value : `/tpx @p ${x} ${y} ${z} ${dim}`,
-    }
+    },
   } as IData;
   if (!isNull(extra)) result += {extra: extra};
 

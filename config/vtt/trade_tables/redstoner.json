@@ -17,7 +17,6 @@
         "sell": [
           { "id": "appliedenergistics2:material", "Damage": 26, "Count": 1  },
           { "id": "appliedenergistics2:part", "Damage": 461, "Count": 1 },
-          { "id": "cyclicmagic:clock", "Count": 1 },
           { "id": "extrautils2:redstoneclock", "Count": 1  },
           { "id": "extrautils2:redstonelantern", "Count": { "min": 2, "max": 4 } },
           { "id": "extrautils2:scanner", "Count": 1  }

@@ -1,6 +1,6 @@
 #reloadable
 #priority -1100
-#modloaded zenutils ctintegration
+#modloaded zenutils ctintegration scalinghealth
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.player.IPlayer;

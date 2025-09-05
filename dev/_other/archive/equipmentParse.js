@@ -15,11 +15,11 @@ let s = `# #####################################################################
 # This file automatically generated from equipmentParse.js
 #
 # ######################################################################
+#priority 10
 
 import crafttweaker.data.IData;
 import crafttweaker.item.IItemStack;
 
-#priority 10
 
 `
 

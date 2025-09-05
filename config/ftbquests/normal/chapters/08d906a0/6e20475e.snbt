@@ -16,11 +16,11 @@
 		uid: "f9c0185d",
 		type: "item",
 		item: {
+			id: "tconstruct:seared_tank",
 			tag: {
-				Amount: 4000,
-				FluidName: "lava"
-			},
-			id: "tconstruct:seared_tank"
+				FluidName: "lava",
+				Amount: 4000
+			}
 		}
 	}]
 }

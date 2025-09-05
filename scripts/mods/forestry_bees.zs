@@ -193,7 +193,7 @@ reprocessComb(<forestry:bee_combs:4>, [
   g['🟡'] % 80,  // Beeswax
   g['💛'] % 70,  // Honey Drop
   <forestry:pollen:1> % 20,     // Crystalline Pollen Cluster
-  utils.tryCatch('mctsmelteryio:iceball', <iceandfire:dragon_ice>) % 80, // Iceball
+  (<mctsmelteryio:iceball> ?? <iceandfire:dragon_ice>) % 80, // Iceball
 ]);
 
 // [Dripping_Comb]
@@ -360,7 +360,7 @@ zenClass BeeHelper {
     next('Elysian'); scripts.process.compress(c['💧'], c['🍯'], 'No exceptions');
     next('Gallant'); furnace.addRecipe(c['🍯'] * 2, c['💧']);
     next('Dull'); scripts.process.saw(c['⚙️'], c['🍯'] * 7, 'except: shapeless');
-    next('Scrappy'); scripts.process.crush(c['💧'], c['🍯'], 'only: eu2Crusher SagMill', [c['🍯'], c['🍯'], c['🍯']], [0.50, 0.25, 0.10], { bonusType: 'MULTIPLY_OUTPUT' });
+    next('Scrappy'); scripts.process.crush(c['💧'], c['🍯'], 'only: IECrusher SagMill', [c['🍯'], c['🍯'], c['🍯']], [0.50, 0.25, 0.10], { bonusType: 'MULTIPLY_OUTPUT' });
     next('Potter'); addTinkersCentrifuges();
     next('Tinsmith'); addTinkersCentrifuges();
     next('Рaughty'); mods.botania.ManaInfusion.addInfusion(currOutList()[2], c['💧'], 100); mods.botania.ManaInfusion.addAlchemy(currOutList()[3], c['💧'], 200); mods.botania.ManaInfusion.addConjuration(currOutList()[4], c['💧'], 500);

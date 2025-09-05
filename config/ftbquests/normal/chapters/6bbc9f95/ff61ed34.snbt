@@ -11,8 +11,8 @@
 		uid: "f0d618bf",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "thaumcraft:traveller_boots"
+			id: "thaumcraft:traveller_boots",
+			tag: {}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b

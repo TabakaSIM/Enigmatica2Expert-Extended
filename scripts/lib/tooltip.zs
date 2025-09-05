@@ -1,4 +1,4 @@
-#modloaded jei
+#modloaded jei ctintegration
 #priority 2
 #reloadable
 
@@ -18,8 +18,8 @@ zenClass Descriptor {
 	/*
 		Add both: tooltip and description
 	*/
-	function both(item as IItemStack) as void { both(item, autoLang(item)); }
-	function both(item as IItemStack, lang as string, a1 as string = null, a2 as string = null) as void {
+	function both(item as IIngredient, lang as string = null, a1 as string = null, a2 as string = null) as void {
+		if (isNull(lang)) return both(item, autoLang(item));
 		if (isNull(a1)) { tooltip(item, lang); jei(item, lang); }
 		else if (isNull(a2)) { tooltip(item, lang, a1); jei(item, lang, a1); }
 		else { tooltip(item, lang, a1, a2); jei(item, lang, a1, a2); }
@@ -28,10 +28,10 @@ zenClass Descriptor {
 	/*
 		Add tooltip
 	*/
-	function tooltip(item as IItemStack) as void { tooltip(item, autoLang(item)); }
-	function tooltip(item as IItemStack, lang as string) as void { tooltipRaw(item, local(lang)); }
-	function tooltip(item as IItemStack, lang as string, a1 as string) as void { tooltipRaw(item, I18n.format(local(lang), a1)); }
-	function tooltip(item as IItemStack, lang as string, a1 as string, a2 as string) as void { tooltipRaw(item, I18n.format(local(lang), a1, a2)); }
+	function tooltip(item as IIngredient, lang as string = null, a1 as string = null, a2 as string = null, a3 as string = null) as void {
+		if (isNull(lang)) return tooltip(item, autoLang(item));
+		tooltipRaw(item, I18n.format(local(lang), a1, a2, a3));
+	}
 
 	/*
 		Add tooltip helper
@@ -47,9 +47,7 @@ zenClass Descriptor {
 	/*
 		Add JEI description tab
 	*/
-	function jei(item as IItemStack) as void { jei(item, autoLang(item)); }
-	function jei(item as ILiquidStack, lang as string) as void { describe(item, local(lang)); }
-	function jei(item as IItemStack,
+	function jei(item as IIngredient,
 		lang as string,
 		a1 as string = null,
 		a2 as string = null,
@@ -58,6 +56,7 @@ zenClass Descriptor {
 		a5 as string = null
 	) as void {
 		if(isNull(item)) return;
+		if(isNull(lang)) return jei(item, autoLang(item));
 		if(isNull(a1)) return describe(item, local(lang));
 		if(isNull(a2)) return describe(item, I18n.format(local(lang), a1));
 		if(isNull(a3)) return describe(item, I18n.format(local(lang), a1, a2));
@@ -69,26 +68,29 @@ zenClass Descriptor {
 	/*
 		Add JEI description tab helper
 	*/
-	function describe(item as IItemStack, localized as string) as void {
-		if(isNull(item)) return;
+	function describe(ingr as IIngredient, localized as string) as void {
+		if(isNull(ingr)) return;
 		if(localized.startsWith(langPrefix)) return;
-		addDescription(item, localized.split("\n|<br>"));
-	}
-	function describe(item as ILiquidStack, localized as string) as void {
-		if(isNull(item)) return;
-		if(localized.startsWith(langPrefix)) return;
-		addDescription(item, localized.split("\n|<br>"));
+		addDescription(ingr, localized.split("\n|<br>"));
 	}
 
 	/*
 		Other functions
 	*/
-	function autoLang(item as IItemStack) as string {
-		if(isNull(item)) return '';
-		val id = item.commandString.replaceAll('<|>.*', '');
+	function autoLang(ingr as IIngredient) as string {
+		if(isNull(ingr)) return '';
+		val isLiquid = ingr.liquids.length > 0 && !isNull(ingr.liquids[0]);
+		val cmdString = isLiquid
+			? ingr.liquids[0].commandString
+			: ingr.commandString;
+		val id = cmdString.replaceAll('<|>.*', '');
+
+		if (isLiquid) return id;
+
+		val item = ingr.items[0];
 		val nbt = !item.hasTag ? ''
 			: ':'~item.tag.toNBTString().replaceAll('"', "'");
-		print('autolocalizing: '~id~nbt);
+		utils.log('autolocalizing: '~id~nbt);
 		return id ~ nbt;
 	}
 

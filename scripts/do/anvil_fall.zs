@@ -1,4 +1,4 @@
-#modloaded requious
+#modloaded requious advancedrocketry
 #reloadable
 
 import crafttweaker.entity.IEntityDefinition;
@@ -50,9 +50,8 @@ static entityMap as int[IEntityDefinition] = {
   <entity:minecraft:vindication_illager>: 43,
 } as int[IEntityDefinition]$orderly;
 
-// This function should be called once
-// warding `/ct reload`
-function postInit() as void {
+// Run only on initializing game
+if(scriptStatus() == 0) {
   for entityDef, num in entityMap {
     scripts.jei.crafting_hints.addInsOutCatl(
       [entityDef.asIngr(), null, null, <minecraft:anvil>, <advancedrocketry:basalt>],

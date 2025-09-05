@@ -9,7 +9,7 @@ This fix not working - event not fired at all
 # Without this fix components not returned always
 # https://github.com/Krutoy242/Enigmatica2Expert-Extended/issues/30
 events.onEntityLivingUseItem(function(e as crafttweaker.event.EntityLivingUseItemEvent.All){
-  if(!e.isPlayer || e.player.world.isRemote()) return;
+  if(!e.isPlayer || e.player.world.remote) return;
   e.player.sendMessage("§7Entering onEntityLivingUseItemStart");
   if(!e.player.isSneaking) return;
   e.player.sendMessage("§7Player Sneaking");
@@ -25,11 +25,80 @@ events.onEntityLivingUseItem(function(e as crafttweaker.event.EntityLivingUseIte
 
 */
 
+// [1k ME Essentia Storage Component]
+mods.thaumcraft.Infusion.removeRecipe(<thaumicenergistics:essentia_component_1k>);
+mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('essentia_component_1k',
+  'ESSENTIASTORAGE1k',
+  10,
+  [],
+  <thaumicenergistics:essentia_component_1k>,
+  Grid(['pretty',
+    'Q L Q',
+    'C C C',
+    'Q L Q'], {
+    'C': <appliedenergistics2:material:1>, // Certus quartz
+    'L': <appliedenergistics2:material:22>, // Logic processor
+    'Q': <thaumcraft:nugget:5>, // Quicksilver nugget
+}).shaped());
+
+// [4k ME Essentia Storage Component]
+mods.thaumcraft.Infusion.removeRecipe(<thaumicenergistics:essentia_component_4k>);
+mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('essentia_component_4k',
+  'ESSENTIASTORAGE4k',
+  10,
+  [],
+  <thaumicenergistics:essentia_component_4k>,
+  Grid(['pretty',
+    'Q L Q',
+    'C I C',
+    'Q L Q'], {
+    'I': <thaumcraft:mechanism_simple>, // Simple mechanism
+    'C': <thaumicenergistics:essentia_component_1k>, // 1k ME Essentia Storage Component
+    'L': <appliedenergistics2:material:22>, // Logic processor
+    'Q': <thaumcraft:nugget:5>, // Quicksilver nugget
+}).shaped());
+
+// [16k ME Essentia Storage Component]
+mods.thaumcraft.Infusion.removeRecipe(<thaumicenergistics:essentia_component_16k>);
+mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('essentia_component_16k',
+  'ESSENTIASTORAGE16k',
+  10,
+  [],
+  <thaumicenergistics:essentia_component_16k>,
+  Grid(['pretty',
+    'Q L Q',
+    'C I C',
+    'Q L Q'], {
+    'I': <thaumcraft:mechanism_complex>, // Complex mechanism
+    'C': <thaumicenergistics:essentia_component_4k>, // 4k ME Essentia Storage Component
+    'L': <appliedenergistics2:material:23>, // Calculation processor
+    'Q': <thaumcraft:nugget:5>, // Quicksilver nugget
+}).shaped());
+
+// [64k ME Essentia Storage Component]
+mods.thaumcraft.Infusion.removeRecipe(<thaumicenergistics:essentia_component_64k>);
+mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('essentia_component_64k',
+  'ESSENTIASTORAGE64k',
+  10,
+  [],
+  <thaumicenergistics:essentia_component_64k>,
+  Grid(['pretty',
+    'Q L Q',
+    'C I C',
+    'Q L Q'], {
+    'I': <thaumicwonders:primordial_grain>, // Primordial grain
+    'C': <thaumicenergistics:essentia_component_16k>, // 16k ME Essentia Storage Component
+    'L': <appliedenergistics2:material:23>, // Calculation processor
+    'Q': <thaumcraft:nugget:5>, // Quicksilver nugget
+}).shaped());
+
+
+
 val cellIngrs = {
-  '⌃': <appliedenergistics2:quartz_glass>, // Quartz Glass
+  '⌃': <thaumicaugmentation:fortified_glass>, // Quartz Glass
   '♥': <ore:plateConcrete>,
-  '□': <ore:plateIron>, // Iron Plate
-  'I': <ironchest:iron_chest>, // Iron Chest
+  '□': <thaumcraft:plate>, // Iron Plate
+  'I': <thaumadditions:jar_eldritch>, // Iron Chest
   '1': <thaumicenergistics:essentia_component_1k>, // 1k ME Essentia Storage Component
   '4': <thaumicenergistics:essentia_component_4k>, // 4k ME Essentia Storage Component
   '6': <thaumicenergistics:essentia_component_16k>, // 16k ME Essentia Storage Component
@@ -37,7 +106,7 @@ val cellIngrs = {
 } as IIngredient[string];
 
 // [1k ME Essentia Storage Cell] from [1k ME Essentia Storage Component][+4]
-recipes.removeByRecipeName('thaumicenergistics:cells/essentia_cell_1k');
+recipes.remove(<thaumicenergistics:essentia_cell_1k>);
 craft.make(<thaumicenergistics:essentia_cell_1k>, ['pretty',
   '⌃ ♥ ⌃',
   '♥ 1 ♥',
@@ -45,7 +114,7 @@ craft.make(<thaumicenergistics:essentia_cell_1k>, ['pretty',
 );
 
 // [4k ME Essentia Storage Cell] from [4k ME Essentia Storage Component][+4]
-recipes.removeByRecipeName('thaumicenergistics:cells/essentia_cell_4k');
+recipes.remove(<thaumicenergistics:essentia_cell_4k>);
 craft.make(<thaumicenergistics:essentia_cell_4k>, ['pretty',
   '⌃ ♥ ⌃',
   '♥ 4 ♥',
@@ -53,7 +122,7 @@ craft.make(<thaumicenergistics:essentia_cell_4k>, ['pretty',
 );
 
 // [16k ME Essentia Storage Cell] from [16k ME Essentia Storage Component][+4]
-recipes.removeByRecipeName('thaumicenergistics:cells/essentia_cell_16k');
+recipes.remove(<thaumicenergistics:essentia_cell_16k>);
 craft.make(<thaumicenergistics:essentia_cell_16k>, ['pretty',
   '⌃ ♥ ⌃',
   '♥ 6 ♥',
@@ -61,7 +130,7 @@ craft.make(<thaumicenergistics:essentia_cell_16k>, ['pretty',
 );
 
 // [64k ME Essentia Storage Cell] from [64k ME Essentia Storage Component][+4]
-recipes.removeByRecipeName('thaumicenergistics:cells/essentia_cell_64k');
+recipes.remove(<thaumicenergistics:essentia_cell_64k>);
 craft.make(<thaumicenergistics:essentia_cell_64k>, ['pretty',
   '⌃ ♥ ⌃',
   '♥ k ♥',

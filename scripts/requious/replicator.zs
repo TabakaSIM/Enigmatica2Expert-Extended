@@ -1,4 +1,4 @@
-#modloaded requious
+#modloaded requious ic2
 #priority -1400
 #reloadable
 
@@ -42,14 +42,18 @@ scripts.lib.offline.op.getRegistry.set('stat_replications', function(player as I
 scripts.lib.offline.op.setRegistry.set('stat_replications', function(player as IPlayer, value as string) as string {
   val oldValue = player.readStat(statReplications);
   if (oldValue != value as int)
-    player.addStat(statReplications, oldValue - value as int);
+    player.addStat(statReplications, value as int - oldValue);
   return null;
 });
 
 // Define offline difficulty get/set
 // Required for scripts.lib.offline.get() and set() calls
-scripts.lib.offline.op.getRegistry.set('difficulty', function(player as IPlayer, value as string) as string {return player.difficulty as string;});
-scripts.lib.offline.op.setRegistry.set('difficulty', function(player as IPlayer, value as string) as string {player.difficulty = value as double; return null;});
+scripts.lib.offline.op.getRegistry.set('difficulty', function(player as IPlayer, value as string) as string {
+  return player.difficulty as string;
+});
+scripts.lib.offline.op.setRegistry.set('difficulty', function(player as IPlayer, value as string) as string {
+  player.difficulty = value; return null;
+});
 
 /*
  █████╗ ███████╗███████╗███████╗███╗   ███╗██████╗ ██╗  ██╗   ██╗
@@ -269,7 +273,7 @@ function consumeMatter(m as MachineContainer, consumeAmount as int) as bool {
   );
   val uuid = m.getString('ownerUUID');
   val oldValue = scripts.lib.offline.op.get(uuid, 'stat_replications', 0) as int;
-  scripts.lib.offline.op.set(uuid, 'stat_replications', oldValue + consumeAmount);
+  scripts.lib.offline.op.set(uuid, 'stat_replications', max(0, oldValue) + consumeAmount);
   return true;
 }
 
@@ -344,8 +348,10 @@ function tick(m as MachineContainer) as void {
   val ownerUUID = m.getString('ownerUUID');
   if (isNull(ownerUUID) || ownerUUID == '') return pushErr(m, '§0Need\n§0 player ☻');
 
+  // Get difficulty based on player's one + dimension changes
+  val dfclty = scripts.lib.mod.scalinghealth.getPlayerDimDifficulty(ownerUUID, m.world.dimension);
+
   // 🎯 Update penalty text each tick
-  val dfclty = scripts.lib.offline.op.get(ownerUUID, 'difficulty', 0, 1000) as double;
   if (dfclty < 0 || !isNull(scripts.lib.fake.userUUIDs[ownerUUID]))
     return pushErr(m, '§0No fakes\n§0 allowed ☹');
   updatePenaltyText(m, dfclty);

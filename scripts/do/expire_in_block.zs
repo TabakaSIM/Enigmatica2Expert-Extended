@@ -1,11 +1,10 @@
-#modloaded jei
+#modloaded jei requious
 #priority 10
+#reloadable
 
 import crafttweaker.entity.IEntityItem;
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
-
-// #loader crafttweaker reloadableevents
 
 static list as IItemStack[string][IIngredient] = {} as IItemStack[string][IIngredient];
 
@@ -24,7 +23,7 @@ function set(input as IIngredient, blockID_output as IItemStack[string]) as void
 }
 
 events.onItemExpire(function (e as crafttweaker.event.ItemExpireEvent) {
-  if (e.entity.world.isRemote()) return; // Remote world
+  if (e.entity.world.remote) return; // Remote world
   if (isNull(e.item) || isNull(e.item.item)) return; // No item
 
   val item = e.item.item.anyAmount();

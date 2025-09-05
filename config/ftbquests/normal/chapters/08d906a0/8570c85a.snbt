@@ -10,17 +10,17 @@
 		type: "item",
 		items: [{
 			ForgeCaps: {
-				"plustic:musicofthespheres_cap": {
-					Items: [],
-					Size: 1
-				},
 				"plustic:": {
-					Items: [],
-					Size: 1
+					Size: 1,
+					Items: []
 				},
 				"plustic:fruitsalad_cap": {
-					Items: [],
-					Size: 5
+					Size: 5,
+					Items: []
+				},
+				"plustic:musicofthespheres_cap": {
+					Size: 1,
+					Items: []
 				}
 			},
 			id: "tcomplement:sledge_hammer"

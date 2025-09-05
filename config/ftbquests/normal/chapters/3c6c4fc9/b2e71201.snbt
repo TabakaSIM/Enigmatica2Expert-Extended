@@ -40,11 +40,11 @@
 		type: "custom",
 		title: "{e2ee.quest.uncommon}",
 		icon: {
+			id: "ftbquests:lootcrate",
+			Count: 4,
 			tag: {
 				type: "uncommon"
-			},
-			Count: 4,
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"
@@ -54,12 +54,8 @@
 		uid: "cd7d1faf",
 		type: "item",
 		item: {
+			id: "littletiles:multitiles",
 			tag: {
-				size: [I;
-					3,
-					4,
-					3
-				],
 				tiles: [{
 					boxes: [
 						[I;
@@ -207,18 +203,22 @@
 						block: "trinity:thermonuclear_core_pu239:1"
 					}
 				}],
-				count: 16,
-				grid: 1,
-				display: {
-					Name: "Salted Uranium-235 Thermonuclear Fission Bomb"
-				},
 				min: [I;
 					0,
 					0,
 					0
-				]
-			},
-			id: "littletiles:multitiles"
+				],
+				size: [I;
+					3,
+					4,
+					3
+				],
+				grid: 1,
+				display: {
+					Name: "Salted Uranium-235 Thermonuclear Fission Bomb"
+				},
+				count: 16
+			}
 		}
 	}]
 }

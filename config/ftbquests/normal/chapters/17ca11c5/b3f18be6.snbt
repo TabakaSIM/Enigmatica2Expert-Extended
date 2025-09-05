@@ -15,10 +15,10 @@
 		uid: "62c96351",
 		type: "item",
 		items: [{
+			id: "mekanism:energycube",
 			tag: {
 				tier: 4
-			},
-			id: "mekanism:energycube"
+			}
 		}],
 		ignore_nbt: 2b
 	}],
@@ -26,18 +26,18 @@
 		uid: "9188bef7",
 		type: "command",
 		auto: "invisible",
-		command: "/tellraw @a [{\"text\":\"# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"bold\":true,\"color\":\"light_purple\"},\"`\",{\"text\":\" has obtained the \",\"color\":\"white\"},\"*\",{\"translate\":\"Creative Energy Cube\",\"color\":\"gold\",\"bold\":true},\"*\",{\"text\":\"!\",\"color\":\"white\"}]}]"
+		command: "/tellraw @a [{\"text\":\"## `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"bold\":true,\"color\":\"aqua\"},\"`\",{\"text\":\" has obtained the \",\"color\":\"white\"},\"*\",{\"translate\":\"Creative Energy Cube\",\"color\":\"gold\",\"bold\":true},\"*\",{\"text\":\"!\",\"color\":\"white\"}]}]"
 	},
 	{
 		uid: "11e22089",
 		type: "custom",
 		title: "{e2ee.quest.mythic}",
 		icon: {
+			id: "ftbquests:lootcrate",
+			Count: 4,
 			tag: {
 				type: "mythic"
-			},
-			Count: 4,
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

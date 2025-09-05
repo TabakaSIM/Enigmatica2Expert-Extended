@@ -3,6 +3,7 @@
 	loot_size: 1,
 	rewards: [{
 		item: {
+			id: "thaumcraft:focus_3",
 			tag: {
 				package: {
 					complexity: 41,
@@ -17,23 +18,22 @@
 					{
 						setting.radius: 3,
 						setting.duration: 30,
-						key: "thaumcraft.CLOUD",
-						type: "MEDIUM"
+						type: "MEDIUM",
+						key: "thaumcraft.CLOUD"
 					},
 					{
-						type: "EFFECT",
 						setting.power: 5,
+						type: "EFFECT",
 						key: "thaumcraft.HEAL"
 					}],
 					index: 0,
 					power: 1.0f
 				},
+				color: -2228219,
 				display: {
 					Name: "Fountain of Artemis"
-				},
-				color: -2228219
-			},
-			id: "thaumcraft:focus_3"
+				}
+			}
 		}
 	},
 	{
@@ -41,10 +41,10 @@
 	},
 	{
 		item: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		}
 	}]
 }

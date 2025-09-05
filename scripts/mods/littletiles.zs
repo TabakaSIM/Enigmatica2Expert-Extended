@@ -1,9 +1,20 @@
 #modloaded littletiles
 
 import crafttweaker.item.IIngredient;
+import crafttweaker.item.IItemStack;
 import mods.ctintegration.data.DataUtil.parse as parseSnbt;
 
 scripts.lib.tooltip.desc.jei(<littletiles:recipeadvanced>, 'dont_put_into_ae');
+
+// Add Little Blueprints to Aurora caches
+loottweaker.LootTweaker
+  .getTable('twilightforest:structures/aurora_cache/common')
+  .getPool('main')
+  .addItemEntryHelper(<littletiles:recipeadvanced>, 1, 0, [loottweaker.vanilla.loot.Functions.setCount(2, 6)], []);
+loottweaker.LootTweaker
+  .getTable('twilightforest:structures/aurora_room/common')
+  .getPool('main')
+  .addItemEntryHelper(<littletiles:recipeadvanced>, 1, 0, [loottweaker.vanilla.loot.Functions.setCount(1, 3)], []);
 
 // Storage tiles
 recipes.remove(<littletiles:ltstorageblocktile>);
@@ -23,13 +34,13 @@ val ingrs = {
 } as IIngredient[string];
 
 craft.remake(<littletiles:hammer>,             [' ` ', ' #`', '#  '], ingrs);
-craft.remake(<littletiles:recipeadvanced> * 4, ['P P', ' M ', 'P P'], ingrs);
 craft.remake(<littletiles:saw>,                ['  #', ' #╱', '#╱ '], ingrs);
 craft.remake(<littletiles:container>,          [' ` ', 'w w', ' w '], ingrs);
 craft.remake(<littletiles:wrench>,             ['  `', ' # ', 'w  '], ingrs);
 craft.remake(<littletiles:chisel>,             ['  `', ' # ', '#  '], ingrs);
 craft.remake(<littletiles:colortube>,          [' w ', ' #w', '#  '], ingrs);
 craft.remake(<littletiles:grabber>,            [' w ', 'wOw', ' # '], ingrs);
+craft.reshapeless(<littletiles:recipeadvanced> * 4, 'PM', ingrs);
 
 // Melt Water blocks
 scripts.process.melt(<littletiles:lttransparentcoloredblock:5>, <liquid:water> * 1000);
@@ -69,6 +80,57 @@ scripts.jei.crafting_hints.addInsOutCatl(
   <tconevo:metal_block:8>,
   <littletiles:container>
 );
+
+// -------------------------------------------------------------------
+//  Block crushing recipes
+// -------------------------------------------------------------------
+function addScrapCrush(source as IItemStack, amount as int) as void {
+  scripts.process.crush(
+    source,
+    <ic2:crafting:23> * amount,
+    'only: Macerator SagMill',
+    [<ic2:crafting:23> * (amount / 2), <ic2:crafting:23> * (amount / 4)],
+    [0.5f, 0.5f]);
+}
+
+function addPieceCrush(source as IItemStack, amount as int) as void {
+  val itemStr = source.definition.id
+    + (source.damage != 0 ? ':' ~ source.damage : '');
+  val piece = <littletiles:blocklittletiles>.withTag({
+    bBox: [3, 3, 3, 5, 5, 5] as int[],
+    grid: 8,
+    tile: { block: itemStr }, block: itemStr});
+
+  val pieceAmount = min(64, amount);
+  scripts.process.crush(
+    source,
+    piece * pieceAmount,
+    'only: Macerator SagMill',
+    [piece * (pieceAmount / 2), piece * (pieceAmount / 4)],
+    [0.5f, 0.5f]);
+
+  val piece64 = <littletiles:blocklittletiles>.withTag({
+    bBox: [7, 7, 7, 8, 8, 8] as int[],
+    tile: { block: itemStr }, block: itemStr});
+
+  if (amount > 64) {
+    val piece64Amount = amount / 64;
+    scripts.process.crush(
+      piece,
+      piece64 * piece64Amount,
+      'only: Macerator SagMill',
+      [piece64 * (piece64Amount / 2), piece64 * (piece64Amount / 4)],
+      [0.5f, 0.5f]);
+  }
+
+  addScrapCrush(amount > 64 ? piece64 : piece, 64);
+}
+
+addScrapCrush(<rats:garbage_pile>, 16);
+addScrapCrush(<nuclearcraft:wasteland_earth>, 32);
+addPieceCrush(<trinity:radioactive_earth>, 64);
+addPieceCrush(<trinity:radioactive_earth2>, 4096);
+// -------------------------------------------------------------------
 
 // This recipe output [Coumuflaged Panelles] for some reason
 // Better looking Companion Cube

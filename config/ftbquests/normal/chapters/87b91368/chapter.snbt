@@ -1,11 +1,11 @@
 {
 	title: "{q.animals.name}",
 	icon: {
+		id: "openblocks:trophy",
 		tag: {
 			entity_id: "minecraft:cow"
 		},
-		Damage: 2s,
-		id: "openblocks:trophy"
+		Damage: 2s
 	},
 	description: [
 		"{q.animals.desc}"

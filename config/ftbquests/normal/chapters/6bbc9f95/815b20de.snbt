@@ -91,40 +91,40 @@
 		uid: "2418ab9e",
 		type: "item",
 		items: [{
+			id: "thaumadditions:crystal_block",
 			tag: {
 				Aspect: "ignis"
-			},
-			id: "thaumadditions:crystal_block"
+			}
 		},
 		{
+			id: "thaumadditions:crystal_block",
 			tag: {
 				Aspect: "aer"
-			},
-			id: "thaumadditions:crystal_block"
+			}
 		},
 		{
+			id: "thaumadditions:crystal_block",
 			tag: {
 				Aspect: "ordo"
-			},
-			id: "thaumadditions:crystal_block"
+			}
 		},
 		{
+			id: "thaumadditions:crystal_block",
 			tag: {
 				Aspect: "perditio"
-			},
-			id: "thaumadditions:crystal_block"
+			}
 		},
 		{
+			id: "thaumadditions:crystal_block",
 			tag: {
 				Aspect: "aqua"
-			},
-			id: "thaumadditions:crystal_block"
+			}
 		},
 		{
+			id: "thaumadditions:crystal_block",
 			tag: {
 				Aspect: "terra"
-			},
-			id: "thaumadditions:crystal_block"
+			}
 		}]
 	},
 	{

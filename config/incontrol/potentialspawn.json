@@ -21,17 +21,6 @@
     ]
   },
   {
-    "dimension": [0, 3],
-    "mobs": [
-      {
-        "mob": "endreborn:endguard",
-        "weight": 3,
-        "groupcountmin": 1,
-        "groupcountmax": 2
-      }
-    ]
-  },
-  {
     "dimension": 7,
     "mobs": [
       {

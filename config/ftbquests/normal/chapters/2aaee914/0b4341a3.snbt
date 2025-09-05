@@ -13,12 +13,18 @@
 		uid: "1d2a33c5",
 		type: "item",
 		item: {
+			id: "mekanism:configurator",
 			tag: {
 				mekData: {
 					energyStored: 60000.0d
 				}
-			},
-			id: "mekanism:configurator"
+			}
 		}
+	},
+	{
+		uid: "0c357f18",
+		type: "command",
+		auto: "invisible",
+		command: "/tellraw @a [{\"text\":\"-# `\",\"color\":\"dark_gray\",\"extra\":[{\"text\":\"@p\",\"color\":\"white\"},\"` \",{\"text\":\"has begun the\",\"color\":\"gray\"},\" *\",{\"text\":\"⚙️Mekanism\",\"color\":\"dark_aqua\"},\"* \",{\"text\":\"questline!\",\"color\":\"gray\"}]}]"
 	}]
 }

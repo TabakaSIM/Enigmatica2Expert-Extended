@@ -350,8 +350,9 @@ scripts.process.solution([<tconstruct:soil>], [<liquid:water> * 250], [<liquid:c
 mods.immersiveengineering.Mixer.removeRecipe(<fluid:concrete>);
 mods.immersiveengineering.Mixer.addRecipe(<fluid:concrete> * 1000, <fluid:water> * 1000, [<tconstruct:soil>], 1024);
 
-// [Conveyor Belt*32] from [Redstone][+2]
-craft.remake(<immersiveengineering:conveyor>.withTag({ conveyorType: 'immersiveengineering:conveyor' }) * 32, ['pretty',
+recipes.removeByRecipeName('immersiveengineering:conveyors/conveyor_basic_rubber');
+recipes.removeByRecipeName('immersiveengineering:conveyors/conveyor_basic');
+craft.make(<immersiveengineering:conveyor>.withTag({ conveyorType: 'immersiveengineering:conveyor' }) * 32, ['pretty',
   'l l l',
   '▬ ♥ ▬'], {
   '♥': <ore:dustRedstone>, // Redstone
@@ -359,8 +360,7 @@ craft.remake(<immersiveengineering:conveyor>.withTag({ conveyorType: 'immersivee
   '▬': <ore:ingotFakeIron>, // Iron Alloy Ingot
 });
 
-// [Conveyor Belt*32] from [Redstone][+2]
-craft.remake(<immersiveengineering:conveyor>.withTag({ conveyorType: 'immersiveengineering:conveyor' }) * 32, ['pretty',
+craft.make(<immersiveengineering:conveyor>.withTag({ conveyorType: 'immersiveengineering:conveyor' }) * 32, ['pretty',
   'R R R',
   '▬ ♥ ▬'], {
   'R': <ore:itemRubber>, // Plastic

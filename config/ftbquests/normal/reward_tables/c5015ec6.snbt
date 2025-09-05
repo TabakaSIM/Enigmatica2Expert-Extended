@@ -3,6 +3,7 @@
 	loot_size: 1,
 	rewards: [{
 		item: {
+			id: "thaumcraft:focus_2",
 			tag: {
 				package: {
 					complexity: 18,
@@ -15,20 +16,19 @@
 						key: "thaumcraft.TOUCH"
 					},
 					{
-						type: "EFFECT",
-						setting.depth: 32,
 						setting.duration: 10,
+						setting.depth: 32,
+						type: "EFFECT",
 						key: "thaumcraft.RIFT"
 					}],
 					index: 0,
 					power: 1.0f
 				},
+				color: -13692571,
 				display: {
 					Name: "Riftmaker"
-				},
-				color: -13692571
-			},
-			id: "thaumcraft:focus_2"
+				}
+			}
 		}
 	},
 	{
@@ -36,10 +36,10 @@
 	},
 	{
 		item: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "common"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		}
 	}]
 }

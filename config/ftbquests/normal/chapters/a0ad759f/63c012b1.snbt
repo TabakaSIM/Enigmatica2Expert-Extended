@@ -1,7 +1,7 @@
 {
 	icon: {
-		tag: {},
-		id: "plethora:neuralinterface"
+		id: "plethora:neuralinterface",
+		tag: {}
 	},
 	x: 7.300000000000001d,
 	y: 0.3999999999999999d,
@@ -16,8 +16,8 @@
 		uid: "29119104",
 		type: "item",
 		items: [{
-			tag: {},
-			id: "plethora:neuralinterface"
+			id: "plethora:neuralinterface",
+			tag: {}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -36,10 +36,10 @@
 		type: "custom",
 		title: "{e2ee.quest.common}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "common"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

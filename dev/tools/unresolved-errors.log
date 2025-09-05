@@ -1,29 +1,19 @@
-[main/ERROR] [mixin]: Failed reading REFMAP JSON from : java.lang.NullPointerException Cannot invoke "org.spongepowered.asm.mixin.refmap.ReferenceMapper.setResourceName(String)" because "mapper" is null
 [main/ERROR] [mixin]: Critical problem: mixins.stellar_core_forge_asmmodparser.json:MixinASMModParser from mod unknown-owner target net.minecraftforge.fml.common.discovery.asm.ASMModParser was loaded too early.
-[Client thread/WARN] [mixin]: Method overwrite conflict for hashCode in mixins.vintagefix.json:blockstates.FastMapStateHolderMixin from mod unknown-owner, previously written by github.kasuminova.stellarcore.mixin.minecraft.blockstateimpl.MixinStateImplementation. Skipping method.
-[Client thread/WARN] [mixin]: @Mixin target mcp.mobius.waila.api.impl.MetaDataProvider was not found mixins.tweakedlib.top.json:MetaDataProviderMixin from mod tweakedlib-2.0.1.jar
-[Client thread/WARN] [mixin]: Static binding violation: PRIVATE @Overwrite method func_76615_h in mixins.alfheim.json:ChunkMixin from mod unknown-owner cannot reduce visibiliy of PUBLIC target method, visibility will be upgraded.
-[Client thread/WARN] [net.minecraft.network.datasync.EntityDataManager]: defineId called for: class net.minecraft.entity.item.EntityMinecartFurnace from class com.lothrazar.cyclicmagic.item.minecart.EntityGoldFurnaceMinecart
-[Client thread/WARN] [net.minecraft.network.datasync.EntityDataManager]: defineId called for: class net.minecraft.entity.monster.EntitySlime from class teamroots.emberroot.entity.slime.EntityRainbowSlime
-[Client thread/WARN] [net.minecraft.network.datasync.EntityDataManager]: defineId called for: class malte0811.industrialwires.entities.EntityBrokenPart from class malte0811.industrialwires.IndustrialWires
-[Client thread/ERROR] [Patchouli Books]: Unable to find item at ic2:blockrubsapling
-[Client thread/WARN] [ReflectionExecutableData]: Can not get generic parameter types of method public boolean net.minecraft.entity.player.EntityPlayer.func_184613_cA()
-[Client thread/WARN] [ReflectionExecutableData]: Can not get generic return type of method public boolean net.minecraft.entity.player.EntityPlayer.func_184613_cA()
-[Client thread/WARN] [sonarcore]: 'WAILA' - unavailable or disabled in config
-[Client thread/WARN] [mixin]: Mixin apply for mod visualores-0.2.6.jar failed mixins.visualores.xaerominimap_core.json:MinimapRendererMixin from mod visualores-0.2.6.jar -> xaero.common.minimap.render.MinimapRenderer: org.spongepowered.asm.mixin.transformer.throwables.InvalidMixinException Unexpecteded ClassMetadataNotFoundException whilst transforming the mixin class: [Transform LVT -> var=compassRenderer -> desc=Lxaero/common/minimap/waypoints/render/CompassRenderer;]
-org.spongepowered.asm.mixin.transformer.throwables.InvalidMixinException: Unexpecteded ClassMetadataNotFoundException whilst transforming the mixin class: [Transform LVT -> var=compassRenderer -> desc=Lxaero/common/minimap/waypoints/render/CompassRenderer;]
-	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.transformMethod(MixinTargetContext.java:520) ~[sponge-mixin-0.20.6+mixin.0.8.7.jar:0.20.6+mixin.0.8.7]
-	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyNormalMethod(MixinApplicatorStandard.java:463) ~[sponge-mixin-0.20.6+mixin.0.8.7.jar:0.20.6+mixin.0.8.7]
-	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMethods(MixinApplicatorStandard.java:449) ~[sponge-mixin-0.20.6+mixin.0.8.7.jar:0.20.6+mixin.0.8.7]
-  [...]
-[Client thread/WARN] [net.minecraft.network.datasync.EntityDataManager]: defineId called for: class com.github.alexthe666.iceandfire.entity.EntityDreadThrall from class com.github.alexthe666.iceandfire.entity.EntityDreadKnight
-[Client thread/WARN] [net.minecraft.network.datasync.EntityDataManager]: defineId called for: class com.github.alexthe666.rats.server.entity.EntityFeralRatlantean from class com.github.alexthe666.rats.server.entity.EntityNeoRatlantean
-[Client thread/ERROR] [Had Enough Items]: A Recipe Handler has already been registered for this recipe class: com.github.alexthe666.iceandfire.recipe.DragonForgeRecipe
-[Client thread/ERROR] [Had Enough Items]: A Recipe Handler has already been registered for this recipe class: com.github.alexthe666.rats.server.recipes.SharedRecipe
-[Client thread/ERROR] [Had Enough Items]: A Recipe Handler has already been registered for this recipe class: com.github.alexthe666.rats.server.recipes.SharedRecipe
-[Client thread/ERROR] [Had Enough Items]: Found a broken recipe: mezz.jei.plugins.jei.info.IngredientInfoRecipe@xxxxxxxx
-Outputs:
-net.minecraft.item.ItemStack: [[1xitem.thaumadditions:salt_essence@0 thaumadditions:salt_essence]]
-Inputs:
-net.minecraft.item.ItemStack: [[1xitem.thaumadditions:salt_essence@0 thaumadditions:salt_essence]]
+[main/WARN] [mixin]: Error loading class: de/keksuccino/fancymenu/mainwindow/MainWindowHandler (java.lang.NullPointerException: Cannot read the array length because "classFile" is null)
+[main/WARN] [mixin]: @Mixin target de.keksuccino.fancymenu.mainwindow.MainWindowHandler was not found mixins/mixins.emt.fancymenu.json:MainWindowHandlerMixin from mod unknown-owner
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:missingno
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:E:\mc\packs\E2EE-Java22\.minecraft\resources\minecraft\missingno (Не удается найти указанный файл)
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:missingno
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:E:\mc\packs\E2EE-Java22\.minecraft\resources\minecraft\missingno (Не удается найти указанный файл)
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:missingno
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:E:\mc\packs\E2EE-Java22\.minecraft\resources\minecraft\missingno (Не удается найти указанный файл)
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:missingno
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:E:\mc\packs\E2EE-Java22\.minecraft\resources\minecraft\missingno (Не удается найти указанный файл)
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:missingno
+[Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:E:\mc\packs\E2EE-Java22\.minecraft\resources\minecraft\missingno (Не удается найти указанный файл)
+[Client thread/ERROR] [FML]: Error registering event handler: minecraft class ivorius.reccomplex.events.StructureGenerationEventLite$Post public void com.charles445.rltweaker.handler.RecurrentHandler$RCCleanup.onStructureGenerationLitePost(java.lang.Object)
+java.lang.RuntimeException: java.lang.invoke.LambdaConversionException: Type mismatch for dynamic parameter 0: class java.lang.Object is not a subtype of class net.minecraftforge.fml.common.eventhandler.Event
+	at net.minecraftforge.fml.common.eventhandler.EventListenerFactory.createListenerFactory(EventListenerFactory.java:58)
+	at net.minecraftforge.fml.common.eventhandler.EventListenerFactory.createRawListener(EventListenerFactory.java:21)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.<init>(ASMEventHandler.java:52)
   [...]

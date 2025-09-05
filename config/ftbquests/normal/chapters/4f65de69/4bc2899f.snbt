@@ -16,10 +16,10 @@
 		uid: "9edd8ee3",
 		type: "item",
 		items: [{
+			id: "tconstruct:sharpening_kit",
 			tag: {
 				Material: "manyullyn"
-			},
-			id: "tconstruct:sharpening_kit"
+			}
 		}]
 	}]
 }

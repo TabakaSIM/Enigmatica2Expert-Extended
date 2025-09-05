@@ -3,6 +3,7 @@
 	loot_size: 1,
 	rewards: [{
 		item: {
+			id: "thaumicaugmentation:focus_ancient",
 			tag: {
 				package: {
 					complexity: 34,
@@ -13,29 +14,28 @@
 					{
 						setting.cone: 360,
 						setting.forks: 10,
-						key: "thaumcraft.SCATTER",
-						type: "MOD"
+						type: "MOD",
+						key: "thaumcraft.SCATTER"
 					},
 					{
 						type: "MEDIUM",
-						setting.target: 0,
-						key: "thaumcraft.SPELLBAT"
+						key: "thaumcraft.SPELLBAT",
+						setting.target: 0
 					},
 					{
-						type: "EFFECT",
-						setting.power: 4,
 						setting.duration: 10,
+						setting.power: 4,
+						type: "EFFECT",
 						key: "thaumcraft.CURSE"
 					}],
 					index: 0,
 					power: 1.0f
 				},
+				color: -9830395,
 				display: {
 					Name: "Cursed Bats"
-				},
-				color: -9830395
-			},
-			id: "thaumicaugmentation:focus_ancient"
+				}
+			}
 		}
 	},
 	{
@@ -43,10 +43,10 @@
 	},
 	{
 		item: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "uncommon"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		}
 	}]
 }

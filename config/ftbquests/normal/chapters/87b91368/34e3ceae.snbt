@@ -12,10 +12,10 @@
 		uid: "8a4276e6",
 		type: "checkmark",
 		icon: {
+			id: "draconicevolution:mob_soul",
 			tag: {
 				EntityName: "betteranimalsplus:hirschgeist"
-			},
-			id: "draconicevolution:mob_soul"
+			}
 		},
 		disable_toast: 1b
 	}],

@@ -296,13 +296,13 @@ val Po = <contenttweaker:ore_phosphor>;
 val Pn = <contenttweaker:nugget_phosphor>;
 recipes.addShapeless('ingot phosphor', PH, [Pn, Pn, Pn, Pn, Pn, Pn, Pn, Pn, Pn]);
 recipes.addShapeless('nuggets phosphor', Pn * 9, [PH]);
-scripts.process.crush(<ore:blockApatite>, Po, 'only: eu2crusher MekEnrichment', [Pn], [0.05]);
+scripts.process.crush(<ore:blockApatite>, Po, 'only: IECrusher', [Pn], [0.05]);
 mods.ic2.ThermalCentrifuge.addRecipe([Po * 9, Pn * 4], <forestry:resource_storage> * 9);
 
 // Phosphor Benefication
 furnace.addRecipe(Pn, Po);
 scripts.processWork.workEx('infernalfurnace', null, [Po], null, null, null, [Pn * 2], [0.5], null);
-scripts.process.crush(Po, Pn, 'only: eu2Crusher IECrusher Pulverizer', [Pn], [0.5]);
+scripts.process.crush(Po, Pn, 'only: IECrusher Pulverizer', [Pn], [0.5]);
 scripts.process.magic([Po], [Pn * 3]);
 
 // Remove automatic TE recipes
@@ -335,6 +335,27 @@ for i, input in farmBlocks {
     'T': <forestry:thermionic_tubes:1>, // Tin Electron Tube
   });
 }
+
+// Since tubes was buffed via mixins, make Blazing Tube recipe way harder
+mods.forestry.ThermionicFabricator.removeCast(<forestry:thermionic_tubes:7> * 4);
+scripts.mods.forestry.ThermionicFabricator.addCast(<forestry:thermionic_tubes:7> * 4, Grid(['pretty',
+  '  ▲  ',
+  '♥ ▲ ♥',
+  '▲ ▲ ▲'], {
+  '▲': <ore:dustPyrotheum>,
+  '♥': <ore:nuggetRedstoneAlloy>,
+}).shaped(), <fluid:glass> * 500);
+
+// Cheaper usage of Blazing Tube since it costy
+craft.remake(<forestry:farm_nether>, ['pretty',
+  '▬ ▲ ▬',
+  '▲ ⌂ ▲',
+  '▬ B ▬'], {
+  '▬': <ore:ingotBrickNether>,
+  '▲': <ore:dustBlaze>,
+  '⌂': <forestry:flexible_casing>,
+  'B': <forestry:chipsets:0>.withTag({ T: 0 as short }, false),
+});
 
 // Recycling
 scripts.process.melt(<forestry:smoker>, <fluid:tin> * (144 * 5));

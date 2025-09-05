@@ -91,11 +91,7 @@
     "commands": [
       {
         "match": "packages\\\\.+\\\\package\\.json$",
-        "cmd": "node mc-tools/merge_jsons.js \"${file}\" && prettier-package-json --write \"${file}\""
-      },
-      {
-        "match": "((?!packages).)\\\\.+\\\\package\\.json$",
-        "cmd": "prettier-package-json --write \"${file}\""
+        "cmd": "node mc-tools/merge_jsons.js \"${file}\""
       }
     ]
   },

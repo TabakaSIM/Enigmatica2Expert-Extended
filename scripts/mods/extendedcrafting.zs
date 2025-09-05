@@ -117,7 +117,7 @@ craft.remake(<extendedcrafting:table_ultimate>, ['pretty',
   '■': <extendedcrafting:trimmed:4>,           // Block of Black Iron
   '*': <ore:crystalDraconium>,                 // Draconium Crystal
   'd': <advancedrocketry:ic:2>,                // Advanced Circuit
-  '▀': <ore:blockAethium>,                     // Aethium
+  '▀': <ore:crystalAethium>,                     // Aethium
   'U': <extendedcrafting:material:11>,         // Ultimate Catalyst
   '◙': <thermalexpansion:frame:148>,           // Resonant Cell Frame (Full)
   'n': <ore:blockEnderium>,                    // Block of Enderium

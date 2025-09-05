@@ -11,10 +11,10 @@
 		uid: "de529bc5",
 		type: "item",
 		items: [{
+			id: "thermalexpansion:cache",
 			tag: {
 				Level: 0b
-			},
-			id: "thermalexpansion:cache"
+			}
 		}],
 		ignore_damage: 1b,
 		ignore_nbt: 1b
@@ -24,10 +24,10 @@
 		type: "custom",
 		title: "{e2ee.quest.common}",
 		icon: {
+			id: "ftbquests:lootcrate",
 			tag: {
 				type: "common"
-			},
-			id: "ftbquests:lootcrate"
+			}
 		},
 		tags: [
 			"loot"

@@ -7,6 +7,7 @@ It should not exist in release version.
 
 #modloaded ctintegration
 #priority 3999
+#reloadable
 
 import crafttweaker.player.IPlayer;
 
@@ -35,7 +36,7 @@ function exportAllBlocks() as void {
     ) continue;
 
     var lastMeta = -1 as int; // Remember, -1 is not integer by default
-    for sub in item.subItems {
+    for sub in item.subItems { // Remember - .subItems return different values on server
       if (lastMeta == sub.damage) continue;
       lastMeta = sub.damage;
       val block = sub.asBlock();
@@ -84,7 +85,6 @@ zenClass DebugUtils {
 }
 static debugUtils as DebugUtils = DebugUtils();
 
-static skipped as bool[] = [false] as bool[];
 function runAutomation(player as IPlayer) as void {
   player.world.catenation().sleep(20).then(function (world, ctx) {
     player.sendMessage('Developing: §c/logAdditionalDebugData()');
@@ -156,43 +156,36 @@ function runAutomation(player as IPlayer) as void {
 }
 
 events.onPlayerLoggedIn(function (e as crafttweaker.event.PlayerLoggedInEvent) {
-  if (e.player.world.isRemote()) return;
+  if (e.player.world.remote) return;
   if (!debugUtils.firstTime(e.player.world.time)) return;
 
   e.player.world.catenation().sleep(100).then(function (world, ctx) {
-    e.player.sendMessage('§cDebug environment activated!');
+    e.player.sendMessage('§4Modpack running in debug mode');
     e.player.sendMessage('§8If you want to disable DEBUG mode, remove §7scripts/debug§8 directory');
-    e.player.sendMessage('§8Write §7/skip§8 to skip automatic executions, write §7/run_automation§8 to run manually');
+    e.player.sendMessage('§8Execute §7/run_automation§8 to run various logging dump');
   })
-
-    .sleep(300).then(function (world, ctx) {
-      if (!skipped[0]) runAutomation(e.player);
-    }).start();
+    .start();
 });
 
-print('##################################################');
-print('#       Unchanged Crafting Table recipes         #');
-for i, r in recipes.all {
-  if (isNull(r.name) || isNull(r.output)) continue;
-  print(r.commandString);
+if (currentLoader() == 'crafttweaker') {
+  print('##################################################');
+  print('#       Unchanged Crafting Table recipes         #');
+  for i, r in recipes.all {
+    if (isNull(r.name) || isNull(r.output)) continue;
+    print(r.commandString);
+  }
+  print('##################################################');
+
+  // Every Furnace recipe before any changes
+  print('##################################################');
+  print('#         Unchanged furnace recipes dump         #');
+  for r in furnace.all {
+    print(r.commandString);
+  }
+  print('##################################################');
 }
-print('##################################################');
 
-// Every Furnace recipe before any changes
-print('##################################################');
-print('#         Unchanged furnace recipes dump         #');
-for r in furnace.all {
-  print(r.commandString);
-}
-print('##################################################');
-
-// Command to cancel automation
-var cmd = mods.zenutils.command.ZenCommand.create('skip');
-cmd.requiredPermissionLevel = 0;
-cmd.execute = function (command, server, sender, args) { skipped[0] = true; };
-cmd.register();
-
-cmd = mods.zenutils.command.ZenCommand.create('run_automation');
+val cmd = mods.zenutils.command.ZenCommand.create('run_automation');
 cmd.requiredPermissionLevel = 0;
 cmd.execute = function (command, server, sender, args) {
   runAutomation(mods.zenutils.command.CommandUtils.getCommandSenderAsPlayer(sender));

@@ -17,16 +17,16 @@
 		uid: "325b5e32",
 		type: "item",
 		items: [{
+			id: "tconstruct:sharpening_kit",
 			tag: {
 				Material: "osgloglas"
-			},
-			id: "tconstruct:sharpening_kit"
+			}
 		},
 		{
+			id: "tconstruct:sharpening_kit",
 			tag: {
 				Material: "fierymetal"
-			},
-			id: "tconstruct:sharpening_kit"
+			}
 		}]
 	}]
 }

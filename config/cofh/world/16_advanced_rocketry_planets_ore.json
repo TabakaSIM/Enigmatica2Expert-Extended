@@ -70,29 +70,6 @@
 				]
 			}
 		},
-		"prosperity": {
-			"distribution": "uniform",
-			"generator": {
-				"block": { 					 					
-					"name": "mysticalagriculture:prosperity_ore", 					 					
-					"metadata": 0				 				
-				},
-				"material": "minecraft:stone",
-				"cluster-size": 12
-			},
-			"cluster-count": 7,
-			"min-height": 15,
-			"max-height": 60,
-			"retrogen": "false",
-			"dimension": {
-				"restriction": "whitelist",
-				"value": [
-					109,
-					110,
-					120
-				]
-			}
-		},
 		"mana_infused": {
 			"distribution": "uniform",
 			"generator": {
