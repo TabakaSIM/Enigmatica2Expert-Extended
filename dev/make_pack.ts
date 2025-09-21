@@ -185,7 +185,7 @@ if (makeZips) {
   await fs.mkdir(tmpOverrides, { recursive: true })
 
   p.note('Cloning latest tag to tmpOverrides...', '👬 ')
-  const $tmp = $({ cwd: tmpOverrides, sync: true })
+  const $tmp = $$({ cwd: tmpOverrides, sync: true })
   $tmp`git clone --depth 1 ${`file://${resolve(process.cwd())}`} .`
   $tmp`git submodule init`
   $tmp`git config submodule.mc-tools.update none`
