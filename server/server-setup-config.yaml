@@ -124,6 +124,7 @@ install:
       - 1147522 # Backpack Opener
       - 1154099 # Crash Assistant
       - 1234162 # Lumenized
+      - 1331377 # Armored Arms
 
     # The base path where the server should be installed to, ~ for current path
   baseInstallPath: ~
