@@ -1,4 +1,4 @@
-#modloaded botania_tweaks crafttweakerutils
+#modloaded botania_tweaks
 #priority -1
 
 import crafttweaker.item.IItemStack;

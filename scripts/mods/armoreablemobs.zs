@@ -1,4 +1,4 @@
-#modloaded armoreablemobs crafttweakerutils
+#modloaded armoreablemobs
 
 import crafttweaker.data.IData;
 import crafttweaker.item.IItemStack;

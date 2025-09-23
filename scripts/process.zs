@@ -26,7 +26,7 @@
 //
 // ######################################################################
 
-#modloaded crafttweakerutils jaopca mekanism
+#modloaded jaopca mekanism
 #priority 50
 #reloadable
 

@@ -1,4 +1,4 @@
-#modloaded ctintegration crafttweakerutils mysticalagriculture
+#modloaded mysticalagriculture
 #reloadable
 
 import crafttweaker.world.IFacing;
@@ -48,7 +48,7 @@ events.onWorldTick(function (e as crafttweaker.event.WorldTickEvent) {
     }
 
     // Should see sky
-    val seeSky = mods.ctutils.world.World.canSeeSky(world, entityItem.position);
+    val seeSky = world.native.canSeeSky(entityItem.position) as bool;
     if (!seeSky) continue;
 
     // Must lay on sand

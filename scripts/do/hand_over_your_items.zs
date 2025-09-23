@@ -5,7 +5,7 @@
  * @link https://github.com/Krutoy242
  */
 
-#modloaded zenutils ctintegration
+#modloaded zenutils
 #priority 3000
 #reloadable
 

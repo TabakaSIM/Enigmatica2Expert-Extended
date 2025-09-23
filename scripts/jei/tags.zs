@@ -1,4 +1,4 @@
-#modloaded jei ctintegration
+#modloaded jei
 #priority 1
 #ignoreBracketErrors
 

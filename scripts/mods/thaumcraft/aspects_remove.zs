@@ -1,4 +1,4 @@
-#modloaded thaumcraft randomtweaker
+#modloaded thaumcraft
 #ignoreBracketErrors
 
 import crafttweaker.item.IItemStack;

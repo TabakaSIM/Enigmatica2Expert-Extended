@@ -1,4 +1,4 @@
-#modloaded rats crafttweakerutils
+#modloaded rats
 #reloadable
 
 import crafttweaker.item.IItemStack;

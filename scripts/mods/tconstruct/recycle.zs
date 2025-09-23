@@ -1,4 +1,4 @@
-#modloaded tconstruct zentoolforge crafttweakerutils
+#modloaded tconstruct zentoolforge
 #norun
 
 import crafttweaker.item.IIngredient;

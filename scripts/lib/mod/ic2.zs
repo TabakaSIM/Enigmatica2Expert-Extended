@@ -1,6 +1,5 @@
 #priority 2000
 #reloadable
-#modloaded ctintegration
 
 import crafttweaker.item.IItemStack;
 

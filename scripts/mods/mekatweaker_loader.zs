@@ -1,4 +1,4 @@
-#loader mekatweaker
+#loader roidtweaker
 
 import mods.mekatweaker.InfuserType;
 

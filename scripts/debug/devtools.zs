@@ -1,4 +1,3 @@
-#modloaded ctintegration
 #reloadable
 #priority -6000
 #ignoreBracketErrors

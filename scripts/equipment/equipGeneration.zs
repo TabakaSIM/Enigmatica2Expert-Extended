@@ -1,4 +1,4 @@
-#modloaded zentoolforge crafttweakerutils
+#modloaded zentoolforge
 #reloadable
 
 import crafttweaker.data.IData;
