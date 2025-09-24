@@ -17,40 +17,6 @@ import mods.zentoolforge.Toolforge;
 //   ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝╚══════╝
 // -----------------------------------------------------------------------
 
-val disassemblable
-  = <conarm:helmet:*>
-  | <conarm:boots:*>
-  | <conarm:chestplate:*>
-  | <conarm:leggings:*>
-  | <exnihilocreatio:crook_tconstruct:*>
-  | <plustic:laser_gun:*>
-  | <plustic:katana:*>
-  | <tcomplement:chisel:*>
-  | <tcomplement:sledge_hammer:*>
-  | <tconevo:tool_sceptre:*>
-  | <tconstruct:arrow:*>
-  | <tconstruct:battlesign:*>
-  | <tconstruct:bolt:*>
-  | <tconstruct:broadsword:*>
-  | <tconstruct:cleaver:*>
-  | <tconstruct:crossbow:*>
-  | <tconstruct:excavator:*>
-  | <tconstruct:frypan:*>
-  | <tconstruct:hammer:*>
-  | <tconstruct:hatchet:*>
-  | <tconstruct:kama:*>
-  | <tconstruct:longbow:*>
-  | <tconstruct:longsword:*>
-  | <tconstruct:lumberaxe:*>
-  | <tconstruct:mattock:*>
-  | <tconstruct:pickaxe:*>
-  | <tconstruct:rapier:*>
-  | <tconstruct:scythe:*>
-  | <tconstruct:shortbow:*>
-  | <tconstruct:shovel:*>
-  | <tconstruct:shuriken:*>
-;
-
 // Tools that would be used to recycle
 // Must be length of 5
 static validToolsList as string[] = [
@@ -232,7 +198,7 @@ recipes.addShaped(
   'tcon_Disassembling',
   <tconstruct:shard>, [
     [T.marked('t0'), T.marked('t1'), T.marked('t2')],
-    [T.marked('t3'), disassemblable.marked('t'), T.marked('t4')],
+    [T.marked('t3'), scripts.mods.tconstruct.vars.allTconEquipment.marked('t'), T.marked('t4')],
   ],
   function (out, ins, cInfo) {
     return disassemble(ins);
