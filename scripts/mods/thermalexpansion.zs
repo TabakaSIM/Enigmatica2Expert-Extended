@@ -67,7 +67,7 @@ craft.remake(<thermalexpansion:device:4>, ['pretty',
   '  §  ',
   '¤ ◙ ¤',
   '  ♥  '], {
-  '§': <contenttweaker:fish_singularity>,
+  '§': <contenttweaker:fish_singularity>.withTag({ completed: 1 as byte }),
   '¤': <ore:gearIron>,
   '◙': <thermalexpansion:frame:64>,
   '♥': <thermalfoundation:material:512>,

@@ -91,8 +91,8 @@ craft.remake(<extrautils2:rainbowgenerator>, ['pretty',
   'a': <extrautils2:rainbowgenerator:2>,
   '▬': <ore:ingotGold198>,
   'O': <extrautils2:opinium:5>,
-  's': <contenttweaker:ball_singularity>,
-  'i': <contenttweaker:machine_case_singularity>,
+  's': <contenttweaker:ball_singularity>.withTag({ completed: 1 as byte }),
+  'i': <contenttweaker:machine_case_singularity>.withTag({ completed: 1 as byte }),
   'R': <extrautils2:rainbowgenerator:1>,
 });
 

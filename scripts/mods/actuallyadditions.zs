@@ -147,7 +147,7 @@ craft.remake(<actuallyadditions:block_fishing_net>, ['pretty',
   '  §  ',
   'C * C',
   '  C  '], {
-  '§': <contenttweaker:fish_singularity>,
+  '§': <contenttweaker:fish_singularity>.withTag({ completed: 1 as byte }),
   'C': <minecraft:web>,
   '*': <actuallyadditions:item_crystal_empowered:4>,
 });
