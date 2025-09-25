@@ -2,13 +2,14 @@
 #sideonly client
 #reloadable
 
-import mods.backpackdisplay.BackpackDisplay.addBackDisplay;
-import crafttweaker.item.IItemStack;
-import crafttweaker.item.IIngredient;
 import crafttweaker.block.IBlockDefinition;
-import crafttweaker.world.IWorld;
-import native.net.minecraft.util.math.BlockPos;
+import crafttweaker.block.IBlockState;
 import crafttweaker.data.IData;
+import crafttweaker.item.IIngredient;
+import crafttweaker.item.IItemStack;
+import crafttweaker.world.IWorld;
+import mods.backpackdisplay.BackpackDisplay.addBackDisplay;
+import native.net.minecraft.util.math.BlockPos;
 
 function addSingularity(item as IItemStack) as void {
   if (isNull(item)) return;
@@ -135,7 +136,11 @@ static blockHolderTag as function(IData)IItemStack
     || isNull(itemTag.block)
     || isNull(itemTag.meta)
   ) return null;
-  return <item:${itemTag.block}:${itemTag.meta}>;
+
+  val defaultState = IBlockState.getBlockState(itemTag.block.asString(), []);
+  if (isNull(defaultState)) return null;
+  val state = defaultState.block.definition.getStateFromMeta(itemTag.meta);
+  return scripts.do.portal_spread.utils.stateToItem(state);
 };
 
 addBackDisplay(<scannable:module_block>, function(item) {
