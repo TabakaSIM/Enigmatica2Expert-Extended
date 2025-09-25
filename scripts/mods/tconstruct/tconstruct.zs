@@ -110,8 +110,8 @@ mods.tconstruct.Alloy.removeRecipe(<liquid:alumite>); // Magically, removing Alu
 mods.tconstruct.Alloy.addRecipe(<liquid:alumite> * 432, [<liquid:aluminum> * 720, <liquid:iron> * 288, <liquid:obsidian> * 288]);
 
 // Alumite alloying in other machines
-scripts.process.alloy([<ore:ingotFakeIron> * 2, <ore:ingotAluminium> * 5, <ore:obsidian> * 2], <plustic:alumiteingot> * 3, 'Only: AlloySmelter ArcFurnace');
-scripts.process.alloy([<ore:blockFakeIron> * 2, <ore:blockAluminium> * 5, <ore:obsidian> * 18], <plustic:alumiteblock> * 3, 'Only: AdvRockArc');
+scripts.process.alloy([<ore:ingotFakeIron> * 2, <ore:ingotAluminium> * 5, <ore:obsidian> * 2], <tconstruct:ingots:6> * 3, 'Only: AlloySmelter ArcFurnace');
+scripts.process.alloy([<ore:blockFakeIron> * 2, <ore:blockAluminium> * 5, <ore:obsidian> * 18], <tconstruct:metal:7> * 3, 'Only: AdvRockArc');
 
 // Faster Osmiridium Alloying
 // mods.tconstruct.Alloy.removeRecipe(<liquid:osmiridium>); // Removing Osmiridium PlusTic's alloy wouldn't have effect

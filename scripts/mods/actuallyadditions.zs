@@ -284,7 +284,7 @@ val listCatFur as string[] = [
   'biomesoplenty:gem'            , '1'  , '30',
   'immersiveengineering:material', '9'  , '5',
   'immersiveengineering:material', '8'  , '60',
-  'plustic:alumiteingot'         , '0'  , '5',
+  'tconstruct:ingots'            , '6'  , '5',
   'rats:raw_rat'                 , '0'  , '90',
   'rats:rat_pelt'                , '0'  , '65',
   'rats:token_fragment'          , '0'  , '15',
