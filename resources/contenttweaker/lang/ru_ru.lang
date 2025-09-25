@@ -18,6 +18,9 @@ description.crt.encrusted=%s §6§o(Инкрустировано)§r
 # --------------------------------------
 entity.Villager.stock_trader=Биржевой брокер
 entity.Villager.necromancer=Чернокнижец
+infuse.ender=Эндер
+infuse.glowstone=Светокамень
+infuse.dimensional=Пространственный
 itemGroup.other=ContentTweaker
 fluid.seed=Семя
 fluid.spectre=Спектр

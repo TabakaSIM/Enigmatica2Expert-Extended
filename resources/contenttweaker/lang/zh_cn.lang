@@ -18,6 +18,9 @@ description.crt.encrusted=%s §6§o（已镶嵌）§r
 # --------------------------------------
 entity.Villager.stock_trader=股票经纪人
 entity.Villager.necromancer=死灵法师
+infuse.ender=末影
+infuse.glowstone=荧石
+infuse.dimensional=维度的
 # itemGroup.other=ContentTweaker
 # fluid.seed=Seed
 fluid.spectre=液态通灵

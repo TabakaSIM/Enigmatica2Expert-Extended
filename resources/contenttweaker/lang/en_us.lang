@@ -18,6 +18,9 @@ description.crt.encrusted=%s §6§o(Encrusted)§r
 # --------------------------------------
 entity.Villager.stock_trader=Stock Trader
 entity.Villager.necromancer=Necromancer
+infuse.ender=Ender
+infuse.glowstone=Glowstone
+infuse.dimensional=Dimensional
 itemGroup.other=ContentTweaker
 fluid.seed=Seed
 fluid.spectre=Spectre
