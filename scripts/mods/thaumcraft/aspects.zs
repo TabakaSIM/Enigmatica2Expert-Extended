@@ -1167,8 +1167,16 @@ Aspect.infernum,        - demon metal
 <aspect:gelum>,         - titanium
 */
 
+// Do not change aspects for this ore entries
+static oreAspectBlacklist as string[] = [
+  'nuggetQuartz',
+];
+
 function setOreAspect(kind as string, main as double, secondary as double, base as string, aspects as string, additional as string = null) as int {
-  val item = utils.oreToItem(kind ~ base);
+  val ore = kind ~ base;
+  if (oreAspectBlacklist has ore) return 0;
+
+  val item = utils.oreToItem(ore);
   if (isNull(item)) {
     return 0;
   }
