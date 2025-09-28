@@ -3,9 +3,9 @@
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
-import mods.ctutils.utils.Math.abs;
-import mods.ctutils.utils.Math.max;
-import mods.ctutils.utils.Math.sqrt;
+import crafttweaker.util.Math.abs;
+import crafttweaker.util.Math.max;
+import crafttweaker.util.Math.sqrt;
 import mods.zentoolforge.Toolforge;
 
 // -----------------------------------------------------------------------

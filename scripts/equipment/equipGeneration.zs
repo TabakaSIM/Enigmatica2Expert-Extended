@@ -9,9 +9,9 @@ import crafttweaker.item.IItemDefinition;
 import crafttweaker.item.IItemStack;
 import crafttweaker.world.IWorld;
 import mods.ctintegration.scalinghealth.DifficultyManager;
-import mods.ctutils.utils.Math.abs;
-import mods.ctutils.utils.Math.max;
-import mods.ctutils.utils.Math.min;
+import crafttweaker.util.Math.abs;
+import crafttweaker.util.Math.max;
+import crafttweaker.util.Math.min;
 import mods.zentoolforge.Toolforge;
 import modtweaker.tconstruct.ITICMaterial;
 

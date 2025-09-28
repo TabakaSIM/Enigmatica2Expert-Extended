@@ -364,7 +364,7 @@ for i in 0 .. listCatFur.length {
     val item = itemUtils.getItem(listCatFur[i], listCatFur[i + 1]);
     if (!isNull(item)) {
       mods.actuallyadditions.BallOfFur.addReturn(item, listCatFur[i + 2]);
-      val chance = (mods.ctutils.utils.Math.floor((listCatFur[i + 2] as float) / weight * 10000) as double) / 100;
+      val chance = (crafttweaker.util.Math.floor((listCatFur[i + 2] as float) / weight * 10000) as double) / 100;
       item.addTooltip(format.darkGray('Drops from ') ~ format.bold('Ball Of Fur')
       ~ format.darkGray(' with chance ') ~ format.gray(chance ~ '%'));
     }

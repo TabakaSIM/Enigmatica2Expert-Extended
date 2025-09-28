@@ -13,7 +13,7 @@ import crafttweaker.data.IData;
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import crafttweaker.recipes.ICraftingInfo;
-import mods.ctutils.utils.Math;
+import crafttweaker.util.Math;
 
 function getRecipeFunction(result as IItemStack, charge as int) as function(IItemStack[string],bool)IItemStack {
   return function (ins as IItemStack[string], considerAmount as bool) as IItemStack {
