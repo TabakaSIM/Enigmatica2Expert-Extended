@@ -12,7 +12,7 @@ function item(item as IItemStack, color as string = null, showName as bool = tru
       text: item.amount > 1 ? item.amount ~'x' : '',
       hoverEvent: {
         action: 'show_item',
-        value: item.asData().toNBTString(),
+        value: item.toSNBT(),
       },
       extra: [
         {

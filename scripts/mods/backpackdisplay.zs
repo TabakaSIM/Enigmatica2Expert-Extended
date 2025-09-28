@@ -169,7 +169,7 @@ addBackDisplay(<scannable:scanner>, function(item) {
   var k = 0;
   val result = arrayOf(length, null as IItemStack) as IItemStack[];
   for it in item.tag.items.Items.asList() {
-    result[k] = IItemStack.fromData(it);
+    result[k] = it.toItemStack();
     k += 1;
     val additional = blockHolderTag(it.tag);
     if (!isNull(additional)) {
@@ -203,7 +203,7 @@ addBackDisplay(<randomthings:enderletter>, function(item) {
   for i in 0 .. 9 {
     val it = item.tag.EnderLetterContent.memberGet('slot'~i);
     if (isNull(it) || isNull(it.id)) continue;
-    result[k] = IItemStack.fromData(it);
+    result[k] = it.toItemStack();
     k += 1;
   }
 
@@ -215,5 +215,5 @@ Rubble
 */
 addBackDisplay(<my_precious:rubble>, function(item) {
   if (isNull(item.tag) || isNull(item.tag.StoredItem)) return null;
-  return [IItemStack.fromData(item.tag.StoredItem)] as IItemStack[];
+  return [item.tag.StoredItem.toItemStack()] as IItemStack[];
 });

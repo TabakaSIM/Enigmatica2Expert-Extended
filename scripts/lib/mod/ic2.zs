@@ -13,5 +13,5 @@ function getCrystalMemoryContent(item as IItemStack) as IItemStack {
     || isNull(item.tag.Pattern.id)
   ) return null;
 
-  return IItemStack.fromData(item.tag.Pattern);
+  return item.tag.Pattern.toItemStack();
 }
