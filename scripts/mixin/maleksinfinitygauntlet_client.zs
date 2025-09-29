@@ -1,5 +1,6 @@
-#modloaded maleksinfinitygauntlet
+#modloaded maleksinfinitygauntlet itemborders
 #loader mixin
+#sideonly client
 
 import native.net.minecraft.item.ItemStack;
 import native.net.minecraftforge.fml.common.registry.ForgeRegistries;
