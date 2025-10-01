@@ -136,14 +136,14 @@ craft.remake(<rats:rat_upgrade_ore_doubling>, ['pretty',
 });
 
 // Gem of ratlantis
-recipes.remove(<rats:gem_of_ratlantis>);
-mods.rt.RandomThingsTweaker.addImbuingRecipe(
-  <randomthings:ingredient:2>,
-  <rats:string_cheese>,
-  <rats:ratglove_petals>,
-  <minecraft:emerald>,
-  <rats:gem_of_ratlantis>
-);
+mods.rats.recipes.removeArcheologistRatRecipe(<rats:gem_of_ratlantis>);
+mods.rats.recipes.addArcheologistRatRecipe(<actuallyadditions:item_crystal:4>, <rats:gem_of_ratlantis>);
+craft.reshapeless(<rats:gem_of_ratlantis>, '*ERS', {
+  '*': <ore:crystalEmeraldic>,
+  'E': <randomthings:ingredient:2>,
+  'R': <rats:ratglove_petals>,
+  'S': <rats:string_cheese>,
+});
 
 // Ratlanean upgrade
 remake('rat_upgrade_basic_ratlantean', <rats:rat_upgrade_basic_ratlantean>, [
