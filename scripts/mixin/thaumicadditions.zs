@@ -6,8 +6,12 @@ import native.net.minecraft.item.Item;
 import native.net.minecraft.item.ItemStack;
 import native.net.minecraft.util.math.RayTraceResult;
 
+/*
+Remove how scythe handle collision and let it handle only by event menager
+*/
 #mixin {targets: "org.zeith.thaumicadditions.entity.EntityMithminiteScythe"}
 zenClass MixinEntityMithminiteScythe extends EntityThrowable {
+    // onImpact
     #mixin Overwrite
     function func_70184_a(result as RayTraceResult) as void {
         return;
