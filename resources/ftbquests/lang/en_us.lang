@@ -907,7 +907,6 @@ q.thaumcraft.thaumcraft.desc=Welcome to Thaumcraft, a tier 1 magic mod. Thaumcra
 q.thaumcraft.arcane_workbench.desc=Uses §dvis§r and §evis crystals§r for crafting.
 q.thaumcraft.workbench_charger.desc=Some recipes require an amount of §dvis§r too great to be acquired from only one chunk.\n\nThe §6Workbench Charger§r allows you to increase the range of the §6Arcane Workbench§r to take §dvis§r from surrounding chunks.
 q.thaumcraft.thaumometer.desc=Scans items to add observations to your knowledge.\n\n§2Hint§r: Place items in a chest, then scan the chest.
-q.thaumcraft.arcane_crafter.desc=The §nArcane Crafter§r is an automatic version of the §nArcane Workbench§r. Just push items into it via hoppers (or whatever you want), and it will craft the result. Note that\n\n§61)§r One side of a crafter is marked by a slightly lighter color. This is where you input §evis crystals§r.\n\n§62)§r You can insert §2Arcane Fillers§r manually into the crafting grid to imitate empty slots.\n\n§63)§r You must have appropriate §5research§r for your crafts. 
 q.thaumcraft.artifice.name=Artifice
 q.thaumcraft.artifice.desc=The §6Goggles of Revealing§r are one of the must-have accessories. They reveal some useful information like:\n- Amount of essentia stored in jar / alembic\n- Infusion stability\n\nThere are helmets that support these goggles! §7(see crafting uses)§r
 q.thaumcraft.greatwood_log.desc=Greatwood trees spawn naturally. \n\nSome greatwood trees have treasure under them!

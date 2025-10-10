@@ -907,7 +907,6 @@ q.thaumcraft.thaumcraft.desc=Добро пожаловать в Thaumcraft, мо
 q.thaumcraft.arcane_workbench.desc=Uses §dvis§r and §evis crystals§r for crafting.
 q.thaumcraft.workbench_charger.desc=Some recipes require a greater amount of §dvis§r, that can't be acquired from only one chunk.\n\n§6Workbench Charger§r allows to increase range of §6Arcane Workbench§r to take §dvis§r from attached chunks.
 q.thaumcraft.thaumometer.desc=Подробности см. В Таумономиконе.\n\n\n\n\n\n\n\n\n\n §2 §0 §2 Совет §0: §0 Поместите предметы в сундук и просканируйте сундук.
-q.thaumcraft.arcane_crafter.desc=§nArcane Crafter§r is an automatic version of §nArcane Workbench§r. Just push items into it via hoppers (or whatever you want) and it will craft the result. Note that\n\n§61)§r One side of a crafter is marked by a slightly lighter color. This is where you input §evis crystals§r.\n\n§62)§r You can insert §2Arcane Fillers§r manually into crafting grid to imitate empty slots.\n\n§63)§r You must have appropriate §5researches§r for your crafts. 
 q.thaumcraft.artifice.name=Артификация
 q.thaumcraft.artifice.desc=§6Goggles of Revealing§r are one of the must have accesories. Those reveal some usefull informations like:\n- Stored essentia in jar / alembic\n- Infusion stability\n\nThere are hemlets that support these goggles! §7(see craftings)§r
 q.thaumcraft.greatwood_log.desc=См. Подробности в Таумономиконе.
