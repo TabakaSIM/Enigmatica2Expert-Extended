@@ -2,6 +2,7 @@
 
 🚧✅❌⚠️♻️ List of priorities:
 
+- [ ] 🌎 Regen world-gen `KELT-6a`
 - [ ] 🔴 Remove `Rocky Tweaks` when fixed https://github.com/roidrole/Roids-Tweaker/issues/9
 - [ ] ✏️ `Redstone Cable` harder recipe
 - [ ] ✏️ `Inworld Smelting` better documenting
@@ -48,6 +49,7 @@ Planned non-urgent changes, or just good ideas:
 
 ### "Performance ⚡"
 
+- [ ] ⚡ never use a fluid storage interface for IE's multiblock tanks
 - [ ] ⚡ Remove `Fluid Conduit` recipe since lower FPS
 - [ ] ⚡ add Warning about things that lower FPS: `placed item, drawers, Auto Sieve (promote ugly plating)`
 - [ ] ⚡ Fix `OpenComputers` JEI plugin is still loaded (see benchmark)

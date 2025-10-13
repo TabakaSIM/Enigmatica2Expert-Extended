@@ -22,7 +22,7 @@ import { resolve } from 'pathe'
 import { replaceInFile } from 'replace-in-file'
 import { $, fs, retry } from 'zx'
 
-import { commitOrFixup, getIgnoredFiles, removeFiles } from './build/build_utils'
+import { commitAmend, commitOrFixup, getIgnoredFiles, removeFiles } from './build/build_utils'
 import { manageSFTP } from './build/sftp'
 import { generateChangelog } from './tools/changelog/changelog'
 
@@ -132,7 +132,7 @@ if (await p.confirm({ message: `Generate Changelog?` }) === true) {
   await retry(2, '1s', async () => $$`git add ${changelogPath}`)
 
   if (await hasStaged())
-    await retry(2, '1s', async () => $$`git commit -m "chore: 🧱 CHANGELOG update, version bump"`)
+    await commitAmend('chore: 🧱 CHANGELOG update, version bump')
 
   await retry(2, '1s', async () => $$`git update-index --skip-worktree ${skipWorktreeList}`)
 }

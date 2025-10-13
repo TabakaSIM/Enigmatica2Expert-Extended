@@ -474,7 +474,7 @@ ignore:
   - ERROR. .Patchouli Books.. Unable to find item at ic2:blockrubsapling
 
   # Those are tweaks that will be removed from Universal Tweaks in the next update as they are a better fit in ThaumicTweaker.
-  - WARN. .mixin.. Method overwrite conflict for onCast in mixins.thaumictweaker.json:focus.FocusEffect
+  - WARN. .mixin.. Method overwrite conflict for onCast in mixins.(thaumictweaker.json:focus.FocusEffect|mods.thaumcraft.foci.focuseffects.json:UT)
 
   # ##################
   # Cleanroom Loader errors
