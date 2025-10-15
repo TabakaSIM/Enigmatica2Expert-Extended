@@ -1,8 +1,8 @@
 {
-  "!!!CrashAssistant-forge-1.12.2-1.10.10.jar": {
-    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.10.jar",
+  "!!!CrashAssistant-forge-1.12.2-1.10.11.jar": {
+    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.11.jar",
     "modId": "crash_assistant",
-    "version": "1.10.10"
+    "version": "1.10.11"
   },
   "!Red-Core-MC-1.8-1.12-0.6.jar": {
     "jarName": "!Red-Core-MC-1.8-1.12-0.6.jar",
@@ -804,10 +804,10 @@
     "modId": "oldjava",
     "version": "1.1.11"
   },
-  "OpenBlocksReopened-1.12.2-1.8.3-pre1.jar": {
-    "jarName": "OpenBlocksReopened-1.12.2-1.8.3-pre1.jar",
+  "OpenBlocksReopened-1.12.2-1.8.2.jar": {
+    "jarName": "OpenBlocksReopened-1.12.2-1.8.2.jar",
     "modId": "openblocks",
-    "version": "1.8.3"
+    "version": "1.8.2"
   },
   "OpenComputers-MC1.12.2-1.8.9a+8ca336f.jar": {
     "jarName": "OpenComputers-MC1.12.2-1.8.9a+8ca336f.jar",
@@ -1339,6 +1339,11 @@
     "modId": "bpopener",
     "version": "1.1.0"
   },
+  "brigo_forge-1.1.1+1.12.x.jar": {
+    "jarName": "brigo_forge-1.1.1+1.12.x.jar",
+    "modId": "brigo",
+    "version": "1.1.1"
+  },
   "brokenwings-3.0.0.jar": {
     "jarName": "brokenwings-3.0.0.jar",
     "modId": "brokenwings",
@@ -1572,10 +1577,10 @@
     "modId": "ironchest",
     "version": "1.12.2-7.0.67.844"
   },
-  "jei_area_fixer-2.2.0.jar": {
-    "jarName": "jei_area_fixer-2.2.0.jar",
+  "jei_area_fixer-2.2.1.jar": {
+    "jarName": "jei_area_fixer-2.2.1.jar",
     "modId": "jei_area_fixer",
-    "version": "2.1.0"
+    "version": "2.2.1"
   },
   "jeibees-0.9.0.5-mc1.12.2.jar": {
     "jarName": "jeibees-0.9.0.5-mc1.12.2.jar",
@@ -1941,10 +1946,10 @@
     "modId": "thaumictweaker",
     "version": "1.1.1"
   },
-  "thaumicwonders-2.1.3.jar": {
-    "jarName": "thaumicwonders-2.1.3.jar",
+  "thaumicwonders-2.1.4.jar": {
+    "jarName": "thaumicwonders-2.1.4.jar",
     "modId": "thaumicwonders",
-    "version": "2.1.3"
+    "version": "2.1.4"
   },
   "thermallogistics-0.3-43.jar": {
     "jarName": "thermallogistics-0.3-43.jar",

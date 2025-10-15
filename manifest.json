@@ -12,7 +12,7 @@
   "manifestType": "minecraftModpack",
   "manifestVersion": 1,
   "name": "Enigmatica2Expert-Extended",
-  "version": "v1.65.0",
+  "version": "v1.65.1",
   "author": "krutoy242",
   "overrides": "overrides",
   "files": [
@@ -434,7 +434,6 @@
     {"projectID":1252600,"fileID":6848570,"___name":"Actually Additions V2 Coffee Edition"    ,"downloadUrl":"https://edge.forgecdn.net/files/6848/570/ActuallyAdditions-1.12.2-r164-V2.jar","required":true},
     {"projectID":1281678,"fileID":7094988,"___name":"Roid's Tweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7094/988/roidtweaker-1.2.1.jar","required":true},
     {"projectID":1307741,"fileID":7108504,"___name":"Thaumic Wonders Unofficial"              ,"downloadUrl":"https://edge.forgecdn.net/files/7108/504/thaumicwonders-2.1.4.jar","required":true},
-    {"projectID":1312795,"fileID":6848271,"___name":"Brigo"                                   ,"downloadUrl":"https://edge.forgecdn.net/files/6848/271/brigo_forge-1.1.1%2b1.12.x.jar","required":true},
     {"projectID":1331377,"fileID":7055050,"___name":"Armored Arms"                            ,"downloadUrl":"https://edge.forgecdn.net/files/7055/50/ArmoredArms-v1.3.2-release.jar","required":true},
     {"projectID":1341792,"fileID":7097580,"___name":"Congrega Mystica"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7097/580/CongregaMystica-1.12.2-1.0.5.jar","required":true},
     {"projectID":1341797,"fileID":7072975,"___name":"ThaumicTweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7072/975/thaumictweaker-1.1.1.jar","required":true},

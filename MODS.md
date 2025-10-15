@@ -190,7 +190,7 @@ Icon | Summary
 
 Mods that present only in `Extended` version:
 
-255 mods in this section.
+254 mods in this section.
 
 Icon | Summary
 ----:|:-------
@@ -444,7 +444,6 @@ Icon | Summary
 <img src="https://media.forgecdn.net/avatars/thumbnails/1267/57/30/30/638824726446246849.png"            > |   [**Actually Additions V2 Coffee Edition**](https://www.curseforge.com/minecraft/mc-mods/actually-additions-v2-coffee-edition)<sup><sub>ActuallyAdditions-1.12.2-r164-V2.jar             </sub></sup><br>Refresh Actually Additions to give the mod a new look
 <img src="https://media.forgecdn.net/avatars/thumbnails/1338/430/30/30/638869986013756191.png"           > |                         [**Roid's Tweaker**](https://www.curseforge.com/minecraft/mc-mods/roid-tweaker)                 <sup><sub>roidtweaker-1.2.1.jar                            </sub></sup><br>Conglomeration of CraftTweaker addons
 <img src="https://media.forgecdn.net/avatars/thumbnails/1358/482/30/30/638882387444615595.png"           > |             [**Thaumic Wonders Unofficial**](https://www.curseforge.com/minecraft/mc-mods/thaumic-wonders-unofficial)   <sup><sub>thaumicwonders-2.1.4.jar                         </sub></sup><br>An unofficial continuation of Thaumic Wonders.
-<img src="https://media.forgecdn.net/avatars/thumbnails/1369/223/30/30/638889006945380811.png"           > |                                  [**Brigo**](https://www.curseforge.com/minecraft/mc-mods/brigo)                        <sup><sub>brigo_forge-1.1.1+1.12.x.jar                     </sub></sup><br>Brings modern Brigadier-style command suggestions and autocomplete to legacy Minecraft versions.
 <img src="https://media.forgecdn.net/avatars/thumbnails/1409/140/30/30/638913115744696491.png"           > |                           [**Armored Arms**](https://www.curseforge.com/minecraft/mc-mods/armored-arms)                 <sup><sub>ArmoredArms-v1.3.2-release.jar                   </sub></sup><br>A small client mod that adds first-person rendering of armour on the hand
 <img src="https://media.forgecdn.net/avatars/thumbnails/1430/826/30/30/638927049348150845.png"           > |                       [**Congrega Mystica**](https://www.curseforge.com/minecraft/mc-mods/congrega-mystica)             <sup><sub>CongregaMystica-1.12.2-1.0.5.jar                 </sub></sup><br>The Thaumcraft 6 integration addon.
 <img src="https://media.forgecdn.net/avatars/thumbnails/1430/837/30/30/638927053511180100.png"           > |                         [**ThaumicTweaker**](https://www.curseforge.com/minecraft/mc-mods/thaumictweaker)               <sup><sub>thaumictweaker-1.1.1.jar                         </sub></sup><br>All the Thaumcraft 6 tweaks a tweaker could want.
