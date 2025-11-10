@@ -399,7 +399,7 @@ Some screenshots of new worldgen:
 
 - **I installed the `Essential Mod`, and now I can't load the modpack.**
 
-  Remove the mod [CensoredASM](https://legacy.curseforge.com/minecraft/mc-mods/lolasm) since those two mods are incompatible.
+  Use [e4mc Retro](https://www.curseforge.com/minecraft/mc-mods/e4mc-retro) instead of `Essential`.
 
 - **My world has 2 TPS, and it lags extremely hard.**
 
