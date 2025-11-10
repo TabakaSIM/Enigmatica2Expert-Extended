@@ -10,7 +10,7 @@ https://github.com/Krutoy242
 
 */
 
-#modloaded jei
+#modloaded jei roidtweaker
 #ignoreBracketErrors
 #reloadable
 

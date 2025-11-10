@@ -1,3 +1,5 @@
+#modloaded roidtweaker
+
 import mods.mekatweaker.InfuserType;
 
 // New Infuser types

@@ -1,4 +1,4 @@
-#modloaded zenutils
+#modloaded zenutils roidtweaker
 #reloadable
 
 import native.net.minecraftforge.event.entity.player.PlayerContainerEvent;

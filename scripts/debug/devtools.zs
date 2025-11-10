@@ -1,6 +1,7 @@
-#reloadable
-#priority -6000
 #ignoreBracketErrors
+#modloaded roidtweaker
+#priority -6000
+#reloadable
 
 import crafttweaker.block.IBlock;
 import crafttweaker.block.IBlockState;

@@ -1,4 +1,4 @@
-#modloaded zenutils
+#modloaded zenutils roidtweaker
 #sideonly client
 #reloadable
 

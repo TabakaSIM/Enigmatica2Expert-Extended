@@ -3,6 +3,7 @@
 // It uses the EntityLivingDeathDropsEvent to add drops on the fly.
 
 #reloadable
+#ignoreBracketErrors
 
 import crafttweaker.entity.IEntityDefinition;
 import crafttweaker.item.WeightedItemStack;
@@ -49,9 +50,11 @@ events.register(function (event as crafttweaker.event.EntityLivingDeathDropsEven
   val random = event.entity.world.random;
 
   for entityDef, itemData in eventDrops {
+    if (isNull(entityDef)) continue;
     if (entityDef.id != event.entity.definition.id) continue;
 
     for wStack, dropData in itemData {
+      if (isNull(wStack)) continue;
       if (!isNull(dropData.playerOnly) && dropData.playerOnly as int >= 1) {
         if (isNull(event.damageSource) || isNull(event.damageSource.trueSource) || !(event.damageSource.trueSource instanceof IPlayer)) {
           continue;
