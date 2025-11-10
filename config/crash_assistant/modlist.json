@@ -1,8 +1,8 @@
 {
-  "!!!CrashAssistant-forge-1.12.2-1.10.11.jar": {
-    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.11.jar",
+  "!!!CrashAssistant-forge-1.12.2-1.10.19.jar": {
+    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.19.jar",
     "modId": "crash_assistant",
-    "version": "1.10.11"
+    "version": "1.10.19"
   },
   "!configanytime-3.0.jar": {
     "jarName": "!configanytime-3.0.jar",
@@ -26,6 +26,11 @@
     "jarName": "+Fugue-0.21.0.jar",
     "modId": "fugue",
     "version": "0.21.0"
+  },
+  "[MC-1.12.2] Key Binding Patch v1.3.3.3 - 2024-12-1.jar": {
+    "jarName": "[MC-1.12.2] Key Binding Patch v1.3.3.3 - 2024-12-1.jar",
+    "modId": "key_binding_patch",
+    "version": "1.3.3.3"
   },
   "_bansoukou-4.3.1.jar": {
     "jarName": "_bansoukou-4.3.1.jar"
@@ -151,10 +156,10 @@
     "modId": "armoreablemobs",
     "version": "1.12.2-1.1.8"
   },
-  "ArmoredArms-v1.3.2-release.jar": {
-    "jarName": "ArmoredArms-v1.3.2-release.jar",
+  "ArmoredArms-v1.3.4-release.jar": {
+    "jarName": "ArmoredArms-v1.3.4-release.jar",
     "modId": "armoredarms",
-    "version": "v1.3.2-release"
+    "version": "v1.3.4-release"
   },
   "armoryexpansion-2.0.0-alpha.jar": {
     "jarName": "armoryexpansion-2.0.0-alpha.jar",
@@ -320,10 +325,10 @@
     "modId": "bnbgaminglib",
     "version": "2.17.6"
   },
-  "bogosorter-1.4.11.jar": {
-    "jarName": "bogosorter-1.4.11.jar",
+  "bogosorter-1.5.0.jar": {
+    "jarName": "bogosorter-1.5.0.jar",
     "modId": "bogosorter",
-    "version": "1.4.11"
+    "version": "1.5.0"
   },
   "Bookshelf-1.12.2-2.3.590.jar": {
     "jarName": "Bookshelf-1.12.2-2.3.590.jar",
@@ -349,11 +354,6 @@
     "jarName": "BrandonsCore-1.12.2-2.4.20.162-universal.jar",
     "modId": "brandonscore",
     "version": "1.12.2-2.4.20.22"
-  },
-  "brigo_forge-1.1.1+1.12.x.jar": {
-    "jarName": "brigo_forge-1.1.1+1.12.x.jar",
-    "modId": "brigo",
-    "version": "1.1.1"
   },
   "BringMeTheRings-0.4.jar": {
     "jarName": "BringMeTheRings-0.4.jar",
@@ -475,10 +475,10 @@
     "modId": "conditionoverload",
     "version": "1.2.0"
   },
-  "CongregaMystica-1.12.2-1.0.5.jar": {
-    "jarName": "CongregaMystica-1.12.2-1.0.5.jar",
+  "CongregaMystica-1.12.2-1.0.6.jar": {
+    "jarName": "CongregaMystica-1.12.2-1.0.6.jar",
     "modId": "congregamystica",
-    "version": "1.0.5"
+    "version": "1.0.6"
   },
   "ConsoleFilter-1.12.2-1.1.1.jar": {
     "jarName": "ConsoleFilter-1.12.2-1.1.1.jar",
@@ -510,10 +510,10 @@
     "modId": "craftingtweaks",
     "version": "9.0.1"
   },
-  "CraftPresence-2.6.2+1.12.2-forge.jar": {
-    "jarName": "CraftPresence-2.6.2+1.12.2-forge.jar",
+  "CraftPresence-2.7.0+1.12.2-forge.jar": {
+    "jarName": "CraftPresence-2.7.0+1.12.2-forge.jar",
     "modId": "craftpresence",
-    "version": "2.6.2"
+    "version": "2.7.0"
   },
   "CraftTweaker2-1.12-4.1.20.709.jar": {
     "jarName": "CraftTweaker2-1.12-4.1.20.709.jar",
@@ -833,10 +833,10 @@
     "modId": "gunpowderlib",
     "version": "1.12.2-1.1"
   },
-  "HadEnoughItems_1.12.2-4.29.8.jar": {
-    "jarName": "HadEnoughItems_1.12.2-4.29.8.jar",
+  "HadEnoughItems_1.12.2-4.29.9.jar": {
+    "jarName": "HadEnoughItems_1.12.2-4.29.9.jar",
     "modId": "jei",
-    "version": "4.29.7"
+    "version": "4.29.9"
   },
   "HammerLib-1.12.2-12.2.58.jar": {
     "jarName": "HammerLib-1.12.2-12.2.58.jar",
@@ -919,6 +919,11 @@
     "jarName": "IndustrialWires-1.7-39.jar",
     "modId": "industrialwires",
     "version": "1.7-39"
+  },
+  "Infusion Claw Mod-1.0.0.jar": {
+    "jarName": "Infusion Claw Mod-1.0.0.jar",
+    "modId": "infusion_claw",
+    "version": "1.0.0"
   },
   "IntegratedCrafting-1.12.2-1.0.10.jar": {
     "jarName": "IntegratedCrafting-1.12.2-1.0.10.jar",
@@ -1039,8 +1044,8 @@
     "modId": "justenoughpetroleum",
     "version": "0.1"
   },
-  "JustEnoughResources-1.12.2-0.9.2.60-patched.jar": {
-    "jarName": "JustEnoughResources-1.12.2-0.9.2.60-patched.jar",
+  "JustEnoughResources-1.12.2-0.9.2.60.jar": {
+    "jarName": "JustEnoughResources-1.12.2-0.9.2.60.jar",
     "modId": "jeresources",
     "version": "0.9.2"
   },
@@ -1216,10 +1221,10 @@
     "modId": "modtweaker",
     "version": "4.0.20.11"
   },
-  "modularui-2.5.0-rc6.jar": {
-    "jarName": "modularui-2.5.0-rc6.jar",
+  "modularui-3.0.4.jar": {
+    "jarName": "modularui-3.0.4.jar",
     "modId": "modularui",
-    "version": "2.5.0-rc6"
+    "version": "3.0.4"
   },
   "moredefaultoptions-1.12-0.0.2.jar": {
     "jarName": "moredefaultoptions-1.12-0.0.2.jar",
@@ -1607,11 +1612,6 @@
     "modId": "rltweaker",
     "version": "0.5.12"
   },
-  "rockytweaks-1.12.2-0.6.1.jar": {
-    "jarName": "rockytweaks-1.12.2-0.6.1.jar",
-    "modId": "${modid}",
-    "version": "${version}"
-  },
   "roidtweaker-1.2.1.jar": {
     "jarName": "roidtweaker-1.2.1.jar",
     "modId": "roidtweaker",
@@ -1755,6 +1755,11 @@
     "modId": "thaumcraftaspectcreator",
     "version": "1.12.2-1.1"
   },
+  "ThaumcraftFix-1.12.2-1.1.8.jar": {
+    "jarName": "ThaumcraftFix-1.12.2-1.1.8.jar",
+    "modId": "thaumcraftfix",
+    "version": "1.12.2-1.1.8"
+  },
   "ThaumcraftResearchPatcher-1.12.2-1.1.3.jar": {
     "jarName": "ThaumcraftResearchPatcher-1.12.2-1.1.3.jar",
     "modId": "tcresearchpatcher",
@@ -1795,28 +1800,28 @@
     "modId": "thaumicjei",
     "version": "1.12.2-1.7.0"
   },
-  "thaumictinkerer-1.12.2-5.9.14-Unofficial.jar": {
-    "jarName": "thaumictinkerer-1.12.2-5.9.14-Unofficial.jar",
+  "thaumictinkerer-1.12.2-5.9.15-Unofficial.jar": {
+    "jarName": "thaumictinkerer-1.12.2-5.9.15-Unofficial.jar",
     "modId": "thaumictinkerer",
-    "version": "1.12.2-5.9.14-Unofficial"
+    "version": "1.12.2-5.9.15-Unofficial"
   },
-  "thaumictweaker-1.1.1.jar": {
-    "jarName": "thaumictweaker-1.1.1.jar",
+  "thaumictweaker-1.2.1.jar": {
+    "jarName": "thaumictweaker-1.2.1.jar",
     "modId": "thaumictweaker",
-    "version": "1.1.1"
+    "version": "1.2.1"
   },
-  "thaumicwonders-2.1.4.jar": {
-    "jarName": "thaumicwonders-2.1.4.jar",
+  "thaumicwonders-2.2.0.jar": {
+    "jarName": "thaumicwonders-2.2.0.jar",
     "modId": "thaumicwonders",
-    "version": "2.1.4"
+    "version": "2.2.0"
   },
   "TheOneSmeagle-1.12-1.1.5.jar": {
     "jarName": "TheOneSmeagle-1.12-1.1.5.jar",
     "modId": "theoneprobe",
     "version": "1.12-1.1.5"
   },
-  "ThermalDynamics-1.12.2-2.5.6.1-universal-patched.jar": {
-    "jarName": "ThermalDynamics-1.12.2-2.5.6.1-universal-patched.jar",
+  "ThermalDynamics-1.12.2-2.5.6.1-universal.jar": {
+    "jarName": "ThermalDynamics-1.12.2-2.5.6.1-universal.jar",
     "modId": "thermaldynamics",
     "version": "2.5.6.1"
   },
@@ -1973,15 +1978,15 @@
     "modId": "unidict",
     "version": "1.12.2-3.0.10"
   },
-  "UniLib-1.1.1+1.12.2-forge.jar": {
-    "jarName": "UniLib-1.1.1+1.12.2-forge.jar",
+  "UniLib-1.2.0+1.12.2-forge.jar": {
+    "jarName": "UniLib-1.2.0+1.12.2-forge.jar",
     "modId": "unilib",
-    "version": "1.1.1"
+    "version": "1.2.0"
   },
-  "UniversalTweaks-1.12.2-1.16.0.1.jar": {
-    "jarName": "UniversalTweaks-1.12.2-1.16.0.1.jar",
+  "UniversalTweaks-1.12.2-1.17.0.jar": {
+    "jarName": "UniversalTweaks-1.12.2-1.17.0.jar",
     "modId": "universaltweaks",
-    "version": "1.16.0.1"
+    "version": "1.17.0"
   },
   "useful_railroads-1.12.2-1.1.3.24.jar": {
     "jarName": "useful_railroads-1.12.2-1.1.3.24.jar",
@@ -2076,9 +2081,9 @@
     "modId": "zentoolforge",
     "version": "1.1"
   },
-  "zenutils-1.25.11.jar": {
-    "jarName": "zenutils-1.25.11.jar",
+  "zenutils-1.26.2.jar": {
+    "jarName": "zenutils-1.26.2.jar",
     "modId": "zenutils",
-    "version": "1.25.11"
+    "version": "1.26.2"
   }
 }
