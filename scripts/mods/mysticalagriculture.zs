@@ -406,7 +406,7 @@ for i in 0 .. 4 {
   mods.tconstruct.Melting.addRecipe(<liquid:supremium> * l, bases[i]);
 
   // Add recipe of making core from base
-  mods.rockytweaks.Anvil.addRecipe(<mysticalagriculture:master_infusion_crystal>, bases[i], cores[i], 350);
+  mods.roidtweaker.minecraft.Anvil.addRecipe(<mysticalagriculture:master_infusion_crystal>, bases[i], cores[i], 350);
 }
 
 // Missed 4 types of dyes
