@@ -2,10 +2,16 @@
 
 🚧✅❌⚠️♻️ List of priorities:
 
-- [ ] 🌎 Regen world-gen `KELT-6a`
-- [ ] 🔴 Remove `Rocky Tweaks` when fixed https://github.com/roidrole/Roids-Tweaker/issues/9
+- [ ] ⚠️Mention in changelog about remapping keybinds
+- [ ] Remap `thermalexpansion.Enchanter` recipes since no one using them
+- [ ] ✏️ Buff `Neromantic Prime` extraction rate (UT) and make some infinite
+- [ ] ✏️ for `Invar` recipe to replace ingot to dust in ArcFurnace
+- [ ] ✏️ Both `Bitumen` should output Syngas
+- [ ] ✏️ Collector (on Tinkers at least) stops Axing trait from working (and possibly more traits that change the block you mine)
+- [ ] ✏️ No recipe in Chemical Dissolution Chamber: Dirty Copper, Silver, Tin, Iron, Gold, Lead, Osmium
+- [ ] ✏️ `Bone` fix crush -> melt -> cast dupe
+- [ ] 🟣 Migrate to Bansoukou 6
 - [ ] ✏️ `Redstone Cable` harder recipe
-- [ ] ✏️ `Inworld Smelting` better documenting
 - [ ] 🤖 Nanomachines give next levels of potions
 - [ ] ✏️ Add `Upgrade Singularity`
 - [ ] ✏️ Return Tungsten Blocks for High-pressure turbines
@@ -49,6 +55,8 @@ Planned non-urgent changes, or just good ideas:
 
 ### "Performance ⚡"
 
+- [ ] ⚡ Make Lumenized optional
+- [ ] ⚡🔴 Remove `Chunk Animator` https://i.imgur.com/oJwuxb8.png
 - [ ] ⚡ never use a fluid storage interface for IE's multiblock tanks
 - [ ] ⚡ Remove `Fluid Conduit` recipe since lower FPS
 - [ ] ⚡ add Warning about things that lower FPS: `placed item, drawers, Auto Sieve (promote ugly plating)`
