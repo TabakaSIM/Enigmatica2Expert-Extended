@@ -114,6 +114,7 @@ install:
       - 782070 # Startup Timer
       - 848933 # Hit Indication
       - 874067 # Valkyrie
+      - 928895 # Key Binding Patch
       - 940521 # Just Enough Magiculture
       - 1056812 # UniLib
       - 1073925 # Rather Enough Immersive Multiblocks
@@ -123,7 +124,9 @@ install:
       - 1132293 # Backpack Display
       - 1147522 # Backpack Opener
       - 1154099 # Crash Assistant
+      - 1220460 # Gnetum
       - 1234162 # Lumenized
+      - 1329068 # MorphOverlay
       - 1331377 # Armored Arms
 
     # The base path where the server should be installed to, ~ for current path

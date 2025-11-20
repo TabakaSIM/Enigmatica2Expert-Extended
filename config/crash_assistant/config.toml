@@ -38,6 +38,10 @@
 	enable_privacy_policy_acceptance = true
 	#If options.txt doesn't exist, the default language will be used.
 	default_lang = "en_us"
+	#Generates "logs/stderr_stream.log" with stderr stream.
+	#Since many launchers are not saving this info, which is extremely helpful for debugging some crashes.
+	#As only where crash reason is present. Keeps original stream untouched, just logs it to a file.
+	generate_own_launcher_log = true
 	#List of blacklisted log files (checked with startswith()). This files won't show in GUI logs list.
 	blacklisted_logs = []
 	#Unfortunately mclogs censoring ip-like versions as has no way to determine if it's version or IP.
@@ -91,6 +95,9 @@
 
 #Settings of links copied by Upload and copy link buttons
 [copied_links]
+	#With this option, you can customize how links from individual upload buttons are copied, there
+	#log was split to the 2 parts (head and tail, due to too large size for single upload), but user decided to copy message with both.
+	both_links_split = "$LOG_NAME$[$FILE_NAME$ <TOLOWER>$MSG_LANG.gui.split_log_dialog_head$</TOLOWER>](<$LINK_FIRST_LINES$>) / [<TOLOWER>$MSG_LANG.gui.split_log_dialog_tail$</TOLOWER>](<$LINK_LAST_LINES$>) $TOO_BIG_REASONS$"
 	#With this option, you can customize how single links from individual upload buttons are copied, there
 	#log of small size was uploaded to a single link.
 	#For example, leave just $LINK$ to copy just link.
@@ -98,9 +105,6 @@
 	#With this option, you can customize how links from individual upload buttons are copied, there
 	#log was split to the 2 parts (head and tail, due to too large size for single upload), but user only decided to copy only one of them (not message with both).
 	single_link_split = "$LOG_NAME$$FILE_NAME$($HEAD_OR_TAIL$): $LINK$ $TOO_BIG_REASONS$"
-	#With this option, you can customize how links from individual upload buttons are copied, there
-	#log was split to the 2 parts (head and tail, due to too large size for single upload), but user decided to copy message with both.
-	both_links_split = "$LOG_NAME$[$FILE_NAME$ <TOLOWER>$MSG_LANG.gui.split_log_dialog_head$</TOLOWER>](<$LINK_FIRST_LINES$>) / [<TOLOWER>$MSG_LANG.gui.split_log_dialog_tail$</TOLOWER>](<$LINK_LAST_LINES$>) $TOO_BIG_REASONS$"
 
 #Settings of modlist feature.
 #Adds in generated msg block about which mods modpack user added/removed/updated.
