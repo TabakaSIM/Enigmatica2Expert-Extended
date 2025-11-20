@@ -203,7 +203,7 @@ addSyngas(<ore:compressedCoal3x>, 102400);
 addSyngas(<contenttweaker:conglomerate_of_coal>, 60000);
 // addSyngas(<railcraft:cube:0>, 32000);
 addSyngas(<ore:blockFuelCoke>, 32000);
-addSyngas(<ore:crystalCrudeOil>, 32000);
+addSyngas(<ore:bitumen>, 32000);
 addSyngas(<ore:compressedCharcoal2x>, 25600);
 addSyngas(<ore:compressedCoal2x>, 25600);
 addSyngas(<ore:blockGraphite>, 14400);
