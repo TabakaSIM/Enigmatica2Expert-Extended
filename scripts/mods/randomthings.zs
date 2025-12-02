@@ -176,11 +176,10 @@ craft.remake(<randomthings:imbuingstation>, ['pretty',
   E: <rats:raw_plastic>,
 });
 
-// [Blackout_Powder*4] from [Bio_Coal][+2]
-craft.reshapeless(<randomthings:ingredient:13>, 'F☺▲', {
-  '▲': <ore:dustAsh>,                   // Ash
-  'F': <fluxnetworks:flux>,             // Flux
-  '☺': <actuallyadditions:item_misc:22>, // Bio Coal
+craft.reshapeless(<randomthings:ingredient:13> * 3, 'F☺▲', {
+  '▲': <ore:dustAsh>,
+  'F': <fluxnetworks:flux>,
+  '☺': <actuallyadditions:item_misc:22>,
 });
 
 // [Slime Cube] from [Mending Moss][+2]
