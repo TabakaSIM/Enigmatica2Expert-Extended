@@ -51,6 +51,19 @@ zenClass MixinTinkerSmeltery {
 }
 
 /*
+Speed up casting cooldown time
+Some metals have high melting temperature, which causing them to cooldown forever
+*/
+#mixin {targets: "slimeknights.tconstruct.library.smeltery.CastingRecipe"}
+zenClass MixinCastingRecipe {
+    #mixin Static
+    #mixin ModifyConstant {method: "calcCooldownTime", constant: {intValue: 1600}}
+    function shorterCooldown(value as int) as int {
+        return value * 10;
+    }
+}
+
+/*
 Nether Quartz modifier add percentaged damage (instead of fixed number)
 
 Now each level adding
