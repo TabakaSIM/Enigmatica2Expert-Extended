@@ -74,7 +74,7 @@
 			id: "ftbquests:lootcrate",
 			Count: 2,
 			tag: {
-				type: "common"
+				type: "food"
 			}
 		}
 	}]
