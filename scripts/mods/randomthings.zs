@@ -416,7 +416,7 @@ craft.remake(<randomthings:pitcherplant>, [
 });
 
 // [Stable Ender Pearl] from [Ender Pearl][+2]
-craft.remake(<randomthings:stableenderpearl> * 16, ['pretty',
+craft.remake(<randomthings:stableenderpearl> * 32, ['pretty',
   'F F F',
   'F e F',
   'o o o'], {
