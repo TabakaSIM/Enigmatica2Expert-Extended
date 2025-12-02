@@ -164,7 +164,7 @@ val packagerList = [
     <forestry:ash>, // Ash
   ],
   [<cyclicmagic:battery>], [
-    <rats:charged_creeper_chunk> * 2, // Charged Creeper Chunk
+    <rats:charged_creeper_chunk>, // Charged Creeper Chunk
     <minecraft:redstone_block> * 4, // Block of Redstone
     <ore:dustAsh>.firstItem * 4, // Ash
   ],
