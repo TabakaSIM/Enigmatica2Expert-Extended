@@ -50,6 +50,14 @@ zenClass MixinTinkerSmeltery {
     }
 }
 
+#mixin {targets: "slimeknights.tconstruct.tools.modifiers.ModEmerald"}
+zenClass MixinModEmerald {
+    #mixin ModifyConstant {method: "applyEffect", constant: {intValue: 2}}
+    function buffDurabilityBonus(value as int) as int {
+        return 1;
+    }
+}
+
 /*
 Speed up casting cooldown time
 Some metals have high melting temperature, which causing them to cooldown forever
