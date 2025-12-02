@@ -286,6 +286,7 @@ q.animals.chunky_cheese_token.desc=The token can be used to open a portal to the
 q.animals.rat_diamond.desc=Crafting component for some tools
 q.animals.rat_coal.name=Rat Coal
 q.animals.rat_coal.desc=Another Crafting component
+q.animals.fire_dragon_blood.desc=Can be applied to Tinkers' weapons as a modifier.\n\n§6Buffed§r: grants §c+20§r damage per level (default I&F is §c+2§r).
 q.animals.rat_breeding_lantern.desc=Helps to multiply rats in cages
 q.animals.chef.name=Chef
 q.animals.chef.desc=Chef rats can work as smeltery and have some unique recipes
