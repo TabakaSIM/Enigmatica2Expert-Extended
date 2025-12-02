@@ -559,7 +559,6 @@ tooltips.lang.cosmetic_equipment=§e装饰性装备。建议使用 TConstruct �
 tooltips.lang.ae_lag=§c不要把这个物品放入 AE 存储系统中，否则会造成卡顿。
 tooltips.lang.dont_put_into_ae=§c不要把这个物品放入 AE 存储系统中，否则会造成卡顿，也无法取出。
 tooltips.lang.tcon.diamond=§b可为匠魂工具提供 §l钻石§r 强化
-tooltips.lang.tcon.speedy=§c可为匠魂盔甲提供 §4迅腾§c 盔甲强化
 tooltips.lang.botania.decay1hour=§e会在 1 小时内凋败
 tooltips.lang.tcon.slot_each=§e每一级需要一个强化槽
 tooltips.lang.tcon.slot_first=§e总共只需要一个强化槽
