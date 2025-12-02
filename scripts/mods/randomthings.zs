@@ -514,14 +514,12 @@ craft.remake(<randomthings:blockofsticks> * 8, ['pretty',
 });
 
 // Cheaper but use more specific ingredients (basalt)
-// [Inventory Rerouter] from [Wooden Hopper][+2]
 craft.remake(<randomthings:inventoryrerouter>, ['pretty',
-  'B s B',
-  's W s',
-  'B s B'], {
-  'B': <ore:stoneBasalt>, // Basalt
-  's': <ore:stone>, // Stone
-  'W': <tconstruct:wooden_hopper>, // Wooden Hopper
+  '  B  ',
+  'B W B',
+  '  B  '], {
+  'B': <ore:slabBasalt>,
+  'W': <bithop:pullhop>,
 });
 
 // Magic Bean alt
