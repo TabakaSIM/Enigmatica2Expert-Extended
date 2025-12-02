@@ -6,6 +6,7 @@ import crafttweaker.data.IData;
 import crafttweaker.player.IPlayer;
 import native.com.feed_the_beast.ftblib.lib.data.ForgePlayer;
 import native.com.feed_the_beast.ftbquests.quest.ServerQuestFile;
+import native.com.feed_the_beast.ftbutilities.data.FTBUtilitiesPlayerData;
 import native.net.minecraft.stats.StatList;
 
 /**
@@ -133,7 +134,7 @@ events.onCustomReward(function (e as mods.zenutils.ftbq.CustomRewardEvent) {
 
     if (isNull(forgePlayer) || isNull(forgePlayer.team) || forgePlayer.team.members.length <= 1) {
       // Solo player or team of 1
-      style_name = e.player.name;
+      style_name = e.player.nickname();
       style_time = formatPlayTime(forgePlayer);
       style_post = 'of play!';
     }
@@ -150,10 +151,12 @@ events.onCustomReward(function (e as mods.zenutils.ftbq.CustomRewardEvent) {
       playerList = [] as IData;
       var first = true;
       for member in allMembers {
+        val playerData = FTBUtilitiesPlayerData.get(member);
+        val name = playerData.nickname.isEmpty() ? member.name : playerData.nickname;
         playerList += [{
           text : '', color: 'dark_gray', extra: [
             first ? '`' : ', `',
-            {text: member.getName(), color: member.isOnline() ? 'white' : 'gray'},
+            {text: name, color: member.isOnline() ? 'white' : 'gray'},
             '` ', {text: formatPlayTime(member), color: 'gray'},
           ],
         }] as IData;
@@ -195,7 +198,7 @@ events.onCustomReward(function (e as mods.zenutils.ftbq.CustomRewardEvent) {
       // notifyEveryone(e.player, 'e2ee.player_achieved', e.reward.quest.titleText.formattedText);
       val data as IData = {
         text : '### `', color: 'dark_gray', extra: [
-          {text: e.player.name, color: 'aqua'},
+          {text: e.player.nickname(), color: 'aqua'},
           '` ',
           {text: 'achieved', color: 'gray'},
           ' __',
