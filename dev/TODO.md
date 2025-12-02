@@ -9,16 +9,13 @@
 - [ ] ✏️ No recipe in Chemical Dissolution Chamber: Dirty Copper, Silver, Tin, Iron, Gold, Lead, Osmium
 - [ ] ✏️ `Bone` fix crush -> melt -> cast dupe
 - [ ] 🐛 Custom beacons not working on server
-- [ ] 📖 Add Stable Ender Pearls to quest rewards
-- [ ] 📖 `Elevator` any damage
 
 ### ✨ New features
 
-- [ ] ✏️ Buff Ectoplasm from tree drop
-- [ ] Engineer Decor add to Builder Backpack
+- [ ] `Butterfly` => `Wasp` in witch water
+- [ ] Make `Quantum Armor` Tinker's alternative or add Airtight Seal book add to it
 - [ ] Remove any kind of shears from game so players use Kama
 - [ ] Remap `thermalexpansion.Enchanter` recipes since no one using them
-- [ ] ✏️ Buff `Neromantic Prime` extraction rate (UT) and make some infinite
 - [ ] ✏️ for `Invar` recipe to replace ingot to dust in ArcFurnace
 - [ ] 🟣 Migrate to Bansoukou 6
 - [ ] ✏️ `Redstone Cable` harder recipe
@@ -58,8 +55,7 @@ Planned non-urgent changes, or just good ideas:
 ### "Performance ⚡"
 
 - [ ] ⚡ Make Lumenized optional
-- [ ] ⚡🔴 Remove `Chunk Animator` https://i.imgur.com/oJwuxb8.png
-- [ ] ⚡ never use a fluid storage interface for IE's multiblock tanks
+- [ ] ⚡ never use a fluid storage interface for IE's multiblock tanks (cause lag)
 - [ ] ⚡ Remove `Fluid Conduit` recipe since lower FPS
 - [ ] ⚡ add Warning about things that lower FPS: `placed item, drawers, Auto Sieve (promote ugly plating)`
 - [ ] ⚡ Fix `OpenComputers` JEI plugin is still loaded (see benchmark)
@@ -77,9 +73,7 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ⚡ Add Tips note about IE multiblocks causing strong FPS strain. Also make them all work so fast only 1 machine needed
 
 ### Quests and Docs expansion
-- [ ] 📖 Add `Armor Gauntlets` to ⬜🟦 loot boxes
 - [ ] 📖 `Interdiction Pulsar` add to some quest reward and describe how to use
-- [ ] 📖 Add PSI spells into quest rewards or loot boxes
 - [ ] 📖 Add Skyblock quest about Terraformer
 - [ ] 📖 Add Blast Furnace heat source
 - [ ] 📖 Add note about pregen spoiling Lootr chests https://github.com/LootrMinecraft/Lootr/issues/195
@@ -221,11 +215,9 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ✏️ `High Oven` does not provide x2 of fluid for Osmium Ore
 - [ ] 🖼️ Add via mixins: https://legacy.curseforge.com/minecraft/texture-packs/ic2-seedbag-display
 - [ ] 🐀 Rat Ore Doubling can dupe IC2 "Iridium Ore". Removing oreIridium from it wont help.
-- [ ] 𝓩𝒮 Fix `Refining` not working on BoP ores
 - [ ] ✏️ Add feature to clear drawer `Item: 0` when unlocking it https://github.com/jaquadro/StorageDrawers/commit/da9875158ad0fadc190aae437ea2d9e89d616cca
 - [ ] 📖 Unmerge Furnace inputs in HEI (reported to HEI dev)
 - [ ] 💧 Add `Fluid Interactions` between gaseous (floating up) and normal fluids
-- [ ] 🌠 Tweak Shooting Star drop list
 - [ ] 📀 Concrete make hardening slower for servers. Source code of concrete https://github.com/BluSunrize/ImmersiveEngineering/blob/master/src/main/java/blusunrize/immersiveengineering/common/blocks/BlockIEFluidConcrete.java#L51-L191
 - [ ] 🦊 Transormation powder turn `Fox` into `Foxhound`
 - [ ] 🟢 Integrate `villager-contracts`
@@ -246,7 +238,6 @@ Planned non-urgent changes, or just good ideas:
 - [ ] 📀 Raw Inversion Pillar - fix duping itself. Culd be used as craft mechanics since can spread will-infused stone.
 - [ ] ⚒️ Add Trait trat replace ores with Stone when harvested
 - [ ] 🏡 Fix one of the Recurrent Complex houses have lava that fire up whole building
-- [ ] ✏️ Empty Rod cant be seen on table
 - [ ] ⚒️ Make TE cache drop itself with content on break
 - [ ] 🌍 Remove Poison Ivy from OTG generator. Its `biomesoplenty:plant_0:4` but i cant find where it defined
 - [ ] 🌍 `122 Kepler 0118` improve generation (right now its just plain graphite)
@@ -272,7 +263,6 @@ Planned non-urgent changes, or just good ideas:
 - [ ] 💅 twlight forest advancement not showing up in advancement tab v1.2.1. Need conformation
 - [ ] ✏️ Make use of IC2 brewing
 - [ ] 🔄 Implement https://github.com/Divine-Journey-2/Divine-Journey-2/pull/829
-- [ ] ✏️ reduce Dungeon Loot Chest Item kinds to not overfill containers
 - [ ] 🚂 Buff mek steam a little
 - [ ] 📖 Better document Butterfly => Wasp transform in Nether Portal
 - [ ] 📖 Fix completion of quest chapters
@@ -284,7 +274,6 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ✏️ NC Motor replace by IC2 motor or change recipes
 - [ ] 🌍 AbandonedWoodTower less spawn
 - [ ] 🔄 Carryon change render for EIO warehouse
-- [ ] ✏️ Find a peaceful way for `scan crimson cultists` `get dimensional fracture` `get to emptiness dimension`. Could be skipped with Tome. https://discord.com/channels/911676461050642432/1064813931966779392/1078266283910496409
 - [ ] 🌍 Some OTG biomes have no Ore spawn because they use not Stone. (Biome serach: `StoneBlock: (?!STONE)\w+`)
 - [ ] 📀 Make ic2 crops scanned by default
 - [ ] ✏️ Remove Fiery fruit from Target Chamber recipe
@@ -333,6 +322,10 @@ Planned non-urgent changes, or just good ideas:
 - [ ] 🔄 Fix Custom Animals drops non-cooked meat
 - [ ] 🔨 ![](https://git.io/JnzzI "Glitch Infused Ingot") add material. Ability: drop matter from mobs
 - [ ] 🔨 Add armor trait that speed up gain for `Time In Bottle`
+
+### VAULTOPIC feature ideas
+
+- Bauble compat
 
 ---
 

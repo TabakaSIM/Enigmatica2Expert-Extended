@@ -4,10 +4,10 @@
 
 <p align="center" style="font-size:160%;">
 MC total load time:<br>
-246 sec
+293 sec
 <br>
 <sup><sub>(
-4:06 min
+4:53 min
 )</sub></sup>
 </p>
 
@@ -22,10 +22,10 @@ Note for image scripts:
   type: 'horizontalBar',
   data: {
     datasets: [
-        {label: 'Mixins\n', data: [31.00]},
-        {label: 'Construction\n', data: [49.00]},
-        {label: 'PreInit\n', data: [115.00]},
-        {label: 'Init\n', data: [49.00]},
+        {label: 'Mixins\n', data: [30.00]},
+        {label: 'Construction\n', data: [67.00]},
+        {label: 'PreInit\n', data: [134.00]},
+        {label: 'Init\n', data: [58.00]},
     ]
   },
   options: {
@@ -49,7 +49,7 @@ Note for image scripts:
       annotations: [{
           type: 'line',
           scaleID: 'x-axis-0',
-          value: 31,
+          value: 30,
           borderColor: 'black',
           label: {
             content: 'Window appear',
@@ -89,28 +89,28 @@ Note for image scripts:
   },
   data: {...
 `
-436e17  7.00s Had Enough Items;
-395E14  0.81s [JEI Ingredient Filter];
-395E14  6.83s [JEI Plugins];
-5161a8  6.23s CraftTweaker2;
-516fa8  5.64s Ender IO;
-8f304e  5.20s Astral Sorcery;
-a651a8  4.97s IndustrialCraft 2;
-6e5e17  4.57s Tinkers' Antique;
-5E5014  3.00s [TCon Textures];
-cd922c  3.16s NuclearCraft;
-6e175e  3.14s Recurrent Complex;
-813e81  2.96s OpenComputers;
-213664  2.60s Forestry;
-ba3eb8  2.16s Cyclic;
-308f7e  1.95s Quark: RotN Edition;
-436e17  1.93s Integrated Dynamics;
-3e7d81  1.89s ProbeZS;
-8f4d30  1.86s Open Terrain Generator;
-306e8f  1.82s Custom Loading Screen;
-444444 26.54s 19 Other mods;
-333333 42.39s 137 'Fast' mods (1.0s - 0.1s);
-222222  8.32s 313 'Instant' mods (%3C 0.1s)
+436e17  8.55s Had Enough Items;
+395E14  0.98s [JEI Ingredient Filter];
+395E14  9.12s [JEI Plugins];
+516fa8  7.70s Ender IO;
+5161a8  7.36s CraftTweaker2;
+6e5e17  5.97s Tinkers' Antique;
+5E5014  4.00s [TCon Textures];
+a651a8  5.57s IndustrialCraft 2;
+8f304e  5.52s Astral Sorcery;
+cd922c  3.91s NuclearCraft;
+813e81  3.33s OpenComputers;
+6e175e  3.21s Recurrent Complex;
+213664  3.15s Forestry;
+813e80  2.86s Shadowfacts' Forgelin (Dummy);
+3e8160  2.55s The Twilight Forest;
+308f7e  2.45s Quark: RotN Edition;
+ba3eb8  2.43s Cyclic;
+436e17  2.36s Integrated Dynamics;
+216364  2.33s Thermal Expansion;
+444444 39.29s 25 Other mods;
+333333 48.35s 153 'Fast' mods (1.0s - 0.1s);
+222222  8.26s 290 'Instant' mods (%3C 0.1s)
 `
     .split(';').reduce((a, l) => {
       l.match(/(\w{6}) *(\d*\.\d*) ?s (.*)/s)
@@ -187,17 +187,17 @@ JEI/HEI not included, since its load time based on other mods and overal item co
       .forEach(([name]) => a.datasets.push({ label: name, data: [] }));
 `
                                   0      1      2      3      4      5      6      7;
-CraftTweaker2                 | 0.09| 0.00| 2.24| 3.85| 0.00| 0.04| 0.00| 0.00;
-Ender IO                      | 1.46| 0.01| 2.54| 0.28| 1.32| 0.00| 0.03| 0.00;
-Astral Sorcery                | 0.16| 0.00| 4.04| 0.99| 0.00| 0.00| 0.00| 0.00;
-IndustrialCraft 2             | 0.68| 0.01| 3.43| 0.85| 0.00| 0.00| 0.00| 0.00;
-Tinkers' Antique              | 0.66| 0.01| 0.10| 0.81| 0.00| 0.00| 0.00| 3.00;
-NuclearCraft                  | 0.05| 0.01| 2.30| 0.77| 0.00| 0.00| 0.04| 0.00;
-Recurrent Complex             | 0.14| 0.00| 0.27| 2.74| 0.00| 0.00| 0.00| 0.00;
-OpenComputers                 | 0.12| 0.01| 1.29| 1.48| 0.06| 0.00| 0.00| 0.00;
-Forestry                      | 0.28| 0.01| 1.71| 0.60| 0.00| 0.00| 0.00| 0.00;
-Cyclic                        | 0.04| 0.00| 1.75| 0.37| 0.00| 0.00| 0.00| 0.00;
-[Mod Average]                 | 0.06| 0.00| 0.14| 0.07| 0.00| 0.00| 0.00| 0.01
+Ender IO                      | 2.48| 0.01| 2.98| 0.32| 1.88| 0.00| 0.03| 0.00;
+CraftTweaker2                 | 0.10| 0.00| 2.51| 4.70| 0.00| 0.05| 0.00| 0.00;
+Tinkers' Antique              | 0.94| 0.01| 0.13| 0.90| 0.00| 0.00| 0.00| 4.00;
+IndustrialCraft 2             | 0.93| 0.01| 3.84| 0.80| 0.00| 0.00| 0.00| 0.00;
+Astral Sorcery                | 0.18| 0.00| 4.22| 1.12| 0.00| 0.00| 0.00| 0.00;
+NuclearCraft                  | 0.07| 0.01| 2.90| 0.90| 0.00| 0.00| 0.03| 0.00;
+OpenComputers                 | 0.14| 0.01| 1.46| 1.58| 0.15| 0.00| 0.00| 0.00;
+Recurrent Complex             | 0.20| 0.00| 0.32| 2.69| 0.00| 0.00| 0.00| 0.00;
+Forestry                      | 0.34| 0.01| 2.12| 0.68| 0.00| 0.00| 0.00| 0.00;
+Shadowfacts' Forgelin (Dummy) | 2.85| 0.00| 0.01| 0.00| 0.00| 0.00| 0.00| 0.00;
+[Mod Average]                 | 0.08| 0.00| 0.16| 0.08| 0.01| 0.00| 0.00| 0.01
 `
     .split(';').slice(1)
       .map(l => l.split('|').map(s => s.trim()))
@@ -232,19 +232,19 @@ Cyclic                        | 0.04| 0.00| 1.75| 0.37| 0.00| 0.00| 0.00| 0.00;
         }]
       };
 `
- 1.22: li.cil.oc.integration.jei.ModPluginOpenComputers;
- 0.81: jeresources.jei.JEIConfig;
- 0.60: com.rwtema.extrautils2.crafting.jei.XUJEIPlugin;
- 0.50: com.buuz135.industrial.jei.JEICustomPlugin;
- 0.49: crazypants.enderio.machines.integration.jei.MachinesPlugin;
- 0.43: mezz.jei.plugins.vanilla.VanillaPlugin;
- 0.34: ic2.jeiIntegration.SubModule;
- 0.33: knightminer.tcomplement.plugin.jei.JEIPlugin;
+ 1.81: li.cil.oc.integration.jei.ModPluginOpenComputers;
+ 1.11: jeresources.jei.JEIConfig;
+ 0.92: com.rwtema.extrautils2.crafting.jei.XUJEIPlugin;
+ 0.78: ic2.jeiIntegration.SubModule;
+ 0.58: com.buuz135.industrial.jei.JEICustomPlugin;
+ 0.54: crazypants.enderio.machines.integration.jei.MachinesPlugin;
+ 0.50: mezz.jei.plugins.vanilla.VanillaPlugin;
+ 0.26: lach_01298.qmd.jei.QMDJEI;
+ 0.19: cofh.thermalexpansion.plugins.jei.JEIPluginTE;
+ 0.19: com.buuz135.thaumicjei.ThaumcraftJEIPlugin;
+ 0.18: knightminer.tcomplement.plugin.jei.JEIPlugin;
  0.18: crazypants.enderio.base.integration.jei.JeiPlugin;
- 0.17: cofh.thermalexpansion.plugins.jei.JEIPluginTE;
- 0.16: com.buuz135.thaumicjei.ThaumcraftJEIPlugin;
- 0.11: rustic.compat.jei.RusticJEIPlugin;
- 1.47: Other
+ 1.88: Other
 `
         .split(';')
         .map(l => l.split(':'))
@@ -286,7 +286,7 @@ Loading bars that usually not related to specific mods.
             font: {size: 18}
           },
           {
-            text: '101.91s',
+            text: '113.81s',
             color: 'rgba(128, 128, 128, 1)',
             font: {size: 22}
           }
@@ -306,18 +306,19 @@ Loading bars that usually not related to specific mods.
       }]
     };
 `
-994400  1.34s Reloading;
-001799  2.40s Loading Resource - AssetLibrary;
-229900  3.74s Preloading 50997 textures;
-179900  1.81s Texture loading;
-00991C  3.95s Posting bake events;
-009926 28.03s Setting up dynamic models;
-009930 28.09s Loading Resource - ModelManager;
-009996 28.73s Rendering Setup;
-440099  1.28s XML Recipes;
-4F0099  1.73s InterModComms;
-990055 10.35s [VintageFix]: Texture search 68635 sprites;
-99004A  3.92s Preloaded 33249 sprites
+994400  1.52s Reloading;
+001799  2.36s Loading Resource - AssetLibrary;
+369900  1.09s CCL ModelLoading: Blocks;
+229900  3.45s Preloading 50988 textures;
+179900  1.71s Texture loading;
+00991C  4.82s Posting bake events;
+009926 31.23s Setting up dynamic models;
+009930 31.29s Loading Resource - ModelManager;
+009996 32.05s Rendering Setup;
+440099  1.83s XML Recipes;
+4F0099  2.48s InterModComms;
+990055 12.37s [VintageFix]: Texture search 69073 sprites;
+99004A  3.62s Preloaded 33240 sprites
 `
     .split(';')
       .map(l => l.match(/(\w{6}) *(\d*\.\d*) ?s (.*)/s))
