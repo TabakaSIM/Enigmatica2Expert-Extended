@@ -18,11 +18,7 @@
 	rewards: [{
 		uid: "371ea2ce",
 		type: "item",
-		item: {
-			id: "ftbquests:lootcrate",
-			tag: {
-				type: "decor"
-			}
-		}
+		item: "randomthings:stableenderpearl",
+		count: 64
 	}]
 }
