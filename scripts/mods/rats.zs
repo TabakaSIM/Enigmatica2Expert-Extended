@@ -1,3 +1,4 @@
+#ignoreBracketErrors
 #modloaded rats requious
 
 import crafttweaker.item.IIngredient;
