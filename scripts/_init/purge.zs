@@ -136,6 +136,7 @@ Purge(<exnihilocreatio:block_end_cake>);
 Purge(<plustic:alumitenugget>).ores([<ore:nuggetAlumite>]);
 Purge(<plustic:alumiteingot>).ores([<ore:ingotAlumite>]);
 Purge(<plustic:alumiteblock>).ores([<ore:blockAlumite>]);
+Purge(<mechanics:heavy_shears>).aspects();
 
 // Purge saltpeter and sulfur
 Purge(<bloodmagic:component:24>);
