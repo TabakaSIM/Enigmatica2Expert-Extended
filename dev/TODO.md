@@ -73,6 +73,8 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ⚡ Add Tips note about IE multiblocks causing strong FPS strain. Also make them all work so fast only 1 machine needed
 
 ### Quests and Docs expansion
+- [ ] 📖 Conflux should be announced as team too
+- [ ] 📖 Add tip about `/nick` command
 - [ ] 📖 `Interdiction Pulsar` add to some quest reward and describe how to use
 - [ ] 📖 Add Skyblock quest about Terraformer
 - [ ] 📖 Add Blast Furnace heat source
