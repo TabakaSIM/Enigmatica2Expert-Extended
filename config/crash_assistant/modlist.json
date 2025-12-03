@@ -660,11 +660,6 @@
     "modId": "engineersdecor",
     "version": "1.1.5"
   },
-  "EntityCulling-1.12.2-6.5.0.jar": {
-    "jarName": "EntityCulling-1.12.2-6.5.0.jar",
-    "modId": "entityculling",
-    "version": "6.5.0"
-  },
   "environmentaltech-1.12.2-2.0.20.1.jar": {
     "jarName": "environmentaltech-1.12.2-2.0.20.1.jar",
     "modId": "environmentaltech",
@@ -694,11 +689,6 @@
     "jarName": "eyeofdragons-0.0.2.jar",
     "modId": "eyeofdragons",
     "version": "0.0.2"
-  },
-  "FantasticLib-1.12.2.052.jar": {
-    "jarName": "FantasticLib-1.12.2.052.jar",
-    "modId": "fantasticlib",
-    "version": "1.12.2.052"
   },
   "FarmingForBlockheads_1.12.2-3.1.28.jar": {
     "jarName": "FarmingForBlockheads_1.12.2-3.1.28.jar",
@@ -895,11 +885,6 @@
     "modId": "iceandfire",
     "version": "1.9.1"
   },
-  "IconExporter-1.12.2-1.2.0.jar": {
-    "jarName": "IconExporter-1.12.2-1.2.0.jar",
-    "modId": "iconexporter",
-    "version": "1.12.2-1.2.0"
-  },
   "ImmersiveCables-1.12.2-1.3.2.jar": {
     "jarName": "ImmersiveCables-1.12.2-1.3.2.jar",
     "modId": "immersivecables",
@@ -1020,11 +1005,6 @@
     "jarName": "jeibees-0.9.0.5-mc1.12.2.jar",
     "modId": "jeibees",
     "version": "0.9.0.5"
-  },
-  "JEIExporter-1.12.2-0.3.0.jar": {
-    "jarName": "JEIExporter-1.12.2-0.3.0.jar",
-    "modId": "jeiexporter",
-    "version": "0.3.0"
   },
   "jepb-1.12-1.2.1.jar": {
     "jarName": "jepb-1.12-1.2.1.jar",
@@ -1499,11 +1479,6 @@
     "modId": "prettybeaches",
     "version": "1.1.0"
   },
-  "ProbeZS-1.18.8.jar": {
-    "jarName": "ProbeZS-1.18.8.jar",
-    "modId": "probezs",
-    "version": "1.18.8"
-  },
   "ProjectIntelligence-1.12.2-1.0.9.28-universal.jar": {
     "jarName": "ProjectIntelligence-1.12.2-1.0.9.28-universal.jar",
     "modId": "projectintelligence",
@@ -1596,11 +1571,6 @@
     "jarName": "reim-0.2.jar",
     "modId": "examplemod",
     "version": "${version}"
-  },
-  "RenderLib-1.12.2-1.4.5.jar": {
-    "jarName": "RenderLib-1.12.2-1.4.5.jar",
-    "modId": "renderlib",
-    "version": "1.4.5"
   },
   "Requious Frakto-0.12.jar": {
     "jarName": "Requious Frakto-0.12.jar",
@@ -1764,11 +1734,6 @@
     "jarName": "tconmodmod-1.12.2-1.0.5.jar",
     "modId": "tconmodmod",
     "version": "1.0.5"
-  },
-  "tellme-1.12.2-0.7.0-dev.20200919.184303.jar": {
-    "jarName": "tellme-1.12.2-0.7.0-dev.20200919.184303.jar",
-    "modId": "tellme",
-    "version": "0.7.0-dev.20200919.184303"
   },
   "terracartreloaded-1.12.2-1.2.3.jar": {
     "jarName": "terracartreloaded-1.12.2-1.2.3.jar",
@@ -2115,11 +2080,6 @@
     "jarName": "YouDroppedThis-1.1.0.jar",
     "modId": "ydt",
     "version": "1.1.0"
-  },
-  "zenrecipereloading-1.4.5.jar": {
-    "jarName": "zenrecipereloading-1.4.5.jar",
-    "modId": "zenrecipereloading",
-    "version": "1.4.5"
   },
   "zentoolforge-1.1.jar": {
     "jarName": "zentoolforge-1.1.jar",
