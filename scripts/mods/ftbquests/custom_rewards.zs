@@ -105,15 +105,15 @@ function getChapterName(e as mods.zenutils.ftbq.CustomRewardEvent) as string {
 }
 
 events.onCustomReward(function (e as mods.zenutils.ftbq.CustomRewardEvent) {
+  val universe = ServerQuestFile.INSTANCE.universe;
+  val forgePlayer = !isNull(universe) ? universe.getPlayer(e.player.getUUID()) : null;
+
   /**
   * Endorse player with message to whole server as its finished chapter
   */
   if (e.reward.tags has 'chapstart' || e.reward.tags has 'chapcomplete') {
     val chapterName = getChapterName(e);
     val chaps = getChapterCount(e.player);
-
-    val universe = ServerQuestFile.INSTANCE.universe;
-    val forgePlayer = universe.getPlayer(e.player.getUUID());
 
     var style_name as string;
     var style_time as string;
@@ -205,7 +205,7 @@ events.onCustomReward(function (e as mods.zenutils.ftbq.CustomRewardEvent) {
           {text: 'Conflux ' ~ k.toUpperCase(), underlined: true, color: 'gray'},
           '__ ',
           {text: 'after ', color: 'gray'},
-          {text: formatPlayTime(e.player), color: 'gold'},
+          {text: formatPlayTime(forgePlayer), color: 'gold'},
           ' of play! ```Congrats!```',
         ]};
       server.commandManager.executeCommandSilent(server, '/tellraw @a ' ~ data.toJson());
