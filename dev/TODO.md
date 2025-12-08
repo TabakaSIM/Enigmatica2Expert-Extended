@@ -4,14 +4,21 @@
 
 ### 🐛 Bugfixes
 
+- [ ] Rework Conflux levels chunk loading. Required to fix some half-loading chunk bug which disconnect cables and causing item spam
+- [ ] 🚒 Inworld smelting is unclear mechanic for many players
 - [ ] 🐛 Fix Harvest Levels not working for non-"stone" material
 - [ ] ✏️ Collector (on Tinkers at least) stops Axing trait from working (and possibly more traits that change the block you mine)
-- [ ] ✏️ No recipe in Chemical Dissolution Chamber: Dirty Copper, Silver, Tin, Iron, Gold, Lead, Osmium
 - [ ] ✏️ `Bone` fix crush -> melt -> cast dupe
 - [ ] 🐛 Custom beacons not working on server
 
 ### ✨ New features
 
+- [ ] ✏️ Curse/blessing potion rebalance
+- [ ] 🔨 `Resistant` modifier make multiplicative bonus instead of additive (+2% right now, shuld be something like *10%)
+- [ ] Give Skyblock player haste when getting skyblock gamestage (when visiting from Overworld)
+- [ ] 🔨 add `Antimatter Evaporator` ability for TCon tool
+- [ ] 🔨 `Borrowing` should levelup tinker's tools
+- [ ] 🖥️ "Spedrun server" scripts - server restarts each 2 hours after player join, recreate world
 - [ ] `Butterfly` => `Wasp` in witch water
 - [ ] Make `Quantum Armor` Tinker's alternative or add Airtight Seal book add to it
 - [ ] Remove any kind of shears from game so players use Kama
@@ -54,6 +61,7 @@ Planned non-urgent changes, or just good ideas:
 
 ### "Performance ⚡"
 
+- [ ] ⚡ Add watcher to detect 5000 items in one block distance and remove them
 - [ ] ⚡ Make Lumenized optional
 - [ ] ⚡ never use a fluid storage interface for IE's multiblock tanks (cause lag)
 - [ ] ⚡ Remove `Fluid Conduit` recipe since lower FPS

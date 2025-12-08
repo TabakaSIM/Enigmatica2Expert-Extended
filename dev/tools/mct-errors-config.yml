@@ -198,6 +198,9 @@ ignore:
   # Happens when folders removed manually
   - WARN. .draconicevolution.. Found empty mod doc folder
 
+  # Non-harmful options.txt lines
+  - WARN. /net.minecraft.client.settings.GameSettings.. Skipping bad option
+
   # Safe WARNings, just for information
   - '\[LLibrary Core\]: Unable to call Core API! It has not been initialized yet!'
   - '\[brandonscore\]: No features were detected for mod: brandonscore.'

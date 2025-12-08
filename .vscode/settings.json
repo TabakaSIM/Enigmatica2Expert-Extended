@@ -117,6 +117,13 @@
         "/config/tconmodmod_conarm.json"
       ],
       "url": "./.vscode/tconmodmod.schema.json"
+    },
+    {
+      "fileMatch": [
+        "config/justenoughdimensions/dimensions.json",
+        "**/justenoughdimensions/dimensions.json"
+      ],
+      "url": "./.vscode/jed.schema.json"
     }
   ],
 
