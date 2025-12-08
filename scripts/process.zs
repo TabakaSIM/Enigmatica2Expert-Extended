@@ -36,6 +36,7 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
 import crafttweaker.util.Math.max;
 import crafttweaker.util.Math.min;
+import mods.mekanism.MekanismHelper.getGas;
 
 import scripts.processUtils.wholesCalc;
 import scripts.processWork.work;
@@ -333,16 +334,23 @@ function beneficiate(
       workEx('mekpurification', exceptions, [input], null, [clump], null, null, null, null);
     }
 
-    val slurryName = 'slurry' ~ oreName;
-    val slurry = mods.mekanism.MekanismHelper.getGas(slurryName);
-    if (!isNull(slurry)) {
-      val gasAmount = (amount + step * 4) * 200;
-      workEx('mekdissolution', exceptions, [input], null, null, null, null, null, { gasOutput: slurryName, gasOutputAmount: gasAmount });
-    }
-
     val shard = utils.getSomething(oreName, ['shard'], amount + step * 3);
     if (!isNull(shard)) {
       workEx('mekinjection', exceptions, [input], null, [shard], null, null, null, null);
+    }
+
+    var slurryName = 'slurry' ~ oreName;
+    var slurry = getGas(slurryName);
+
+    // Some gases like Copper doesnt have "slurry" prefix
+    if (isNull(slurry)) {
+      slurryName = oreName.toLowerCase();
+      slurry = getGas(slurryName);
+    }
+    
+    if (!isNull(slurry)) {
+      val gasAmount = (amount + step * 4) * 200;
+      workEx('mekdissolution', exceptions, [input], null, null, null, null, null, { gasOutput: slurryName, gasOutputAmount: gasAmount });
     }
   }
 }
