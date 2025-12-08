@@ -251,7 +251,7 @@ zenClass Utils {
     ChargedCertusQuartz: 2.0,
     Coal               : 5.0,
     Diamond            : 2.0,
-    DimensionalShard   : 3.0,
+    DimensionalShard   : 4.0,
     Emerald            : 2.0,
     Glowstone          : 4.0,
     Lapis              : 10.0,
