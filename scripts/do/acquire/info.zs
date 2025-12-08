@@ -40,9 +40,8 @@ function show(player as IPlayer, item as IItemStack, block as IBlock) as bool {
     || ownerUUID == ''
     || ownerUUID == player.uuid;
 
-  val dfclty = sameOwner
-    ? player.difficulty
-    : scripts.lib.offline.op.get(ownerUUID, 'difficulty', 0, 1000);
+  val uuid = sameOwner ? player.uuid : ownerUUID;
+  val dfclty = scripts.lib.mod.scalinghealth.getPlayerDimDifficulty(uuid, player.world.dimension);
 
   // collect all items that cost more than required one
   val requiredCost = scripts.category.uu.getCost(encodedItem, dfclty);
