@@ -21,6 +21,7 @@ import scripts.category.uu;
 
 // Replicator RF/t usage
 static ENERGY_USAGE as int = 20000;
+static ENERGY_CAPACITY as int = 2000000000;
 
 // [Replicator] from [Energium Ingot][+3]
 recipes.addShapeless('old to new replicator', <requious:replicator>, [<ic2:te:63>]);
@@ -116,7 +117,7 @@ x.setFluidSlot(mattX, mattY, ComponentFace.all(), 16000)
 
 static powX as int = 8;
 static powY as int = 0;
-x.setEnergySlot(powX, powY, ComponentFace.all(), 2000000000)
+x.setEnergySlot(powX, powY, ComponentFace.all(), ENERGY_CAPACITY)
   .setAccess(true,false)
   .setUnit('rf')
   .setBackground(SlotVisual.create(1,5))
@@ -218,9 +219,11 @@ function calcConsumption(upgrAmount as int, tick as double) as int {
   return s as int + bonus;
 }
 
+// Power consumption cant exceed ENERGY_CAPACITY
 function calcPowerConsumption(upgrAmount as int) as int {
   val powerUsage = pow(1.6, upgrAmount);
-  return (powerUsage * ENERGY_USAGE as double) as int;
+  val consumption = (powerUsage * ENERGY_USAGE as double) as int;
+  return min(consumption, ENERGY_CAPACITY);
 }
 
 // ========================================================
