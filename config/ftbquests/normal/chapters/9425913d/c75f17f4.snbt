@@ -1,5 +1,6 @@
 {
 	title: "{q.gates.gate_mystical_agr.name}",
+	icon: "mysticalagriculture:infusion_crystal",
 	x: 7.5d,
 	y: 5.5d,
 	text: [
@@ -14,6 +15,21 @@
 		items: [{
 			item: "mysticalagriculture:infusion_crystal"
 		}]
+	},
+	{
+		uid: "484af2a3",
+		type: "item",
+		items: [{
+			item: "botania:smeltrod"
+		},
+		{
+			item: "psi:spell_bullet"
+		},
+		{
+			item: "thaumcraft:focus_1"
+		}],
+		ignore_damage: 1b,
+		ignore_nbt: 1b
 	}],
 	rewards: [{
 		uid: "4e2d178b",
