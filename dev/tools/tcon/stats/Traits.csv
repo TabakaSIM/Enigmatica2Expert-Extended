@@ -100,6 +100,7 @@ Evolved,tconevo.evolved,60,"Balanced, as all things should be.\nThis tool uses e
 Executor,tconevo.executor,60,See ya! \nThis weapon deals bonus damage based on the target's missing health.,
 Experience Boost,xu_xp_boost,55,Gives bonus XP when mining or slaying mobs.,Increases XP drops when mining blocks or killing enemies
 Explosive,explosive,20,Ka-boom!\nAn explosion is created on each hit.,An explosion is created on impact
+Faraday,faraday_armor,10,Prevents damage from wire shock.,Both IC2 and IE wires
 Featherweight,featherweight_armor,30,"Light as a feather.\nYou're so light, you take less fall damage.",
 Fertilizing,tconevo.fertilizing,45,Green terra!\nThis tool can be used to fertilize crops at a large durability cost.,Tool can be used as Fertilizer for a durability cost
 First Stand,first_stand_armor,15,,

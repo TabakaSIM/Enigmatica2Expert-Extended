@@ -306,6 +306,8 @@ e2ee.tconstruct.material.robust.name=Robust
 e2ee.tconstruct.material.robust.description=Increase health
 e2ee.tconstruct.material.challenger.name=Challenger
 e2ee.tconstruct.material.challenger.description=§oChallenger\n§rHigher difficulty increases mining speed, damage, and defense/toughness.
+e2ee.tconstruct.trait.faraday.name=Faraday
+e2ee.tconstruct.trait.faraday.description=Prevents damage from wire shock.
 
 warp.sword.warning=§o§5 You are too sane to use that power!
 
