@@ -22,7 +22,7 @@ import { resolve } from 'pathe'
 import { replaceInFile } from 'replace-in-file'
 import { $, fs, retry } from 'zx'
 
-import { commitAmend, commitOrFixup, getIgnoredFiles, removeFiles } from './build/build_utils'
+import { commitAmend, getIgnoredFiles, removeFiles } from './build/build_utils'
 import { manageSFTP } from './build/sftp'
 import { generateChangelog } from './tools/changelog/changelog'
 
@@ -63,8 +63,6 @@ const zipBaseName = `E2E-Extended-${nextVersion}`
 const serverSetupConfig = 'server/server-setup-config.yaml'
 
 const s = p.spinner()
-
-p.note(await commitOrFixup('dev/TODO.md', 'build: 📝update TODO'))
 
 await p.confirm({ message: '🧼 Clear your working tree and rebase' })
 

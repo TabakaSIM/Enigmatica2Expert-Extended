@@ -4,18 +4,26 @@
 
 ### 🐛 Bugfixes
 
-- [ ] Rework Conflux levels chunk loading. Required to fix some half-loading chunk bug which disconnect cables and causing item spam
-- [ ] 🚒 Inworld smelting is unclear mechanic for many players
 - [ ] 🐛 Fix Harvest Levels not working for non-"stone" material
 - [ ] ✏️ Collector (on Tinkers at least) stops Axing trait from working (and possibly more traits that change the block you mine)
 - [ ] ✏️ `Bone` fix crush -> melt -> cast dupe
 - [ ] 🐛 Custom beacons not working on server
+- [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
+- [ ] 📖 Fix players dont get +1 loot box
+- [ ] ✏️ Make `Burn In Fluid` 100% giving result on 3 pieces, even if no blocks under
+- [ ] 🔨 Fix tool cant make crystallized shards https://discord.com/channels/911676461050642432/959878900278784030/1449094572906123295
+- [ ] ✏️ Fix `Replicator` add difficulty based on dimension
 
 ### ✨ New features
 
-- [ ] ✏️ Curse/blessing potion rebalance
+- [ ] 🐢 `/restart_server` do not account AFK players
+- [ ] 🔨 `Vaporizer` trait add levels and tooltip function
+- [ ] ✏️ Add `Troll Weapon` recipe to allow Peaceful playthrough
+- [ ] 📖 `Amazing Glasses` - disable GUIs when wear
+- [ ] 📖 Add `Porous Stone` Block drops
+- [ ] 🔨 Craft.zs add Thaumcraft Aspect transformer into emojis
+- [ ] ✏️ Blacklist `Rock Crystal Ore` from Rat Nuggets
 - [ ] 🔨 `Resistant` modifier make multiplicative bonus instead of additive (+2% right now, shuld be something like *10%)
-- [ ] Give Skyblock player haste when getting skyblock gamestage (when visiting from Overworld)
 - [ ] 🔨 add `Antimatter Evaporator` ability for TCon tool
 - [ ] 🔨 `Borrowing` should levelup tinker's tools
 - [ ] 🖥️ "Spedrun server" scripts - server restarts each 2 hours after player join, recreate world
@@ -61,6 +69,7 @@ Planned non-urgent changes, or just good ideas:
 
 ### "Performance ⚡"
 
+- [ ] ⚡ Rework Conflux levels chunk loading. Required to fix some half-loading chunk bug which disconnect cables and causing item spam
 - [ ] ⚡ Add watcher to detect 5000 items in one block distance and remove them
 - [ ] ⚡ Make Lumenized optional
 - [ ] ⚡ never use a fluid storage interface for IE's multiblock tanks (cause lag)
@@ -76,7 +85,7 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ⚡ Wand of the forest change recipe to Recipe Function
 - [ ] ⚡ Remove automatic IE armor recycling to speed up game load
 - [ ] ⚡ Remove `Chunk Loading Ward` since its make harder to find all chunk loaders on server
-- [ ] ⚡ Get rid of `Simple Trophies` since they strain FPS
+- [ ] ⚡ Get rid of `Simple Trophies` since they strain FPS, replace them with LittleTiles or 3dPrint structures
 - [ ] ⚡ Remove `Cyclic`'s machines completely because they are laggy: https://i.imgur.com/cbCJJBq.png
 - [ ] ⚡ Add Tips note about IE multiblocks causing strong FPS strain. Also make them all work so fast only 1 machine needed
 
@@ -166,7 +175,6 @@ Planned non-urgent changes, or just good ideas:
 - [ ] 🧱 Skyblock: Make `Porouse Stone` and `AA Ore Laser` mandatory in skyblock
 
 ### Mods
-- [ ] 🔴 Remove **Simple Trophies** and replace them with LittleTiles or 3dPrint structures
 - [ ] 🟠 Do not update **Advanced Rocketry - Reworked** until fixed https://github.com/dercodeKoenig/AdvancedRocketry/issues/50
 - [ ] 🟠 Do not update **JAOPCA** - uncompatible with `JAOPCACustom`
 - [ ] 🟠 Do not update **籁/Sound Physics Remixin** `1.1.17` or above - uncompatible with `Java 8`
@@ -184,6 +192,7 @@ Planned non-urgent changes, or just good ideas:
 
 ### Other
 
+- [ ] ✏️ Remove `Advanced Bee Analyzer` and just speed up Forestry Analyzer with mixin instead
 - [ ] 👑 Upgrading Draconic tools give Omnopotence (cannot reproduce single player)
 - [ ] 💎 Diamond shouldn't be meltable in smeltery
 - [ ] 📖 Add emojis 🍎 to chapter finishing messages
@@ -335,7 +344,13 @@ Planned non-urgent changes, or just good ideas:
 
 ### VAULTOPIC feature ideas
 
-- Bauble compat
+**Fixes**:
+- 🐛 Duplicates of the same inventory view
+- 🐛 Viewing inventories that you cant actually take from (TCon tables)
+
+**New Feats**:
+- ✨ Bauble compat
+- ✨ Shift+Click support
 
 ---
 

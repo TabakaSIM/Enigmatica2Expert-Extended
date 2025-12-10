@@ -13,7 +13,7 @@ fboEnable:true
 fancyGraphics:true
 ao:2
 renderClouds:true
-resourcePacks:["Better Gendustry v1.0.zip","Sonomagy TC6 v1.6.zip","Dark Mode-2.4.2.zip","BloomTech-1.0.0.zip"]
+resourcePacks:["Better Gendustry v1.0.zip","Sonomagy TC6 v1.6.zip","BloomTech-1.0.0.zip"]
 incompatibleResourcePacks:[]
 lang:en_us
 chatVisibility:0

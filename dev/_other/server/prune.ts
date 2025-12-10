@@ -30,29 +30,29 @@ await sftp.connect(sftpConfig)
 await pruneWorld(sftp, {
   title               : 'Overworld',
   region              : 'region',
-  maxDistanceFromSpawn: 20000,
-  obsoleteMonths      : 6,
+  maxDistanceFromSpawn: 15000,
+  obsoleteMonths      : 5,
 })
 
 await pruneWorld(sftp, {
   title               : 'The Nether',
   region              : 'DIM-1/region',
   maxDistanceFromSpawn: 5000,
-  obsoleteMonths      : 6,
+  obsoleteMonths      : 3,
 })
 
 await pruneWorld(sftp, {
   title               : 'The End',
   region              : 'DIM1/region',
   maxDistanceFromSpawn: 5000,
-  obsoleteMonths      : 6,
+  obsoleteMonths      : 3,
 })
 
 await pruneWorld(sftp, {
   title               : 'Twilight Forest',
   region              : 'DIM7/region',
   maxDistanceFromSpawn: 10000,
-  obsoleteMonths      : 6,
+  obsoleteMonths      : 3,
 })
 
 await pruneWorld(sftp, {

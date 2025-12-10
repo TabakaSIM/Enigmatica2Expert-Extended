@@ -101,4 +101,4 @@ Failed to get ingredients from recipe wrapper
 
 java.lang.NullPointerException
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
-  [...]
+  [...]

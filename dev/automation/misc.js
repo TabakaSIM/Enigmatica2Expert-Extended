@@ -172,9 +172,20 @@ export async function init(h = defaultHelper, options = argv) {
 
       'options.txt': () => {
         // Merge keys
-        let entries = Object.entries({
-          ...Object.fromEntries(loadText(dest).split('\n').map(l => l.split(/:(.*)/s))),
-          ...Object.fromEntries(fileContent.split('\n').map(l => l.split(/:(.*)/s))),
+        let entries = Object.fromEntries(fileContent.split('\n').map(l => l.split(/:(.*)/s)))
+
+        const oldDestEntries = Object.fromEntries(loadText(dest).split('\n').map(l => l.split(/:(.*)/s)))
+
+        // Filter out dark mode resource pack
+        if (entries.resourcePacks) {
+          /** @type string[] */
+          const resourcePacks = JSON.parse(entries.resourcePacks)
+          entries.resourcePacks = JSON.stringify(resourcePacks.filter(p => !p.startsWith('Dark Mode-')))
+        }
+
+        entries = Object.entries({
+          ...oldDestEntries,
+          ...entries,
         })
 
         entries = entries.filter(([k]) => ![
