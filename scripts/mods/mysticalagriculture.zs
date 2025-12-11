@@ -665,7 +665,7 @@ craft.make(<quark:slime_bucket>, ['pretty',
 
 // [Mystical String] from [Industrial Hemp Fiber][+1]
 craft.reshapeless(<mysticalagriculture:crafting:23>, 'HP', {
-  'P': <ore:shardProsperity>, // Prosperity Shard
+  'P': <mysticalagriculture:crafting:39>,
   'H': <ore:fiberHemp>,       // Industrial Hemp Fiber
 });
 

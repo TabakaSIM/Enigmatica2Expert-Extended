@@ -81,9 +81,9 @@ for tuple in [
 
 // Peacock fan
 recipes.addShaped(<twilightforest:peacock_fan>, [
-  [<mysticalagriculture:crafting:24>, <mysticalagriculture:crafting:24>, null],
-  [<forestry:oak_stick>, <forestry:oak_stick>, <mysticalagriculture:crafting:24>],
-  [<ore:slimecrystalBlue>, <forestry:oak_stick>, <mysticalagriculture:crafting:24>],
+  [<minecraft:feather>, <minecraft:feather>, null],
+  [<forestry:oak_stick>, <forestry:oak_stick>, <minecraft:feather>],
+  [<ore:slimecrystalBlue>, <forestry:oak_stick>, <minecraft:feather>],
 ]);
 
 // List of blocks and their respetive recycle materials

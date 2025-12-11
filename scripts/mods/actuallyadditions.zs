@@ -329,7 +329,6 @@ val listCatFur as string[] = [
   'minecraft:skull'                    , '0' , '10',
   'minecraft:tallgrass'                , '1' , '30',
   'mysticalagriculture:crafting'       , '23', '10',
-  'mysticalagriculture:crafting'       , '24', '10',
   'openblocks:sponge'                  , '0' , '40',
   'quark:crab_leg'                     , '0' , '40',
   'quark:frog_leg'                     , '0' , '40',

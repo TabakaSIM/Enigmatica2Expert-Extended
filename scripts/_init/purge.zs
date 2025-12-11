@@ -317,6 +317,7 @@ Purge(<mysticalagriculture:chunk:1>);
 Purge(<mysticalagriculture:chunk:2>);
 Purge(<mysticalagriculture:chunk:3>);
 Purge(<mysticalagriculture:chunk:4>);
+Purge(<mysticalagriculture:crafting:24>);
 Purge(<mysticalagriculture:crafting:48>);
 Purge(<mysticalagradditions:insanium:4>);
 Purge(<mysticalagradditions:stuff:69>);

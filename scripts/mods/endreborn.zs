@@ -75,7 +75,7 @@ for feather in [
     '  D  '], {
     'D': <botania:manaresource:15>,
     'f': feather,
-    'M': <mysticalagriculture:crafting:24>, // Mystical Feather
+    'M': <mysticalagriculture:crafting:39>,
   });
 }
 
