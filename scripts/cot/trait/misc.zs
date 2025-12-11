@@ -73,7 +73,7 @@ life.color = 0xFF2010;
 life.localizedName = game.localize('e2ee.tconstruct.material.lifecycle.name');
 life.localizedDescription = game.localize('e2ee.tconstruct.material.lifecycle.description');
 life.onToolDamage = function (trait, tool, unmodifiedAmount, newAmount, holder) {
-  holder.heal(newAmount);
+  holder.heal(newAmount * 10);
   return newAmount;
 };
 life.register();
