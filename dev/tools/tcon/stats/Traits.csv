@@ -10,6 +10,7 @@ Alpha Fur,alpha_fur,10,Chilling\nChills targets or attackers.,"Freezes enemies t
 Ambitious,ambitious_armor,45,On your way to glory!\nYou gain additional XP.,
 Anti-Corrosion,anticorrosion,10,"For the times when you splash the chemical\nEvery tick, there is a small chance that the holder's poison is healed (when held in hand).",Chance to heal the wielders poison while held
 Anti-Gravity,antigravity,40,"Onwards!\nThe arrow will maintain its height and will not be effected by gravity for the duration of the flight. Where you aim, it flies.",Projectile is immune to the pull of gravity
+Antimagic,antimagic_armor,15,"Your armor doesn't believe in potions, and refuses to be affected by any potion effects; good or bad.",Removes all potion effects each tick
 Apocalypse,apocalypse,40,The end times...\nYour victim becomes moribund and is afflicted with increasing levels of Wither.,Struck enemies gain a stack of Wither
 Apprentice,apprentice_armor,30,Power of study\n1/10 of incoming damage becomes experience but hurts you 10% more.,
 Aquadynamic,aquadynamic,10,It's getting wet in here!\nThe tool is unhindered by water and loves rainy evenings.,"Tool is not affected by being underwater, and increases mining speed during rain"
