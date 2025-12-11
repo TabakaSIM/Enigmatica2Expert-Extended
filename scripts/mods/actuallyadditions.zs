@@ -858,3 +858,10 @@ craft.remake(<actuallyadditions:item_filling_wand>, ['pretty',
 
 // Alternative filling
 mods.tconstruct.Casting.addTableRecipe(<actuallyadditions:item_water_bowl>, <minecraft:bowl>, <liquid:water>, 1000, true, 1);
+
+// Fast high-end alt
+mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
+  .input(<actuallyadditions:item_canola_seed> * 64)
+  .inputLiquid(<fluid:ic2biomass> * 100)
+  .outputItem(<actuallyadditions:item_misc:21> * 64)
+  .build();
