@@ -360,6 +360,7 @@ Some screenshots of new worldgen:
   * [**BSL**](https://www.curseforge.com/minecraft/shaders/bsl-shaders)
 - Shaders require no manual setup. The modpack automatically disables conflicting shader options in `Astral Sorcery`, `Botania`, `Advanced Rocketry`, and `Twilight Forest`.
 - Most shaders (except SEUS) require manual configuration to work in modded dimensions. This typically involves unzipping the shaderpack, copying the `world0` (Overworld) settings folder, and renaming the copy to `world<ID>`, where `<ID>` is the numeric ID of the dimension.
+- You might also want [Vanilla-Normals-Renewed-1.12](https://github.com/Poudingue/Vanilla-Normals-Renewed-1.12)
 
 -----------------
 
