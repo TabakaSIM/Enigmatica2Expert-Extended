@@ -1,3 +1,10 @@
+/*
+
+Allow `/cofh clearblocks <x> <y> <z> <radius> <dimension> inventory` command
+for easily select blocks to clear from inventory.
+
+*/
+
 #reloadable
 #modloaded zenutils
 
