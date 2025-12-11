@@ -219,7 +219,6 @@ scripts.mods.extendedcrafting_engineering.remakeAlted(
 }, 12, {
   '□': <ore:plateAdvanced>,
   '¤': <ore:gearSilver>,
-  'I': <nuclearcraft:water_source>,
 });
 
 // [Ingot Former] from [Machine Chassis][+3]

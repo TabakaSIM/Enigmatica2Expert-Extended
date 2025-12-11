@@ -77,7 +77,7 @@ val chemIngrs = {
   '⌂': <mekanism:basicblock:8>,              // Steel Casing
   '▲': <ore:dustSiliconDioxide>,             // Silicon Dioxide
   'C': <advancedrocketry:crystallizer>,      // Crystallizer
-  'D': <nuclearcraft:water_source_dense>,    // Dense Infinite Water Source
+  'D': <nuclearcraft:gem:1>,
   'E': <mekanism:tierinstaller:2>,           // Elite Tier Installer
   'I': <rftools:infused_diamond>,            // Infused Diamond
   '*': <extrautils2:suncrystal>,             // Sun Crystal
