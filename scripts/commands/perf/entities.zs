@@ -18,7 +18,7 @@ import native.net.minecraft.world.chunk.Chunk;
 import native.net.minecraft.world.gen.ChunkProviderServer;
 
 import scripts.commands.perf.loaders.forEachChunkLoader;
-import scripts.commands.perf.loaders.tpMessage;
+import scripts.commands.perf.util.tpMessage;
 
 function show(player as IPlayer) as IData {
   var totalEntities = 0;

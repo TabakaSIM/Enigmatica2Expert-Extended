@@ -7,8 +7,8 @@ import crafttweaker.data.IData;
 import mods.zenutils.NetworkHandler;
 
 import scripts.commands.build.isClose;
-import scripts.commands.perf.loaders.message;
-import scripts.commands.perf.loaders.tpMessage;
+import scripts.commands.perf.util.message;
+import scripts.commands.perf.util.tpMessage;
 import scripts.commands.perf.util.sortArrayBy;
 import scripts.commands.perf.util.naturalInt;
 
@@ -21,8 +21,6 @@ NetworkHandler.registerServer2ClientMessage('perf_chunks', function (player, byt
 static CHUNK_GROUP_DIST as int = 28;
 
 function show(data as IData) as void {
-  utils.log(`🌍 received data from server:\n${data}`);
-
   val messenger = Messenger(data.titles.asList(), data.viewDistance);
 
   for worldData in data.worlds.asList() {
@@ -34,7 +32,6 @@ function show(data as IData) as void {
       if (utils.DEBUG) {
         var s = '';
         for c in group { s ~= `${c} `; }
-        print(`🌍 Group: ${s}`);
       }
 
       val minMax = [2147483647, 2147483647, -2147483646, -2147483646] as int[];
@@ -45,8 +42,6 @@ function show(data as IData) as void {
       }
       val width = minMax[2] - minMax[0] + 1;
       val height = minMax[3] - minMax[1] + 1;
-      utils.log(`🌍 minMax: ${minMax[0]} ${minMax[1]} ${minMax[2]} ${minMax[3]}`);
-      utils.log(`🌍 width: ${width} height: ${height}`);
 
       // Pack closest chunks together in straightened 2d array
       val pack = intArrayOf(width * height, -1);
@@ -184,14 +179,11 @@ zenClass Messenger {
 
     val symbol = isAnchored ? '▓' : '█';
 
-    var tooltip = [] as IData;
-    if (isClaimed) tooltip += [`§8⚀ §7Claimed: §3${titles[(claimedIndex - 1) / 2]}`];
-    if (isForced)
-      tooltip += [`${tooltip.length > 0 ? '\n' : ''}§8⚄ §6FTBU force loaded`];
-    if (isAnchored)
-      tooltip += [`${tooltip.length > 0 ? '\n' : ''}§8⚓ §2With chunk loader`];
-    if (isLoadedByPlayer)
-      tooltip += [`${tooltip.length > 0 ? '\n' : ''}§8☺ §fLoaded by player`];
+    var tooltip = '';
+    if (isClaimed) tooltip += `§8⚀ §7Claimed: §3${titles[(claimedIndex - 1) / 2]}`;
+    if (isForced) tooltip += `${tooltip.length > 0 ? '\n' : ''}§8⚄ §6FTBU force loaded`;
+    if (isAnchored) tooltip += `${tooltip.length > 0 ? '\n' : ''}§8⚓ §2With chunk loader`;
+    if (isLoadedByPlayer) tooltip += `${tooltip.length > 0 ? '\n' : ''}§8☺ §fLoaded by player`;
 
     return tpMessage(
       worldData.dim,

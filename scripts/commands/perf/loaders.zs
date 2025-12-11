@@ -10,6 +10,8 @@ import native.net.minecraft.util.ITickable;
 import native.net.minecraft.util.math.BlockPos;
 
 import scripts.do.hand_over_your_items.tellrawItemObj;
+import scripts.commands.perf.util.message;
+import scripts.commands.perf.util.tpMessage;
 
 zenClass Op {
   zenConstructor() {}
@@ -39,8 +41,8 @@ events.register(function (e as crafttweaker.event.WorldTickEvent) {
   else if (op.firstDimReported.dimension == e.world.dimension) {
     // We made a loop and can output the results
     message(op.reportPlayer, [
-      `§7(Click §6⚑§7 to teleport)`,
-      `\n§8Total ticked TileEntities: §7${op.total}`,
+      '§7(Click §6⚑§7 to teleport)',
+      '\n§8Total ticked TileEntities: §7'~ op.total,
     ]);
     op.reportPlayer = null;
     op.firstDimReported = null;
@@ -107,37 +109,3 @@ function report(player as IPlayer, world as IWorld, pos as BlockPos) as void {
   ));
 }
 
-function message(player as IPlayer, msg as IData) as void {
-  // val msgStr = msg.asString();
-  // val msgStr = msg.toJson();
-  // print('~~ sending message ['~msgStr.length~']:\n'~msgStr);
-  player.sendRichTextMessage(crafttweaker.text.ITextComponent.fromData(msg));
-}
-
-function tpText(dim as int, x as double, y as double, z as double) as string {
-  return `§6⚑ §8Dim §7${dim} §8[§4${x} §3${y} §2${z}§8]`;
-}
-
-function tpMessage(
-  dim as int, x as double, y as double, z as double, text as string,
-  extra as IData = null, extraTooltip as IData = null
-) as IData {
-  val posText = tpText(dim, x, y, z);
-  val tpToText = `§8TP to ${posText}`;
-  var result = {
-    text      : isNull(text) ? posText : text,
-    hoverEvent: {
-      action: 'show_text',
-      value : (isNull(extraTooltip) || extraTooltip.length <= 0)
-        ? tpToText as IData
-        : [`${tpToText}\n`, extraTooltip],
-    },
-    clickEvent: {
-      action: 'run_command',
-      value : `/tpx @p ${x} ${y} ${z} ${dim}`,
-    },
-  } as IData;
-  if (!isNull(extra)) result += {extra: extra};
-
-  return [result];
-}

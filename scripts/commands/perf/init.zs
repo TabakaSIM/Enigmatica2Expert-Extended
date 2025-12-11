@@ -36,4 +36,19 @@ x.addSubCommand(
   }
 );
 
+x.addSubCommand(
+  'claimed',
+  'information about §lclaimed chunks',
+  function (command as ZenCommand, server as IServer, sender as ZenUtilsCommandSender, args as string[]) as IData {
+    var page = 1;
+    if (args.length > 1) {
+      val pageNum = args[1] as int;
+      if (pageNum > 0) {
+        page = pageNum;
+      }
+    }
+    return scripts.commands.perf.claimed.show(getCommandSenderAsPlayer(sender), page);
+  }
+);
+
 x.register();
