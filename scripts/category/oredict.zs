@@ -425,6 +425,9 @@ add(<ore:nuggetIridium>, <ic2:misc_resource:2>);
 // Marble
 add(<ore:stoneMarblePolished>, <astralsorcery:blockmarble:*>);
 
+// Allow Slice'n'Splice to use as shears
+add(<ore:toolShears>, <tconstruct:kama:*>);
+
 // *======= Quark Specific Oredict =======*
 
 add(<ore:sandstone>, <quark:sandstone_new:*>);
