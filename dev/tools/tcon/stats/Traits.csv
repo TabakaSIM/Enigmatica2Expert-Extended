@@ -65,6 +65,7 @@ Crystalline,tconevo.crystalline,40,You could buy a very small piano!\nThis weapo
 Crystalys,tconevo.crystalys,30,I'm not afraid of the darkness!\nThis weapon shatters soul networks to manifest weak blood shards.,Killing enemies has a chance to drop Blood Shards
 Culling,tconevo.culling,60,Only the worthy will survive.\nThis weapon deals increased damage to enemies with less health than its wielder.,Weapon will deal more damage to enemies with less HP than the player. Give +1 damage for each heart difference (for each 2HP). Cannot be more that x2 of original damage.
 Cycle of Life,lifecycle,20,From one to another.\nWhen your tool is damaged you are healed for the damaged amount.Piezo,Damaging the tool will heal you for the equivalent amount
+Darkside,darkside_armor,25,Your armor loves the dark so much; you take less damage when in darkness.,
 Deadly Precision,tconevo.deadly_precision,50,Just buy six daedalus 4Head\nThis weapon deals greatly increased damage on critical strikes.,Critical hits are stronger
 Death Cloud,plague_shot,25,"I Am Become Death\nSummons a plague cloud on use, which deals half the damage of the tool!","Chance to summon a Plague Cloud when attacking, which deals half the total damage of the tool"
 Dense,dense_armor,25,Hard...er.\nYour armor lasts longer when it has less durability.,Decreases durability use as durability decreases
