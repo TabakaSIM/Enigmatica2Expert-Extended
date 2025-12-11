@@ -24,7 +24,7 @@ import scripts.do.portal_spread.message.log;
 import scripts.do.portal_spread.message.notifyPlayers;
 import scripts.do.portal_spread.modifiers.getModifiers;
 import scripts.do.portal_spread.recipes.spread;
-import scripts.do.portal_spread.utils.getNextPoint;
+import scripts.do.portal_spread.sphere.getNextPoint;
 import native.net.minecraft.util.EnumParticleTypes;
 
 ////////////////////////////////////////////////////

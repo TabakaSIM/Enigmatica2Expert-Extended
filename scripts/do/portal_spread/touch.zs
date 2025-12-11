@@ -19,7 +19,7 @@ import scripts.do.portal_spread.data.getPortalDataMap;
 import scripts.do.portal_spread.data.portalIdToPos;
 import scripts.do.portal_spread.message.sendPortalMessage;
 import scripts.do.portal_spread.modifiers.getModifiers;
-import scripts.do.portal_spread.utils.indexToRadius;
+import scripts.do.portal_spread.sphere.indexToRadius;
 import scripts.do.portal_spread.utils.abs;
 
 // Dump information about portal
