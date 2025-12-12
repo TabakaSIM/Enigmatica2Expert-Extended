@@ -258,6 +258,7 @@ Uplifting,uplifting_armor,35,I bid you stand!\nOccasionally regenerates health w
 Uplifting,uplifting,35,This day we fight!\nOccasionally regenerates health on use.,Breaking blocks and killing enemies has a chance to regenerate HP
 Vampiric,tconevo.vampiric,45,Still befriending mortals?\nThis weapon drains life energy from enemies to heal its wielder.,Life-steals from hit enemies
 Vanishing,,5,Out of my way!\nChance to teleport enemies away.,Chance to teleport hit enemies away
+Vaporizer,vaporizer,15,Instantly evaporates liquids in a large radius around the point of impact.,
 Veiled,veiled,5,Like a Specter!\nProjectile will be invisible.,Projectile becomes invisible
 Vengeful,vengeful_armor,35,They'll pay for this!\nYour attackers might not feel great after hitting you.,
 Vindictive,vindictive,10,"You are not forgiven!\nBonus damage to players, and you gain some health by attacking.",Increases damage against players

@@ -308,6 +308,8 @@ e2ee.tconstruct.material.challenger.name=Challenger
 e2ee.tconstruct.material.challenger.description=§oChallenger\n§rHigher difficulty increases mining speed, damage, and defense/toughness.
 e2ee.tconstruct.trait.faraday.name=Faraday
 e2ee.tconstruct.trait.faraday.description=Prevents damage from wire shock.
+e2ee.tconstruct.trait.vaporizer.name=Vaporizer
+e2ee.tconstruct.trait.vaporizer.description=Instantly evaporates liquids in a large radius around the point of impact.
 
 warp.sword.warning=§o§5 You are too sane to use that power!
 

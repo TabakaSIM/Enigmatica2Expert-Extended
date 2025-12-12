@@ -399,17 +399,6 @@ craft.remake(<cyclicmagic:block_fishing>, ['pretty',
   'r': <cyclicmagic:stone_pebble>,
 });
 
-// [Antimatter Evaporator] from [Sponge][+2]
-recipes.remove(<cyclicmagic:ender_water>);
-craft.make(<cyclicmagic:ender_water>.withTag({ ActionType: 2, timeout: 0 }), ['pretty',
-  '  ◊ ◊',
-  'r S ◊',
-  'S r  '], {
-  '◊': <ore:gemLapis>, // Lapis Lazuli
-  'r': <cyclicmagic:stone_pebble>, // Pebble
-  'S': <openblocks:sponge>, // Sponge
-});
-
 // [Water Spreader] from [Demon Ingot][+3]
 craft.remake(<cyclicmagic:water_spreader>, ['pretty',
   'r ◊ r',

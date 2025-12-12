@@ -308,6 +308,8 @@ e2ee.tconstruct.material.challenger.name=Испытатель
 e2ee.tconstruct.material.challenger.description=§oИспытатель\n§rЧем выше сложность, тем выше скорость добычи, урон и защита/стойкость.
 e2ee.tconstruct.trait.faraday.name=Фарадей
 e2ee.tconstruct.trait.faraday.description=Предотвращает урон от удара током от проводов.
+e2ee.tconstruct.trait.vaporizer.name=Испаритель
+e2ee.tconstruct.trait.vaporizer.description=Мгновенно испаряет жидкости в большом радиусе вокруг точки удара.
 
 warp.sword.warning=§o§5 Вы слишком разумны, чтобы использовать эту силу!
 
