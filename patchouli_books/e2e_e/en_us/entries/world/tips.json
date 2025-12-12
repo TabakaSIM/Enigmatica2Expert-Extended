@@ -127,7 +127,7 @@
       "item": "thaumicaugmentation:research_notes",
       "type": "text",
       "title": "Tips",
-      "text": "$(li)You can $(6)deconstruct TCon tools$() by placing them into output slot."
+      "text": "$(li)You can $(6)deconstruct TCon tools$() by placing them into output slot.$(li)$(n)Crook$() with $(n)Fortune$() yields up to 2x Redstone from $(4)Red Orchid$(). $(7)This also works with Tinkers' Construct Crooks!"
     }
   ]
 }
