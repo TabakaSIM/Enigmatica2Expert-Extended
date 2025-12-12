@@ -76,7 +76,7 @@ cmd.register();
  */
 function getStatus(world as IWorld) as string {
   val portalsStr = serializePortals(world);
-  val maxRadius as int = Config.maxRadius;
+  val maxRadius = scripts.do.portal_spread.sphere.maxRadius;
 
   return prefix ~ '§7Maximum radius§8: §f'
     ~ maxRadius ~ '\n'

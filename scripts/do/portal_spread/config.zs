@@ -1,5 +1,5 @@
 #priority 4500
-#reloadable
+#loader contenttweaker reloadable
 #modloaded zenutils
 
 import crafttweaker.block.IBlockDefinition;
@@ -15,10 +15,6 @@ import crafttweaker.item.IIngredient;
 */
 
 zenClass Config {
-  // Maximum radius of portal with all modifiers. Must be less than 256
-  // Consume ~ maxRadius³ kb RAM memory
-  static maxRadius as int = 64;
-
   // Radius of portal without modifiers.
   // Must be less than maxRadius
   static defaultRadius as int = 16;
@@ -95,14 +91,3 @@ function setModifier(
 
   Config.modifierGroupCount += 1;
 }
-
-///////////////////////////////////////////////////////////
-// Default Modifiers
-///////////////////////////////////////////////////////////
-
-// Very first item of first modifier here will be proposed to stop portal from spreading
-setModifier(<minecraft:coal_block> | <ore:blockCoal>, ['slow', 'weak', 'small']);
-
-var empowerBlock = itemUtils.getItem('contenttweaker:conglomerate_of_coal');
-if (isNull(empowerBlock)) empowerBlock = <minecraft:glowstone>;
-setModifier(empowerBlock, ['fast', 'potent', 'large']);

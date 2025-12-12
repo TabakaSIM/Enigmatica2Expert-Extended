@@ -126,12 +126,13 @@ function getTrueLookup(modifiers as int[]) as double {
 
 // "Index" is term used in portal_spread.sphere functions
 function getMaxSpreadIndex(modifiers as int[]) as int {
+  val maxRadius = scripts.do.portal_spread.sphere.maxRadius;
   val value = Config.defaultRadius
-    + (Config.maxRadius - Config.defaultRadius) * pow(extractModif(modifiers, 'large'), 2) / 16
+    + (maxRadius - Config.defaultRadius) * pow(extractModif(modifiers, 'large'), 2) / 16
     - Config.defaultRadius * extractModif(modifiers, 'small') / 4;
 
   if (value < Config.defaultRadius / 4) return 0;
-  if (value >= Config.maxRadius) return 2147483647;
+  if (value >= maxRadius) return 2147483647;
 
   return radiusToIndex(value);
 }
