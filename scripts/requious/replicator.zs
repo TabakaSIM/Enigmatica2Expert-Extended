@@ -355,7 +355,7 @@ function tick(m as MachineContainer) as void {
   val dfclty = scripts.lib.mod.scalinghealth.getPlayerDimDifficulty(ownerUUID, m.world.dimension);
 
   // 🎯 Update penalty text each tick
-  if (dfclty < 0 || !isNull(scripts.lib.fake.userUUIDs[ownerUUID]))
+  if (dfclty < 0 || scripts.lib.fake.isFake(ownerUUID, m.getString('owner')))
     return pushErr(m, '§0No fakes\n§0 allowed ☹');
   updatePenaltyText(m, dfclty);
 

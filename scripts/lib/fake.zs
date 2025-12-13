@@ -9,3 +9,14 @@ static userUUIDs as string[string] = {
   'bfc3377f-c3c9-3382-9da6-79b50a9afe57': 'OpenModsFakethis-001',
   '06c8c2f8-d2b9-3e8d-9e5e-862b4b3a5f4e': 'rftools_builder',
 } as string[string];
+
+// Same as above but swapped
+static userNames as string[string] = {} as string[string];
+
+for uuid, name in userUUIDs {
+  userNames[name] = uuid;
+}
+
+function isFake(uuid as string, name as string) as bool {
+  return !isNull(userUUIDs[uuid]) || !isNull(userNames[name]);
+}
