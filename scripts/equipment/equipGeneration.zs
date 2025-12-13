@@ -64,32 +64,34 @@ static slots as IEntityEquipmentSlot[] = [
 function rnd_qubic(w as IWorld) as double { val a as double = w.random.nextDouble(); return a * a * a; }
 function dataOrData(a as IData, b as IData) as IData { return isNull(a) ? b : a; }
 function pick_qubic(list as IData, w as IWorld) as string { return list[(rnd_qubic(w) * list.length) as int].asString(); }
-function pick_qubic_adv(list as IData, d as double, w as IWorld) as string {
-  // val _min = max(0, min(list.length - 4, list.length * pow(d, 2.0d)) - shift);
-  // val index = (abs(a*a*a) * (list.length - _min) + _min) as int;
-  val a = w.random.nextDouble();
-  val b = abs(pow(a, 4.0 * pow(1.1 - d, 2)));
+function pick_qubic_adv(list as IData, difficulty as double, w as IWorld) as string {
+   // Coefficient of rarity.
+   // Lower values < 1.1 - Big distribution on lower difficulty
+   // Higher values > 1.1 - on lower difficulty always weaker armor material
+  val coef = 1.1;
+  val chance = w.random.nextDouble();
+  val b = abs(pow(chance, 4.0 * pow(coef - difficulty, 2)));
   val index = (min(0.9999, max(0.0, b)) * list.length) as int;
   return list[index].asString();
 }
 
-function rndToolPart(_mats as IData, d as double, forWeapon as bool, w as IWorld) as ITICMaterial {
+function rndToolPart(_mats as IData, difficulty as double, forWeapon as bool, w as IWorld) as ITICMaterial {
   val defaults = forWeapon
     ? normDefs.tool
     : normDefs.armor;
   var i = 0;
   val mats = dataOrData(_mats, defaults);
-  var matName = pick_qubic_adv(mats, d, w);
+  var matName = pick_qubic_adv(mats, difficulty, w);
   if (!isNull(_mats)) {
     while i < 20 && !(defaults has matName) {
-      matName = pick_qubic_adv(mats, d, w);
+      matName = pick_qubic_adv(mats, difficulty, w);
       i += 1;
     }
   }
 
   var mat = Toolforge.getMaterialFromID(matName);
   while i < 100 && isNull(mat) {
-    matName = pick_qubic_adv(mats, d, w);
+    matName = pick_qubic_adv(mats, difficulty, w);
     mat = Toolforge.getMaterialFromID(matName);
     i += 1;
   }
