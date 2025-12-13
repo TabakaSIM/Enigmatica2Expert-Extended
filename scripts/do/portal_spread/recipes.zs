@@ -421,7 +421,7 @@ spread
 .setAllNether([<blockstate:minecraft:hay_block>], [<blockstate:iceandfire:chared_gravel>], SOULSAND)
 .setAllNether([<blockstate:minecraft:mycelium>], [<blockstate:extrautils2:cursedearth:decay=0>], SOULSAND)
 .setAllNether([<blockstate:minecraft:planks>], [<blockstate:rustic:painted_wood_black>], CONCRETE)
-.setAllNether([<blockstate:minecraft:prismarine>, <blockstate:minecraft:piston>, <blockstate:appliedenergistics2:sky_stone_block>], [<blockstate:biomesoplenty:hive:variant=hive>, <blockstate:biomesoplenty:hive:variant=honeycomb>, <blockstate:biomesoplenty:hive:variant=filled_honeycomb>], GLOWSTONE)
+.setAllNether([<blockstate:minecraft:prismarine>, <blockstate:appliedenergistics2:sky_stone_block>], [<blockstate:biomesoplenty:hive:variant=hive>, <blockstate:biomesoplenty:hive:variant=honeycomb>, <blockstate:biomesoplenty:hive:variant=filled_honeycomb>], GLOWSTONE)
 .setAllNether([<blockstate:minecraft:red_sandstone>], [<blockstate:iceandfire:chared_stone:revert=false>], [<blockstate:minecraft:red_nether_brick>])
 .setAllNether([<blockstate:minecraft:sandstone_stairs>], [<blockstate:mysticalagriculture:soulstone_brick_stairs>], STAIRS)
 .setAllNether([<blockstate:minecraft:snow_layer>, <blockstate:minecraft:snow>], [<blockstate:biomesoplenty:blue_fire>], AIR)
