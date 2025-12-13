@@ -32,7 +32,6 @@ fluid.adaminite=Расплавленный Адаминит
 fluid.mithminite=Растворенный Митминит
 
 #Enchanted Steam
-itemGroup.Nucleothurgy=Enchanted Steam
 item.contenttweaker.naquadah_resevoir_grade_1.name=Астральный катализатор Резервуар 
 item.contenttweaker.naquadah_resevoir_grade_2.name=ботанический катализатор Резервуар 
 item.contenttweaker.naquadah_resevoir_grade_3.name=алхимический  катализатор Резервуар 

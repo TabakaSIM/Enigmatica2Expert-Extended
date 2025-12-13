@@ -32,7 +32,6 @@ fluid.adaminite=熔融精金
 fluid.mithminite=熔融秘金
 
 #Enchanted Steam
-itemGroup.Nucleothurgy=Enchanted Steam
 item.contenttweaker.naquadah_resevoir_grade_1.name=星體催化劑庫
 item.contenttweaker.naquadah_resevoir_grade_2.name=植物催化劑庫
 item.contenttweaker.naquadah_resevoir_grade_3.name=煉金催化劑儲層

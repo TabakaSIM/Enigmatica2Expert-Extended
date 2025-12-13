@@ -32,7 +32,6 @@ fluid.adaminite=Molten Adaminite
 fluid.mithminite=Molten Mithminite
 
 #Enchanted Steam
-itemGroup.Nucleothurgy=Enchanted Steam
 item.contenttweaker.naquadah_resevoir_grade_1.name=Astral Catalyst Resevoir
 item.contenttweaker.naquadah_resevoir_grade_2.name=Botanic Catalyst Resevoir
 item.contenttweaker.naquadah_resevoir_grade_3.name=Alchemic Catalyst Reservoir
