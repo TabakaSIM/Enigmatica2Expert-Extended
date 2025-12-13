@@ -31,6 +31,26 @@ fluid.mithrillium=Molten Mithrillium
 fluid.adaminite=Molten Adaminite
 fluid.mithminite=Molten Mithminite
 
+#Enchanted Steam
+itemGroup.Nucleothurgy=Enchanted Steam
+item.contenttweaker.naquadah_resevoir_grade_1.name=Astral Catalyst Resevoir
+item.contenttweaker.naquadah_resevoir_grade_2.name=Botanic Catalyst Resevoir
+item.contenttweaker.naquadah_resevoir_grade_3.name=Alchemic Catalyst Reservoir
+item.contenttweaker.naquadah_resevoir_grade_4.name=Thaumic Catalyst Resevoir
+item.contenttweaker.naquadah_resevoir_grade_5.name=Ultimate Catalyst Resevoir
+
+item.contenttweaker.naquadah_catalyst_grade_1.name=Astral Steam Catalyst
+item.contenttweaker.naquadah_catalyst_grade_2.name=Botanic Steam Catalyst
+item.contenttweaker.naquadah_catalyst_grade_3.name=Alchemic Steam Catalyst
+item.contenttweaker.naquadah_catalyst_grade_4.name=Thaumic Steam Catalyst
+item.contenttweaker.naquadah_catalyst_grade_5.name=Ultimate Steam Catalyst
+
+fluid.magic_steam_grade_1=Astral Dense Steam
+fluid.magic_steam_grade_2=Botanic Dense Steam
+fluid.magic_steam_grade_3=Alchemic Dense Steam
+fluid.magic_steam_grade_4=Thaumic Dense Steam
+fluid.magic_steam_grade_5=Ultimate Dense Steam
+
 base.material.heavy_metal=Heavy Metal
 base.material.cheese=Cheese
 
