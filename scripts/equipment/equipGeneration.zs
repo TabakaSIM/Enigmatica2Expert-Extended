@@ -68,7 +68,7 @@ function pick_qubic_adv(list as IData, difficulty as double, w as IWorld) as str
    // Coefficient of rarity.
    // Lower values < 1.1 - Big distribution on lower difficulty
    // Higher values > 1.1 - on lower difficulty always weaker armor material
-  val coef = 1.1;
+  val coef = 1.05;
   val chance = w.random.nextDouble();
   val b = abs(pow(chance, 4.0 * pow(coef - difficulty, 2)));
   val index = (min(0.9999, max(0.0, b)) * list.length) as int;
