@@ -217,7 +217,7 @@ events.onCustomReward(function (e as mods.zenutils.ftbq.CustomRewardEvent) {
   */
   if (e.reward.tags has 'loot') {
     val amount = e.reward.icon.amount;
-    val diff = scripts.lib.mod.scalinghealth.getPlayerDimDifficulty(e.player.getUUID(), e.player.world.dimension);
+    val diff = e.player.difficulty;
     e.player.give(e.reward.icon * (
       diff < 1.0 ? amount + 1 // Mostly zero difficulty +1 chest
         : diff > 1000 ? max(1, amount - 1) // max difficulty -1 chest
