@@ -189,7 +189,7 @@ Icon | Summary
 
 Mods that present only in `Extended` version:
 
-259 mods in this section.
+260 mods in this section.
 
 Icon | Summary
 ----:|:-------
@@ -311,6 +311,7 @@ Icon | Summary
 <img src="https://media.forgecdn.net/avatars/thumbnails/1131/830/30/30/638691606432990450.png"           > |               [**Lootr (Forge & NeoForge)**](https://www.curseforge.com/minecraft/mc-mods/lootr)                        <sup><sub>lootr-1.12.2-0.6.2.jar                           </sub></sup><br>A mod that makes it so nobody misses out on Loot! All loot chests are instanced per player and visually unique.
 <img src="https://media.forgecdn.net/avatars/thumbnails/247/735/30/30/637164776217531839.png"            > |                   [**Harder Branch Mining**](https://www.curseforge.com/minecraft/mc-mods/harder-branch-mining)         <sup><sub>HarderBranchMining-1.12.2-2.0.0.17.jar           </sub></sup><br>Encourages caving by configurable depth slower digging and more exhaustion 
 <img src="https://media.forgecdn.net/avatars/thumbnails/248/435/30/30/637168261428598002.png"            > |                                    [**QMD**](https://www.curseforge.com/minecraft/mc-mods/qmd)                          <sup><sub>QMD-1.5 beta 2-1.12.2.jar                        </sub></sup><br>A Nuclearcraft Addon that adds particle accelerators and particle physics
+<img src="https://media.forgecdn.net/avatars/thumbnails/252/7/30/30/637186307688060793.png"              > |                            [**A Dark Mode**](https://www.curseforge.com/minecraft/texture-packs/minecraft-dark-mode-mod-support)<sup><sub>Dark Mode-2.4.2.zip                              </sub></sup><br>Reskins minecraft and 250+ mods&#x27; guis to a dark theme
 <img src="https://media.forgecdn.net/avatars/thumbnails/536/616/30/30/637858797561019715.png"            > |                    [**Dynamic View[Forge]**](https://www.curseforge.com/minecraft/mc-mods/dynamic-view)                 <sup><sub>dynviewdist-1.12-1.3.jar                         </sub></sup><br>Dynamically changes chunk view(and simulation) distance based on load
 <img src="https://media.forgecdn.net/avatars/thumbnails/254/939/30/30/637200077339216709.png"            > |                             [**AI Reducer**](https://www.curseforge.com/minecraft/mc-mods/ai-reducer)                   <sup><sub>AIReducer-1.12.2-0.3.0.jar                       </sub></sup><br>Configurable AI for performance
 <img src="https://media.forgecdn.net/avatars/thumbnails/255/920/30/30/637203370124735161.png"            > |            [**Converting Industrial Wires**](https://www.curseforge.com/minecraft/mc-mods/converting-industrial-wires)  <sup><sub>IndustrialWires-1.7-39.jar                       </sub></sup><br>Industrial Wires but with energy conversion
