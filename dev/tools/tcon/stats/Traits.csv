@@ -53,7 +53,7 @@ Cheap,cheap,15,More bang for your buck!\nIncreases durability gained when repair
 Cheapskate,cheapskate_armor,-5,Might be a knockoff!\nStone is bad. Your armor has less durability.,Overall durability decreased
 Cheapskate,cheapskate,-10,Cheeky!\nStone is bad. Your tool has less durability.,Overall durability decreased
 Chilling Touch,tconevo.chilling_touch_armor,20,Ice is nice!\nThis armour briefly slows attackers.,
-Chunky,chunky,40,Makes your tool or weapon randomly drop Mob Chunks.,Hit enemies have a chance to drop their mob chunk on death
+Chunky,chunky,15,Makes your tool or weapon randomly drop Mob Chunks.,Hit enemies have a chance to drop their mob chunk on death
 Cold-Blooded,coldblooded,30,Savage!\nDeal increased damage to targets at full health.,Increases damage against targets at full HP
 Combustible,combustible_armor,50,This armor is on fiiiire!\nSets fire to surrounding creatures when ignited.,
 Condensing,tconevo.condensing,150,Try not to think about it.\nSlain foes and broken blocks may leave behind a smattering of neutrons.,Breaking blocks and killing enemies has a rare chance of leaving behind neutronium pieces
@@ -157,7 +157,7 @@ Mana-Infused,tconevo.mana_infused,90,Mining in the database?\nThis tool repairs 
 Mana,mana,90,"Rechargeable... with flowers\nMana can be used in place of durability, and can heal the tool over time.",Mana (Botania) can be used instead of durability; Will repair itself using Mana
 Mirabile Visu,mirabile,80,"Wonderful to see\nOccasionally, a gold or diamond ore will appear in stone immediately surrounding you (at the cost of durability).",
 Modifiable II,tconevo.modifiable2,50,The infinite spring!\nThis equipment has additional free modifier slots.,Grants an extra modifier (2 per stack)
-Modifiable,tconevo.modifiable1,50,The infinite spring!\nThis equipment has additional free modifier slots.,Grants an extra modifier (1 per stack)
+Modifiable,tconevo.modifiable1,30,The infinite spring!\nThis equipment has additional free modifier slots.,Grants an extra modifier (1 per stack)
 Moldable,moldable_armor,35,Maître Chocolatier.\nBlend additional modifiers into your armor.,Gain 1 modifier
 Moldable,moldable,50,Maître Chocolatier.\nBlend additional modifiers into your tool.,Gain 1 modifier
 Momentum,momentum,50,"Faster, keep going!\nMining blocks increases your speed, as long as you keep going.",Mining speed increases the longer you are mining
@@ -261,7 +261,7 @@ Vanishing,,5,Out of my way!\nChance to teleport enemies away.,Chance to teleport
 Vaporizer,vaporizer,15,Instantly evaporates liquids in a large radius around the point of impact.,
 Veiled,veiled,5,Like a Specter!\nProjectile will be invisible.,Projectile becomes invisible
 Vengeful,vengeful_armor,35,They'll pay for this!\nYour attackers might not feel great after hitting you.,
-Vindictive,vindictive,10,"You are not forgiven!\nBonus damage to players, and you gain some health by attacking.",Increases damage against players
+Vindictive,vindictive,5,"You are not forgiven!\nBonus damage to players, and you gain some health by attacking.",Increases damage against players
 Vis Equillibrium,vis_equilibrium_armor,45,Depending on vis in aura your tool has better stats.,
 Vis Equillibrium,vis_equilibrium,35,Depending on vis in aura your tool has better stats.,
 Vis Siphon,vis_siphon_armor,25,Repairs tool using local vis in aura.,
