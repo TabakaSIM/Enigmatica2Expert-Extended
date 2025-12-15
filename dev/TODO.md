@@ -13,9 +13,14 @@
 - [ ] ✏️ Make `Burn In Fluid` 100% giving result on 3 pieces, even if no blocks under
 - [ ] 🔨 Fix tool cant make crystallized shards https://discord.com/channels/911676461050642432/959878900278784030/1449094572906123295
 - [ ] ✏️ Fix `Replicator` add difficulty based on dimension
+- [ ] ✏️ `Garbage Pile => Scrap` remove recipe
+- [ ] ✏️ `Industrial Squeezer` remove excess popped chorus recipe
+- [ ] 💥 Enable `Gnetum` when fixed: https://github.com/decce6/Gnetum/issues/55
 
 ### ✨ New features
 
+- [ ] Ctrt+Shift => Take 20 stacks from a drawer
+- [ ] 🔵 Add `mc2discord` mod to server pack and add configuration description
 - [ ] 🐢 `/restart_server` do not account AFK players
 - [ ] 🔨 `Vaporizer` trait add levels and tooltip function
 - [ ] ✏️ Add `Troll Weapon` recipe to allow Peaceful playthrough
