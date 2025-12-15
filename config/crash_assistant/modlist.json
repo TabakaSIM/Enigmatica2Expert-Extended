@@ -1,10 +1,10 @@
 {
-  "!!!CrashAssistant-forge-1.12.2-1.10.25.jar": {
-    "curseForgeHash": 2106139380,
-    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.25.jar",
+  "!!!CrashAssistant-forge-1.12.2-1.10.27.jar": {
+    "curseForgeHash": 779469533,
+    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.27.jar",
     "modId": "crash_assistant",
-    "modrinthHash": "983509f581d78d149de3311c22e4dd15c8e92bc1",
-    "version": "1.10.25"
+    "modrinthHash": "ef411a96d1ea6c5a9eea03eadd6d61980f3d41e6",
+    "version": "1.10.27"
   },
   "!configanytime-3.0.jar": {
     "curseForgeHash": 3732531395,
@@ -58,12 +58,12 @@
     "modrinthHash": "27fc8bf180d8e2563b1c68f28e42ae64a81ea579",
     "version": "1.2.0"
   },
-  "ActuallyAdditions-1.12.2-r164-V2.jar": {
-    "curseForgeHash": 44821192,
-    "jarName": "ActuallyAdditions-1.12.2-r164-V2.jar",
+  "ActuallyAdditions-1.12.2-r152.jar": {
+    "curseForgeHash": 1923394747,
+    "jarName": "ActuallyAdditions-1.12.2-r152.jar",
     "modId": "actuallyadditions",
-    "modrinthHash": "ff3f89b89303416f91bd26a069c1c9c41f7aa9a0",
-    "version": "1.12.2-r164"
+    "modrinthHash": "6e5f7deda0d3cf196b38f57eb60ef18a85b0ca2d",
+    "version": "1.12.2-r152"
   },
   "ActuallyBaubles-1.12-1.1.jar": {
     "curseForgeHash": 4219803846,
@@ -229,12 +229,12 @@
     "modrinthHash": "646b49f2db0eb2d9f4e17ec65b6aa6d7a16b72e4",
     "version": "1.12.2-1.1.8"
   },
-  "ArmoredArms-v1.3.5-release.jar": {
-    "curseForgeHash": 3873805511,
-    "jarName": "ArmoredArms-v1.3.5-release.jar",
+  "ArmoredArms-v1.3.6-release.jar": {
+    "curseForgeHash": 1618349156,
+    "jarName": "ArmoredArms-v1.3.6-release.jar",
     "modId": "armoredarms",
-    "modrinthHash": "8b67ccdb90878dc69012e3959cb3f0bada78f26c",
-    "version": "v1.3.5-release"
+    "modrinthHash": "73219bc68a412636715e36642daf738633e1e96a",
+    "version": "v1.3.6-release"
   },
   "armoryexpansion-2.0.0-alpha.jar": {
     "curseForgeHash": 3077282103,
@@ -746,12 +746,12 @@
     "modrinthHash": "8be30f1977cd9df566dfbae2977793335e576591",
     "version": "1.1.3"
   },
-  "curvy_pipes-1.12.2-1.13.3.jar": {
-    "curseForgeHash": 1205075887,
-    "jarName": "curvy_pipes-1.12.2-1.13.3.jar",
+  "curvy_pipes-1.12.2-1.13.5.jar": {
+    "curseForgeHash": 517823155,
+    "jarName": "curvy_pipes-1.12.2-1.13.5.jar",
     "modId": "curvy_pipes",
-    "modrinthHash": "736b963a46d4743434de5acebf78aeb216efc975",
-    "version": "1.13.3"
+    "modrinthHash": "dbc2b76ee51f6fd53ed95a58b098c8e4373a2606",
+    "version": "1.13.5"
   },
   "CustomBackgrounds-MC1.12-1.1.1.jar": {
     "curseForgeHash": 609781450,
@@ -2934,11 +2934,11 @@
     "modrinthHash": "538e306575d826b220638969a67cf17dfe8a18a7",
     "version": "1.1"
   },
-  "zenutils-1.26.8.jar": {
-    "curseForgeHash": 3305857139,
-    "jarName": "zenutils-1.26.8.jar",
+  "zenutils-1.26.9.jar": {
+    "curseForgeHash": 3232490486,
+    "jarName": "zenutils-1.26.9.jar",
     "modId": "zenutils",
-    "modrinthHash": "32266908e71d1c5b1d166e154927dbe8cc8f0d25",
-    "version": "1.26.8"
+    "modrinthHash": "0049fc72ce6aac1f0c67ff091b0b13b459b94568",
+    "version": "1.26.9"
   }
 }
