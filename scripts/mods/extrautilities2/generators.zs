@@ -9,7 +9,7 @@ import extrautilities2.Tweaker.IMachineRegistry.getMachine;
 zenClass Gen {
   var gen as extrautilities2.Tweaker.IMachine;
   var rft as int = 400;
-  var time as int = 2400;
+  var defaultTime as int = 2400;
 
   zenConstructor(shortName as string) {
     gen = getMachine("extrautils2:generator_" + shortName);
@@ -24,14 +24,19 @@ zenClass Gen {
 
   function setDefaultRFTandTime(newRft as int, newTime as int) as Gen {
     rft = newRft;
-    time = newTime;
+    defaultTime = newTime;
     return this;
   }
 
   function addRecipes(items as double[IIngredient]) as Gen {
     for item, mult in items {
       if (isNull(item)) continue;
-      gen.addRecipe({ 'input': item }, {}, mult * time * rft, time);
+      val totalRF = mult * defaultTime * rft;
+      val cap = 2000000000;
+      val totalRFCapped = min(totalRF, cap);
+      val totalRFResidue = totalRF - totalRFCapped;
+      val time = defaultTime * (1.0 + totalRFResidue / cap);
+      gen.addRecipe({ 'input': item }, {}, totalRFCapped, time);
     }
     return this;
   }
@@ -75,18 +80,17 @@ Gen('ender')
   <minecraft:ender_eye>: 0.3,
   <ic2:dust:32>: 0.35,
   <cyclicmagic:horse_upgrade_jump>: 0.5,
-  <enderio:item_material:58>: 1.0,
+  <enderio:item_material:58>: 0.6,
   <extrautils2:enderlilly>: 1.0,
   <thaumictinkerer:kamiresource:0>: 1.0,
-  <endreborn:item_ingot_endorium>: 3.0,
-  <actuallyadditions:item_misc:19>: 8.0,
-  <thermalfoundation:material:167>: 16.0,
-  <avaritia:endest_pearl>: 30.0,
-  <thermalfoundation:material:895>: 90.0,
-  <rftools:infused_enderpearl>: 161.0,
-  <extendedcrafting:material:48>: 204.0,
-  <redstonerepository:material:1>: 289.0,
-  <extendedcrafting:material:36>: 340.0,
-  <extendedcrafting:material:40>: 793.0,
-  <extendedcrafting:singularity:50>: 79080.0,
+  <endreborn:item_ingot_endorium>: 1.5,
+  <thermalfoundation:material:167>: 3.0,
+  <avaritia:endest_pearl>: 100.0,
+  <thermalfoundation:material:895>: 8.0,
+  <rftools:infused_enderpearl>: 8.0,
+  <extendedcrafting:material:48>: 12.0,
+  <redstonerepository:material:1>: 10.0,
+  <extendedcrafting:material:36>: 1.0,
+  <extendedcrafting:material:40>: 16.0,
+  <extendedcrafting:singularity:50>: 80000.0,
 } as double[IIngredient]$orderly);
