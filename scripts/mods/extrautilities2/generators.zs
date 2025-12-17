@@ -4,6 +4,7 @@
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
+import crafttweaker.util.Math.min;
 import extrautilities2.Tweaker.IMachineRegistry.getMachine;
 
 zenClass Gen {
@@ -17,6 +18,7 @@ zenClass Gen {
 
   function removeInputs(items as IItemStack[]) as Gen {
     for item in items {
+      if (isNull(item)) continue;
       gen.removeRecipe({ 'input': item });
     }
     return this;
@@ -31,22 +33,63 @@ zenClass Gen {
   function addRecipes(items as double[IIngredient]) as Gen {
     for item, mult in items {
       if (isNull(item)) continue;
-      val totalRF = mult * defaultTime * rft;
-      val cap = 2000000000;
+      val totalRF = mult as long * defaultTime * rft;
+      val cap = 2000000000L;
       val totalRFCapped = min(totalRF, cap);
       val totalRFResidue = totalRF - totalRFCapped;
-      val time = defaultTime * (1.0 + totalRFResidue / cap);
+      val time = defaultTime * (1.0 + totalRFResidue / cap / 100);
       gen.addRecipe({ 'input': item }, {}, totalRFCapped, time);
     }
     return this;
   }
+
+  function add(rft as int, time as int, input as IIngredient) as Gen {
+    if (isNull(input)) return this;
+    val totalRF = time as long * rft;
+    val cap = 2000000000L;
+    val totalRFCapped = min(totalRF, cap);
+    val totalRFResidue = totalRF - totalRFCapped;
+    if (totalRFResidue > 0 && utils.DEBUG) logger.logWarning(
+      "Generator recipe for " ~ input.commandString ~
+      " exceeds max RF capacity and its time or rf/t values need to be adjusted about " ~ (totalRFResidue as double / cap) ~ " times.");
+
+    val maxRftWithUpgrades = totalRFCapped / time * 64;
+    if (maxRftWithUpgrades > cap && utils.DEBUG) logger.logWarning(
+      "Generator recipe for " ~ input.commandString ~
+      " produce too much RF/t for max upgrades: " ~ maxRftWithUpgrades ~ " RF/t. Consider changing RF/t or time values.");
+
+    gen.addRecipe({ 'input': input }, {}, totalRFCapped, time);
+    return this;
+  }
 }
+
+/*
+
+List of possible generator names:
+
+survival
+culinary
+potion
+tnt
+lava
+pink
+netherstar
+ender
+redstone
+overclock
+dragonsbreath
+ice
+death
+enchant
+slime
+
+*/
 
 Gen('netherstar')
 .removeInputs([
   <minecraft:nether_star>,
 ])
-.setDefaultRFTandTime(4000, 2400) // Old RF/T: 4000, time: 2400
+.setDefaultRFTandTime(4000, 2400)
 .addRecipes({
   <mysticalagradditions:nether_star_essence>: 0.06,
   <ore:nuggetNetherStar>: 0.11,
@@ -72,25 +115,19 @@ Gen('ender')
   <forge:bucketfilled>.withTag({Amount:1000, FluidName:"ender"}),
   <forge:bucketfilled>.withTag({Amount:1000, FluidName:"enderium"}),
 ])
-.setDefaultRFTandTime(6000, 5 * 60 * 20)
-.addRecipes({
-  <minecraft:ender_pearl>: 0.05,
-  <extrautils2:endershard>: 0.125,
-  <appliedenergistics2:material:46>: 0.2,
-  <minecraft:ender_eye>: 0.3,
-  <ic2:dust:32>: 0.35,
-  <cyclicmagic:horse_upgrade_jump>: 0.5,
-  <enderio:item_material:58>: 0.6,
-  <extrautils2:enderlilly>: 1.0,
-  <thaumictinkerer:kamiresource:0>: 1.0,
-  <endreborn:item_ingot_endorium>: 1.5,
-  <thermalfoundation:material:167>: 3.0,
-  <avaritia:endest_pearl>: 100.0,
-  <thermalfoundation:material:895>: 8.0,
-  <rftools:infused_enderpearl>: 8.0,
-  <extendedcrafting:material:48>: 12.0,
-  <redstonerepository:material:1>: 10.0,
-  <extendedcrafting:material:36>: 1.0,
-  <extendedcrafting:material:40>: 16.0,
-  <extendedcrafting:singularity:50>: 80000.0,
-} as double[IIngredient]$orderly);
+//    rf/t, d    h    m    s    t
+.add(  600,           5 * 60 * 20, <ic2:dust:32>)
+.add(  600,           5 * 60 * 20, <thaumictinkerer:kamiresource>)
+.add(  900,           5 * 60 * 20, <cyclicmagic:horse_upgrade_jump>)
+.add( 1200,           5 * 60 * 20, <extrautils2:enderlilly>)
+.add( 3000,           5 * 60 * 20, <endreborn:item_ingot_endorium>)
+.add( 3600,           5 * 60 * 20, <extendedcrafting:material:36>)
+.add( 4000,      6 * 60 * 60 * 20, <avaritia:endest_pearl>)
+.add( 6000,           5 * 60 * 20, <thermalfoundation:material:167>)
+.add( 9000,           5 * 60 * 20, <rftools:infused_enderpearl>)
+.add(12000,           5 * 60 * 20, <extendedcrafting:material:48>)
+.add(12000,           5 * 60 * 20, <thermalfoundation:material:895>)
+.add(24000,          10 * 60 * 20, <redstonerepository:material:1>)
+.add(60000,      2 * 60 * 60 * 20, <avaritia:endest_pearl>)
+.add(80000,31 * 24 * 60 * 60 * 20, <extendedcrafting:singularity:50>)
+;
