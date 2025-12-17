@@ -29,6 +29,8 @@ static superwand as IItemStack = <omniwand:wand>.withTag({
     enderio             : {id: "enderio:item_yeta_wrench"                       , Count: 1, tag: { "omniwand:definedMod": "enderio"              }},
     environmentaltech   : {id: "environmentaltech:tool_multiblock_assembler"    , Count: 1, tag: { "omniwand:definedMod": "environmentaltech"    }},
     extrautils2         : {id: "extrautils2:wrench"                             , Count: 1, tag: { "omniwand:definedMod": "extrautils2"          }},
+    extrautils20        : {id: "minecraft:compass"                              , Count: 1, tag: { "omniwand:definedMod": "extrautils20"         }},
+    extrautils21        : {id: "minecraft:redstone_torch"                       , Count: 1, tag: { "omniwand:definedMod": "extrautils21"         }},
     forestry            : {id: "forestry:smoker"                                , Count: 1, tag: { "omniwand:definedMod": "forestry"             }},
     forestry1           : {id: "forestry:soldering_iron"                        , Count: 1, tag: { "omniwand:definedMod": "forestry1"            }},
     forestry2           : {id: "forestry:wrench"                                , Count: 1, tag: { "omniwand:definedMod": "forestry2"            }},
@@ -61,8 +63,8 @@ static superwand as IItemStack = <omniwand:wand>.withTag({
     storagedrawers2     : {id: "storagedrawers:quantify_key"                    , Count: 1, tag: { "omniwand:definedMod": "storagedrawers2"      }},
     storagedrawers3     : {id: "storagedrawers:shroud_key"                      , Count: 1, tag: { "omniwand:definedMod": "storagedrawers3"      }},
     teslacorelib        : {id: "teslacorelib:wrench"                            , Count: 1, tag: { "omniwand:definedMod": "teslacorelib"         }},
-    thermalfoundation   : {id: "thermalfoundation:wrench"                       , Count: 1, tag: { "omniwand:definedMod": "thermalfoundation"    }},
     thaumcraft          : {id: "thaumcraft:resonator"                           , Count: 1, tag: { "omniwand:definedMod": "thaumcraft"           }},
+    thermalfoundation   : {id: "thermalfoundation:wrench"                       , Count: 1, tag: { "omniwand:definedMod": "thermalfoundation"    }},
   },
   "omniwand:is_transforming": 1 as byte,
 });
