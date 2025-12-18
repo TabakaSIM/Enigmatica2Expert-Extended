@@ -228,15 +228,6 @@
 		}
 	},
 	{
-		item: {
-			id: "cyclicmagic:ender_water",
-			tag: {
-				ActionType: 2,
-				timeout: 0
-			}
-		}
-	},
-	{
 		icon: "tconstruct:dried_clay 16",
 		item: "tconstruct:dried_clay",
 		count: 16
