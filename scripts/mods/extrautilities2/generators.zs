@@ -128,6 +128,33 @@ Gen('ender')
 .add(12000,           5 * 60 * 20, <extendedcrafting:material:48>)
 .add(12000,           5 * 60 * 20, <thermalfoundation:material:895>)
 .add(24000,          10 * 60 * 20, <redstonerepository:material:1>)
-.add(60000,      2 * 60 * 60 * 20, <avaritia:endest_pearl>)
-.add(80000,31 * 24 * 60 * 60 * 20, <extendedcrafting:singularity:50>)
+;
+
+Gen('dragonsbreath')
+.removeInputs([
+  <minecraft:dragon_breath>,
+])
+//    rf/t, d    h    m    s    t
+.add(  500, 2 * 24 * 60 * 60 * 20, <minecraft:dragon_breath>)
+;
+
+Gen('ice')
+.removeInputs([
+  <forge:bucketfilled:*>,
+  <minecraft:ice>,
+  <minecraft:packed_ice>,
+  <minecraft:snow_layer>,
+  <minecraft:snow>,
+  <minecraft:snowball>,
+  <thermalfoundation:material:1025>,
+  <thermalfoundation:material:2048>,
+  <thermalfoundation:material:2049>,
+])
+//    rf/t, d    h    m    s    t
+.add( 1000,     24 * 60 * 60 * 20, <iceandfire:dragonsteel_ice_ingot>)
+.add( 2000,               10 * 20, <iceandfire:dragon_ice>)
+.add( 2000,           5 * 60 * 20, <twilightforest:ice_bomb>)
+.add( 5000,          20 * 60 * 20, <forestry:pollen:1>)
+.add( 5000,          30 * 60 * 20, <thermalfoundation:material:1025>)
+.add( 8000,      1 * 60 * 60 * 20, <iceandfire:ice_dragon_blood>)
 ;
