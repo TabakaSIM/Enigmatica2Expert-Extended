@@ -1,12 +1,14 @@
 #loader contenttweaker
-#modloaded tconstruct
+#modloaded tconstruct extrautils2
 
 import crafttweaker.world.IBlockPos;
 import crafttweaker.world.IWorld;
 import mods.contenttweaker.tconstruct.TraitBuilder;
-import native.net.minecraft.util.EnumParticleTypes;
+import native.com.rwtema.extrautils2.network.NetworkHandler;
+import native.com.rwtema.extrautils2.particles.PacketParticleSplineCurve;
+import native.com.rwtema.extrautils2.utils.helpers.VecHelper;
 import native.net.minecraft.util.SoundCategory;
-import native.net.minecraft.world.WorldServer;
+import native.net.minecraft.util.math.Vec3d;
 
 import scripts.do.portal_spread.sphere.getNextPoint;
 import scripts.do.portal_spread.sphere.radiusToIndex;
@@ -71,6 +73,18 @@ function clearLiquids(world as IWorld, pos as IBlockPos) as void {
       liquidBlocksFound += 1;
 
       world.setBlockState(<blockstate:minecraft:air>, currentPos);
+
+      if (world.random.nextInt(liquidBlocksFound) == 0) {
+        val startPosVec = Vec3d(0.5 + pos.x, 0.5 + pos.y, 0.5 + pos.z);
+        val endPosVec = Vec3d(0.5 + currentPos.x, 0.5 + currentPos.y, 0.5 + currentPos.z);
+
+        val startVel = Vec3d(0, 0.1, 0);
+        val endVel = startVel;
+        val color = 0xac3100; // #ac3100ff
+
+        val packet = PacketParticleSplineCurve(startPosVec, endPosVec, startVel, endVel, color);
+        NetworkHandler.sendToAllAround(packet, world.dimension, pos.x, pos.y, pos.z, 64.0);
+      }
     }
   }
 
@@ -78,24 +92,6 @@ function clearLiquids(world as IWorld, pos as IBlockPos) as void {
     world.native.playSound(null, pos,
       native.com.lothrazar.cyclicmagic.registry.SoundRegistry.liquid_evaporate,
       SoundCategory.AMBIENT, 1.0f, 1.0f);
-
-    // Spawn small fire particles in a sphere
-    var smallRadius = max(1, VAPORIZER_RADIUS / 3); // Start not from center
-    var particleIndex = radiusToIndex(smallRadius);
-    val maxIndex = radiusToIndex(smallRadius + 1);
-    while particleIndex < maxIndex {
-      val pointData = getNextPoint(particleIndex);
-      particleIndex = pointData[0];
-      if (world.random.nextInt(4) == 0) {
-        val particlePos = pos.add(pointData[1], pointData[2], pointData[3]);
-
-        (world.native as WorldServer).spawnParticle(
-          EnumParticleTypes.FLAME,
-          particlePos.x + 0.5, particlePos.y + 0.5, particlePos.z + 0.5,
-          1, 0.1, 0.1, 0.1, 0.0, 0
-        );
-      }
-    }
   }
 }
 
