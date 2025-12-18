@@ -9,27 +9,28 @@
 - [ ] ✏️ `Bone` fix crush -> melt -> cast dupe
 - [ ] 🐛 Custom beacons not working on server
 - [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
-- [ ] 📖 Fix players dont get +1 loot box
 - [ ] ✏️ Make `Burn In Fluid` 100% giving result on 3 pieces, even if no blocks under
-- [ ] 🔨 Fix tool cant make crystallized shards https://discord.com/channels/911676461050642432/959878900278784030/1449094572906123295
 - [ ] ✏️ Fix `Replicator` add difficulty based on dimension
 - [ ] ✏️ `Garbage Pile => Scrap` remove recipe
 - [ ] ✏️ `Industrial Squeezer` remove excess popped chorus recipe
-- [ ] 💥 Enable `Gnetum` when fixed: https://github.com/decce6/Gnetum/issues/55
+- [ ] Remove re-initialization at `scripts/do/portal_spread/sphere.zs`
 
 ### ✨ New features
 
+- [ ] 🔨 `Vaporizer` should clear fluids by using FluidloggedAPI
+- [ ] 🐛 Migrate vtt and add `tinkerer, brewer, redstoner`
+- [ ] 📖 When player enters world for the first time, pin first quest to the screen. This enforce people to know how to disable pins.
+- [ ] 📖 Add hint that `Robot` can automate Singularities
+- [ ] ✨ Idea: Difficulty cant grow if you didnt died
 - [ ] Ctrt+Shift => Take 20 stacks from a drawer
 - [ ] 🔵 Add `mc2discord` mod to server pack and add configuration description
 - [ ] 🐢 `/restart_server` do not account AFK players
-- [ ] 🔨 `Vaporizer` trait add levels and tooltip function
 - [ ] ✏️ Add `Troll Weapon` recipe to allow Peaceful playthrough
 - [ ] 📖 `Amazing Glasses` - disable GUIs when wear
 - [ ] 📖 Add `Porous Stone` Block drops
 - [ ] 🔨 Craft.zs add Thaumcraft Aspect transformer into emojis
 - [ ] ✏️ Blacklist `Rock Crystal Ore` from Rat Nuggets
 - [ ] 🔨 `Resistant` modifier make multiplicative bonus instead of additive (+2% right now, shuld be something like *10%)
-- [ ] 🔨 add `Antimatter Evaporator` ability for TCon tool
 - [ ] 🔨 `Borrowing` should levelup tinker's tools
 - [ ] 🖥️ "Spedrun server" scripts - server restarts each 2 hours after player join, recreate world
 - [ ] `Butterfly` => `Wasp` in witch water
@@ -74,6 +75,7 @@ Planned non-urgent changes, or just good ideas:
 
 ### "Performance ⚡"
 
+- [ ] ⚡ Forbid to place `Core Samples` on the ground since they lower FPS. Map should be used instead
 - [ ] ⚡ Rework Conflux levels chunk loading. Required to fix some half-loading chunk bug which disconnect cables and causing item spam
 - [ ] ⚡ Add watcher to detect 5000 items in one block distance and remove them
 - [ ] ⚡ Make Lumenized optional
@@ -91,7 +93,7 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ⚡ Remove automatic IE armor recycling to speed up game load
 - [ ] ⚡ Remove `Chunk Loading Ward` since its make harder to find all chunk loaders on server
 - [ ] ⚡ Get rid of `Simple Trophies` since they strain FPS, replace them with LittleTiles or 3dPrint structures
-- [ ] ⚡ Remove `Cyclic`'s machines completely because they are laggy: https://i.imgur.com/cbCJJBq.png
+- [ ] ⚡ Remove `Cyclic`'s machines completely because they are laggy: https://i.imgur.com/cbCJJBq.png (replace recipes with FluidInteractionTweaker)
 - [ ] ⚡ Add Tips note about IE multiblocks causing strong FPS strain. Also make them all work so fast only 1 machine needed
 
 ### Quests and Docs expansion
@@ -180,6 +182,8 @@ Planned non-urgent changes, or just good ideas:
 - [ ] 🧱 Skyblock: Make `Porouse Stone` and `AA Ore Laser` mandatory in skyblock
 
 ### Mods
+- [ ] 🟠 Migrate `vtt` => `Roidstweaker` when fixed https://github.com/roidrole/Roids-Tweaker/issues/11
+- [ ] 🟢 Enable `Gnetum` when fixed: https://github.com/decce6/Gnetum/issues/55
 - [ ] 🟠 Do not update **Advanced Rocketry - Reworked** until fixed https://github.com/dercodeKoenig/AdvancedRocketry/issues/50
 - [ ] 🟠 Do not update **JAOPCA** - uncompatible with `JAOPCACustom`
 - [ ] 🟠 Do not update **籁/Sound Physics Remixin** `1.1.17` or above - uncompatible with `Java 8`
@@ -200,7 +204,6 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ✏️ Remove `Advanced Bee Analyzer` and just speed up Forestry Analyzer with mixin instead
 - [ ] 👑 Upgrading Draconic tools give Omnopotence (cannot reproduce single player)
 - [ ] 💎 Diamond shouldn't be meltable in smeltery
-- [ ] 📖 Add emojis 🍎 to chapter finishing messages
 - [ ] 🐦 enable Enchanting speed up for rats
 - [ ] 📀 Add HV wire invincibility TCon trait
 - [ ] 📀 Dont let IC2 miner dig any mining level
@@ -219,7 +222,6 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ✏️ `Creative Impetus` add recipe. Doubdt - its block kinda ugly, no effects, more like technical.
 - [ ] 🧪 Integrate new TCon Fluids: `Blazin' Blood + Bone, Venom + Bone`
 - [ ] 🌍 Bio planet bog should have Peat under the ground
-- [ ] ✨ Idea: Difficulty cant grow if you didnt died
 - [ ] 🌍 Teleport player to AlienJungle with Blood Magic TP ritual
 - [ ] 🌍 AlienJungle add JER data
 - [ ] 𝓩𝒮 `/perf` improvments: Group chunks by dimension, Split big reports to pages, Add command mention in quest book
@@ -230,12 +232,11 @@ Planned non-urgent changes, or just good ideas:
 - [ ] 💡 Idea: items doesnt have borders if already acquired
 - [ ] 💡 Idea: Chain commands with `& /`
 - [ ] 🔨 Little Tiles remove limits (but how? Its already have big limits)
-- [ ] 🔵 Integrate more textures with `Lumenized` (contributor's help welcomed here)
 - [ ] ✏️ Fix `Magma Crucible` cant melt Rotten Flesh
 - [ ] ✏️ `Cinnabar Cluster` can only be made in the crucible/thaumatorium and not via an alchemist's stone in a crystalization chamber
 - [ ] 📀 `Flux Anodizers` should output more ore when working with Netherending Ores
 - [ ] 📀 [(Filled) Tin Can] fix not restoring nutrients
-- [ ] 📀 Speed up Dragon Forge
+- [ ] 🐲 Speed up Dragon Forge
 - [ ] ✏️ `High Oven` does not provide x2 of fluid for Osmium Ore
 - [ ] 🖼️ Add via mixins: https://legacy.curseforge.com/minecraft/texture-packs/ic2-seedbag-display
 - [ ] 🐀 Rat Ore Doubling can dupe IC2 "Iridium Ore". Removing oreIridium from it wont help.
@@ -438,6 +439,9 @@ Items that should have more uses:
   > Possible reward - whenever picking up item for the first time - get second copy of this item
 - No generated Ores
   > Player started with limited amounts of Ores. He cant get more.
+- Hardcore "Death Stranding" mode
+  > Player death causing DE Reactor explosion.
+  > Maybe world border
 
 <!-- 
 ## Miscellaneous
