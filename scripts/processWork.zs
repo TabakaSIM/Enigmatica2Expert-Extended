@@ -591,7 +591,11 @@ function workEx(machineNameAnyCase as string, exceptionsAnyCase as string,
     }
 
     if (machineName == 'industrialsqueezer') {
-      // mods.immersiveengineering.Squeezer.addRecipe(IItemStack output, ILiquidStack fluid, IIngredient input, int energy);
+      if (strict) {
+        for ii in inputIngr0.itemArray {
+          mods.immersiveengineering.Squeezer.removeByInput(ii);
+        }
+      }
       mods.immersiveengineering.Squeezer.addRecipe(outputItem0, outputLiquid0, inputIngr0, 2048);
       return machineName;
     }

@@ -157,5 +157,4 @@ recipes.addShapeless('integrateddynamics:on_the_dynamics_of_integration',
   [<ore:stickStone>,<integrateddynamics:menril_berries>]);
 
 // Highly-efficient recipes
-mods.immersiveengineering.Squeezer.removeByInput(<minecraft:chorus_fruit_popped>);
 scripts.process.squeeze([<minecraft:chorus_fruit_popped>], <fluid:liquidchorus> * 1000, 'strict: industrialsqueezer', <integrateddynamics:crystalized_chorus_chunk>);
