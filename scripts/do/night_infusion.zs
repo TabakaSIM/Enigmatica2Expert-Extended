@@ -28,7 +28,7 @@ events.onWorldTick(function (e as crafttweaker.event.WorldTickEvent) {
   if (
     world.dayTime
     || world.raining
-    || world.time % 20 != 0
+    || world.worldInfo.worldTotalTime % 20 != 0
   ) return;
 
   for entityItem in world.getEntityItems() {

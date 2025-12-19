@@ -119,7 +119,7 @@ function aerTornado(scythe as IEntity, lvl as int) as void {
             context.data = {duration: 15 + 6 * lvl, position: [scythe.x, scythe.y, scythe.z], movement: [world.random.nextDouble(-2.0, 2.0), 0, world.random.nextDouble(-2.0, 2.0)]};// TODO make tornado move
   })
   .alwaysUntil(function(world, context) {
-    if(world.provider.worldTime % 6 != 0) return false;
+    if(world.worldInfo.worldTotalTime % 6 != 0) return false;
 
     val list = world.getEntities();
     for entity in list {

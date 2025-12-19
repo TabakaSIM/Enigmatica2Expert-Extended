@@ -32,7 +32,7 @@ events.onWorldTick(function (e as crafttweaker.event.WorldTickEvent) {
     e.world.remote
     || e.phase != 'END'
     || (e.world.dimension != 122 && e.world.dimension != 123)
-    || e.world.time % 40 != 0
+    || e.world.worldInfo.worldTotalTime % 40 != 0
   ) return;
 
   val chunkProvider = e.world.native.getChunkProvider() as ChunkProviderServer;

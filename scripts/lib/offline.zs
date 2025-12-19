@@ -56,7 +56,7 @@ zenClass Op {
 
     // Emergency saving to prevent loss of data on server crash
     events.register(function (e as crafttweaker.event.PlayerTickEvent) {
-      if (e.player.world.remote || e.phase != 'END' || e.player.world.time % 20 != 0) return;
+      if (e.player.world.remote || e.phase != 'END' || e.player.world.worldInfo.worldTotalTime % 20 != 0) return;
       this.save(e.player);
     });
   }

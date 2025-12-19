@@ -51,7 +51,7 @@ events.onWorldTick(function (e as crafttweaker.event.WorldTickEvent) {
 
   // Skip ticks for every portal
   val spreadDelayInt = Config.spreadDelay as int;
-  if (spreadDelayInt > 1 && e.world.time % spreadDelayInt != 0) return;
+  if (spreadDelayInt > 1 && e.world.worldInfo.worldTotalTime % spreadDelayInt != 0) return;
 
   for targetDimIdStr, dimData in getDimsMap(e.world).asMap() {
     if (isNull(dimData) || isNull(dimData.asMap())) continue;
@@ -116,7 +116,7 @@ function tickPortalsToWorld(world as IWorld, targetDimIdStr as string, dimData a
     if (trueDelay <= 0) continue;
 
     // Skip generation on slow modifier
-    if (trueDelay >= 1.0 && (world.time % (trueDelay as int)) != 0) continue;
+    if (trueDelay >= 1.0 && (world.worldInfo.worldTotalTime % (trueDelay as int)) != 0) continue;
 
     // Determine how many blocks could be transformed in one run
     val repeats = (1.0 / trueDelay) as int;

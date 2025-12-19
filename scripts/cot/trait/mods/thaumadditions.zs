@@ -339,7 +339,7 @@ function checkIfOtherSwordAlreadySpeaks(player as IEntity) as bool {
     return false;
   }
 
-  return player.world.time == player.nbt.ForgeData.warpSpeakCooldown;
+  return player.world.worldInfo.worldTotalTime == player.nbt.ForgeData.warpSpeakCooldown;
 }
 
 static dialogLocation as string = 'warp.sword.speak.';
@@ -373,7 +373,7 @@ function speakRandom(player as IPlayer, world as IWorld) as void {
 
 possessed_Trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
   if (world.remote
-    || world.time % 6000 != 0
+    || world.worldInfo.worldTotalTime % 6000 != 0
     || !checkIfWeapon(tool)
     || !owner instanceof IPlayer
     || checkIfOtherSwordAlreadySpeaks(owner)) {
@@ -385,7 +385,7 @@ possessed_Trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSele
   if (warp >= 100) {
     if (world.random.nextInt(2) > 0) {
       player.warpTemporary = min(500, 5 + player.warpTemporary);
-      player.setNBT({ warpSpeakCooldown: world.time });
+      player.setNBT({ warpSpeakCooldown: world.worldInfo.worldTotalTime });
       speakRandom(player, world);
     }
   }
@@ -530,7 +530,7 @@ function gazeMechanic(world as IWorld, player as IPlayer) as void {
 
 gaze_trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
   if (!isSelected) return;
-  if (world.getWorldTime() % gazeUpdateTime != 0) return;
+  if (world.worldInfo.worldTotalTime % gazeUpdateTime != 0) return;
   if (!owner instanceof IPlayer) return;
   val player as IPlayer = owner;
   gazeMechanic(world, player);
@@ -721,14 +721,14 @@ researcherTrait.onUpdate = function (trait, tool, world, owner, itemSlot, isSele
     tool.mutable().updateTag({ flux: 0 });
     return;
   }
-  if (world.time % 1000 == 0) {
+  if (world.worldInfo.worldTotalTime % 1000 == 0) {
     if (player.thaumcraftKnowledge.isResearchComplete('ORE_PURIFIER') && isNull(tool.tag.orePurifier)) tool.mutable().updateTag({ orePurifier: 1 });
     if (player.thaumcraftKnowledge.isResearchComplete('LOOT_STEALER') && isNull(tool.tag.lootStealer)) tool.mutable().updateTag({ lootStealer: 1 });
     if (player.thaumcraftKnowledge.isResearchComplete('FLUX_STRIKE') && isNull(tool.tag.fluxStrikeResearch)) tool.mutable().updateTag({ fluxStrikeResearch: 1 });
     if (player.thaumcraftKnowledge.isResearchComplete('GOD_WRAITH') && isNull(tool.tag.godWraith)) tool.mutable().updateTag({ godWraith: 1 });
     if (player.thaumcraftKnowledge.isResearchComplete('PURE_SMITE') && isNull(tool.tag.pureSmite)) tool.mutable().updateTag({ pureSmite: 1 });
   }
-  if (world.time % 10 != 0 || tool.tag.flux >= 50) return;
+  if (world.worldInfo.worldTotalTime % 10 != 0 || tool.tag.flux >= 50) return;
   if (world.getFlux(player.position) <= 1.0f) return;
   world.drainFlux(player.position, 1.0f);
   tool.mutable().updateTag({ flux: tool.tag.flux + 1 });

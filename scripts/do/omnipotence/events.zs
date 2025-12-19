@@ -10,7 +10,7 @@ val op as scripts.do.omnipotence.op.Op = scripts.do.omnipotence.op.op;
 
 events.register(function (e as PlayerTickEvent) {
   if (e.phase != 'END') return;
-  if (e.player.world.provider.worldTime % 10 != 0) return;
+  if (e.player.world.worldInfo.worldTotalTime % 10 != 0) return;
 
   val player = e.player;
   if (op.isPendingOmnipotentce(player))

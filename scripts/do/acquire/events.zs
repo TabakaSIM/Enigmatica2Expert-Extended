@@ -58,7 +58,7 @@ events.register(function (e as crafttweaker.event.PlayerCraftedEvent) {
 events.register(function (e as crafttweaker.event.PlayerTickEvent) {
   if (e.player.world.remote || e.phase != 'END') return;
 
-  if (e.player.world.provider.worldTime % 10 == 0 && !isNull(e.player.native.openContainer)) {
+  if (e.player.world.worldInfo.worldTotalTime % 10 == 0 && !isNull(e.player.native.openContainer)) {
     checkContainer(e.player, toString(e.player.native.openContainer));
   }
 

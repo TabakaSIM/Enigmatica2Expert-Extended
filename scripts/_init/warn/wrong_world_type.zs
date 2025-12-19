@@ -11,7 +11,7 @@ events.onPlayerLoggedIn(function (e as crafttweaker.event.PlayerLoggedInEvent) {
   if (world.remote) return;
   if(!isNull(messageSended[world])) return;
   if(world.dimension != 0) return;
-  if(world.time > 3000) return; // Skip worlds already generated before
+  if(world.worldInfo.worldTotalTime > 3000) return; // Skip worlds already generated before
 
   if (world.worldType == 'voidworld' || world.worldType == 'void_plustweaks') {
     world.catenation().sleep(20 * 10).then(function (world, ctx) {

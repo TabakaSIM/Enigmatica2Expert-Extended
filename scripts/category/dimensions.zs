@@ -33,7 +33,7 @@ events.register(function (e as mods.zenutils.ftbq.QuestCompletedEvent) {
 
 events.onPlayerTick(function (e as crafttweaker.event.PlayerTickEvent) {
   if (e.player.world.remote) return;
-  if (e.player.world.getWorldTime() % 10 != 0) return;
+  if (e.player.world.worldInfo.worldTotalTime % 10 != 0) return;
 
   checkAndGrant(e.player);
 });

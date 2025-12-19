@@ -164,11 +164,11 @@ events.onPlayerInteractEntity(function (e as crafttweaker.event.PlayerInteractEn
   if (!e.player.world.remote
     && (
       isNull(playerLastActionTime[e.player.name])
-      || e.player.world.time != playerLastActionTime[e.player.name]
+      || e.player.world.worldInfo.worldTotalTime != playerLastActionTime[e.player.name]
     ) // Double event call safe
   ) {
     if (milk(e)) {
-      playerLastActionTime[e.player.name] = e.player.world.time;
+      playerLastActionTime[e.player.name] = e.player.world.worldInfo.worldTotalTime;
       e.canceled = true;
     }
     else {

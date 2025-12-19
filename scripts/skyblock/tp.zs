@@ -13,7 +13,7 @@ events.onPlayerTick(function (e as crafttweaker.event.PlayerTickEvent) {
   val player = e.player;
   if (
     player.world.remote
-    || player.world.time % 2 != 0
+    || player.world.worldInfo.worldTotalTime % 2 != 0
   ) return;
   
   if (player.dimension == 0

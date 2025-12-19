@@ -21,19 +21,17 @@ static recentClearPoints as [[long]] = [] as [[long]];
 events.onWorldTick(function (e as crafttweaker.event.WorldTickEvent) {
   if (e.world.remote || e.world.dimension != 0 || e.phase != 'END' || recentClearPoints.length == 0) return;
 
-  val currentTime = e.world.worldInfo.worldTotalTime;
   for j in 0 .. recentClearPoints.length {
     val i = recentClearPoints.length - j - 1;
     val data = recentClearPoints[i];
     val time = data[0];
-    if (currentTime - time >= 5) recentClearPoints.remove(i);
+    if (e.world.worldInfo.worldTotalTime - time >= 5) recentClearPoints.remove(i);
   }
 });
 
 function clearLiquids(world as IWorld, pos as IBlockPos) as void {
   if (world.remote) return;
 
-  val currentTime = world.worldInfo.worldTotalTime;
   val dim = world.dimension;
   val checkRadiusSq = VAPORIZER_RADIUS * VAPORIZER_RADIUS;
 
@@ -49,10 +47,10 @@ function clearLiquids(world as IWorld, pos as IBlockPos) as void {
     val dy = pos.y - py;
     val dz = pos.z - pz;
 
-    if ((dx * dx + dy * dy + dz * dz) < checkRadiusSq && currentTime - pTime < 5) return;
+    if ((dx * dx + dy * dy + dz * dz) < checkRadiusSq && world.worldInfo.worldTotalTime - pTime < 5) return;
   }
 
-  recentClearPoints.add([currentTime, dim as long, pos.x as long, pos.y as long, pos.z as long] as [long]);
+  recentClearPoints.add([world.worldInfo.worldTotalTime, dim as long, pos.x as long, pos.y as long, pos.z as long] as [long]);
 
   var currentIndex = 1;
   val maxIndex = radiusToIndex(VAPORIZER_RADIUS);

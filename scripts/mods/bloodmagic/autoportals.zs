@@ -81,13 +81,13 @@ events.onPlayerInteractBlock(function (e as crafttweaker.event.PlayerInteractBlo
   if(portalOrient == 0) return;
   say('Portal valid');
 
-  val catenationTimeout = e.world.time + 100;
+  val catenationTimeout = e.world.worldInfo.worldTotalTime + 100;
   e.world.catenation()
   .sleepUntil(function(world, context) {
     return world.getBlock(e.position.up()).definition.id == 'bloodmagic:dimensional_portal';
   })
   .stopWhen(function(world, context) {
-      return world.time > catenationTimeout;
+      return world.worldInfo.worldTotalTime > catenationTimeout;
   })
   .then(function (world, ctx) {
     prepareNewPortal(world, e.position, masterState);

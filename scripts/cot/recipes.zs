@@ -247,7 +247,7 @@ val transformedAbsorber = <contenttweaker:knowledge_absorber>.anyDamage().transf
   for ench in item.enchantments {
     if(ench.definition != <enchantment:minecraft:unbreaking>) continue;
     return (
-      (player.world.time + absorber_crafts_count[player.world] as long) % ((ench.level + 1) as long) != 0
+      (player.world.worldInfo.worldTotalTime + absorber_crafts_count[player.world] as long) % ((ench.level + 1) as long) != 0
     ) ? item : damaged;
   }
   return damaged;

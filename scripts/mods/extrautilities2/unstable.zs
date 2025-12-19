@@ -42,7 +42,7 @@ events.onPlayerOpenContainer(function (event as crafttweaker.event.PlayerOpenCon
   setPlayerContainerCounter(1 + getPlayerContainerCounter(p), p);
 });
 
-function getUnstableIngot(p as IPlayer, w as IWorld) as IItemStack {
+function getUnstableIngot(p as IPlayer, world as IWorld) as IItemStack {
   return <extrautils2:unstableingots>.withTag({
     owner: {
       UUIDL: p.getUUIDObject().getLeastSignificantBits() as long,
@@ -50,8 +50,8 @@ function getUnstableIngot(p as IPlayer, w as IWorld) as IItemStack {
       UUIDU: p.getUUIDObject().getMostSignificantBits() as long,
     },
     container: getPlayerContainerCounter(p),
-    dim      : w.getDimension(),
-    time     : w.getWorldTime() as long,
+    dim      : world.getDimension(),
+    time     : world.worldInfo.worldTotalTime,
   });
 }
 

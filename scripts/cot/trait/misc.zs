@@ -92,7 +92,7 @@ antimagic.onHurt = function (trait, armor, player, source, damage, newDamage, ev
   return newDamage;
 };
 antimagic.onArmorTick = function (trait, armor, world, player) {
-  if (world.getWorldTime() % 10 == 8) player.clearActivePotions();
+  if (world.worldInfo.worldTotalTime % 10 == 8) player.clearActivePotions();
 };
 antimagic.register();
 
@@ -204,7 +204,7 @@ spectre_trait.localizedName = game.localize('e2ee.tconstruct.material.spectre.na
 spectre_trait.localizedDescription = game.localize('e2ee.tconstruct.material.spectre.description');
 spectre_trait.onUpdate = function (trait, tool, world, owner, itemSlot, isSelected) {
   if (!isSelected) return;
-  if (world.getWorldTime() % spectreUpdateTime != 0) return;
+  if (world.worldInfo.worldTotalTime % spectreUpdateTime != 0) return;
   if (!owner instanceof IPlayer) return;
   val player as IPlayer = owner;
   spectreMechanic(world, player, getItemMatAmount(tool, 'spectre'));
@@ -216,7 +216,7 @@ spectre_armor.color = 0x9CC1CE;
 spectre_armor.localizedName = game.localize('e2ee.tconstruct.material.spectre.name');
 spectre_armor.localizedDescription = game.localize('e2ee.tconstruct.material.spectre.description');
 spectre_armor.onAbility = function (trait, level, world, player) {
-  if (world.getWorldTime() % spectreUpdateTime != 0) return;
+  if (world.worldInfo.worldTotalTime % spectreUpdateTime != 0) return;
   spectreMechanic(world, player, getArmorMatsAmount(player, 'spectre'));
 };
 spectre_armor.register();

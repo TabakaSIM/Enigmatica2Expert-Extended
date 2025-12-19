@@ -156,7 +156,7 @@ function runAutomation(player as IPlayer) as void {
 
 events.onPlayerLoggedIn(function (e as crafttweaker.event.PlayerLoggedInEvent) {
   if (e.player.world.remote) return;
-  if (!debugUtils.firstTime(e.player.world.time)) return;
+  if (!debugUtils.firstTime(e.player.world.worldInfo.worldTotalTime)) return;
 
   e.player.world.catenation().sleep(100).then(function (world, ctx) {
     e.player.sendMessage('§4Modpack running in debug mode');
