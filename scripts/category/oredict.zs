@@ -666,6 +666,7 @@ addItems(<ore:machineCase>, [
   <thermalexpansion:frame:147>,
   <thermalexpansion:frame:148>,
   <thermalexpansion:frame>,
+  <threng:big_assembler>,
 ]);
 
 addItems(<ore:itemBall>, [
