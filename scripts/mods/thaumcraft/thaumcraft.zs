@@ -1,3 +1,4 @@
+#modloaded thaumcraft
 #ignoreBracketErrors
 
 import crafttweaker.data.IData;

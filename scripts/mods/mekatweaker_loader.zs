@@ -1,4 +1,5 @@
 #loader contenttweaker
+#modloaded roidtweaker mekanism
 
 import mods.mekatweaker.InfuserType;
 

@@ -7,7 +7,6 @@
 #priority 3000
 #modloaded zenutils
 #loader contenttweaker
-#reloadable
 
 // Create class to avoid initialization of the array on each loader
 zenClass Op {
@@ -35,8 +34,7 @@ static MAX_Z_VARIANTS as int = maxRadius + 2;
 static MAX_DISTANCE_INDEXES as int = MAX_GROUP_SIZE * MAX_Z_VARIANTS * MAX_MIRRORS;
 
 function init() as void {
-  // Fixme: Remove debug logging
-  print('~~~ initializing!');
+  print('Initializing sphere array for portal_spread calculations...');
   Op.initialized = true;
   for x in 0 .. (maxRadius + 1) {
     for y in 0 .. (x + 1) {

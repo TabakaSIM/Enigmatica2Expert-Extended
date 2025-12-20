@@ -13,7 +13,7 @@ import crafttweaker.entity.IEntity;
 import crafttweaker.world.IBlockPos;
 import native.net.minecraft.item.ItemStack;
 import mods.zenutils.StringList;
-import scripts.lib.purge.purge;
+import scripts.lib.purge.purge.purge;
 import scripts.do.portal_spread.utils.stateToItem;
 
 function giveChest(player as IPlayer, items as IItemStack[]) as void {

@@ -68,7 +68,7 @@ zenClass CPurge {
   function aspects() as CPurge {
     if (isNull(ingr)) return this;
     for item in ingr.items {
-      native.thaumcraft.api.ThaumcraftApi.registerObjectTag(item, null);
+      purgeAspects(item);
     }
     return this;
   }
@@ -87,6 +87,9 @@ zenClass CPurge {
     }
     return false;
   }
+
+  static purgeAspects as function(IItemStack)void
+    = function(item as IItemStack) as void {};
 }
 
 static purge as CPurge = CPurge();

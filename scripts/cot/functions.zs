@@ -340,10 +340,6 @@ for i, id in singularIDs {
   cotItem.onItemUpdate = getSingularityUpdateFunc(ore, recipeFunction);
 }
 
-// Special crafting case for Garbage Singularity
-mods.extendedcrafting.CompressionCrafting.addRecipe(<contenttweaker:garbage_singularity>.withTag({ completed: 1 as byte }),
-  <rats:garbage_pile>, 10000, <rats:idol_of_ratlantis>, 2000000, 100000);
-
 // ------------------------------------------
 function createBedrockOre(world as World, contentId as string, contentProp as string, amount as int, pos as BlockPos) as void {
   val state = IBlockState.getBlockState(contentId, contentProp);

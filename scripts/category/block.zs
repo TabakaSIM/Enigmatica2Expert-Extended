@@ -23,7 +23,7 @@ function set(level as int, tool as string, ingr as IIngredient, hardness as int 
   if (isNull(ingr)) return false;
   var success = false;
   for item in ingr.items {
-    if (scripts.lib.purge.purge.isPurged(item)) {
+    if (scripts.lib.purge.purge.purge.isPurged(item)) {
       warnItem(item, 'Trying to change block properties for purged item');
       continue;
     }
