@@ -1,9 +1,9 @@
 #ignoreBracketErrors
-#modloaded rockytweaks
+#modloaded roidtweaker
 
 import crafttweaker.item.IItemStack;
 
-import mods.rockytweaks.Merchant.addTrade;
+import mods.roidtweaker.minecraft.villager.Villager;
 
 recipes.remove(<cyclicmagic:block_shears>);
 val pap = <conarm:polishing_kit>.withTag({ Material: 'paper' });
@@ -15,7 +15,7 @@ val E = <minecraft:emerald>;
 
 val merchData = {
   'minecraft:farmer': {
-    fisherman: {
+    farmer: {
       5: [
         [E, <mysticalagriculture:crafting:5>, <mysticalagriculture:crafting:16>],
         [E * 64, <botania:manaresource:5>, <botania:overgrowthseed>],
@@ -28,7 +28,7 @@ val merchData = {
         [<mysticalagradditions:tier6_inferium_seeds>, E * 6],
       ],
     },
-    shepherd: {
+    fisherman: {
       3: [
         [E, <actuallyadditions:item_food:3> * 5],
         [E * 6, <harvestcraft:fishtrapbaititem> * 64],
@@ -49,7 +49,7 @@ val merchData = {
         [<harvestcraft:clamcookeditem>, E],
       ],
     },
-    fletcher: {
+    shepherd: {
       3: [
         [E, <animania:wool:0>],
         [E, <animania:wool:1>],
@@ -71,7 +71,7 @@ val merchData = {
         [<thermalfoundation:rockwool>, E],
       ],
     },
-    farmer: {
+    fletcher: {
       3: [
         [<twilightforest:raven_feather> * 2, E],
         [E * 15, <tconstruct:fletching>.withTag({ Material: 'stymph_feather' })],
@@ -92,7 +92,7 @@ val merchData = {
     },
   },
   'minecraft:librarian': {
-    cartographer: {
+    librarian: {
       4: [
         [E * 4, <chisel:paper> * 64],
         [<chisel:bookshelf_oak>, E],
@@ -105,7 +105,7 @@ val merchData = {
         [E * 40, <minecraft:bookshelf>, <cyclicmagic:block_library_ctrl>],
       ],
     },
-    librarian: {
+    cartographer: {
       4: [
         [E * 6, <forestry:carton>],
         [E * 17, <bibliocraft:printingpress>],
@@ -136,7 +136,7 @@ val merchData = {
     },
   },
   'minecraft:smith': {
-    weapon: {
+    armor: {
       1: [
         [pap * 5, E],
       ],
@@ -171,7 +171,7 @@ val merchData = {
         [E * 10, pap, <conarm:polishing_kit>.withTag({ Material: 'scalereddragon' })],
       ],
     },
-    tool: {
+    weapon: {
       4: [
         [E * 8, <animania:carving_knife>],
         [E * 9, <actuallyadditions:item_knife>],
@@ -184,7 +184,7 @@ val merchData = {
         [E * 43, <ic2:energy_crystal>.withTag({ charge: 1000000.0 }), <ic2:mining_laser>.withTag({ charge: 300000.0 })],
       ],
     },
-    armor: {
+    tool: {
       4: [
         [E * 15, <ic2:forge_hammer>],
         [E * 24, <exnihilocreatio:hammer_diamond>],
@@ -213,7 +213,7 @@ val merchData = {
     },
   },
   'minecraft:butcher': {
-    leather: {
+    butcher: {
       3: [
         [E * 3, <animania:raw_prime_rabbit>],
         [E * 3, <animania:raw_peacock>],
@@ -250,7 +250,7 @@ val merchData = {
         [E * 24, <mysticalagradditions:stuff:3>],
       ],
     },
-    butcher: {
+    leather: {
       3: [
         [E * 2, <harvestcraft:hardenedleatheritem>],
         [E * 5, <betteranimalsplus:wolf_pelt_snowy>],
@@ -448,12 +448,18 @@ for profession, pList in merchData {
           '[' ~ ((items.length > 2 && !isNull(items[2])) ? items[2].displayName : '') ~ ']',
           level,
         ] as string[]);
-        if (items.length > 2 && !isNull(items[2]))
-          addTrade(profession, career, items[0], items[1], items[2], level);
-        else if (items.length > 1)
-          addTrade(profession, career, items[0], items[1], level);
-        else
-          logger.logWarning('Merchant trade have not anough items: profession: ' ~ profession ~ ', career: ' ~ career ~ ', level: ' ~ level);
+
+        val careerObj = Villager.getCareer(profession, career);
+        if (isNull(careerObj)) {
+          logger.logWarning('Cant find merchant for profession: ' ~ profession ~ ', career: ' ~ career);
+        } else {
+          if (items.length > 2 && !isNull(items[2]))
+            careerObj.addTrade(level, items[2], items[0], items[1]);
+          else if (items.length > 1)
+            careerObj.addTrade(level, items[1], items[0]);
+          else
+            logger.logWarning('Merchant trade have not anough items: profession: ' ~ profession ~ ', career: ' ~ career ~ ', level: ' ~ level);
+        }
       }
     }
   }
