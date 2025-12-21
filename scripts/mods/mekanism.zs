@@ -14,6 +14,9 @@ for ingot in <ore:ingotGraphite>.items {
   mods.mekanism.crusher.addRecipe(ingot, <nuclearcraft:dust:8>);
 }
 
+// Prevent turning Charcoal into Coal
+mods.mekanism.sawmill.removeRecipe(<minecraft:torch>);
+
 // Increasing Stacksize
 <mekanism:tierinstaller>.maxStackSize = 16;
 <mekanism:tierinstaller:1>.maxStackSize = 16;
