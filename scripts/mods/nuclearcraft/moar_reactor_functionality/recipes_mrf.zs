@@ -9,7 +9,7 @@ https://creativecommons.org/licenses/by-nc/3.0/
 this code. Also, you may not sell this code.)
 */
 
-#modloaded nuclearcraft zenutils immersivetechnology
+#modloaded nuclearcraft zenutils immersivetech
 #ignoreBracketErrors
 
 import crafttweaker.liquid.ILiquidStack;
