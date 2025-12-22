@@ -11,6 +11,9 @@ import crafttweaker.liquid.ILiquidStack;
 
 mods.tconstruct.Melting.addEntityMelting(<entity:iceandfire:hippocampus>, <fluid:liquid_helium> * 20);
 
+// Prevent duping bones by crushing => melting => casting bones
+mods.tconstruct.Melting.removeRecipe(<fluid:notmilk>);
+
 // Melt vanilla items since autimatic calculation is disabled
 scripts.process.melt(<minecraft:cauldron>, <fluid:iron> * (144 * 7));
 scripts.process.melt(<minecraft:anvil>, <fluid:iron> * (144 * 31));
