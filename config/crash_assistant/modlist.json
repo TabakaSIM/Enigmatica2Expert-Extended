@@ -182,12 +182,12 @@
     "modrinthHash": "bc7aaa5bb2c839503178414c6bfb06c9b9c3554e",
     "version": "2.1.8"
   },
-  "AntiqueArmory-1.12.2-1.2.6.jar": {
-    "curseForgeHash": 528685828,
-    "jarName": "AntiqueArmory-1.12.2-1.2.6.jar",
+  "AntiqueArmory-1.12.2-1.2.7.jar": {
+    "curseForgeHash": 3487802124,
+    "jarName": "AntiqueArmory-1.12.2-1.2.7.jar",
     "modId": "conarm",
-    "modrinthHash": "755cbe1e5167eb4fa100f7faf7f22aa9d60db6f0",
-    "version": "1.2.6"
+    "modrinthHash": "f70d4a713b0a05d888a8113b13aef2f4a203747c",
+    "version": "1.2.7"
   },
   "AppleCore-mc1.12.2-3.4.0.jar": {
     "curseForgeHash": 3756462991,
@@ -229,12 +229,12 @@
     "modrinthHash": "646b49f2db0eb2d9f4e17ec65b6aa6d7a16b72e4",
     "version": "1.12.2-1.1.8"
   },
-  "ArmoredArms-v1.3.6-release.jar": {
-    "curseForgeHash": 1618349156,
-    "jarName": "ArmoredArms-v1.3.6-release.jar",
+  "ArmoredArms-v1.3.7-release.jar": {
+    "curseForgeHash": 823140670,
+    "jarName": "ArmoredArms-v1.3.7-release.jar",
     "modId": "armoredarms",
-    "modrinthHash": "73219bc68a412636715e36642daf738633e1e96a",
-    "version": "v1.3.6-release"
+    "modrinthHash": "840f275f47064eb668980f2615dcf517b64f2701",
+    "version": "v1.3.7-release"
   },
   "armoryexpansion-2.0.0-alpha.jar": {
     "curseForgeHash": 3077282103,
@@ -1038,6 +1038,13 @@
     "modrinthHash": "71e1bc2c020e22abfa958d07a55dc692a0376986",
     "version": "1.5.4"
   },
+  "Fluidlogged-API-v3.1.2-mc1.12.2.jar": {
+    "curseForgeHash": 518594309,
+    "jarName": "Fluidlogged-API-v3.1.2-mc1.12.2.jar",
+    "modId": "fluidlogged_api",
+    "modrinthHash": "ef56ffb091e1b60cad7a5e0df8c68cf83ef09ec2",
+    "version": "3.1.2"
+  },
   "FluxNetworks-1.12.2-4.1.1.34.jar": {
     "curseForgeHash": 449558524,
     "jarName": "FluxNetworks-1.12.2-4.1.1.34.jar",
@@ -1171,12 +1178,12 @@
     "modrinthHash": "712d7a0bc1b9caba40e303b7252e6995f9b03b62",
     "version": "1.12.2-1.1"
   },
-  "HadEnoughItems_1.12.2-4.29.12.jar": {
-    "curseForgeHash": 1362681107,
-    "jarName": "HadEnoughItems_1.12.2-4.29.12.jar",
+  "HadEnoughItems_1.12.2-4.29.13.jar": {
+    "curseForgeHash": 3220568388,
+    "jarName": "HadEnoughItems_1.12.2-4.29.13.jar",
     "modId": "jei",
-    "modrinthHash": "5898366627758a69ce2a28251c1f64a91ee0e4ee",
-    "version": "4.29.12"
+    "modrinthHash": "510d2b5c9ddd4f6f087ab62eb547cd589653e6d1",
+    "version": "4.29.13"
   },
   "HammerLib-1.12.2-12.2.58.jar": {
     "curseForgeHash": 1631106799,
@@ -1219,6 +1226,13 @@
     "modrinthHash": "6ac289e44ae54f30b116c30a60dee82721c7d690",
     "version": "1.3.3.jenkins148"
   },
+  "IC2-Patcher-2.0.12.jar": {
+    "curseForgeHash": 4288080945,
+    "jarName": "IC2-Patcher-2.0.12.jar",
+    "modId": "ic2patcher",
+    "modrinthHash": "6ef799042033355f7cd461804b62a671214df4ad",
+    "version": "2.0.12"
+  },
   "ic2-tweaker-0.2.1+build.4.jar": {
     "curseForgeHash": 1697944818,
     "jarName": "ic2-tweaker-0.2.1+build.4.jar",
@@ -1230,13 +1244,6 @@
     "curseForgeHash": 2813444614,
     "jarName": "IC2CropBreeding Plugin V1.12-1.1.jar",
     "modrinthHash": "c43102e4193d5816a4aef867caf5d8d95bb32661"
-  },
-  "ic2patcher-2.0.9.jar": {
-    "curseForgeHash": 2085635080,
-    "jarName": "ic2patcher-2.0.9.jar",
-    "modId": "ic2patcher",
-    "modrinthHash": "f035f435ba86d89e54dae00547d4e5e0f217a4ea",
-    "version": "2.0.9"
   },
   "iceandfire-1.9.1-1.12.2.jar": {
     "curseForgeHash": 2365316237,
@@ -1887,12 +1894,12 @@
     "modrinthHash": "0b26436ab98f4cc0397d2285d1f0674af1c51287",
     "version": "1.5.5"
   },
-  "omniwand-1.12.2-1.0.1.jar": {
-    "curseForgeHash": 600626055,
-    "jarName": "omniwand-1.12.2-1.0.1.jar",
+  "omniwand-1.12.2-2.0.2.jar": {
+    "curseForgeHash": 2776505875,
+    "jarName": "omniwand-1.12.2-2.0.2.jar",
     "modId": "omniwand",
-    "modrinthHash": "5c3a75b4efd047636c5715c8fc3245986df85048",
-    "version": "1.12.2-1.0.1"
+    "modrinthHash": "f34f53b08bd95186abcbe7f1b4a1d52f2767fc78",
+    "version": "1.12.2-2.0.2"
   },
   "OpenBlocksReopened-1.12.2-1.8.3.1.jar": {
     "curseForgeHash": 2570592600,
@@ -2135,12 +2142,12 @@
     "modrinthHash": "ca442c6ac9689fedba3e57594a893413e275367a",
     "version": "r1.6-189"
   },
-  "random_complement-1.7.3.jar": {
-    "curseForgeHash": 4248876447,
-    "jarName": "random_complement-1.7.3.jar",
+  "random_complement-1.8.6.jar": {
+    "curseForgeHash": 3213553416,
+    "jarName": "random_complement-1.8.6.jar",
     "modId": "random_complement",
-    "modrinthHash": "1c907a074ec832798fb4e78c67f3b3d2a8326a9e",
-    "version": "1.7.3"
+    "modrinthHash": "8d869a759f4e72c29ff8cd51bb17a2c1a70d0737",
+    "version": "1.8.6"
   },
   "RandomThings-MC1.12.2-4.2.7.4.jar": {
     "curseForgeHash": 3215073064,
@@ -2607,12 +2614,12 @@
     "modrinthHash": "9ebb2894fee87f27c12de58ada888dc4fc279b0a",
     "version": "1.0.10"
   },
-  "TinkersAntique-1.12.2-2.13.0.204.jar": {
-    "curseForgeHash": 3159823631,
-    "jarName": "TinkersAntique-1.12.2-2.13.0.204.jar",
+  "TinkersAntique-1.12.2-2.13.0.205.jar": {
+    "curseForgeHash": 2391296484,
+    "jarName": "TinkersAntique-1.12.2-2.13.0.205.jar",
     "modId": "tconstruct",
-    "modrinthHash": "78511df30c901b89bd1edf7c128004d4e212d45b",
-    "version": "1.12.2-2.13.0.204"
+    "modrinthHash": "84f3dc7d5e141e9647596a826113524d5eecb48d",
+    "version": "1.12.2-2.13.0.205"
   },
   "TinkersComplement-1.12.2-0.4.3.jar": {
     "curseForgeHash": 606935708,
@@ -2838,13 +2845,6 @@
     "modrinthHash": "404357d3ddd521e4be46d13d62bbb3fc2155762d",
     "version": "1.12.2-1.2.1"
   },
-  "VillagerTrades-1.12.2-0.6.5.jar": {
-    "curseForgeHash": 2334562787,
-    "jarName": "VillagerTrades-1.12.2-0.6.5.jar",
-    "modId": "vtt",
-    "modrinthHash": "827aaf777f361534dc711858e0f0ec3fdb7138d1",
-    "version": "${version}"
-  },
   "vintagefix-0.6.2.jar": {
     "curseForgeHash": 1319026169,
     "jarName": "vintagefix-0.6.2.jar",
@@ -2934,11 +2934,11 @@
     "modrinthHash": "538e306575d826b220638969a67cf17dfe8a18a7",
     "version": "1.1"
   },
-  "zenutils-1.26.9.jar": {
-    "curseForgeHash": 3232490486,
-    "jarName": "zenutils-1.26.9.jar",
+  "zenutils-1.26.10.jar": {
+    "curseForgeHash": 1149547020,
+    "jarName": "zenutils-1.26.10.jar",
     "modId": "zenutils",
-    "modrinthHash": "0049fc72ce6aac1f0c67ff091b0b13b459b94568",
-    "version": "1.26.9"
+    "modrinthHash": "834cd0b657b617f7617d4bbe03903acd512a8da7",
+    "version": "1.26.10"
   }
 }
