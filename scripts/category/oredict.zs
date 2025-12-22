@@ -967,6 +967,7 @@ remove(<ore:dustObsidian>, <endreborn:catalyst>);
 remove(<ore:tungstenIngot>, <endreborn:item_ingot_wolframium>);
 add(<ore:oreXorcite>, <endreborn:dragon_essence>);
 add(<ore:gemXorcite>, <endreborn:death_essence>);
+add(<ore:clusterTungsten>, <jaopca:item_clustertungsten>);
 add(<ore:oreTungsten>, <endreborn:block_wolframium_ore>);
 add(<ore:nuggetTungsten>, <endreborn:wolframium_nugget>);
 add(<ore:blockTungsten>, <endreborn:block_wolframium>);
