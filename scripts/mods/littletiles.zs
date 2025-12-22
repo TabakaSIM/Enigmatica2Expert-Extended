@@ -115,7 +115,7 @@ function addPieceCrush(source as IItemStack, amount as int) as void {
   addScrapCrush(amount > 64 ? piece64 : piece, 64);
 }
 
-addScrapCrush(<rats:garbage_pile>, 16);
+addScrapCrush(<rats:garbage_pile>, 8);
 addScrapCrush(<nuclearcraft:wasteland_earth>, 32);
 addPieceCrush(<trinity:radioactive_earth>, 64);
 addPieceCrush(<trinity:radioactive_earth2>, 4096);
