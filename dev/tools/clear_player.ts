@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-/* eslint-disable style/no-multi-spaces */
-/* eslint-disable ts/no-unsafe-argument */
-/* eslint-disable ts/no-unsafe-call */
+
 /**
  * Backup and clear player data from a Minecraft server.
  */
+
+/* eslint-disable style/no-multi-spaces */
+/* eslint-disable ts/no-unsafe-argument */
 
 import type { Compound, NBT } from 'prismarine-nbt'
 import type { ConnectOptions } from 'ssh2-sftp-client'
@@ -114,7 +115,7 @@ async function handleTeamData(sftp: Client, worldName: string, playerName: strin
       s.stop(`Marking team ${chalk.cyan(teamId)} for player removal.`)
       return {
         ...initialResult,
-        modifications: [{ teamId, newTeamNbt: teamNbt }],
+        modifications             : [{ teamId, newTeamNbt: teamNbt }],
         preModificationBackupPaths: [teamFilePath],
       }
     }

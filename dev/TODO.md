@@ -4,25 +4,21 @@
 
 ### 🐛 Bugfixes
 
-- [ ] 🐛 Fix Harvest Levels not working for non-"stone" material
-- [ ] ✏️ Collector (on Tinkers at least) stops Axing trait from working (and possibly more traits that change the block you mine)
-- [ ] ✏️ `Bone` fix crush -> melt -> cast dupe
-- [ ] 🐛 Custom beacons not working on server
 - [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
-- [ ] ✏️ Make `Burn In Fluid` 100% giving result on 3 pieces, even if no blocks under
 - [ ] ✏️ Fix `Replicator` add difficulty based on dimension
-- [ ] ✏️ `Garbage Pile => Scrap` remove recipe
 - [ ] ✏️ `Industrial Squeezer` remove excess popped chorus recipe
-- [ ] Remove re-initialization at `scripts/do/portal_spread/sphere.zs`
+- [ ] ✏️ Remove re-initialization at `scripts/do/portal_spread/sphere.zs`
 
 ### ✨ New features
 
+- [ ] 👃 Migrate villagers/merchants to RoidsTweaker from VTT
+- [ ] ✨ add wireless linking thingy from ae2stuff to Omniwand
 - [ ] 🔨 `Vaporizer` should clear fluids by using FluidloggedAPI
 - [ ] 🐛 Migrate vtt and add `tinkerer, brewer, redstoner`
 - [ ] 📖 When player enters world for the first time, pin first quest to the screen. This enforce people to know how to disable pins.
 - [ ] 📖 Add hint that `Robot` can automate Singularities
 - [ ] ✨ Idea: Difficulty cant grow if you didnt died
-- [ ] Ctrt+Shift => Take 20 stacks from a drawer
+- [ ] ➡️ Ctrt+Shift => Take 20 stacks from a drawer
 - [ ] 🔵 Add `mc2discord` mod to server pack and add configuration description
 - [ ] 🐢 `/restart_server` do not account AFK players
 - [ ] ✏️ Add `Troll Weapon` recipe to allow Peaceful playthrough
@@ -34,9 +30,9 @@
 - [ ] 🔨 `Borrowing` should levelup tinker's tools
 - [ ] 🖥️ "Spedrun server" scripts - server restarts each 2 hours after player join, recreate world
 - [ ] `Butterfly` => `Wasp` in witch water
-- [ ] Make `Quantum Armor` Tinker's alternative or add Airtight Seal book add to it
-- [ ] Remove any kind of shears from game so players use Kama
-- [ ] Remap `thermalexpansion.Enchanter` recipes since no one using them
+- [ ] ✏️ Make `Quantum Armor` Tinker's alternative or add Airtight Seal book add to it
+- [ ] ✏️ Remove any kind of shears from game so players use Kama
+- [ ] ✏️ Remap `thermalexpansion.Enchanter` recipes since no one using them 
 - [ ] ✏️ for `Invar` recipe to replace ingot to dust in ArcFurnace
 - [ ] 🟣 Migrate to Bansoukou 6
 - [ ] ✏️ `Redstone Cable` harder recipe
@@ -52,18 +48,6 @@
 - [ ] ✏️ Add `Anglesite`-like ore that made in form of RFTools dimlets only to enforce RFTDims exploration
 - [ ] ✏️ RFTools `Dimension building` rework - make cheaper by balancing possible dimlets
 - [ ] 💜 Make `[constant] difficulty` dimension for replicator discount. Probably RFTools ones
-
-<!-- 
-Command to concat all files in directory:
-› find scripts/do -name '*.zs' -print0 | xargs -0 -I {} sh -c 'echo "--- {} ---"; cat "{}"'
-
-Command to show all commits that changing same files:
-› git log --oneline abc123..HEAD -- $(git diff-tree --no-commit-id --name-only -r abc123)
-
-Command to optimize all the .png files:
-› ./pngquant.exe 128 resources/**/*.png --skip-if-larger --ext .png --strip --verbose --force
-› ./oxipng.exe resources/**/*.png --alpha --strip all
--->
 
 ---
 
@@ -201,6 +185,7 @@ Planned non-urgent changes, or just good ideas:
 
 ### Other
 
+- [ ] 🐛 Fix Harvest Levels not working for non-"stone" material. For some reason, `setHarvestLevel` wont affect non-pickaxe blocks
 - [ ] ✏️ Remove `Advanced Bee Analyzer` and just speed up Forestry Analyzer with mixin instead
 - [ ] 👑 Upgrading Draconic tools give Omnopotence (cannot reproduce single player)
 - [ ] 💎 Diamond shouldn't be meltable in smeltery
@@ -442,29 +427,3 @@ Items that should have more uses:
 - Hardcore "Death Stranding" mode
   > Player death causing DE Reactor explosion.
   > Maybe world border
-
-<!-- 
-## Miscellaneous
-
-### Player data reset
-
-**Remove files:**
-- advancements/[UUID].json
-- data/ApiaristTracker.[UUID].dat
-- data/ArboristTracker.[UUID].dat
-- data/ftb_lib/players/[NAME].dat
-- data/LepidopteristTracker.[UUID].dat
-- data/POBox_player-[NAME]-[UUID].dat
-- playerdata/[UUID].astral
-- playerdata/[UUID].astralback
-- playerdata/[UUID].cosarmor
-- playerdata/[UUID].cyclicinvo
-- playerdata/[UUID].dat
-- playerdata/[UUID].ocnm
-- playerdata/gamestages/[UUID].dat
-- stats/[UUID].json
-
-**Execute commands:**
-- Leave team
-- `/ftbquests change_progress reset [NAME]`
- -->
