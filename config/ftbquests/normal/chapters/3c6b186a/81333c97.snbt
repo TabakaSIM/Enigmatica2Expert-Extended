@@ -6,13 +6,13 @@
 			wireLength: 1024
 		}
 	},
-	x: 4.166666666666666d,
-	y: -0.5416666666666667d,
+	x: 3.8d,
+	y: -0.5d,
 	text: [
 		"{q.industrialcraft.addon_industrial_.desc}"
 	],
 	dependencies: [
-		"cae88f3f"
+		"80c99c37"
 	],
 	tasks: [{
 		uid: "72f01dd3",

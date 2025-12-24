@@ -5,13 +5,13 @@
 			charge: 30000.0d
 		}
 	},
-	x: -0.5d,
-	y: 3.5d,
+	x: 5.1d,
+	y: -0.5d,
 	text: [
 		"{q.industrialcraft.electric_jetpack.desc}"
 	],
 	dependencies: [
-		"83c7fb15"
+		"80c99c37"
 	],
 	tasks: [{
 		uid: "ce4da5da",

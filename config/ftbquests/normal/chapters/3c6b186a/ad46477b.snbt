@@ -1,12 +1,11 @@
 {
-	x: 9.166666666666666d,
-	y: 3.5d,
+	x: 8.5d,
+	y: 3.4d,
 	text: [
 		"{q.industrialcraft.thermal_centrifuge.desc}"
 	],
 	dependencies: [
-		"77721ec3",
-		"b67067b9"
+		"77721ec3"
 	],
 	tasks: [{
 		uid: "c73d9eba",

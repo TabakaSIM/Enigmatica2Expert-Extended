@@ -6,13 +6,13 @@
 			charge: 1000000.0d
 		}
 	},
-	x: 5.833333333333333d,
-	y: 4.833333333333333d,
+	x: 10.5d,
+	y: -0.5d,
 	text: [
 		"{q.industrialcraft.nano_armor.desc}"
 	],
 	dependencies: [
-		"d1c08d01"
+		"129add68"
 	],
 	tasks: [{
 		uid: "3055fbb0",

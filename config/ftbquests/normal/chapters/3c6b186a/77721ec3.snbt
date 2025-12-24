@@ -5,8 +5,8 @@
 			charge: 2.0E7d
 		}
 	},
-	x: 7.5d,
-	y: 3.5d,
+	x: 8.5d,
+	y: 2.1d,
 	text: [
 		"{q.industrialcraft.mining_laser.desc}"
 	],

@@ -1,17 +1,31 @@
 {
-	x: 5.833333333333333d,
-	y: 7.5d,
+	icon: "ic2:te 1 51",
+	x: 4.5d,
+	y: 3.2d,
 	text: [
 		"{q.industrialcraft.block_cutting_mach.desc}"
 	],
 	dependencies: [
-		"2231f97b"
+		"80c99c37"
 	],
 	tasks: [{
 		uid: "63122684",
 		type: "item",
 		items: [{
 			item: "ic2:te 1 51"
+		}]
+	},
+	{
+		uid: "fb00e3dc",
+		type: "item",
+		items: [{
+			item: "ic2:block_cutting_blade"
+		},
+		{
+			item: "ic2:block_cutting_blade 1 1"
+		},
+		{
+			item: "ic2:block_cutting_blade 1 2"
 		}]
 	}],
 	rewards: [{

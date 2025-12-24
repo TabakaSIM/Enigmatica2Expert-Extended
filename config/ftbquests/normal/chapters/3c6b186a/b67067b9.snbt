@@ -1,6 +1,6 @@
 {
-	x: 9.166666666666666d,
-	y: 2.166666666666667d,
+	x: 12.1d,
+	y: -0.5d,
 	text: [
 		"{q.industrialcraft.induction_furnace.desc}"
 	],

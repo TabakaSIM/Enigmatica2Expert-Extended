@@ -1,6 +1,6 @@
 {
-	x: 5.833333333333333d,
-	y: 3.5d,
+	x: 8.5d,
+	y: 0.8d,
 	text: [
 		"{q.industrialcraft.advanced_alloy.desc}"
 	],
