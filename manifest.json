@@ -435,7 +435,7 @@
     {"projectID":1234162,"fileID":6734060,"___name":"Lumenized"                               ,"downloadUrl":"https://edge.forgecdn.net/files/6734/60/Lumenized-1.0.4.jar","required":true},
     {"projectID":1235372,"fileID":6842491,"___name":"Scalar Legacy"                           ,"downloadUrl":"https://edge.forgecdn.net/files/6842/491/Scalar%20Legacy-1.0.1.jar","required":true},
     {"projectID":1242239,"fileID":7339332,"___name":"Tinkers' Antique"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7339/332/TinkersAntique-1.12.2-2.13.0.205.jar","required":true},
-    {"projectID":1281678,"fileID":7094988,"___name":"Roid's Tweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7094/988/roidtweaker-1.2.1.jar","required":true},
+    {"projectID":1281678,"fileID":7365542,"___name":"Roid's Tweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7365/542/roidtweaker-1.2.2.jar","required":true},
     {"projectID":1307741,"fileID":7287154,"___name":"Thaumic Wonders Unofficial"              ,"downloadUrl":"https://edge.forgecdn.net/files/7287/154/thaumicwonders-2.2.2.jar","required":true},
     {"projectID":1329068,"fileID":6902995,"___name":"MorphOverlay"                            ,"downloadUrl":"https://edge.forgecdn.net/files/6902/995/morphoverlay-1.0.1.jar","required":true},
     {"projectID":1331377,"fileID":7354347,"___name":"Armored Arms"                            ,"downloadUrl":"https://edge.forgecdn.net/files/7354/347/ArmoredArms-v1.3.7-release.jar","required":true},
