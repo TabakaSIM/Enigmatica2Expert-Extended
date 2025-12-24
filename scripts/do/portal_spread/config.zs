@@ -1,5 +1,5 @@
 #priority 4500
-#loader contenttweaker reloadable
+#loader preinit
 #modloaded zenutils
 
 import crafttweaker.block.IBlockDefinition;

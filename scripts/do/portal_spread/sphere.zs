@@ -6,7 +6,7 @@
 
 #priority 3000
 #modloaded zenutils
-#loader contenttweaker
+#loader preinit
 
 // Create class to avoid initialization of the array on each loader
 zenClass Op {
