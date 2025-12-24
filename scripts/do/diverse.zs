@@ -123,6 +123,7 @@ function getItemFromString(itemStr as string) as IItemStack {
   return itemUtils.getItem(split[0] ~ ':' ~ split[1], split[2] as int);
 }
 
+/* 
 if (utils.DEBUG) {
   print('### scripts.do.diverse power depending on input:');
   for i in 1 .. 40 {
@@ -163,3 +164,4 @@ if (utils.DEBUG) {
     // if (power > 30000) break;
   }
 }
+*/
