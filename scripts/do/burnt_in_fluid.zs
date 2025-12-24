@@ -3,7 +3,11 @@
 #reloadable
 
 import crafttweaker.block.IBlockState;
+import crafttweaker.entity.IEntity;
+import crafttweaker.entity.IEntityItem;
 import crafttweaker.item.IIngredient;
+import crafttweaker.util.Math.floor;
+import crafttweaker.world.IBlockPos;
 import crafttweaker.world.IFacing;
 import native.net.minecraft.util.EnumParticleTypes;
 
@@ -81,7 +85,7 @@ events.onEntityItemDeath(function (e as mods.zenutils.event.EntityItemDeathEvent
   val world = e.item.world;
   if (world.remote) return;
 
-  if (e.damageSource.damageType != 'onFire') return;
+  if (e.damageSource.damageType != 'onFire' && e.damageSource.damageType != 'lava') return;
 
   val entityItem = e.item;
   if (isNull(entityItem.item)) return;
@@ -93,28 +97,47 @@ events.onEntityItemDeath(function (e as mods.zenutils.event.EntityItemDeathEvent
   for i in 0 .. 2 {
     // Get state
     val blockPos = entityItem.position.getOffset(down, i);
-    val blockState = world.getBlockState(blockPos);
+    if (tryConvertBlock(blockPos, entityItem, result)) return;
+  }
 
-    // Liquid should be full
-    if (blockState.meta != 0) continue;
+  // Next - try to convert all the blocks around item
+  // since burning piece can jump all over the blocks in rand directions
+  for y in -1 .. 2 {
+    for z in -1 .. 2 {
+      for x in -1 .. 2 {
+        // already tested
+        if (z == 0 && y == 0 && x == 0 || z == 0 && y == -1 && x == 0) continue;
 
-    for fluid, stateChance in result {
-      for state, chance in stateChance {
-        if (blockState.block.definition.id != fluidToBlock[fluid]) continue;
-
-        val total = chance * entityItem.item.amount as double;
-        if (total < 1.0 && total < world.random.nextDouble()) {
-          // Conversion failure
-          (world.native as native.net.minecraft.world.WorldServer)
-            .spawnParticle(EnumParticleTypes.FALLING_DUST, entityItem.x, entityItem.y + 0.5, entityItem.z, 6, 0.1, 0.4, 0.1, 0.0, 0);
-          continue;
-        }
-
-        // Replace block
-        world.destroyBlock(blockPos, false);
-        world.setBlockState(state, blockPos);
-        return;
+        val blockPos = IBlockPos.create(entityItem.position.x + x, entityItem.position.y + y, entityItem.position.z + z);
+        if (tryConvertBlock(blockPos, entityItem, result)) return;
       }
     }
   }
 });
+
+function tryConvertBlock(blockPos as IBlockPos, entityItem as IEntityItem, result as double[IBlockState][string]) as bool {
+  val world = entityItem.world;
+  val blockState = world.getBlockState(blockPos);
+
+  // Liquid should be full
+  if (blockState.meta != 0) return false;
+
+  for fluid, stateChance in result {
+    for state, chance in stateChance {
+      if (blockState.block.definition.id != fluidToBlock[fluid]) continue;
+
+      val total = chance * entityItem.item.amount as double;
+      if (total < 1.0 && total < world.random.nextDouble()) {
+        // Conversion failure
+        (world.native as native.net.minecraft.world.WorldServer)
+          .spawnParticle(EnumParticleTypes.FALLING_DUST, entityItem.x, entityItem.y + 0.5, entityItem.z, 6, 0.1, 0.4, 0.1, 0.0, 0);
+        continue;
+      }
+
+      // Replace block
+      world.destroyBlock(blockPos, false);
+      world.setBlockState(state, blockPos);
+      return true;
+    }
+  }
+}
