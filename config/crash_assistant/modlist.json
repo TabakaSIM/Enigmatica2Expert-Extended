@@ -2275,12 +2275,12 @@
     "modrinthHash": "7ee689e2e1f62d68ffa739bde884627c9025906c",
     "version": "0.5.12"
   },
-  "roidtweaker-1.2.1.jar": {
-    "curseForgeHash": 1924995079,
-    "jarName": "roidtweaker-1.2.1.jar",
+  "roidtweaker-1.2.2.jar": {
+    "curseForgeHash": 1375653001,
+    "jarName": "roidtweaker-1.2.2.jar",
     "modId": "roidtweaker",
-    "modrinthHash": "55323f11312612b5e043149b4b0cae34b3b12e27",
-    "version": "1.2.1"
+    "modrinthHash": "e81c507f2ea43ff2642e48d65c8d4c1b18f44bcb",
+    "version": "1.2.2"
   },
   "RoughlyEnoughIDs-2.2.3.jar": {
     "curseForgeHash": 4120900890,
@@ -2845,6 +2845,13 @@
     "modrinthHash": "404357d3ddd521e4be46d13d62bbb3fc2155762d",
     "version": "1.12.2-1.2.1"
   },
+  "VillagerTrades-1.12.2-0.6.5.jar": {
+    "curseForgeHash": 2334562787,
+    "jarName": "VillagerTrades-1.12.2-0.6.5.jar",
+    "modId": "vtt",
+    "modrinthHash": "827aaf777f361534dc711858e0f0ec3fdb7138d1",
+    "version": "${version}"
+  },
   "vintagefix-0.6.2.jar": {
     "curseForgeHash": 1319026169,
     "jarName": "vintagefix-0.6.2.jar",
@@ -2934,11 +2941,11 @@
     "modrinthHash": "538e306575d826b220638969a67cf17dfe8a18a7",
     "version": "1.1"
   },
-  "zenutils-1.26.10.jar": {
-    "curseForgeHash": 1149547020,
-    "jarName": "zenutils-1.26.10.jar",
+  "zenutils-1.26.11.jar": {
+    "curseForgeHash": 3963354206,
+    "jarName": "zenutils-1.26.11.jar",
     "modId": "zenutils",
-    "modrinthHash": "834cd0b657b617f7617d4bbe03903acd512a8da7",
-    "version": "1.26.10"
+    "modrinthHash": "ed623a92619a6fe2996b1aa129a0f4dd44600770",
+    "version": "1.26.11"
   }
 }

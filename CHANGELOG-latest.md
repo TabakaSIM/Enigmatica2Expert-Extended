@@ -1,60 +1,44 @@
 ## ✨ New Features
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/1406687)🟢Add mod `FluidloggedAPI`
-    > FluidloggedAPI was removed a while ago, due to several TPS strain issues. Issues was fixed and now i could add it back.
+  * <img src="https://i.imgur.com/scMrb6Z.png" align=right> [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/a0c71e7)🌱IC2 seed add texture
+    > Now all IC2 crop seed bags will have texture depending on their crop type.
     > 
-    > I made some measures and it seems like FLapi doesnt add lot of strain now. Some of my measures shows that fluid flowing calculation could be even better in some cases.
+    > Textures taken from resource pack https://curseforge.com/minecraft/texture-packs/ic2-seedbag-display
+  * <img src="https://i.imgur.com/bsjtJov.png" align=right> [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/ed3fa2d)📖IC2 quests rework, fixes to En and Ru localizations
+    > > Contributed by [ahtohio](https://github.com/ahtohio)
+    >
+    > Reworked Industrial Craft 2 questline offering streamlined mod progression and exploring less-known generators (Wind Turbine, Fluid Reactor). Added small tips to some IC2 quests and overhauled Russian translation for IC2 questline.
 
 ## 🐛 Fixes
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/9f4ddff)⌚Fix some functionality not working with `doDaylightCycle false`
-    > **Affected:**  
-    > - Mythminite Scythe tornado  
-    > - Omnipotence grant  
-    > - Acquire on opening container
-    > - Probably more
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/ad3df28)⛏️Improve `Vaporizer` trait visual
-    > Now randomly show particle lines towards removed blocks.
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/fe8f029)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/threng/big_assembler__0.png "Mass Assembler Frame") add to `$machineCase`
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/c2a65d7)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/omniwand/wand__0.png "Omniwand") add ![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/compass__0.png "Compass")![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/redstone_torch__0.png "Redstone Torch")
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/088d7c0)✏️Prevent turning ![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/coal__1__89b8507a.png "Charcoal")=>![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/coal__0.png "Coal") with ![](https://github.com/Krutoy242/mc-icons/raw/master/i/mekanism/machineblock2__5.png "Precision Sawmill")
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/dd391bc)✏️Return ![](https://github.com/Krutoy242/mc-icons/raw/master/i/fluid/carbon_dioxide.png "Carbon Dioxide") and ![](https://github.com/Krutoy242/mc-icons/raw/master/i/fluid/samarium.png "Molten Samarium") recipes
-    > They was accidentally removed in `v1.62.3`.  
-    > Now Carbon Dioxide chain available again, together with 'Pseudo-Decay Pool System'.
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/b4a152b)✏️Return modded items in vanilla villager trades
-    > Some modded villager trades for vanilla vilagers (farmer, butcher, etc) was accidentally removed since `v1.66.0`, but now should be fine.
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/58e167b)📖Remove ![](https://github.com/Krutoy242/mc-icons/raw/master/i/cyclicmagic/ender_water__0__4e4b3a6f.png "Antimatter Evaporator") from Common box
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/ac42541)🪄Fix ore purifier
-    > > Contributed by [TabakaSIM](https://github.com/tabakasim)
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/7d0e82f)💥Fix crash when fluids interact with bedrock ores on the server
+    > > Contributed by [Lucas Sivars](https://github.com/lucassivars)
     >
-    > Now `Ore Purifier` trait should drop Crystal Shards as intended.
+    > Fix serverside-only crash, introduced in `v1.70.0-beta`.
+    > 
+    > related https://github.com/jbredwards/Fluidlogged-API/issues/276
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/db2b6cd)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/endreborn/block_wolframium_ore__0.png "Tungsten Ore") allow to work with [Alchemist's Stone]
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/6c3434a)✏️Prevent duping bones by `crushing` => `melting` => `casting` bones
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/388c9c3)🔥`Burn in fluid` mechanic - fix some cases of stone not converted
+    > Since item is randomly "jumped" out of the pool when you drop it, its unclear which block caused initial "burning".
+    > 
+    > Now, all 27 surrounding blocks around ore piece will be checked.
+    > 
+    > Pieces still can't be transform in rain.
+    > 
+    > ✅ Tip: always put pieces first, and then fluid. Or put pieces inside of the fluid so it cant leave fluid block.
 
   #### Balance
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/3511611)🌵Increase RF capacity and transfer rate of all ExtraUtilities generators x300
-  * <img src="https://i.imgur.com/8UKIiuA.png" align=right> [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/7e82b81)✏️Buff ![](https://github.com/Krutoy242/mc-icons/raw/master/i/extrautils2/machine__0__fd6b99a9.png "Halitosis Generator")![](https://github.com/Krutoy242/mc-icons/raw/master/i/extrautils2/machine__0__b66fb5d4.png "Frosty Generator")
-    > Also some other XU generators lost few recipes
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/a180943)✏️Fix some ![](https://github.com/Krutoy242/mc-icons/raw/master/i/extrautils2/machine__0__18962b51.png "Ender Generator") values (pt2)
-    > Now finally should be balanced
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/70d1484)✏️Reduce amount of ![](https://github.com/Krutoy242/mc-icons/raw/master/i/ic2/crafting__23.png "Scrap") from ![](https://github.com/Krutoy242/mc-icons/raw/master/i/rats/garbage_pile__0.png "Garbage Pile")
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/c0a4244)✏️Remove [Calcium] shortcut with TCon Smeltery
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/cc0452b)🟤![](https://github.com/Krutoy242/mc-icons/raw/master/i/hole_filler_mod/throwable_hole_filler__0.png "Hole Filler") increase diam.  12➜32, volume 1k➜10k
+
 
 ## Mods changes
-### 🟢 Added Mods
-
-Icon | Summary | Reason
-----:|:--------|:-------
-<img src="https://media.forgecdn.net/avatars/thumbnails/385/984/30/30/637574191414697010.png"            > |                        [**Fluidlogged API**](https://www.curseforge.com/minecraft/mc-mods/fluidlogged-api)              <sup><sub>Fluidlogged-API-v3.1.2-mc1.12.2.jar              </sub></sup><br>A library mod that adds highly customizable fluidlogging to 1.12.2! | Cool stuff
------------
-
 ### 🟡 Updated Mods
 
 Icon | Summary | Old / New
 ----:|:--------|:---------
-<img src="https://media.forgecdn.net/avatars/thumbnails/292/428/30/30/637325593905195388.png"            > |                              [**Zen Utils**](https://www.curseforge.com/minecraft/mc-mods/zenutil)                     | <nobr>zenutils-1.26.9</nobr><br><nobr>zenutils-1.26.10</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/354/923/30/30/637513280920379670.png"            > |                            [**IC2 Patcher**](https://www.curseforge.com/minecraft/mc-mods/ic2-patcher)                 | <nobr>ic2patcher-2.0.9</nobr><br><nobr>IC2-Patcher-2.0.12</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/468/506/30/30/637752171904887013.jpeg"           > |                       [**Had Enough Items**](https://www.curseforge.com/minecraft/mc-mods/had-enough-items)            | <nobr>HadEnoughItems_1.12.2-4.29.12</nobr><br><nobr>HadEnoughItems_1.12.2-4.29.13</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/890/122/30/30/638330362828386354.png"            > |                               [**Omniwand**](https://www.curseforge.com/minecraft/mc-mods/omniwand)                    | <nobr>omniwand-1.12.2-1.0.1</nobr><br><nobr>omniwand-1.12.2-2.0.2</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1176/204/30/30/638748608591942674.png"           > |                       [**RandomComplement**](https://www.curseforge.com/minecraft/mc-mods/random-complement)           | <nobr>random_complement-1.7.3</nobr><br><nobr>random_complement-1.8.6</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1223/434/30/30/638801642158504721.png"           > |                       [**Tinkers' Antique**](https://www.curseforge.com/minecraft/mc-mods/tinkers-antique)             | <nobr>TinkersAntique-1.12.2-2.13.0.204</nobr><br><nobr>TinkersAntique-1.12.2-2.13.0.205</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1409/140/30/30/638913115744696491.png"           > |                           [**Armored Arms**](https://www.curseforge.com/minecraft/mc-mods/armored-arms)                | <nobr>ArmoredArms-v1.3.6-release</nobr><br><nobr>ArmoredArms-v1.3.7-release</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1540/189/30/30/639000001051070063.png"           > |                         [**Antique Armory**](https://www.curseforge.com/minecraft/mc-mods/antique-armory)              | <nobr>AntiqueArmory-1.12.2-1.2.6</nobr><br><nobr>AntiqueArmory-1.12.2-1.2.7</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1338/430/30/30/638869986013756191.png"           > |                         [**Roid's Tweaker**](https://www.curseforge.com/minecraft/mc-mods/roid-tweaker)                | <nobr>roidtweaker-1.2.1</nobr><br><nobr>roidtweaker-1.2.2</nobr>
 -----------
