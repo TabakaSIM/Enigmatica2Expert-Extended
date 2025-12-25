@@ -14,16 +14,16 @@ function addRailgunBullet(item as IIngredient, damage as float, gravity as float
 }
 
 val colorMap = [[0x777777, 0xA4A4A4]] as int[][];
-addRailgunBullet(<ore:stickCopper>             , 21, 1.1, colorMap);
-addRailgunBullet(<ore:stickTitanium>           , 30, 1.15,colorMap);
-addRailgunBullet(<ore:stickTitaniumAluminide>  , 33, 0.9, colorMap);
-addRailgunBullet(<redstonearsenal:material:193>, 32, 1.2, colorMap); // Flux-Infused Obsidian Rod
-addRailgunBullet(<ore:stickIridium>            , 36, 1.15,colorMap);
-addRailgunBullet(<ic2:crafting:29>,              28, 0.8, colorMap); // Shaft (Iron)
-addRailgunBullet(<ic2:crafting:42>,              34, 0.8, colorMap); // Shaft (Bronze)
-addRailgunBullet(<ic2:crafting:30>,              40, 0.8, colorMap); // Shaft (Steel)
-addRailgunBullet(<ore:stickTitaniumIridium>    , 44, 0.8, colorMap);
-addRailgunBullet(<extendedcrafting:material:3> , 48, 1.0, colorMap);
+addRailgunBullet(<ore:stickCopper>, 38, 1.1, colorMap);
+addRailgunBullet(<ic2:crafting:29>, 54, 0.8, colorMap);
+addRailgunBullet(<ore:stickTitanium>, 59, 1.15,colorMap);
+addRailgunBullet(<redstonearsenal:material:193>, 63, 1.2, colorMap);
+addRailgunBullet(<ore:stickTitaniumAluminide>, 66, 0.9, colorMap);
+addRailgunBullet(<ic2:crafting:42>, 68, 0.8, colorMap);
+addRailgunBullet(<ore:stickIridium>, 73, 1.15,colorMap);
+addRailgunBullet(<ic2:crafting:30>, 83, 0.8, colorMap);
+addRailgunBullet(<ore:stickTitaniumIridium>, 93, 0.8, colorMap);
+addRailgunBullet(<extendedcrafting:material:3>, 104, 1.0, colorMap);
 
 // *======= Fertilizers =======*
 
