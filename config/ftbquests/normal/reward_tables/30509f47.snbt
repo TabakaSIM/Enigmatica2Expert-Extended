@@ -43,16 +43,6 @@
 		item: "cookingforblockheads:cow_jar"
 	},
 	{
-		icon: "excompressum:bait 5 2",
-		item: "excompressum:bait 1 2",
-		count: 5
-	},
-	{
-		icon: "excompressum:bait 5 6",
-		item: "excompressum:bait 1 6",
-		count: 5
-	},
-	{
 		icon: "excompressum:bait 5 1",
 		item: "excompressum:bait 1 1",
 		count: 5
@@ -63,8 +53,8 @@
 		count: 3
 	},
 	{
-		icon: "minecraft:cactus 64",
-		item: "minecraft:cactus",
+		icon: "exnihilocreatio:item_seed_cactus 64",
+		item: "exnihilocreatio:item_seed_cactus",
 		count: 64
 	},
 	{
@@ -221,10 +211,10 @@
 	},
 	{
 		item: {
-			id: "thermalexpansion:florb",
 			tag: {
 				Fluid: "blockfluiddirt"
-			}
+			},
+			id: "thermalexpansion:florb"
 		}
 	},
 	{
@@ -234,44 +224,57 @@
 	},
 	{
 		icon: {
-			id: "tconstruct:large_plate",
+			Count: 4,
 			tag: {
 				Material: "pigiron"
 			},
-			Count: 4
+			id: "tconstruct:large_plate"
 		},
 		item: {
-			id: "tconstruct:large_plate",
 			tag: {
 				Material: "pigiron"
-			}
+			},
+			id: "tconstruct:large_plate"
 		},
-		count: 4,
+		count: 4
 	},
 	{
 		icon: {
-			id: "tconstruct:large_plate",
+			Count: 3,
 			tag: {
 				Material: "xu_evil_metal"
 			},
-			Count: 3
+			id: "tconstruct:large_plate"
 		},
 		item: {
-			id: "tconstruct:large_plate",
 			tag: {
 				Material: "xu_evil_metal"
-			}
+			},
+			id: "tconstruct:large_plate"
 		},
-		count: 3,
+		count: 3
+	},
+	{
+		item: "scalinghealth:crystalshard"
+	},
+	{
+		icon: "iceandfire:sea_serpent_scales_teal 7",
+		item: "iceandfire:sea_serpent_scales_teal",
+		count: 7
+	},
+	{
+		icon: "tcomplement:scorched_block 32 4",
+		item: "tcomplement:scorched_block 1 4",
+		count: 32
 	}],
 	loot_crate: {
 		string_id: "common",
 		item_name: "Common",
 		color: 11119524,
 		drops: {
-			boss: 0,
 			passive: 0,
-			monster: 0
+			monster: 0,
+			boss: 0
 		}
 	}
 }
