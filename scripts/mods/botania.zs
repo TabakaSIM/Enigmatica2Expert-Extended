@@ -626,4 +626,50 @@ BrewMod(LibBrewNames.OVERLOAD, 0x232323, 12000, [
 mods.botania.Brew.removeRecipe(LibBrewNames.OVERLOAD);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:ginseng>, <rustic:wind_thistle>, <biomesoplenty:double_plant:2>, <botania:manaresource:23>], LibBrewNames.OVERLOAD);
 
+BrewMod("scarlet_veil", 0xFF0000, 12000, [
+    <potion:minecraft:health_boost>  .makePotionEffect(24000, 19),
+    <potion:quark:resilience>        .makePotionEffect(24000, 3),
+    <potion:minecraft:blindness>     .makePotionEffect(24000, 0),
+    <potion:thaumcraft:blurredvision>.makePotionEffect(24000, 0)
+]);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:blood_orchid>, <rustic:ironberries>, <extrautils2:redorchid>, <botania:manaresource:23>], "scarlet_veil");
+
+BrewMod("calamity", 0x8B00FF, 15000, [
+    <potion:potioncore:chance>  .makePotionEffect(10, 3),
+    <potion:tconevo:immortality>.makePotionEffect(600, 0),
+    <potion:potioncore:curse>   .makePotionEffect(10, 3),
+    <potion:minecraft:unluck>   .makePotionEffect(1200, 0)
+]);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:horsetail>, <rustic:marsh_mallow>, <endreborn:item_lormyte_crystal>, <botania:manaresource:23>], "calamity");
+
+BrewMod("warbound", 0xFFD700, 10000, [
+    <potion:minecraft:absorption>.makePotionEffect(24000, 19),
+    <potion:minecraft:resistance>.makePotionEffect(24000, 3),
+    <potion:bloodmagic:deafness> .makePotionEffect(24000, 0),
+    <potion:thaumcraft:deathgaze>.makePotionEffect(24000, 3)
+]);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:tomato>, <rustic:aloe_vera>, <rustic:honeycomb>, <botania:manaresource:23>], "warbound");
+
+BrewMod("depthbound", 0x1F8EFF, 12000, [
+    <potion:minecraft:water_breathing>   .makePotionEffect(24000, 0),
+    <potion:cyclicmagic:potion.swimspeed>.makePotionEffect(24000, 3),
+    <potion:potioncore:drown>            .makePotionEffect(24000, 0),
+    <potion:bloodmagic:grounded>         .makePotionEffect(24000, 0)
+]);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:mooncap_mushroom>, <rustic:core_root>, <biomesoplenty:coral:1>, <botania:manaresource:23>], "depthbound");
+
+BrewMod("sanguine_oath", 0x8B0000, 12000, [
+    <potion:bloodmagic:sacrificial_lamb>.makePotionEffect(12000, 1),
+    <potion:minecraft:regeneration>     .makePotionEffect(12000, 9),
+    <potion:minecraft:nausea>           .makePotionEffect(600, 0),
+    <potion:thaumcraft:thaumarhia>      .makePotionEffect(600, 0)
+]);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:chamomile>, <rustic:cohosh>, <scalinghealth:crystalshard>, <botania:manaresource:23>], "sanguine_oath");
+
+BrewMod("aerial_delirium", 0xFF69B4, 12000, [
+    <potion:potioncore:flight>       .makePotionEffect(24000, 0),
+    <potion:potioncore:slow_fall>    .makePotionEffect(24000, 0),
+    <potion:potioncore:perplexity>   .makePotionEffect(24000, 0),
+    <potion:minecraft:mining_fatigue>.makePotionEffect(24000, 3)
+]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:olives>, <rustic:deathstalk_mushroom>, <iceandfire:pixie_dust>, <botania:manaresource:23>], "aerial_delirium");

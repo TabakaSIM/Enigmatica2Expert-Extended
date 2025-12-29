@@ -50,3 +50,11 @@ botania.entry.amuileria_kaerunea=Amuileria kaerunea
 botania.tagline.botania.entry.amuileria_kaerunea=Charges items with lightning
 botania.page.amuileria_kaerunea0=Active during thunderstorms, §1Amuileria Kaerunea§r channels lightning strikes to charge nearby items. It will call down a bolt when needed, consuming §cmana§r to infuse the items with storm-born energy.
 botania.page.amuileria_kaerunea1=&oThor in a flower&r
+
+#CUSTOM BREW NAMES
+botania.brew.scarlet_veil=Scarlet Veil
+botania.brew.calamity=Calamity
+botania.brew.warbound=Warbound
+botania.brew.depthbound=Depthbound
+botania.brew.sanguine_oath=Sanguine Oath
+botania.brew.aerial_delirium=Aerial Delirium

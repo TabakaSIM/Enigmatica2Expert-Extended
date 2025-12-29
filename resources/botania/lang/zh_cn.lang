@@ -50,3 +50,11 @@ botania.entry.amuileria_kaerunea=天雷耧斗菜
 botania.tagline.botania.entry.amuileria_kaerunea=通过闪电为物品充能
 botania.page.amuileria_kaerunea0=§1天雷耧斗菜§r在雷暴期间会活跃起来，引导雷电为附近的掉落物充能。它会在有需要时召唤一道闪电，消耗§c魔力§r来为物品注入风暴之中产生的能量。
 botania.page.amuileria_kaerunea1=&o雷神住在花里&r
+
+# CUSTOM BREW NAMES (ZH_CN)
+botania.brew.scarlet_veil=猩红帷幕
+botania.brew.calamity=灾厄
+botania.brew.warbound=战誓
+botania.brew.depthbound=深渊之缚
+botania.brew.sanguine_oath=血誓
+botania.brew.aerial_delirium=空灵迷狂

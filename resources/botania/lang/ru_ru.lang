@@ -50,3 +50,11 @@ botania.entry.amuileria_kaerunea=Амуилерия Каерунея
 botania.tagline.botania.entry.amuileria_kaerunea=Заряжает предметы молниями
 botania.page.amuileria_kaerunea0=Активная во время гроз, §1Амуилерия Каерунея§r направляет удары молний для зарядки предметов поблизости. Она призовет молнию, когда это необходимо, используя §cману§r для наполнения предметов энергией шторма.
 botania.page.amuileria_kaerunea1=&oТор в цветке&r
+
+# CUSTOM BREW NAMES (RU)
+botania.brew.scarlet_veil=Алый Покров
+botania.brew.calamity=Катаклизм
+botania.brew.warbound=Скованный Войной
+botania.brew.depthbound=Связанный Глубиной
+botania.brew.sanguine_oath=Кровавая Клятва
+botania.brew.aerial_delirium=Воздушный Делирий
