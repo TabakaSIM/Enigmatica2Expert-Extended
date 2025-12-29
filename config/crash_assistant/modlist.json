@@ -1,10 +1,10 @@
 {
-  "!!!CrashAssistant-forge-1.12.2-1.10.27.jar": {
-    "curseForgeHash": 779469533,
-    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.27.jar",
+  "!!!CrashAssistant-forge-1.12.2-1.10.28.jar": {
+    "curseForgeHash": 1494370398,
+    "jarName": "!!!CrashAssistant-forge-1.12.2-1.10.28.jar",
     "modId": "crash_assistant",
-    "modrinthHash": "ef411a96d1ea6c5a9eea03eadd6d61980f3d41e6",
-    "version": "1.10.27"
+    "modrinthHash": "afec88671087ca9ebefff13893d8b952ff0b5603",
+    "version": "1.10.28"
   },
   "!configanytime-3.0.jar": {
     "curseForgeHash": 3732531395,
@@ -32,12 +32,12 @@
     "modrinthHash": "ac72ee1e7777a3f20ace120c301fde68a3dfea23",
     "version": "0.6"
   },
-  "+Fugue-0.22.2.jar": {
-    "curseForgeHash": 860656829,
-    "jarName": "+Fugue-0.22.2.jar",
+  "+Fugue-0.22.6.jar": {
+    "curseForgeHash": 1455217593,
+    "jarName": "+Fugue-0.22.6.jar",
     "modId": "fugue",
-    "modrinthHash": "6a8ea3440f7815e2bf140d08dd35a9754dea1876",
-    "version": "0.22.2"
+    "modrinthHash": "c61eac0a7c0a82071c9093932bd39013a11acc8f",
+    "version": "0.22.6"
   },
   "[MC-1.12.2] Key Binding Patch v1.3.3.3 - 2024-12-1.jar": {
     "curseForgeHash": 1044045050,
@@ -435,12 +435,12 @@
     "modrinthHash": "4f85402caa88c73794e8dc050386313f0a4c9ad5",
     "version": "3.2"
   },
-  "BitHop-1.2.jar": {
-    "curseForgeHash": 1262978054,
-    "jarName": "BitHop-1.2.jar",
+  "bithop-2.0.1.jar": {
+    "curseForgeHash": 4179815155,
+    "jarName": "bithop-2.0.1.jar",
     "modId": "bithop",
-    "modrinthHash": "8db2f7d072a218c5fe2db7f4c9c1c0499c397c26",
-    "version": "master-1.2.54"
+    "modrinthHash": "46ba2ee285e5923e7d314912603a837ed0e5ba23",
+    "version": "2.0.1"
   },
   "Blood-Smeltery-1.12.2-1.1.2.jar": {
     "curseForgeHash": 815433942,
@@ -1150,12 +1150,12 @@
     "modrinthHash": "f4914a0231adeca5d1cab5569a5803ed20e5806a",
     "version": "0.9.20.12"
   },
-  "gnetum-1.3.2.jar": {
-    "curseForgeHash": 266308205,
-    "jarName": "gnetum-1.3.2.jar",
+  "gnetum-1.3.4.jar": {
+    "curseForgeHash": 3200180228,
+    "jarName": "gnetum-1.3.4.jar",
     "modId": "gnetum",
-    "modrinthHash": "97debf6181d65ace6123b8332b801dce520ae0fd",
-    "version": "1.3.2"
+    "modrinthHash": "c8a9503165c33c925186d34fb705749ed8f0aa72",
+    "version": "1.3.4"
   },
   "grid-1.12-forge14.21.1.2387-1.4.jar": {
     "curseForgeHash": 2380082864,
@@ -1178,12 +1178,12 @@
     "modrinthHash": "712d7a0bc1b9caba40e303b7252e6995f9b03b62",
     "version": "1.12.2-1.1"
   },
-  "HadEnoughItems_1.12.2-4.29.13.jar": {
-    "curseForgeHash": 3220568388,
-    "jarName": "HadEnoughItems_1.12.2-4.29.13.jar",
+  "HadEnoughItems_1.12.2-4.29.14.jar": {
+    "curseForgeHash": 1638030778,
+    "jarName": "HadEnoughItems_1.12.2-4.29.14.jar",
     "modId": "jei",
-    "modrinthHash": "510d2b5c9ddd4f6f087ab62eb547cd589653e6d1",
-    "version": "4.29.13"
+    "modrinthHash": "cb696342e9da001da5d324fab3e705038da2594d",
+    "version": "4.29.14"
   },
   "HammerLib-1.12.2-12.2.58.jar": {
     "curseForgeHash": 1631106799,
@@ -1726,12 +1726,12 @@
     "modrinthHash": "f0bdbf6f4257e392e59023289998aaa8c295df47",
     "version": "4.0.20.11"
   },
-  "modularui-3.0.4.jar": {
-    "curseForgeHash": 3047962387,
-    "jarName": "modularui-3.0.4.jar",
+  "modularui-3.0.6.jar": {
+    "curseForgeHash": 3738992258,
+    "jarName": "modularui-3.0.6.jar",
     "modId": "modularui",
-    "modrinthHash": "ecea53ea5ff6b6b4cdd8f89e82ee12adf4aa1923",
-    "version": "3.0.4"
+    "modrinthHash": "602adda259f398d9ad022b289d55460431728aaf",
+    "version": "3.0.6"
   },
   "moredefaultoptions-1.12-0.0.2.jar": {
     "curseForgeHash": 2119973449,
@@ -2947,5 +2947,12 @@
     "modId": "zenutils",
     "modrinthHash": "ed623a92619a6fe2996b1aa129a0f4dd44600770",
     "version": "1.26.11"
+  },
+  "zume-1.2.1.jar": {
+    "curseForgeHash": 3006123426,
+    "jarName": "zume-1.2.1.jar",
+    "modId": "zume",
+    "modrinthHash": "433406987269d89cf4fc0170a1f1d1c9b8ddd504",
+    "version": "1.2.1"
   }
 }

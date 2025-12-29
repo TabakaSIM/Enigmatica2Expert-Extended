@@ -1,44 +1,51 @@
-## ✨ New Features
-
-  * <img src="https://i.imgur.com/scMrb6Z.png" align=right> [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/a0c71e7)🌱IC2 seed add texture
-    > Now all IC2 crop seed bags will have texture depending on their crop type.
-    > 
-    > Textures taken from resource pack https://curseforge.com/minecraft/texture-packs/ic2-seedbag-display
-  * <img src="https://i.imgur.com/bsjtJov.png" align=right> [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/ed3fa2d)📖IC2 quests rework, fixes to En and Ru localizations
-    > > Contributed by [ahtohio](https://github.com/ahtohio)
-    >
-    > Reworked Industrial Craft 2 questline offering streamlined mod progression and exploring less-known generators (Wind Turbine, Fluid Reactor). Added small tips to some IC2 quests and overhauled Russian translation for IC2 questline.
-
 ## 🐛 Fixes
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/7d0e82f)💥Fix crash when fluids interact with bedrock ores on the server
-    > > Contributed by [Lucas Sivars](https://github.com/lucassivars)
-    >
-    > Fix serverside-only crash, introduced in `v1.70.0-beta`.
-    > 
-    > related https://github.com/jbredwards/Fluidlogged-API/issues/276
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/db2b6cd)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/endreborn/block_wolframium_ore__0.png "Tungsten Ore") allow to work with [Alchemist's Stone]
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/6c3434a)✏️Prevent duping bones by `crushing` => `melting` => `casting` bones
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/388c9c3)🔥`Burn in fluid` mechanic - fix some cases of stone not converted
-    > Since item is randomly "jumped" out of the pool when you drop it, its unclear which block caused initial "burning".
-    > 
-    > Now, all 27 surrounding blocks around ore piece will be checked.
-    > 
-    > Pieces still can't be transform in rain.
-    > 
-    > ✅ Tip: always put pieces first, and then fluid. Or put pieces inside of the fluid so it cant leave fluid block.
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/cddfbc2)⛏️Remove custom ![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/snow_layer__0.png "Snow") mining levels
+    > Also change mining tool for Web and Infested Leaves
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/219f16f)📖Fix "rechage" typo
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/66806d8)🔄![](https://github.com/Krutoy242/mc-icons/raw/master/i/thaumcraft/wand_workbench__0.png "Focal Manipulator") reset gui size
+    > Issue with HEI bookmarks was fixed
 
   #### Balance
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/70d1484)✏️Reduce amount of ![](https://github.com/Krutoy242/mc-icons/raw/master/i/ic2/crafting__23.png "Scrap") from ![](https://github.com/Krutoy242/mc-icons/raw/master/i/rats/garbage_pile__0.png "Garbage Pile")
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/c0a4244)✏️Remove [Calcium] shortcut with TCon Smeltery
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/cc0452b)🟤![](https://github.com/Krutoy242/mc-icons/raw/master/i/hole_filler_mod/throwable_hole_filler__0.png "Hole Filler") increase diam.  12➜32, volume 1k➜10k
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/0a36b81)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/immersiveengineering/railgun__0.png "Railgun") buff damage of custom rod bullets
+    > Now from 38 to 104 HP (roughtly x2 damage)
 
+  #### Quest
+
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/d82efa9)📖Enhance IC2 quests
+    > > Contributed by [ahtohio](https://github.com/ahtohio)
+    >
+    > - Wider description window  
+    > - More formatting / color  
+    > - Remove second overclockers quest
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/6ce7d4d)📖Sligtly buff Common and Uncommon boxes
 
 ## Mods changes
+### 🟢 Added Mods
+
+Icon | Summary | Reason
+----:|:--------|:-------
+<img src="https://media.forgecdn.net/avatars/thumbnails/894/711/30/30/638338657652175030.png"            > |                                   [**Zume**](https://www.curseforge.com/minecraft/mc-mods/zume)                         <sup><sub>zume-1.2.1.jar                                   </sub></sup><br>An over-engineered Zoom mod by Nolij | For ones who plays without Oprifine
+<img src="https://media.forgecdn.net/avatars/thumbnails/1222/337/30/30/638800794385497250.png"           > |                                [**QBitHop**](https://www.curseforge.com/minecraft/mc-mods/qbithop)                      <sup><sub>bithop-2.0.1.jar                                 </sub></sup><br>A fork of the BitHop mod, containing further improved additional hoppers. | Fix bug with clearing inventory on sorting
+-----------
+
+
+### 🔴 Removed Mods
+
+Icon | Summary | Reason
+----:|:--------|:-------
+<img src="https://media.forgecdn.net/avatars/thumbnails/148/522/30/30/636583436552873978.png"            > |                                 [**BitHop**](https://www.curseforge.com/minecraft/mc-mods/bithop)                       <sup><sub>BitHop-1.2.jar                                   </sub></sup><br>Hoppers sans lag, for ModJam 2018.1 | Good and stable mod, but need to try its fork for stability test
+-----------
+
 ### 🟡 Updated Mods
 
 Icon | Summary | Old / New
 ----:|:--------|:---------
-<img src="https://media.forgecdn.net/avatars/thumbnails/1338/430/30/30/638869986013756191.png"           > |                         [**Roid's Tweaker**](https://www.curseforge.com/minecraft/mc-mods/roid-tweaker)                | <nobr>roidtweaker-1.2.1</nobr><br><nobr>roidtweaker-1.2.2</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/292/428/30/30/637325593905195388.png"            > |                              [**Zen Utils**](https://www.curseforge.com/minecraft/mc-mods/zenutil)                     | <nobr>zenutils-1.26.10</nobr><br><nobr>zenutils-1.26.11</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/468/506/30/30/637752171904887013.jpeg"           > |                       [**Had Enough Items**](https://www.curseforge.com/minecraft/mc-mods/had-enough-items)            | <nobr>HadEnoughItems_1.12.2-4.29.13</nobr><br><nobr>HadEnoughItems_1.12.2-4.29.14</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/551/59/30/30/637888242565991470.png"             > |                              [**ModularUI**](https://www.curseforge.com/minecraft/mc-mods/modularui)                   | <nobr>modularui-3.0.4</nobr><br><nobr>modularui-3.0.6</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1304/81/30/30/638847932766552243.png"            > |                                  [**Fugue**](https://www.curseforge.com/minecraft/mc-mods/fugue)                       | <nobr>+Fugue-0.22.2</nobr><br><nobr>+Fugue-0.22.6</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1482/227/30/30/638963404721998907.png"           > |                        [**Crash Assistant**](https://www.curseforge.com/minecraft/mc-mods/crash-assistant)             | <nobr>!!!CrashAssistant-forge-1.12.2-1.10.27</nobr><br><nobr>!!!CrashAssistant-forge-1.12.2-1.10.28</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1467/756/30/30/638952634897811631.png"           > |                                 [**Gnetum**](https://www.curseforge.com/minecraft/mc-mods/gnetum)                      | <nobr>gnetum-1.3.2</nobr><br><nobr>gnetum-1.3.4</nobr>
 -----------
