@@ -2,6 +2,11 @@
 
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
+import crafttweaker.potions.IPotion;
+import native.net.minecraft.potion.PotionEffect;
+import native.vazkii.botania.common.lib.LibBrewNames;
+import native.vazkii.botania.common.brew.BrewMod;
+import native.vazkii.botania.common.brew.ModPotions;
 
 // ----- Orechid progression -----#
 
@@ -549,3 +554,76 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "amuile
 <botania:petal>,
 ]);
 recipes.addShapeless(<botania:floatingspecialflower>.withTag({type: "amuileria_kaerunea"}), [<botania:specialflower>.withTag({type: "amuileria_kaerunea"}), <botania:floatingspecialflower:*>]);
+
+BrewMod(LibBrewNames.SPEED,           0x59B7FF, 4000, [<potion:minecraft:speed>          .makePotionEffect(864000, 3)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.SPEED);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:sugar>, <actuallyadditions:item_dust:7>], LibBrewNames.SPEED);
+BrewMod(LibBrewNames.STRENGTH,        0xEE3F3F, 4000, [<potion:minecraft:strength>       .makePotionEffect(72000, 3)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.STRENGTH);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:blaze_powder>, <astralsorcery:itemusabledust>], LibBrewNames.STRENGTH);
+BrewMod(LibBrewNames.HASTE,           0xF4A432, 4000, [<potion:minecraft:haste>          .makePotionEffect(864000, 3)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.HASTE);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:prismarine_crystals>, <actuallyadditions:item_dust:7>], LibBrewNames.HASTE);
+BrewMod(LibBrewNames.HEALING,         0xFF5ECC, 6000, [<potion:minecraft:instant_health> .makePotionEffect(1, 19)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.HEALING);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:speckled_melon>, <thaumcraft:quicksilver>], LibBrewNames.HEALING);
+BrewMod(LibBrewNames.JUMP_BOOST,      0x32F46D, 4000, [<potion:minecraft:jump_boost>     .makePotionEffect(864000, 3)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.JUMP_BOOST);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:rabbit_foot>, <actuallyadditions:item_dust:7>], LibBrewNames.JUMP_BOOST);
+BrewMod(LibBrewNames.REGEN,           0xFD6488, 7000, [<potion:minecraft:regeneration>   .makePotionEffect(72000, 3)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.REGEN);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:ghast_tear>, <astralsorcery:itemusabledust>], LibBrewNames.REGEN);
+BrewMod(LibBrewNames.REGEN_WEAK,      0xFD6488, 9000, [<potion:minecraft:regeneration>   .makePotionEffect(864000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.REGEN_WEAK);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:ghast_tear>, <actuallyadditions:item_dust:7>], LibBrewNames.REGEN_WEAK);
+BrewMod(LibBrewNames.RESISTANCE,      0xB44E17, 4000, [<potion:minecraft:resistance>     .makePotionEffect(864000, 1)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.RESISTANCE);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:quartz>, <actuallyadditions:item_dust:7>], LibBrewNames.RESISTANCE);
+BrewMod(LibBrewNames.FIRE_RESISTANCE, 0xF86900, 4000, [<potion:minecraft:fire_resistance>.makePotionEffect(864000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.FIRE_RESISTANCE);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:magma_cream>, <actuallyadditions:item_dust:7>], LibBrewNames.FIRE_RESISTANCE);
+BrewMod(LibBrewNames.WATER_BREATHING, 0x84A7CF, 4000, [<potion:minecraft:water_breathing>.makePotionEffect(864000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.WATER_BREATHING);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:fish:3>, <actuallyadditions:item_dust:7>], LibBrewNames.WATER_BREATHING);
+BrewMod(LibBrewNames.INVISIBILITY,    0xAEAEAE, 8000, [<potion:minecraft:invisibility>   .makePotionEffect(864000, 0)]).setNotBloodPendantInfusable();
+mods.botania.Brew.removeRecipe(LibBrewNames.INVISIBILITY);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>,<minecraft:golden_carrot>, <minecraft:fermented_spider_eye>, <actuallyadditions:item_dust:7>], LibBrewNames.INVISIBILITY);
+BrewMod(LibBrewNames.NIGHT_VISION,    0x7C4BEB, 4000, [<potion:minecraft:night_vision>   .makePotionEffect(864000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.NIGHT_VISION);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:golden_carrot>, <actuallyadditions:item_dust:7>], LibBrewNames.NIGHT_VISION);
+BrewMod(LibBrewNames.ABSORPTION,      0xF2EB23, 7000, [<potion:minecraft:absorption>     .makePotionEffect(72000, 9)]).setNotBloodPendantInfusable().setNotIncenseInfusable();
+mods.botania.Brew.removeRecipe(LibBrewNames.ABSORPTION);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:golden_apple>, <astralsorcery:itemusabledust>], LibBrewNames.ABSORPTION);
+BrewMod(LibBrewNames.WARP_WARD,       0xFBBDFF, 25000,[<potion:thaumcraft:warpward>.makePotionEffect(1728000, 0)]).setNotBloodPendantInfusable();
+mods.botania.Brew.removeRecipe(LibBrewNames.WARP_WARD);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <thaumadditions:odour_powder>, <actuallyadditions:item_dust:7>,<thaumcraft:amber>], LibBrewNames.WARP_WARD);
+
+BrewMod(LibBrewNames.SOUL_CROSS,       10000,[PotionEffect(ModPotions.soulCross, 72000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.SOUL_CROSS);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <ore:boneWither>, <randomthings:ingredient:7>], LibBrewNames.SOUL_CROSS);
+BrewMod(LibBrewNames.FEATHER_FEET,     7000, [PotionEffect(ModPotions.featherfeet, 864000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.FEATHER_FEET);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <minecraft:feather>, <actuallyadditions:item_dust:7>], LibBrewNames.FEATHER_FEET);
+BrewMod(LibBrewNames.EMPTINESS,        30000,[PotionEffect(ModPotions.emptiness, 864000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.EMPTINESS);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <thaumcraft:shimmerleaf>, <actuallyadditions:item_dust:7>, <darkutils:material>], LibBrewNames.EMPTINESS);
+BrewMod(LibBrewNames.BLOODTHIRST,      20000,[PotionEffect(ModPotions.bloodthrst, 72000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.BLOODTHIRST);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <thaumcraft:vishroom>, <actuallyadditions:item_dust:7>, <darkutils:material>], LibBrewNames.BLOODTHIRST);
+BrewMod(LibBrewNames.ALLURE,           2000, [PotionEffect(ModPotions.allure, 864000, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.ALLURE);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <harvestcraft:fishtrapbaititem>, <actuallyadditions:item_dust:7>], LibBrewNames.ALLURE);
+//BrewMod(LibBrewNames.CLEAR,            4000, [PotionEffect(ModPotions.clear, 0, 0)]);
+mods.botania.Brew.removeRecipe(LibBrewNames.CLEAR);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <ore:listAllmilk>, <thaumcraft:quicksilver>], LibBrewNames.CLEAR);
+
+BrewMod(LibBrewNames.OVERLOAD, 0x232323, 12000, [
+  <potion:minecraft:strength>.makePotionEffect(12000, 9),
+  <potion:minecraft:speed>   .makePotionEffect(12000, 4),
+  <potion:minecraft:weakness>.makePotionEffect(24000, 1),
+  <potion:minecraft:hunger>  .makePotionEffect(6000,  1)
+]);
+mods.botania.Brew.removeRecipe(LibBrewNames.OVERLOAD);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:ginseng>, <rustic:wind_thistle>, <biomesoplenty:double_plant:2>, <botania:manaresource:23>], LibBrewNames.OVERLOAD);
+
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:olives>, <rustic:deathstalk_mushroom>, <iceandfire:pixie_dust>, <botania:manaresource:23>], "aerial_delirium");
