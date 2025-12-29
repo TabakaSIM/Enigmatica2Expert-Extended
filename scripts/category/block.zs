@@ -73,10 +73,8 @@ Wildcarding is not necessary but recommended if possible
 Arguments is rotated for easy natural sorting
 */
 
-set(-1, '?shears', <exnihilocreatio:block_infested_leaves:*>, 0);
-set(-1, '?shears', <minecraft:web>);
-set(-1, '?shovel', <minecraft:snow_layer:*>);
-set(-1, '?shovel', <minecraft:snow>);
+set(-1, 'shears', <exnihilocreatio:block_infested_leaves:*>, 0);
+set(-1, 'shears', <minecraft:web>);
 set(0, 'pickaxe', <appliedenergistics2:sky_stone_chest:*>);
 set(0, 'pickaxe', <chisel:limestone:*>);
 set(0, 'pickaxe', <chisel:limestone1:*>);
