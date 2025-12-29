@@ -7,7 +7,6 @@
 - [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
 - [ ] ✏️ Fix `Replicator` add difficulty based on dimension
 - [ ] ✏️ `Industrial Squeezer` remove excess popped chorus recipe
-- [ ] ✏️ Remove re-initialization at `scripts/do/portal_spread/sphere.zs`
 
 ### ✨ New features
 
@@ -185,6 +184,7 @@ Planned non-urgent changes, or just good ideas:
 
 ### Other
 
+- [ ] 🔨 Right-clicking brick with a pickaxe turn it into Cracked Brick (work with chiseled too)
 - [ ] 🐛 Fix Harvest Levels not working for non-"stone" material. For some reason, `setHarvestLevel` wont affect non-pickaxe blocks
 - [ ] ✏️ Remove `Advanced Bee Analyzer` and just speed up Forestry Analyzer with mixin instead
 - [ ] 👑 Upgrading Draconic tools give Omnopotence (cannot reproduce single player)

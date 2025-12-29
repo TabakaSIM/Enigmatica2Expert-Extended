@@ -72,6 +72,11 @@ java.lang.RuntimeException: java.lang.invoke.LambdaConversionException: Type mis
   [...]
 [Client thread/ERROR] [loottweaker.sanity_checks]: Unexpected duplicate pool name 'marbled_cheese_golem' in table 'rats:marbled_cheese_golem'. Duplicate added as 'marbled_cheese_golem0'.
 Report this to the loot adder.
+[Client thread/ERROR] [Had Enough Items]: Recipe has no output. Minecraft minecraft:air_0 class net.minecraftforge.oredict.ShapedOreRecipe
+Outputs:
+net.minecraft.item.ItemStack: [[]]
+Inputs:
+net.minecraft.item.ItemStack: [[1xitem.ingotIron@0 minecraft:iron_ingot], [1xitem.slimeball@0 minecraft:slime_ball], [1xitem.ingotIron@0 minecraft:iron_ingot], [1xitem.ingotIron@0 minecraft:iron_ingot], [1xtile.oak_chest@0 minecraft:chest], [1xitem.ingotIron@0 minecraft:iron_ingot], [1xitem.slimeball@0 minecraft:slime_ball], [1xitem.ingotIron@0 minecraft:iron_ingot], [1xitem.slimeball@0 minecraft:slime_ball]]
 [Client thread/ERROR] [Had Enough Items]: Found a broken recipe: ink.ikx.rt.impl.mods.jei.recipe.DynamicRecipesWrapper@xxxxxxxx
 Failed to get ingredients from recipe wrapper
 
