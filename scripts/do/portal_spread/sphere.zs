@@ -34,7 +34,6 @@ static MAX_Z_VARIANTS as int = maxRadius + 2;
 static MAX_DISTANCE_INDEXES as int = MAX_GROUP_SIZE * MAX_Z_VARIANTS * MAX_MIRRORS;
 
 function init() as void {
-  print('Initializing sphere array for portal_spread calculations...');
   Op.initialized = true;
   for x in 0 .. (maxRadius + 1) {
     for y in 0 .. (x + 1) {
