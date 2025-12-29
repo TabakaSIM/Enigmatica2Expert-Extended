@@ -14,10 +14,6 @@
     "li.cil.oc.client.gui.Robot": {
       "scale": 2,
       "name": "li.cil.oc.client.gui.Robot"
-    },
-    "thaumcraft.client.gui.GuiFocalManipulator": {
-      "scale": 2,
-      "name": "thaumcraft.client.gui.GuiFocalManipulator"
     }
   },
   "customGroupGuiScales": {},
