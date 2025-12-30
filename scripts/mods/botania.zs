@@ -646,7 +646,7 @@ BrewMod("warbound", 0xFFD700, 10000, [
     <potion:minecraft:absorption>.makePotionEffect(24000, 19),
     <potion:minecraft:resistance>.makePotionEffect(24000, 3),
     <potion:bloodmagic:deafness> .makePotionEffect(24000, 0),
-    <potion:thaumcraft:deathgaze>.makePotionEffect(24000, 3)
+    <potion:minecraft:slowness>  .makePotionEffect(24000, 1)
 ]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:tomato>, <rustic:aloe_vera>, <rustic:honeycomb>, <botania:manaresource:23>], "warbound");
 
