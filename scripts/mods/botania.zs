@@ -617,6 +617,9 @@ mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <harvestcraft:fishtrapbait
 mods.botania.Brew.removeRecipe(LibBrewNames.CLEAR);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <ore:listAllmilk>, <thaumcraft:quicksilver>], LibBrewNames.CLEAR);
 
+BrewMod('chronos',           0xFFE066, 10000, [PotionEffect(<potion:contenttweaker:chronos>, 36000, 0)]);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <twilightforest:magic_leaves>, <contenttweaker:compressed_white_sand>, <astralsorcery:itemusabledust>], 'chronos');
+
 BrewMod(LibBrewNames.OVERLOAD, 0x232323, 12000, [
   <potion:minecraft:strength>.makePotionEffect(12000, 9),
   <potion:minecraft:speed>   .makePotionEffect(12000, 4),

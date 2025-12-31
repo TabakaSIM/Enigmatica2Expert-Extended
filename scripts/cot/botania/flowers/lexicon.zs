@@ -147,6 +147,7 @@ mods.botania.Lexicon.addBrewPage('botania.page.complexBrews4a','botania.entry.br
 mods.botania.Lexicon.addBrewPage('botania.page.complexBrews5a','botania.entry.brewery',21,LibBrewNames.BLOODTHIRST,[<minecraft:nether_wart>,<thaumcraft:vishroom>,<actuallyadditions:item_dust:7>,<darkutils:material>],'botania.page.complexBrews5b');
 mods.botania.Lexicon.addBrewPage('botania.page.complexBrews6a','botania.entry.brewery',22,LibBrewNames.ALLURE,[<minecraft:nether_wart>,<harvestcraft:fishtrapbaititem>,<actuallyadditions:item_dust:7>],'botania.page.complexBrews6b');
 mods.botania.Lexicon.addBrewPage('botania.page.complexBrews7a','botania.entry.brewery',23,LibBrewNames.CLEAR,[<minecraft:nether_wart>,<ore:listAllmilk>,<thaumcraft:quicksilver>],'botania.page.complexBrews7b');
+mods.botania.Lexicon.addBrewPage('botania.page.chronos_a','botania.entry.brewery',24,'chronos',[<minecraft:nether_wart>, <twilightforest:magic_leaves>, <contenttweaker:compressed_white_sand>, <astralsorcery:itemusabledust>],'botania.page.chronos_b');
 
 Lexicon.removePage('botania.entry.complexBrews', 1);
 Lexicon.removePage('botania.entry.complexBrews', 1);

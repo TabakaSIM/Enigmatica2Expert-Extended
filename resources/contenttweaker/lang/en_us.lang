@@ -706,9 +706,15 @@ item.contenttweaker.alloy_mould.name=Ultra Light Edle Elektronlegierung Mould
 item.contenttweaker.sic_mould.name=Ultra Light Matrix-Legierung Mould
 
 # --------------------------------------
+# Potion Names
+# --------------------------------------
+effect.contenttweaker.chronos=Chronos
+
+# --------------------------------------
 # Potion Descriptions
 # --------------------------------------
 description.potion.saturation=Restores hunger and nutrients
+description.potion.chronos=Doubles gain of time in a bottle
 
 # --------------------------------------
 # Enchantment Descriptions

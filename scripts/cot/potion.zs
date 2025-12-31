@@ -2,10 +2,14 @@
 #modloaded thaumadditions
 #priority 1000
 
+import crafttweaker.data.IData;
 import crafttweaker.entity.IEntityLivingBase;
+import crafttweaker.player.IPlayer;
 import crafttweaker.util.Math;
 import mods.contenttweaker.VanillaFactory;
 import mods.randomtweaker.cote.IPotion;
+import mods.zenutils.DataUpdateOperation.MERGE;
+import mods.zenutils.ItemHandler;
 
 val potionExorcism as IPotion = VanillaFactory.createPotion('exorcism', 0xF7D575);
 
@@ -66,3 +70,45 @@ potionDragonFire.performEffect = function (living, amplifier) {
 };
 
 potionDragonFire.register();
+
+val potionChronos as IPotion = VanillaFactory.createPotion('chronos', 0xD3D3D3);
+potionChronos.shouldRender = true;
+potionChronos.shouldRenderHUD = true;
+potionChronos.badEffectIn = false;
+
+static timeColdown as int = 20;
+static timeGain as int = 200;
+
+potionChronos.isReady = function (duration, amplifier) {
+  return (duration % timeColdown == 0);
+};
+
+potionChronos.performEffect = function (living, amplifier) {
+  if (!living.world.remote && living instanceof IPlayer) {
+    val player as IPlayer = living;
+    val inventory = player.getPlayerInventoryItemHandler();
+    var time = 0;
+    var slot = -1;
+
+    for slotIndex in 0 .. inventory.size {
+      val item = inventory.getStackInSlot(slotIndex);
+      if(!isNull(item) && item.definition.id == 'randomthings:timeinabottle'){
+        val tiab = inventory.getStackInSlot(slotIndex);
+        if(isNull(item.tag.timeData)) continue;
+        val timeTiab = tiab.tag.timeData.storedTime;
+        if(time < timeTiab) {
+          slot = slotIndex;
+          time = timeTiab;
+        }
+      }
+    }
+
+    if(slot > -1) {
+      var item = inventory.getStackInSlot(slot);
+      item = item.withTag(item.tag.deepUpdate({timeData: {storedTime: (timeGain + time)}}, MERGE));
+      inventory.setStackInSlot(slot, item);
+    }
+  }
+};
+
+potionChronos.register();
