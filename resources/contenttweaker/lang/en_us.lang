@@ -714,7 +714,7 @@ effect.contenttweaker.chronos=Chronos
 # Potion Descriptions
 # --------------------------------------
 description.potion.saturation=Restores hunger and nutrients
-description.potion.chronos=Doubles gain of time in a bottle
+description.effect.contenttweaker.chronos=Doubles gain of time in a bottle
 
 # --------------------------------------
 # Enchantment Descriptions
