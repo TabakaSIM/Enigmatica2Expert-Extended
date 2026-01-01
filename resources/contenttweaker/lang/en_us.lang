@@ -709,12 +709,14 @@ item.contenttweaker.sic_mould.name=Ultra Light Matrix-Legierung Mould
 # Potion Names
 # --------------------------------------
 effect.contenttweaker.chronos=Chronos
+effect.contenttweaker.darkness_resistance=Darkness Resistance
 
 # --------------------------------------
 # Potion Descriptions
 # --------------------------------------
 description.potion.saturation=Restores hunger and nutrients
 description.effect.contenttweaker.chronos=Doubles gain of time in a bottle
+description.effect.contenttweaker.darkness_resistance=Protects from darkness damage in deep dark
 
 # --------------------------------------
 # Enchantment Descriptions

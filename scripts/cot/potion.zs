@@ -112,3 +112,21 @@ potionChronos.performEffect = function (living, amplifier) {
 };
 
 potionChronos.register();
+
+val potionDarknessResistance as IPotion = VanillaFactory.createPotion('darkness_resistance', 0xFFF58A);
+potionDarknessResistance.shouldRender = true;
+potionDarknessResistance.shouldRenderHUD = true;
+potionDarknessResistance.badEffectIn = false;
+
+potionDarknessResistance.isReady = function (duration, amplifier) {
+  return (duration % 20 == 0);
+};
+
+potionDarknessResistance.performEffect = function (living, amplifier) {
+  if (!living.world.remote && living instanceof IPlayer) {
+    val data = living.native.getEntityData();
+    if(data.hasKey('XU2|DarkTimer')) data.removeTag('XU2|DarkTimer');
+  }
+};
+
+potionDarknessResistance.register();
