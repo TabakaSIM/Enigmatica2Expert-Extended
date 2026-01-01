@@ -1,4 +1,4 @@
-#modloaded zenutils scalinghealth
+#modloaded zenutils scalinghealth roidtweaker
 #priority 2000
 #reloadable
 

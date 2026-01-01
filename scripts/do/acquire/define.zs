@@ -1,7 +1,7 @@
 #reloadable
 #priority -1500
 #ignoreBracketErrors
-#modloaded zenutils scalinghealth
+#modloaded zenutils scalinghealth roidtweaker gamestages
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.world.IWorld;

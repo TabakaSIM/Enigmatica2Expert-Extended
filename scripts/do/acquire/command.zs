@@ -1,5 +1,5 @@
 #reloadable
-#modloaded zenutils scalinghealth
+#modloaded zenutils scalinghealth roidtweaker gamestages
 #priority -1800
 
 import crafttweaker.world.IWorld;

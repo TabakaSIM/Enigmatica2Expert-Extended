@@ -1,5 +1,5 @@
 #ignoreBracketErrors
-#modloaded roidtweaker
+#modloaded roidtweaker randomtweaker
 #priority -6000
 #reloadable
 

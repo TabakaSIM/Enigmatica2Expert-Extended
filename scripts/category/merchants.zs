@@ -5,7 +5,6 @@ import crafttweaker.item.IItemStack;
 
 import mods.roidtweaker.minecraft.villager.Villager;
 
-recipes.remove(<cyclicmagic:block_shears>);
 val pap = <conarm:polishing_kit>.withTag({ Material: 'paper' });
 val E = <minecraft:emerald>;
 

@@ -6,7 +6,7 @@
 
 */
 
-#modloaded bloodmagic
+#modloaded bloodmagic jaopca
 #reloadable
 
 import crafttweaker.data.IData;
