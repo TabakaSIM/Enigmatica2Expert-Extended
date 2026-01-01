@@ -10,6 +10,7 @@ import mods.requious.AssemblyRecipe;
 import mods.zenutils.StringList;
 
 import scripts.commands.perf.util.naturalInt;
+import scripts.mixin.bloodmagic.shared.Op;
 
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
@@ -89,40 +90,10 @@ function addModifier(i as int, result as IItemStack) as void {
     .build();
 }
 
-/* Inject_js(
-config('config/bloodmagic/bloodmagic.cfg')
-  .values.ritualCobblestoneModifiers
-  .map((s, i) => [i, s.replace('@', ':')])
-  .filter(([,s]) => s !== 'minecraft:cobblestone')
-  .map(([i, s]) => `addModifier(${i}, <${s}>);`)
-) */
-addModifier(0, <minecraft:prismarine>);
-addModifier(1, <minecraft:obsidian>);
-addModifier(2, <engineersdecor:gas_concrete>);
-addModifier(3, <chisel:concrete_white>);
-addModifier(4, <exnihilocreatio:block_endstone_crushed>);
-addModifier(5, <tconstruct:slime_grass:1>);
-addModifier(6, <contenttweaker:compressed_coral>);
-addModifier(7, <extrautils2:decorativesolid:4>);
-addModifier(8, <ic2:resource>);
-addModifier(9, <exnihilocreatio:block_skystone_crushed>);
-addModifier(11, <exnihilocreatio:block_netherrack_crushed>);
-addModifier(12, <endreborn:block_lormyte_crystal>);
-addModifier(13, <tconstruct:brownstone:1>);
-addModifier(14, <tconstruct:soil>);
-addModifier(15, <tconstruct:soil:3>);
-addModifier(16, <quark:biome_cobblestone:2>);
-addModifier(17, <endreborn:block_entropy_end_stone>);
-addModifier(18, <quark:elder_prismarine>);
-addModifier(25, <tconstruct:soil:5>);
-addModifier(26, <tconstruct:soil:2>);
-addModifier(27, <immersivepetroleum:stone_decoration>);
-addModifier(28, <quark:biome_cobblestone:1>);
-addModifier(29, <quark:biome_cobblestone>);
-addModifier(30, <immersiveengineering:stone_decoration:5>);
-addModifier(31, <tconstruct:slime_grass:8>);
-addModifier(32, <quark:slate>);
-/**/
+if (isNull(Op.catalystToBlock)) Op.catalystToBlock = Op.init();
+for i, block in Op.catalystToBlock {
+  addModifier(i, scripts.do.portal_spread.utils.stateToItem(block));
+}
 
 p = mods.jei.JEI.createJei('sacrificial_values', 'Sacrificial Values');
 p.setBackground(IJeiUtils.createBackground(4 * 18, 1 * 18));
