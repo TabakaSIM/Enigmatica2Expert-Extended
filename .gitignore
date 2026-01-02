@@ -5,7 +5,6 @@
 /.mixin.out
 /.ReAuth.cfg
 /.vscode/sftp.json
-/.vscode/tasks.json
 /*.jar
 /assets
 /astralsorcery
