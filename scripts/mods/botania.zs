@@ -617,9 +617,9 @@ mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <harvestcraft:fishtrapbait
 mods.botania.Brew.removeRecipe(LibBrewNames.CLEAR);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <ore:listAllmilk>, <thaumcraft:quicksilver>], LibBrewNames.CLEAR);
 
-BrewMod('chronos',           0xFFE066, 10000, [PotionEffect(<potion:contenttweaker:chronos>, 36000, 0)]);
+BrewMod('chronos',             0xD3D3D3, 10000, [PotionEffect(<potion:contenttweaker:chronos>, 36000, 0)]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <twilightforest:magic_leaves>, <contenttweaker:compressed_white_sand>, <astralsorcery:itemusabledust>], 'chronos');
-BrewMod('darkness_resistance', 0xFFE066, 5000, [PotionEffect(<potion:contenttweaker:darkness_resistance>, 864000, 0)]);
+BrewMod('darkness_resistance', 0xFFF58A, 5000, [PotionEffect(<potion:contenttweaker:darkness_resistance>, 864000, 0)]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <twilightforest:torchberries>, <actuallyadditions:item_dust:7>], 'darkness_resistance');
 BrewMod('easyculty',           0x009900, 5000, [PotionEffect(<potion:contenttweaker:easyculty>, 72000, 0)]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <biomesoplenty:shroompowder>, <cyclicmagic:heart_toxic>, <thaumcraft:void_seed>], 'easyculty');
