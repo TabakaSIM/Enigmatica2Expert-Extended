@@ -146,11 +146,11 @@ potionEasyculty.performEffect = function (living, amplifier) {
   if (!living.world.remote && living instanceof IPlayer) {
     val player as IPlayer = living;
 
-    if(isNull(player.nbt.ForgeData.vialTempDifficultyPenalty)) {
+    if(isNull(player.nbt.ForgeData.PlayerPersisted.vialTempDifficultyPenalty)) {
       val playerDiff = player.getDifficulty();
       val diffPenalty = Math.min(difficultyDiscount, playerDiff);
       
-      player.setNBT({'vialTempDifficultyPenalty' : diffPenalty});
+      player.setNBT({'PlayerPersisted': {'vialTempDifficultyPenalty' : diffPenalty}});
       player.setDifficulty(playerDiff - diffPenalty);
     } 
   }
@@ -159,10 +159,10 @@ potionEasyculty.performEffect = function (living, amplifier) {
 events.onPlayerTick(function(event as crafttweaker.event.PlayerTickEvent) {
   if(isNull(event.player) || event.player.world.remote || event.player.world.provider.worldTime % 20 != 0) return;
   val player = event.player;
-  if(player.isPotionActive(<potion:contenttweaker:easyculty>) || isNull(player.nbt.ForgeData.vialTempDifficultyPenalty)) return;
+  if(player.isPotionActive(<potion:contenttweaker:easyculty>) || isNull(player.nbt.ForgeData.PlayerPersisted.vialTempDifficultyPenalty)) return;
 
-  player.setDifficulty(Math.min(1000.0, player.getDifficulty() + player.nbt.ForgeData.vialTempDifficultyPenalty));
-  player.native.getEntityData().removeTag('vialTempDifficultyPenalty');    
+  player.setDifficulty(Math.min(1000.0, player.getDifficulty() + player.nbt.ForgeData.PlayerPersisted.vialTempDifficultyPenalty));
+  player.native.getEntityData().getCompoundTag('PlayerPersisted').removeTag('vialTempDifficultyPenalty');    
 });
 
 potionEasyculty.register();
