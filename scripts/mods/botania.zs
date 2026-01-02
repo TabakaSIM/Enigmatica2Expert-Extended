@@ -666,10 +666,10 @@ BrewMod("depthbound", 0x1F8EFF, 12000, [
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:mooncap_mushroom>, <rustic:core_root>, <biomesoplenty:coral:1>, <botania:manaresource:23>], "depthbound");
 
 BrewMod("sanguine_oath", 0x8B0000, 12000, [
-    <potion:bloodmagic:sacrificial_lamb>.makePotionEffect(12000, 1),
-    <potion:minecraft:regeneration>     .makePotionEffect(12000, 9),
-    <potion:minecraft:nausea>           .makePotionEffect(600, 0),
-    <potion:thaumcraft:thaumarhia>      .makePotionEffect(600, 0)
+    <potion:contenttweaker:self_sacrifice>.makePotionEffect(12000, 2),
+    <potion:minecraft:regeneration>       .makePotionEffect(12000, 9),
+    <potion:minecraft:nausea>             .makePotionEffect(600, 0),
+    <potion:thaumcraft:thaumarhia>        .makePotionEffect(600, 0)
 ]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <rustic:chamomile>, <rustic:cohosh>, <scalinghealth:crystalshard>, <botania:manaresource:23>], "sanguine_oath");
 

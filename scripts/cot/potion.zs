@@ -166,3 +166,16 @@ events.onPlayerTick(function(event as crafttweaker.event.PlayerTickEvent) {
 });
 
 potionEasyculty.register();
+
+val potionSelfSacifice as IPotion = VanillaFactory.createPotion('self_sacrifice', 0x660000);
+potionSelfSacifice.shouldRender = true;
+potionSelfSacifice.shouldRenderHUD = true;
+potionSelfSacifice.badEffectIn = false;
+
+events.register(function(event as native.WayofTime.bloodmagic.event.SacrificeKnifeUsedEvent) {
+  val player = event.player;
+  if(isNull(player) || player.world.isRemote || !player.isPotionActive(<potion:contenttweaker:self_sacrifice>.native)) return;
+  event.lpAdded += player.world.rand.nextDouble((1.0 + player.getActivePotionEffect(<potion:contenttweaker:self_sacrifice>.native).getAmplifier())) * event.lpAdded;
+});
+
+potionSelfSacifice.register();
