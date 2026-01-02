@@ -621,6 +621,8 @@ BrewMod('chronos',           0xFFE066, 10000, [PotionEffect(<potion:contenttweak
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <twilightforest:magic_leaves>, <contenttweaker:compressed_white_sand>, <astralsorcery:itemusabledust>], 'chronos');
 BrewMod('darkness_resistance', 0xFFE066, 5000, [PotionEffect(<potion:contenttweaker:darkness_resistance>, 864000, 0)]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <twilightforest:torchberries>, <actuallyadditions:item_dust:7>], 'darkness_resistance');
+BrewMod('easyculty',           0x009900, 5000, [PotionEffect(<potion:contenttweaker:easyculty>, 72000, 0)]);
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <biomesoplenty:shroompowder>, <cyclicmagic:heart_toxic>, <thaumcraft:void_seed>], 'easyculty');
 
 BrewMod(LibBrewNames.OVERLOAD, 0x232323, 12000, [
   <potion:minecraft:strength>.makePotionEffect(12000, 9),

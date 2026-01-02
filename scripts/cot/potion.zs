@@ -130,3 +130,39 @@ potionDarknessResistance.performEffect = function (living, amplifier) {
 };
 
 potionDarknessResistance.register();
+
+val potionEasyculty as IPotion = VanillaFactory.createPotion('easyculty', 0x009900);
+potionEasyculty.shouldRender = true;
+potionEasyculty.shouldRenderHUD = true;
+potionEasyculty.badEffectIn = false;
+
+static difficultyDiscount as double = 200.0;
+
+potionEasyculty.isReady = function (duration, amplifier) {
+  return (duration % 20 == 0);
+};
+
+potionEasyculty.performEffect = function (living, amplifier) {
+  if (!living.world.remote && living instanceof IPlayer) {
+    val player as IPlayer = living;
+
+    if(isNull(player.nbt.ForgeData.vialTempDifficultyPenalty)) {
+      val playerDiff = player.getDifficulty();
+      val diffPenalty = Math.min(difficultyDiscount, playerDiff);
+      
+      player.setNBT({'vialTempDifficultyPenalty' : diffPenalty});
+      player.setDifficulty(playerDiff - diffPenalty);
+    } 
+  }
+};
+
+events.onPlayerTick(function(event as crafttweaker.event.PlayerTickEvent) {
+  if(isNull(event.player) || event.player.world.remote || event.player.world.provider.worldTime % 20 != 0) return;
+  val player = event.player;
+  if(player.isPotionActive(<potion:contenttweaker:easyculty>) || isNull(player.nbt.ForgeData.vialTempDifficultyPenalty)) return;
+
+  player.setDifficulty(Math.min(1000.0, player.getDifficulty() + player.nbt.ForgeData.vialTempDifficultyPenalty));
+  player.native.getEntityData().removeTag('vialTempDifficultyPenalty');    
+});
+
+potionEasyculty.register();

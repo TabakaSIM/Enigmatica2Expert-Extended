@@ -711,6 +711,7 @@ item.contenttweaker.sic_mould.name=Сверхлегкая пресс-форма 
 # --------------------------------------
 effect.contenttweaker.chronos=Хронос
 effect.contenttweaker.darkness_resistance=Сопротивление тьме
+effect.contenttweaker.easyculty=Изикути
 
 # --------------------------------------
 # Potion Descriptions
@@ -718,6 +719,7 @@ effect.contenttweaker.darkness_resistance=Сопротивление тьме
 description.potion.saturation=Восстанавливает голод и питательные вещества
 description.effect.contenttweaker.chronos=Удваивает накопление времени в бутылке
 description.effect.contenttweaker.darkness_resistance=Защищает от урона тьмы в Глубокой Тьме
+description.effect.contenttweaker.easyculty=Временно снижает уровень сложности
 
 # --------------------------------------
 # Enchantment Descriptions
