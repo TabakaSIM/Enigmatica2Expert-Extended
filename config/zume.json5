@@ -17,7 +17,7 @@
 	// FOV changes will be spread out over this many milliseconds.
 	// Set to `0` to disable animations.
 	// DEFAULT: `150`
-	"zoomSmoothnessMs": 150,
+	"zoomSmoothnessMs": 100,
 	// The exponent used for easing animations.
 	// You should probably leave this at the default if you don't understand what it does.
 	// DEFAULT: `4.0`
@@ -28,7 +28,7 @@
 	"zoomEasingExponent": 2.0,
 	// Default starting zoom percentage.
 	// DEFAULT: `0.5`
-	"defaultZoom": 0.5,
+	"defaultZoom": 0.6,
 	// If `true`, the Zoom keybind will act as a toggle in first-person.
 	// If `false`, Zoom will only be active in first-person while the keybind is held.
 	// DEFAULT: `false`
