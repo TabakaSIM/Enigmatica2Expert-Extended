@@ -4,6 +4,11 @@ import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import scripts.jei.crafting_hints;
 
+// Prevent Core Samples to be placed, saving FPS
+events.register(function (e as crafttweaker.event.PlayerInteractBlockEvent) {
+  if (<immersiveengineering:coresample> has e.item) e.cancel();
+});
+
 recipes.remove(<immersiveengineering:material:1>);
 recipes.remove(<immersiveengineering:material:2>);
 recipes.remove(<immersiveengineering:material:3>);
