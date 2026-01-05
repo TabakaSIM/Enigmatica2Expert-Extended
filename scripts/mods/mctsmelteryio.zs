@@ -56,7 +56,3 @@ craft.remake(<mctsmelteryio:machine:1>, ['pretty',
   'S': <tconstruct:smeltery_io>,
   'i': <ore:ice>,                 // Ice
 });
-
-// Same as drain just not disconnects from Conduits
-recipes.remove(<mctsmelteryio:machine:3>);
-recipes.addShapeless(<mctsmelteryio:machine:3>, [<tconstruct:smeltery_io>]);
