@@ -77,7 +77,7 @@ potionChronos.shouldRenderHUD = true;
 potionChronos.badEffectIn = false;
 
 static timeColdown as int = 20;
-static timeGain as int = 200;
+static timeGain as int = 20;
 
 potionChronos.isReady = function (duration, amplifier) {
   return (duration % timeColdown == 0);
@@ -105,7 +105,7 @@ potionChronos.performEffect = function (living, amplifier) {
 
     if(slot > -1) {
       var item = inventory.getStackInSlot(slot);
-      item = item.withTag(item.tag.deepUpdate({timeData: {storedTime: (timeGain + time)}}, MERGE));
+      item = item.withTag(item.tag.deepUpdate({timeData: {storedTime: (timeGain * amplifier + time)}}, MERGE));
       inventory.setStackInSlot(slot, item);
     }
   }
