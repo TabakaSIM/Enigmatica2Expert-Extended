@@ -75,6 +75,8 @@ Arguments is rotated for easy natural sorting
 
 set(-1, 'shears', <exnihilocreatio:block_infested_leaves:*>, 0);
 set(-1, 'shears', <minecraft:web>);
+set(-1, 'shovel', <minecraft:snow_layer:*>);
+set(-1, 'shovel', <minecraft:snow>);
 set(0, 'pickaxe', <appliedenergistics2:sky_stone_chest:*>);
 set(0, 'pickaxe', <chisel:limestone:*>);
 set(0, 'pickaxe', <chisel:limestone1:*>);
@@ -104,7 +106,7 @@ set(2, 'pickaxe', <minecraft:lapis_block>);
 set(2, 'pickaxe', <rftools:modular_storage:*>);
 set(2, 'pickaxe', <thermalfoundation:ore:1>);
 set(2, 'pickaxe', <thermalfoundation:storage>);
-set(3, '?axe', <astralsorcery:blockinfusedwood:*>, 4);
+set(3, 'axe', <astralsorcery:blockinfusedwood:*>, 4);
 set(3, 'pickaxe', <actuallyadditions:block_crystal_empowered:*>, 2);
 set(3, 'pickaxe', <actuallyadditions:block_misc:3>);
 set(3, 'pickaxe', <biomesoplenty:gem_block:*>, 4);
@@ -270,7 +272,7 @@ set(6, 'pickaxe', <thermalfoundation:storage:5>);
 set(6, 'pickaxe', <twilightforest:aurora_pillar:*>, 18);
 set(6, 'pickaxe', <twilightforest:aurora_slab:*>, 18);
 set(6, 'pickaxe', <xnet:controller:*>, 18);
-set(7, '?pickaxe', <draconicevolution:energy_crystal:*>, 5);
+set(7, 'pickaxe', <draconicevolution:energy_crystal:*>, 5);
 set(7, 'axe', <advancedrocketry:alienwood:*>, 24);
 set(7, 'pickaxe', <biomesoplenty:biome_block:*>, 10);
 set(7, 'pickaxe', <botania:runealtar:*>, 24);

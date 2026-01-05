@@ -1,5 +1,5 @@
 #ignoreBracketErrors
-#modloaded bloodmagic
+#modloaded bloodmagic botania
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.item.IIngredient;

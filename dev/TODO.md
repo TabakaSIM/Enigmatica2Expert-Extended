@@ -4,6 +4,10 @@
 
 ### 🐛 Bugfixes
 
+- [x] ✏️ demonic will is not obtainable in skyblock vegan https://discord.com/channels/911676461050642432/911676461050642434/1457324086773547038
+- [x] Remove `Advanced Seared Drain` since causing crashes https://github.com/tgstyle/MCT-Smeltery-IO/issues/6
+- [ ] GUI flickering on `Focus` select screen
+- [ ] `Refining` doesnt work on Redstone Ore
 - [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
 - [ ] ✏️ Fix `Replicator` add difficulty based on dimension
 - [ ] ✏️ `Industrial Squeezer` remove excess popped chorus recipe
@@ -58,10 +62,9 @@ Planned non-urgent changes, or just good ideas:
 
 ### "Performance ⚡"
 
-- [ ] ⚡ Forbid to place `Core Samples` on the ground since they lower FPS. Map should be used instead
+- [x] ⚡ Forbid to place `Core Samples` on the ground since they lower FPS. Map should be used instead
 - [ ] ⚡ Rework Conflux levels chunk loading. Required to fix some half-loading chunk bug which disconnect cables and causing item spam
 - [ ] ⚡ Add watcher to detect 5000 items in one block distance and remove them
-- [ ] ⚡ Make Lumenized optional
 - [ ] ⚡ never use a fluid storage interface for IE's multiblock tanks (cause lag)
 - [ ] ⚡ Remove `Fluid Conduit` recipe since lower FPS
 - [ ] ⚡ add Warning about things that lower FPS: `placed item, drawers, Auto Sieve (promote ugly plating)`
@@ -76,8 +79,8 @@ Planned non-urgent changes, or just good ideas:
 - [ ] ⚡ Remove automatic IE armor recycling to speed up game load
 - [ ] ⚡ Remove `Chunk Loading Ward` since its make harder to find all chunk loaders on server
 - [ ] ⚡ Get rid of `Simple Trophies` since they strain FPS, replace them with LittleTiles or 3dPrint structures
-- [ ] ⚡ Remove `Cyclic`'s machines completely because they are laggy: https://i.imgur.com/cbCJJBq.png (replace recipes with FluidInteractionTweaker)
-- [ ] ⚡ Add Tips note about IE multiblocks causing strong FPS strain. Also make them all work so fast only 1 machine needed
+- [ ] ⚡ Remove `Cyclic`'s machines completely because they are laggy: https://i.imgur.com/cbCJJBq.png (replace with FluidInteractionTweaker)
+- [x] ⚡ Add Tips note about IE multiblocks causing strong FPS strain. Also make them all work so fast only 1 machine needed
 
 ### Quests and Docs expansion
 - [ ] 📖 Conflux should be announced as team too

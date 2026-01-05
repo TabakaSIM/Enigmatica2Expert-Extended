@@ -1,6 +1,6 @@
 #reloadable
 #priority -1100
-#modloaded zenutils scalinghealth
+#modloaded zenutils scalinghealth roidtweaker gamestages
 
 import crafttweaker.item.IItemStack;
 import crafttweaker.player.IPlayer;

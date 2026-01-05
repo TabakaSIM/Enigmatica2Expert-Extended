@@ -3,7 +3,7 @@ import process from 'node:process'
 
 import { consola } from 'consola'
 import logUpdate from 'log-update'
-import { join, parse } from 'pathe'
+import { join, parse, posix } from 'pathe'
 import { replaceInFileSync } from 'replace-in-file'
 import Client from 'ssh2-sftp-client'
 import { $, fs, glob } from 'zx'
@@ -25,7 +25,7 @@ export async function manageSFTP(serverSetupConfig: string = 'server/server-setu
     }
   })
 
-  const currentVersion = await $`git describe --tags --abbrev=0`.text()
+  const currentVersion = (await $`git describe --tags --abbrev=0`.text()).trim()
 
   const serverConfigTmp = '~tmp-server-setup-config.yaml'
   const confText = readFileSync(serverSetupConfig, 'utf8')
@@ -48,6 +48,7 @@ export async function manageSFTP(serverSetupConfig: string = 'server/server-setu
 
     const sftp = new Client()
     const updateBox = getBoxForLabel(conf.label || '')
+    const basePath = conf.config.mc_root ?? ''
 
     updateBox('Establishing connection')
     try {
@@ -75,15 +76,15 @@ export async function manageSFTP(serverSetupConfig: string = 'server/server-setu
         ))
         updateBox(`[Upload Offline mode]`, `\n${offlineConfigTmp}\n${zipPath}`)
         await Promise.all([
-          sftp.fastPut(offlineConfigTmp, 'server-setup-config.yaml'),
-          sftp.fastPut(zipPath, zipName),
+          sftp.fastPut(offlineConfigTmp, posix.join(basePath, 'server-setup-config.yaml')),
+          sftp.fastPut(zipPath, posix.join(basePath, zipName)),
         ])
         unlinkSync(offlineConfigTmp)
       }
     }
     else {
       updateBox(`Copy ${serverConfigTmp}`)
-      await sftp.fastPut(serverConfigTmp, 'server-setup-config.yaml')
+      await sftp.fastPut(serverConfigTmp, posix.join(basePath, 'server-setup-config.yaml'))
     }
 
     updateBox('Change and copy server overrides')
@@ -98,14 +99,14 @@ export async function manageSFTP(serverSetupConfig: string = 'server/server-setu
     })
 
     updateBox('Remove', 'serverstarter.lock')
-    await sftp.delete('serverstarter.lock', true)
+    await sftp.delete(posix.join(basePath, 'serverstarter.lock'), true)
 
     if (replaceResult.length === 0)
       throw new Error('Nothing replaced! Code failure')
 
     let fileCounter = 0
     sftp.on('upload', () => updateBox('Copy overrides', ++fileCounter))
-    await sftp.uploadDir(join(conf.dir, 'overrides'), 'overrides/')
+    await sftp.uploadDir(join(conf.dir, 'overrides'), posix.join(basePath, 'overrides/'))
 
     await sftp.end()
   }

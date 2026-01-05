@@ -11,7 +11,7 @@ import crafttweaker.player.IPlayer;
 
 val eventDrops as int[string][WeightedItemStack][IEntityDefinition] = {
   <entity:emberroot:deers>           : { <betteranimalsplus:antler> % 50: { min: 1, max: 1, playerOnly: 1 }},
-  <entity:emberroot:withercat>       : { <extrautils2:ingredients:11>: { min: 1, max: 3 }},
+  <entity:emberroot:withercat>       : { <bloodmagic:demon_extras>: { min: 1, max: 3 }},
   <entity:betteranimalsplus:zotzpyre>: {
     <harvestcraft:hardenedleatheritem> % 70: { min: 1, max: 3 },
     <harvestcraft:netherwingsitem>         : { min: 1, max: 3, playerOnly: 1 },

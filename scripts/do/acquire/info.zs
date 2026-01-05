@@ -1,6 +1,6 @@
 #priority -1800
 #reloadable
-#modloaded scalinghealth gamestages
+#modloaded zenutils scalinghealth roidtweaker gamestages
 
 import crafttweaker.block.IBlock;
 import crafttweaker.data.IData;

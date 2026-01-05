@@ -127,7 +127,7 @@ return list.map(({ groups: { id, display, items } }) => {
   add(<entity:emberroot:slime>                        , [<minecraft:clay_ball> * 209, <minecraft:dirt> * 62, <thermalfoundation:material:771> * 6]); // Block Slime
   add(<entity:emberroot:sprouts>                      , [<minecraft:beetroot> * 58, <minecraft:dye:1> * 90]); // Rainbow Sprout
   add(<entity:emberroot:timberwolf>                   , [<minecraft:bone> * 42, <minecraft:rotten_flesh> * 44]); // Timberwolf
-  add(<entity:emberroot:withercat>                    , [<extrautils2:ingredients:11> * 200, <minecraft:bone> * 37, <minecraft:rotten_flesh> * 29, <minecraft:string> * 32]); // Demon Cat
+  add(<entity:emberroot:withercat>                    , [<bloodmagic:demon_extras> * 200, <minecraft:bone> * 37, <minecraft:rotten_flesh> * 29, <minecraft:string> * 32]); // Demon Cat
   add(<entity:emberroot:witherwitch>                  , [<minecraft:bone> * 32, <minecraft:glowstone> * 4, <minecraft:gunpowder> * 75, <minecraft:rotten_flesh> * 38, <minecraft:spider_eye> * 55, <minecraft:string> * 44, <minecraft:sugar> * 66]); // Toxic Witch
   add(<entity:endreborn:chronologist>                 , [<deepmoblearning:living_matter_extraterrestrial> * 149, <minecraft:ender_pearl> * 100]); // Chronologist
   add(<entity:endreborn:endguard>                     , [<endreborn:item_end_shard> * 79, <thermalfoundation:material:771> * 14]); // Purpur Guard

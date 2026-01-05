@@ -1,0 +1,78 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "mc-icons",
+      "type": "shell",
+      "command": "tsx",
+      "args": [
+        "E:/dev/mc-icons/src/cli.ts",
+        "\"${relativeFile}\"",
+        "--modpack=e2ee",
+        "--treshold=1",
+        "--no-short"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "format.zs",
+      "type": "shell",
+      "command": "tsx",
+      "args": [
+        "mc-tools/packages/format/src/cli.ts",
+        "\"${relativeFile}\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Show better class.diff",
+      "type": "shell",
+      "command": "tsx",
+      "args": [
+        "dev/tools/showBansoukouDiff.ts",
+        "\"${relativeFile}\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Watch CraftTweaker Errors",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-File",
+        "./.vscode/crafttweaker.log/watcher.ps1",
+        "-workspaceRoot",
+        "'${workspaceFolder}'"
+      ],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "problemMatcher": {
+        "owner": "crafttweaker-log-parser",
+        "fileLocation": [
+          "absolute"
+        ],
+        "pattern": {
+          "regexp": "^([a-zA-Z]:\\\\.*):(\\d+):(\\d+):\\s+(error|warning|info):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^CRAFTTWEAKER_LOG_SCAN_START$",
+          "endsPattern": "^CRAFTTWEAKER_LOG_SCAN_END$"
+        }
+      }
+    }
+  ]
+}
