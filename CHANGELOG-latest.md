@@ -1,51 +1,67 @@
+## ⚡ Performance Improvements
+
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/a184644)⚡Crank up IE machines work speed
+    > Now almost all IE multiblock machines work 1-2 tick / operation.
+    > 
+    > This will allow to process huge amounts of input/outputs without spamming many machines.
+    > 
+    > This considered as performance⚡ improvment, since IE multiblocks are significant FPS reducers. So, less multiblocks - more FPS.
+    > 
+    > Also added TIP about IE multiblocks reduce FPS.
+    > 
+    > Affected machines by this buff:  
+    > - Arc Furnace  
+    > - Auto Workbench  
+    > - Fermenter  
+    > - Mixer  
+    > - Refinery  
+    > - Squeezer
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/f5dd646)⚡Prevent ![](https://github.com/Krutoy242/mc-icons/raw/master/i/immersiveengineering/coresample__0.png "Core Sample") for being placed on ground
+    > Numerous Core Samples in world reduce FPS. This feature is redundant since all Mineral Deposits could be viewen on the map. So Core Samples could be thrashed right after picked up.
+
+## ✨ New Features
+
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/03c0947)🌷New Botania vials (+buffs for old ones)
+    > > Contributed by [TabakaSIM](https://github.com/tabakasim)
+    >
+    > - Botania vials are buffed, up to 12 real hours duration and some effects  
+    > - Added some potion combinations  
+    > - 4 new potion effects:  
+    >   * *Chronos* - increase the gain of Time in a Bottle  
+    >   * *Darkness Resistance* - give immunity to darkness damage in deep dark  
+    >   * *Easyculty* - temporary lowers player difficulty
+    >   * *Self Sacifice* - increase blood output
+
 ## 🐛 Fixes
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/cddfbc2)⛏️Remove custom ![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/snow_layer__0.png "Snow") mining levels
-    > Also change mining tool for Web and Infested Leaves
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/219f16f)📖Fix "rechage" typo
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/66806d8)🔄![](https://github.com/Krutoy242/mc-icons/raw/master/i/thaumcraft/wand_workbench__0.png "Focal Manipulator") reset gui size
-    > Issue with HEI bookmarks was fixed
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/9f7d8eb)⛏️Fix ![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/snow_layer__0.png "Snow") harvest speed
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/7805534)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/mctsmelteryio/machine__3.png "Advanced Seared Drain") remove since causing crashes
+    > Related: https://github.com/tgstyle/MCT-Smeltery-IO/issues/6
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/569e81c)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/draconicevolution/mob_soul__0__e22dcfc.png "Demon Cat Soul") now drop ![](https://github.com/Krutoy242/mc-icons/raw/master/i/bloodmagic/demon_extras__0.png "Raw Stone") instead of ![](https://github.com/Krutoy242/mc-icons/raw/master/i/extrautils2/ingredients__11.png "Demon Ingot")
+    > And then Raw Stone could be melted to allow Vegan🥒 run
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/8fc3f41)🎛️Teak Zume options little bit
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/8f9f6de)🐦Migrate Blood Magic tweaks `Bansoukou` => `ZS mixins`
+    > It should not have any effect on gameplay.
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/1e2e971)🐦Migrate VoidIslandControl tweaks `Bansoukou` => `ZS mixins`
+    > It should not have any effect on gameplay.
 
   #### Balance
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/0a36b81)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/immersiveengineering/railgun__0.png "Railgun") buff damage of custom rod bullets
-    > Now from 38 to 104 HP (roughtly x2 damage)
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/bef4901)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/advgenerators/turbine_controller__0.png "Gas Turbine controller") nerf ![](https://github.com/Krutoy242/mc-icons/raw/master/i/gas/gas__ethene.png "Liquid Ethylene")
+    > Ethylene outclass other fuel variants so need little nerf
 
-  #### Quest
-
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/d82efa9)📖Enhance IC2 quests
-    > > Contributed by [ahtohio](https://github.com/ahtohio)
-    >
-    > - Wider description window  
-    > - More formatting / color  
-    > - Remove second overclockers quest
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/6ce7d4d)📖Sligtly buff Common and Uncommon boxes
 
 ## Mods changes
-### 🟢 Added Mods
-
-Icon | Summary | Reason
-----:|:--------|:-------
-<img src="https://media.forgecdn.net/avatars/thumbnails/894/711/30/30/638338657652175030.png"            > |                                   [**Zume**](https://www.curseforge.com/minecraft/mc-mods/zume)                         <sup><sub>zume-1.2.1.jar                                   </sub></sup><br>An over-engineered Zoom mod by Nolij | For ones who plays without Oprifine
-<img src="https://media.forgecdn.net/avatars/thumbnails/1222/337/30/30/638800794385497250.png"           > |                                [**QBitHop**](https://www.curseforge.com/minecraft/mc-mods/qbithop)                      <sup><sub>bithop-2.0.1.jar                                 </sub></sup><br>A fork of the BitHop mod, containing further improved additional hoppers. | Fix bug with clearing inventory on sorting
------------
-
-
-### 🔴 Removed Mods
-
-Icon | Summary | Reason
-----:|:--------|:-------
-<img src="https://media.forgecdn.net/avatars/thumbnails/148/522/30/30/636583436552873978.png"            > |                                 [**BitHop**](https://www.curseforge.com/minecraft/mc-mods/bithop)                       <sup><sub>BitHop-1.2.jar                                   </sub></sup><br>Hoppers sans lag, for ModJam 2018.1 | Good and stable mod, but need to try its fork for stability test
------------
-
 ### 🟡 Updated Mods
 
 Icon | Summary | Old / New
 ----:|:--------|:---------
-<img src="https://media.forgecdn.net/avatars/thumbnails/292/428/30/30/637325593905195388.png"            > |                              [**Zen Utils**](https://www.curseforge.com/minecraft/mc-mods/zenutil)                     | <nobr>zenutils-1.26.10</nobr><br><nobr>zenutils-1.26.11</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/468/506/30/30/637752171904887013.jpeg"           > |                       [**Had Enough Items**](https://www.curseforge.com/minecraft/mc-mods/had-enough-items)            | <nobr>HadEnoughItems_1.12.2-4.29.13</nobr><br><nobr>HadEnoughItems_1.12.2-4.29.14</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/551/59/30/30/637888242565991470.png"             > |                              [**ModularUI**](https://www.curseforge.com/minecraft/mc-mods/modularui)                   | <nobr>modularui-3.0.4</nobr><br><nobr>modularui-3.0.6</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1304/81/30/30/638847932766552243.png"            > |                                  [**Fugue**](https://www.curseforge.com/minecraft/mc-mods/fugue)                       | <nobr>+Fugue-0.22.2</nobr><br><nobr>+Fugue-0.22.6</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1482/227/30/30/638963404721998907.png"           > |                        [**Crash Assistant**](https://www.curseforge.com/minecraft/mc-mods/crash-assistant)             | <nobr>!!!CrashAssistant-forge-1.12.2-1.10.27</nobr><br><nobr>!!!CrashAssistant-forge-1.12.2-1.10.28</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1467/756/30/30/638952634897811631.png"           > |                                 [**Gnetum**](https://www.curseforge.com/minecraft/mc-mods/gnetum)                      | <nobr>gnetum-1.3.2</nobr><br><nobr>gnetum-1.3.4</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/142/108/30/30/636546700830987709.png"            > |                           [**CraftTweaker**](https://www.curseforge.com/minecraft/mc-mods/crafttweaker)                | <nobr>CraftTweaker2-1.12-4.1.20.709</nobr><br><nobr>CraftTweaker2-1.12-4.1.20.711</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/108/684/30/30/636374315485450120.png"            > |                            [**U Team Core**](https://www.curseforge.com/minecraft/mc-mods/u-team-core)                 | <nobr>u_team_core-forge-1.12.2-2.2.5.339</nobr><br><nobr>u_team_core-forge-1.12.2-2.2.5.375</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1362/814/30/30/638885115958149175.png"           > |                           [**PackagedAuto**](https://www.curseforge.com/minecraft/mc-mods/packagedauto)                | <nobr>PackagedAuto-1.12.2-1.0.23.72</nobr><br><nobr>PackagedAuto-1.12.2-1.0.24.73</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/193/20/30/30/636866336057434948.png"             > |                          [**Fantastic Lib**](https://www.curseforge.com/minecraft/mc-mods/fantastic-lib)               | <nobr>FantasticLib-1.12.2.052</nobr><br><nobr>FantasticLib-1.12.2.070</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/544/923/30/30/637877302202441012.png"            > |                              [**Atlas Lib**](https://www.curseforge.com/minecraft/mc-mods/atlas-lib)                   | <nobr>Atlas-Lib-1.12.2-1.1.8a</nobr><br><nobr>Atlas-Lib-1.12.2-1.1.9</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/417/700/30/30/637642020488223140.png"            > |                          [**RandomTweaker**](https://www.curseforge.com/minecraft/mc-mods/randomtweaker)               | <nobr>RandomTweaker-1.4.9</nobr><br><nobr>RandomTweaker-1.4.10</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/641/454/30/30/638043757664856777.png"            > |                       [**Universal Tweaks**](https://www.curseforge.com/minecraft/mc-mods/universal-tweaks)            | <nobr>UniversalTweaks-1.12.2-1.17.0</nobr><br><nobr>UniversalTweaks-1.12.2-1.18.0</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1409/140/30/30/638913115744696491.png"           > |                           [**Armored Arms**](https://www.curseforge.com/minecraft/mc-mods/armored-arms)                | <nobr>ArmoredArms-v1.3.7-release</nobr><br><nobr>ArmoredArms-v1.4.1-release</nobr>
 -----------

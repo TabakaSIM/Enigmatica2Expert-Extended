@@ -229,12 +229,12 @@
     "modrinthHash": "646b49f2db0eb2d9f4e17ec65b6aa6d7a16b72e4",
     "version": "1.12.2-1.1.8"
   },
-  "ArmoredArms-v1.3.7-release.jar": {
-    "curseForgeHash": 823140670,
-    "jarName": "ArmoredArms-v1.3.7-release.jar",
+  "ArmoredArms-v1.4.1-release.jar": {
+    "curseForgeHash": 3240500951,
+    "jarName": "ArmoredArms-v1.4.1-release.jar",
     "modId": "armoredarms",
-    "modrinthHash": "840f275f47064eb668980f2615dcf517b64f2701",
-    "version": "v1.3.7-release"
+    "modrinthHash": "b609794c1b741e463f6f9dac85dd9f1d7cbc43df",
+    "version": "v1.4.1-release"
   },
   "armoryexpansion-2.0.0-alpha.jar": {
     "curseForgeHash": 3077282103,
@@ -269,12 +269,12 @@
     "modrinthHash": "d2e8821968a8ae5ea1bf5d7dd221b3e8e1b645bd",
     "version": "1.12.2-1.19.6"
   },
-  "Atlas-Lib-1.12.2-1.1.8a.jar": {
-    "curseForgeHash": 747101557,
-    "jarName": "Atlas-Lib-1.12.2-1.1.8a.jar",
+  "Atlas-Lib-1.12.2-1.1.9.jar": {
+    "curseForgeHash": 174881628,
+    "jarName": "Atlas-Lib-1.12.2-1.1.9.jar",
     "modId": "atlaslib",
-    "modrinthHash": "3f35dd68677e9a2741572798bec0a9d7f82e1495",
-    "version": "1.1.8a"
+    "modrinthHash": "e7eefeb1c301b2e5de3b334d7456971a46af44ab",
+    "version": "1.1.9"
   },
   "AutoRegLib-1.3-32.jar": {
     "curseForgeHash": 69589181,
@@ -449,11 +449,11 @@
     "modrinthHash": "8e96a55c686efe1af6591705aea8fbafafc6aaae",
     "version": "1.1.1"
   },
-  "BloodMagic-1.12.2-2.4.3-105-patched.jar": {
-    "curseForgeHash": 2358412688,
-    "jarName": "BloodMagic-1.12.2-2.4.3-105-patched.jar",
+  "BloodMagic-1.12.2-2.4.3-105.jar": {
+    "curseForgeHash": 4036556600,
+    "jarName": "BloodMagic-1.12.2-2.4.3-105.jar",
     "modId": "bloodmagic",
-    "modrinthHash": "a65caba80824841c67523dc1eb10ad90dee8f9b9",
+    "modrinthHash": "541b63338663dbeb5fc818608a70ad3fff129177",
     "version": "1.12.2-2.4.3-105"
   },
   "BNBGamingCore-1.12.2-0.12.0.jar": {
@@ -718,12 +718,12 @@
     "modrinthHash": "b038ea06eef589216967f0c0ccd0d7e8023e9aeb",
     "version": "2.7.0"
   },
-  "CraftTweaker2-1.12-4.1.20.709.jar": {
-    "curseForgeHash": 556926025,
-    "jarName": "CraftTweaker2-1.12-4.1.20.709.jar",
+  "CraftTweaker2-1.12-4.1.20.711.jar": {
+    "curseForgeHash": 3542576462,
+    "jarName": "CraftTweaker2-1.12-4.1.20.711.jar",
     "modId": "crafttweaker",
-    "modrinthHash": "15aa4bc8d3e01621e8b045c3a33ccba8058207d5",
-    "version": "1.12-4.1.20.709"
+    "modrinthHash": "4b4d1c646dc7612974412b668dc2d506ae9a6621",
+    "version": "1.12-4.1.20.711"
   },
   "CreativeCore_v1.10.71_mc1.12.2.jar": {
     "curseForgeHash": 1624693386,
@@ -1957,12 +1957,12 @@
     "modrinthHash": "4d75fbcfcd9d21e47144006d043451562e7cd789",
     "version": "1.0.4.23"
   },
-  "PackagedAuto-1.12.2-1.0.23.72.jar": {
-    "curseForgeHash": 3369654092,
-    "jarName": "PackagedAuto-1.12.2-1.0.23.72.jar",
+  "PackagedAuto-1.12.2-1.0.24.73.jar": {
+    "curseForgeHash": 2596751255,
+    "jarName": "PackagedAuto-1.12.2-1.0.24.73.jar",
     "modId": "packagedauto",
-    "modrinthHash": "6afa5ea240a04b82e4e1d2da09e60a8fd43853f6",
-    "version": "1.0.23.72"
+    "modrinthHash": "cdc6f2edeb816d0496a799780118e8c9cdfa0416",
+    "version": "1.0.24.73"
   },
   "PackagedDraconic-1.12.2-1.0.4.24.jar": {
     "curseForgeHash": 3737665661,
@@ -2156,12 +2156,12 @@
     "modrinthHash": "4422c297678e8f07a476ca5d4972568cfc7576bb",
     "version": "4.2.7.4"
   },
-  "RandomTweaker-1.4.9.jar": {
-    "curseForgeHash": 3040875434,
-    "jarName": "RandomTweaker-1.4.9.jar",
+  "RandomTweaker-1.4.10.jar": {
+    "curseForgeHash": 1926495611,
+    "jarName": "RandomTweaker-1.4.10.jar",
     "modId": "randomtweaker",
-    "modrinthHash": "808d98b434a57c06161b6e04960203b087df9af9",
-    "version": "1.4.9"
+    "modrinthHash": "55e0e3dd859cfed958c4cbc88c2eeac78adc2190",
+    "version": "1.4.10"
   },
   "randomtweaks-1.12.2-2.8.3.1.jar": {
     "curseForgeHash": 3076552374,
@@ -2768,12 +2768,12 @@
     "modrinthHash": "95c66465a64113dc3ce7b86359cc81843f77da24",
     "version": "3.14"
   },
-  "u_team_core-forge-1.12.2-2.2.5.339.jar": {
-    "curseForgeHash": 486037389,
-    "jarName": "u_team_core-forge-1.12.2-2.2.5.339.jar",
+  "u_team_core-forge-1.12.2-2.2.5.375.jar": {
+    "curseForgeHash": 4063781546,
+    "jarName": "u_team_core-forge-1.12.2-2.2.5.375.jar",
     "modId": "uteamcore",
-    "modrinthHash": "845bfc7a7868dd9381db09e6012cf4be159393db",
-    "version": "2.2.5.339"
+    "modrinthHash": "400ae6a12369b71806ff76d73d05a0aeae209f5f",
+    "version": "2.2.5.375"
   },
   "uberconduitprobe-1.0.3.jar": {
     "curseForgeHash": 426298698,
@@ -2796,12 +2796,12 @@
     "modrinthHash": "7cb336e5fedf6ed4cea500410c5a13f81146116d",
     "version": "1.2.0"
   },
-  "UniversalTweaks-1.12.2-1.17.0.jar": {
-    "curseForgeHash": 2425737903,
-    "jarName": "UniversalTweaks-1.12.2-1.17.0.jar",
+  "UniversalTweaks-1.12.2-1.18.0.jar": {
+    "curseForgeHash": 2052152645,
+    "jarName": "UniversalTweaks-1.12.2-1.18.0.jar",
     "modId": "universaltweaks",
-    "modrinthHash": "a0f6d918ade59f2b4eb7b7df5442fb21c1ea4e66",
-    "version": "1.17.0"
+    "modrinthHash": "bb54c9dc58dac10549552e3cf84912ac5c95800f",
+    "version": "1.18.0"
   },
   "useful_railroads-1.12.2-1.1.3.24.jar": {
     "curseForgeHash": 6958948,
@@ -2866,11 +2866,11 @@
     "modrinthHash": "46a27e52e387a17308e8812ea368a34777afc63d",
     "version": "0.2.7"
   },
-  "voidislandcontrol-1.5.3-patched.jar": {
-    "curseForgeHash": 691136004,
-    "jarName": "voidislandcontrol-1.5.3-patched.jar",
+  "voidislandcontrol-1.5.3.jar": {
+    "curseForgeHash": 3961336375,
+    "jarName": "voidislandcontrol-1.5.3.jar",
     "modId": "voidislandcontrol",
-    "modrinthHash": "6542825f09fb4b4294dc80b82a47fb848690609c",
+    "modrinthHash": "ed445474d12245f55cac7f94b5a986b3154b1ba7",
     "version": "1.5.3"
   },
   "WanionLib-1.12.2-2.91.jar": {
