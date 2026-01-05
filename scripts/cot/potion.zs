@@ -148,7 +148,7 @@ potionEasyculty.performEffect = function (living, amplifier) {
 
     if(isNull(player.nbt.ForgeData.PlayerPersisted.vialTempDifficultyPenalty)) {
       val playerDiff = player.getDifficulty();
-      val diffPenalty = Math.min(difficultyDiscount, playerDiff);
+      val diffPenalty = playerDiff * (1.0 - 1.0 / (amplifier + 2));
       
       player.setNBT({'PlayerPersisted': {'vialTempDifficultyPenalty' : diffPenalty}});
       player.setDifficulty(playerDiff - diffPenalty);

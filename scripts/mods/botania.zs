@@ -622,7 +622,7 @@ mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <twilightforest:magic_leav
 BrewMod('darkness_resistance', 0xFFF58A, 5000, [PotionEffect(<potion:contenttweaker:darkness_resistance>, 864000, 0)]);
 mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <twilightforest:torchberries>, <actuallyadditions:item_dust:7>], 'darkness_resistance');
 BrewMod('easyculty',           0x009900, 5000, [PotionEffect(<potion:contenttweaker:easyculty>, 72000, 0)]);
-mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <biomesoplenty:shroompowder>, <cyclicmagic:heart_toxic>, <thaumcraft:void_seed>], 'easyculty');
+mods.botania.Brew.addRecipe([<minecraft:nether_wart>, <astralsorcery:itemusabledust:1>, <scalinghealth:heartdust>, <thaumcraft:void_seed>], 'easyculty');
 
 BrewMod(LibBrewNames.OVERLOAD, 0x232323, 12000, [
   <potion:minecraft:strength>.makePotionEffect(12000, 9),
