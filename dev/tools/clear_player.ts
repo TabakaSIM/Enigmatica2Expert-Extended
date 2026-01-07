@@ -12,7 +12,7 @@ import type { ConnectOptions } from 'ssh2-sftp-client'
 
 import * as p from '@clack/prompts'
 import chalk from 'chalk'
-import { dirname } from 'pathe'
+import { dirname, join as pathJoin } from 'pathe'
 import nbt from 'prismarine-nbt'
 import Client from 'ssh2-sftp-client'
 import yargs from 'yargs'
@@ -40,7 +40,7 @@ interface TeamDataResult {
   preModificationBackupPaths: string[]
 }
 
-async function handleTeamData(sftp: Client, worldName: string, playerName: string): Promise<TeamDataResult> {
+async function handleTeamData(sftp: Client, mcRoot: string, worldName: string, playerName: string): Promise<TeamDataResult> {
   const s = p.spinner()
   s.start('Checking team data...')
 
@@ -50,14 +50,14 @@ async function handleTeamData(sftp: Client, worldName: string, playerName: strin
   let playerNbt: NBT | undefined
   try {
     // Try reading from original location
-    const playerDataBuffer = await sftp.get(`${worldName}/${playerDataPath}`)
+    const playerDataBuffer = await sftp.get(pathJoin(mcRoot, worldName, playerDataPath))
     const parsed = await nbt.parse(playerDataBuffer)
     playerNbt = parsed.parsed
   }
   catch (e) {
     try {
       // If not found, try reading from backup location
-      const backupPath = `backups/${playerName}/${playerDataPath}`
+      const backupPath = pathJoin(mcRoot, 'backups', playerName, playerDataPath)
       if (await sftp.exists(backupPath)) {
         s.message('Player .dat not in original location, reading from backup...')
         const backupDataBuffer = await sftp.get(backupPath)
@@ -85,7 +85,7 @@ async function handleTeamData(sftp: Client, worldName: string, playerName: strin
   s.message(`Player is in team: ${chalk.cyan(teamId)}`)
 
   const teamFilePath = `data/ftb_lib/teams/${teamId}.dat`
-  const teamFileFullPath = `${worldName}/${teamFilePath}`
+  const teamFileFullPath = pathJoin(mcRoot, worldName, teamFilePath)
 
   if (!await sftp.exists(teamFileFullPath)) {
     s.stop(`Team file for ${teamId} does not exist.`)
@@ -140,7 +140,8 @@ async function main() {
 
   const sftp = new Client()
   let isConnected = false
-  const sftpConfig = loadJson('~secrets/sftp_servers/2. Guncolony/sftp.json') as ConnectOptions
+  const config = loadJson('~secrets/sftp_servers/3. Saqult/sftp.json')
+  const { mc_root: mcRoot, ...sftpConfig } = config as ConnectOptions & { mc_root: string }
 
   try {
     const s = p.spinner()
@@ -150,7 +151,7 @@ async function main() {
     s.stop('SFTP connection established.')
 
     s.start('Reading server.properties to find world name...')
-    const propsContentBuffer = await sftp.get(`server.properties`)
+    const propsContentBuffer = await sftp.get(pathJoin(mcRoot, 'server.properties'))
     const propsContent = propsContentBuffer.toString('utf-8')
 
     const levelNameMatch = propsContent.match(/^level-name=(.*)$/m)
@@ -177,7 +178,8 @@ async function main() {
       `stats/${playerUUID}.json`,
     ]
 
-    const { filesToRemove: teamFilesToRemove, modifications: teamModifications, preModificationBackupPaths } = await handleTeamData(sftp, worldName, name)
+    const { filesToRemove: teamFilesToRemove, modifications: teamModifications, preModificationBackupPaths }
+      = await handleTeamData(sftp, mcRoot, worldName, name)
 
     let relativePaths = getFilePaths(name, uuid)
     relativePaths.push(...teamFilesToRemove)
@@ -187,7 +189,7 @@ async function main() {
     const foundFiles: string[] = []
     const notFoundFiles: string[] = []
     for (const relativePath of relativePaths) {
-      const fullPath = `${worldName}/${relativePath}`
+      const fullPath = pathJoin(mcRoot, worldName, relativePath)
       if (await sftp.exists(fullPath)) {
         foundFiles.push(relativePath)
       }
@@ -226,15 +228,15 @@ async function main() {
     if (filesToBackup.length > 0) {
       s.start(`Backing up ${filesToBackup.length} files to ${backupRoot}...`)
       for (const relativePath of filesToBackup) {
-        const sourceFile = `${worldName}/${relativePath}`
-        const backupPath = `${backupRoot}/${relativePath}`
+        const sourceFile = pathJoin(mcRoot, worldName, relativePath)
+        const backupPath = pathJoin(backupRoot, relativePath)
 
         if (!await sftp.exists(sourceFile)) continue
 
-        await sftp.mkdir(dirname(backupPath), true)
+        await sftp.mkdir(pathJoin(mcRoot, dirname(backupPath)), true)
 
         const fileContent = await sftp.get(sourceFile)
-        await sftp.put(fileContent, backupPath)
+        await sftp.put(fileContent, pathJoin(mcRoot, backupPath))
         s.message(`Backing up... ${chalk.green(relativePath)}`)
       }
       s.stop(`Backup complete. ${filesToBackup.length} files backed up.`)
@@ -243,7 +245,7 @@ async function main() {
     if (teamModifications.length > 0) {
       s.start('Applying team modifications...')
       for (const mod of teamModifications) {
-        const teamFilePath = `${worldName}/data/ftb_lib/teams/${mod.teamId}.dat`
+        const teamFilePath = pathJoin(mcRoot, worldName, 'data/ftb_lib/teams', `${mod.teamId}.dat`)
         const modifiedBuffer = nbt.writeUncompressed(mod.newTeamNbt)
         await sftp.put(modifiedBuffer, teamFilePath)
         s.message(`Modified team: ${chalk.cyan(mod.teamId)}`)
@@ -254,7 +256,7 @@ async function main() {
     if (foundFiles.length > 0) {
       s.start('Removing original files...')
       for (const relativePath of foundFiles) {
-        const sourceFile = `${worldName}/${relativePath}`
+        const sourceFile = pathJoin(mcRoot, worldName, relativePath)
         await sftp.delete(sourceFile)
         s.message(`Removing... ${chalk.red(relativePath)}`)
       }

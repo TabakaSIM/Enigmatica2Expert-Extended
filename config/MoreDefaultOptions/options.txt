@@ -441,8 +441,8 @@ key_key.retrieve_item.desc:-98:CONTROL:29
 key_key.start_craft.desc:-98:ALT:56
 key_key.toggleVisible:0:NONE:
 key_keybind.endermodpacktweaks.toggle:0:NONE:
-key_of.key.zoom:-97
+key_of.key.zoom:-97:NONE:
 key_Open Key Wizard:65:NONE:
 key_zume.zoom:-97:NONE:
 key_zume.zoom_in:13:NONE:
-key_zume.zoom_out:12:NONE:
+key_zume.zoom_out:12:NONE:

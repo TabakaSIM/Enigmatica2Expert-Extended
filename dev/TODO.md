@@ -4,8 +4,9 @@
 
 ### 🐛 Bugfixes
 
-- [x] ✏️ demonic will is not obtainable in skyblock vegan https://discord.com/channels/911676461050642432/911676461050642434/1457324086773547038
-- [x] Remove `Advanced Seared Drain` since causing crashes https://github.com/tgstyle/MCT-Smeltery-IO/issues/6
+- [ ] 📖 IC2 Storage Boxes add to "Storage" quests
+- [ ] 📖 RE Battery choice actually no choice
+- [ ] 📖 Remove `Advanced Seared Drain` from quest task
 - [ ] GUI flickering on `Focus` select screen
 - [ ] `Refining` doesnt work on Redstone Ore
 - [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
@@ -14,6 +15,8 @@
 
 ### ✨ New features
 
+- [ ] ✏️ `Impulse Hopper` make way cheaper
+- [ ] ✨ RMB furnaces to take out items
 - [ ] 👃 Migrate villagers/merchants to RoidsTweaker from VTT
 - [ ] ✨ add wireless linking thingy from ae2stuff to Omniwand
 - [ ] 🔨 `Vaporizer` should clear fluids by using FluidloggedAPI
@@ -37,7 +40,6 @@
 - [ ] ✏️ Remove any kind of shears from game so players use Kama
 - [ ] ✏️ Remap `thermalexpansion.Enchanter` recipes since no one using them 
 - [ ] ✏️ for `Invar` recipe to replace ingot to dust in ArcFurnace
-- [ ] 🟣 Migrate to Bansoukou 6
 - [ ] ✏️ `Redstone Cable` harder recipe
 - [ ] 🤖 Nanomachines give next levels of potions
 - [ ] ✏️ Add `Upgrade, Chest, Backpack, Tank, Generator, Miner` Singularities
