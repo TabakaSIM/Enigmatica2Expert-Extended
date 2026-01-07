@@ -3,7 +3,7 @@
     "version": "1.12.2",
     "modLoaders": [
       {
-        "id": "forge-14.23.5.2860",
+        "id": "forge-14.23.5.2864",
         "primary": true
       }
     ]
@@ -16,7 +16,7 @@
   "author": "krutoy242",
   "overrides": "overrides",
   "files": [
-    {"projectID": 59751,"fileID":6450115,"___name":"Forestry"                                ,"downloadUrl":"https://edge.forgecdn.net/files/6450/115/forestry_1.12.2-5.8.2.426.jar","required":true},
+    {"projectID": 59751,"fileID":7398359,"___name":"Forestry"                                ,"downloadUrl":"https://edge.forgecdn.net/files/7398/359/forestry_1.12.2-5.8.2.427.jar","required":true},
     {"projectID": 59816,"fileID":2905241,"___name":"Random Things"                           ,"downloadUrl":"https://edge.forgecdn.net/files/2905/241/RandomThings-MC1.12.2-4.2.7.4.jar","required":true},
     {"projectID": 64578,"fileID":4674244,"___name":"Ender IO"                                ,"downloadUrl":"https://edge.forgecdn.net/files/4674/244/EnderIO-1.12.2-5.3.72.jar","required":true},
     {"projectID": 69162,"fileID":2920433,"___name":"CoFH Core"                               ,"downloadUrl":"https://edge.forgecdn.net/files/2920/433/CoFHCore-1.12.2-4.6.6.1-universal.jar","required":true},
@@ -233,7 +233,6 @@
     {"projectID":301364,"fileID":2609434,"___name":"Gendustry JEI Addon"                     ,"downloadUrl":"https://edge.forgecdn.net/files/2609/434/gendustryjei-1.0.2.jar","required":true},
     {"projectID":302514,"fileID":2915940,"___name":"Cathedral"                               ,"downloadUrl":"https://edge.forgecdn.net/files/2915/940/Cathedral-1.12.2-1.9.9.jar","required":true},
     {"projectID":303122,"fileID":2919936,"___name":"Just Enough Throwing In Fluids (JETIF)"  ,"downloadUrl":"https://edge.forgecdn.net/files/2919/936/jetif-1.12.2-1.5.2.jar","required":true},
-    {"projectID":303657,"fileID":2704824,"___name":"Kiwi 🥝 (Neo/Forge)"                     ,"downloadUrl":"https://edge.forgecdn.net/files/2704/824/Kiwi-1.12.2-0.5.3.32.jar","required":true},
     {"projectID":304346,"fileID":4674241,"___name":"Ender IO Endergy"                        ,"downloadUrl":"https://edge.forgecdn.net/files/4674/241/EnderIO-endergy-1.12.2-5.3.72.jar","required":true},
     {"projectID":305211,"fileID":2688529,"___name":"Anger Management"                        ,"downloadUrl":"https://edge.forgecdn.net/files/2688/529/angermanagement-1.12.2-1.0.2.jar","required":true},
     {"projectID":306028,"fileID":2833640,"___name":"Project Intelligence"                    ,"downloadUrl":"https://edge.forgecdn.net/files/2833/640/ProjectIntelligence-1.12.2-1.0.9.28-universal.jar","required":true},
@@ -241,7 +240,6 @@
     {"projectID":306549,"fileID":2906537,"___name":"Tips"                                    ,"downloadUrl":"https://edge.forgecdn.net/files/2906/537/Tips-1.12.2-1.0.9.jar","required":true},
     {"projectID":308240,"fileID":2837800,"___name":"Cherished Worlds"                        ,"downloadUrl":"https://edge.forgecdn.net/files/2837/800/cherishedworlds-1.12.2-1.0.1.jar","required":true},
     {"projectID":308380,"fileID":7329681,"___name":"PackagedAuto"                            ,"downloadUrl":"https://edge.forgecdn.net/files/7329/681/PackagedAuto-1.12.2-1.0.24.73.jar","required":true},
-    {"projectID":308663,"fileID":6275195,"___name":"Snow! Real Magic! ⛄ (Neo/Forge)"         ,"downloadUrl":"https://edge.forgecdn.net/files/6275/195/SnowRealMagic-1.12.2-0.7.4.jar","required":true},
     {"projectID":308851,"fileID":2742442,"___name":"Too Many Efficiency Losses"              ,"downloadUrl":"https://edge.forgecdn.net/files/2742/442/tmel-1.12.2-1.4.0.0.jar","required":true},
     {"projectID":309674,"fileID":3003364,"___name":"Item Filters"                            ,"downloadUrl":"https://edge.forgecdn.net/files/3003/364/ItemFilters-1.0.4.2.jar","required":true},
     {"projectID":309756,"fileID":4674242,"___name":"Gas Conduits"                            ,"downloadUrl":"https://edge.forgecdn.net/files/4674/242/EnderIO-conduits-mekanism-1.12.2-5.3.72.jar","required":true},
@@ -324,7 +322,6 @@
     {"projectID":423743,"fileID":6647836,"___name":"NuclearCraft Reactor Builder"            ,"downloadUrl":"https://edge.forgecdn.net/files/6647/836/NC-ReactorBuilder-1.12.2-1.1.0a.jar","required":true},
     {"projectID":433035,"fileID":3294090,"___name":"Tinkers' Addons(Fork) with Mod Support"  ,"downloadUrl":"https://edge.forgecdn.net/files/3294/90/Tinkers%27%20Addons-1.12.2-1.0.10.jar","required":true},
     {"projectID":433672,"fileID":3158657,"___name":"Eye of Dragons"                          ,"downloadUrl":"https://edge.forgecdn.net/files/3158/657/eyeofdragons-0.0.2.jar","required":true},
-    {"projectID":434344,"fileID":3626352,"___name":"Bansoukou [絆創膏] - Mod Patcher"           ,"downloadUrl":"https://edge.forgecdn.net/files/3626/352/_bansoukou-4.3.1.jar","required":true},
     {"projectID":435119,"fileID":3204251,"___name":"PSICaster"                               ,"downloadUrl":"https://edge.forgecdn.net/files/3204/251/psicaster-1.2.jar","required":true},
     {"projectID":436513,"fileID":3378132,"___name":"Thaumcraft Research Patcher"             ,"downloadUrl":"https://edge.forgecdn.net/files/3378/132/ThaumcraftResearchPatcher-1.12.2-1.1.3.jar","required":true},
     {"projectID":438451,"fileID":5437156,"___name":"Precision Mining"                        ,"downloadUrl":"https://edge.forgecdn.net/files/5437/156/PrecisionMining-1.12.2-5.2.1.jar","required":true},
@@ -340,7 +337,7 @@
     {"projectID":463826,"fileID":6981112,"___name":"Atlas Lib"                               ,"downloadUrl":"https://edge.forgecdn.net/files/6981/112/Atlas-Lib-1.12.2-1.1.9.jar","required":true},
     {"projectID":473325,"fileID":3407210,"___name":"Uber Conduit Probe"                      ,"downloadUrl":"https://edge.forgecdn.net/files/3407/210/uberconduitprobe-1.0.3.jar","required":true},
     {"projectID":476863,"fileID":3461109,"___name":"Blood Smeltery"                          ,"downloadUrl":"https://edge.forgecdn.net/files/3461/109/Blood-Smeltery-1.12.2-1.1.2.jar","required":true},
-    {"projectID":485654,"fileID":7212988,"___name":"Fluidlogged API"                         ,"downloadUrl":"https://edge.forgecdn.net/files/7212/988/Fluidlogged-API-v3.1.2-mc1.12.2.jar","required":true},
+    {"projectID":485654,"fileID":7418423,"___name":"Fluidlogged API"                         ,"downloadUrl":"https://edge.forgecdn.net/files/7418/423/Fluidlogged-API-v3.1.3-mc1.12.2.jar","required":true},
     {"projectID":488116,"fileID":5598843,"___name":"ContentTweaker Registry Orderer"         ,"downloadUrl":"https://edge.forgecdn.net/files/5598/843/CoTRO-1.12.2-1.0.1.jar","required":true},
     {"projectID":493962,"fileID":3814371,"___name":"AE Additions - ExtraCells2 Fork"         ,"downloadUrl":"https://edge.forgecdn.net/files/3814/371/AEAdditions-1.12.2-1.3.8.jar","required":true},
     {"projectID":513769,"fileID":4590380,"___name":"Item Borders [Neo/Forge]"                ,"downloadUrl":"https://edge.forgecdn.net/files/4590/380/ItemBorders-1.12.2-forge-1.2.0.jar","required":true},
@@ -385,7 +382,7 @@
     {"projectID":849094,"fileID":6321322,"___name":"Thaumic Energistics Extended Life"       ,"downloadUrl":"https://edge.forgecdn.net/files/6321/322/thaumic-energistics-extended-life-1.12.2-2.3.5.jar","required":true},
     {"projectID":870276,"fileID":5212709,"___name":"ConfigAnytime"                           ,"downloadUrl":"https://edge.forgecdn.net/files/5212/709/!configanytime-3.0.jar","required":true},
     {"projectID":871198,"fileID":6609247,"___name":"VintageFix"                              ,"downloadUrl":"https://edge.forgecdn.net/files/6609/247/vintagefix-0.6.2.jar","required":true},
-    {"projectID":873867,"fileID":6147102,"___name":"Red Core"                                ,"downloadUrl":"https://edge.forgecdn.net/files/6147/102/!Red-Core-MC-1.8-1.12-0.6.jar","required":true},
+    {"projectID":873867,"fileID":7394157,"___name":"Red Core"                                ,"downloadUrl":"https://edge.forgecdn.net/files/7394/157/!Red-Core-MC-1.8-1.12-0.7.jar","required":true},
     {"projectID":876339,"fileID":4815198,"___name":"Enhanced P2P"                            ,"downloadUrl":"https://edge.forgecdn.net/files/4815/198/betterp2p-1.12.2-1.2.3-extended_life.jar","required":true},
     {"projectID":884359,"fileID":5380800,"___name":"Neeve's AE2: Extended Life Additions"    ,"downloadUrl":"https://edge.forgecdn.net/files/5380/800/nae2-1.6.4.jar","required":true},
     {"projectID":895539,"fileID":6495943,"___name":"VisualOres"                              ,"downloadUrl":"https://edge.forgecdn.net/files/6495/943/visualores-0.2.7.jar","required":true},
@@ -429,7 +426,7 @@
     {"projectID":1159298,"fileID":6959291,"___name":"OME Tweaks"                              ,"downloadUrl":"https://edge.forgecdn.net/files/6959/291/ometweaks-1.5.5.jar","required":true},
     {"projectID":1179351,"fileID":6424586,"___name":"Keybind Unconflict"                      ,"downloadUrl":"https://edge.forgecdn.net/files/6424/586/keybindunconflict-1.0.2.jar","required":true},
     {"projectID":1195285,"fileID":6166729,"___name":"Gadothaumy"                              ,"downloadUrl":"https://edge.forgecdn.net/files/6166/729/Infusion%20Claw%20Mod-1.0.0.jar","required":true},
-    {"projectID":1198138,"fileID":7340975,"___name":"RandomComplement"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7340/975/random_complement-1.8.6.jar","required":true},
+    {"projectID":1198138,"fileID":7420042,"___name":"RandomComplement"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7420/42/random_complement-1.8.9.jar","required":true},
     {"projectID":1220460,"fileID":7386673,"___name":"Gnetum"                                  ,"downloadUrl":"https://edge.forgecdn.net/files/7386/673/gnetum-1.3.4.jar","required":true},
     {"projectID":1221029,"fileID":6973315,"___name":"Ender's Modpack Tweaks"                  ,"downloadUrl":"https://edge.forgecdn.net/files/6973/315/endermodpacktweaks-0.5.11.jar","required":true},
     {"projectID":1234162,"fileID":6734060,"___name":"Lumenized"                               ,"downloadUrl":"https://edge.forgecdn.net/files/6734/60/Lumenized-1.0.4.jar","required":true},
@@ -439,7 +436,7 @@
     {"projectID":1281678,"fileID":7365542,"___name":"Roid's Tweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7365/542/roidtweaker-1.2.2.jar","required":true},
     {"projectID":1307741,"fileID":7287154,"___name":"Thaumic Wonders Unofficial"              ,"downloadUrl":"https://edge.forgecdn.net/files/7287/154/thaumicwonders-2.2.2.jar","required":true},
     {"projectID":1329068,"fileID":6902995,"___name":"MorphOverlay"                            ,"downloadUrl":"https://edge.forgecdn.net/files/6902/995/morphoverlay-1.0.1.jar","required":true},
-    {"projectID":1331377,"fileID":7403705,"___name":"Armored Arms"                            ,"downloadUrl":"https://edge.forgecdn.net/files/7403/705/ArmoredArms-v1.4.1-release.jar","required":true},
+    {"projectID":1331377,"fileID":7427848,"___name":"Armored Arms"                            ,"downloadUrl":"https://edge.forgecdn.net/files/7427/848/ArmoredArms-v1.4.2-1.12.2-release.jar","required":true},
     {"projectID":1341792,"fileID":7241925,"___name":"Congrega Mystica"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7241/925/CongregaMystica-1.12.2-1.0.8.jar","required":true},
     {"projectID":1341797,"fileID":7288903,"___name":"ThaumicTweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7288/903/thaumictweaker-1.2.2.jar","required":true},
     {"projectID":1342654,"fileID":7294306,"___name":"OpenBlocks Reopened"                     ,"downloadUrl":"https://edge.forgecdn.net/files/7294/306/OpenBlocksReopened-1.12.2-1.8.3.1.jar","required":true},
