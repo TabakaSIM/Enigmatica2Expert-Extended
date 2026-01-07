@@ -27,16 +27,6 @@
       "problemMatcher": []
     },
     {
-      "label": "Show better class.diff",
-      "type": "shell",
-      "command": "tsx",
-      "args": [
-        "dev/tools/showBansoukouDiff.ts",
-        "\"${relativeFile}\""
-      ],
-      "problemMatcher": []
-    },
-    {
       "label": "Watch CraftTweaker Errors",
       "type": "shell",
       "command": "powershell.exe",

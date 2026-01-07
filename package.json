@@ -7,10 +7,8 @@
   ],
   "scripts": {
     "🧱build": "tsx dev/make_pack.ts",
-    "bansoukou-prune": "for f in mods/*-patched.jar; do mv -v '${f%-patched.jar}.disabled' '${f%-patched.jar}.jar' && rm -v '$f'; done",
     "⚡dobious-perf": "sed -i 's/listAllPartMaterials=true/listAllPartMaterials=false/' config/tconstruct.cfg && git update-index --assume-unchanged config/tconstruct.cfg && sed -i 's/NBTTagImprovements=true/NBTTagImprovements=false/' config/stellar_core.cfg && git update-index --assume-unchanged config/stellar_core.cfg",
     "dev": "concurrently --prefix-colors auto \"npm:dev:* --silent\"",
-    "dev:bansoukou": "tsx dev/automation/bansoukou.js",
     "dev:benchmark": "npx mc-benchmark > dev/benchmarks/latest.md",
     "dev:conflicts": "grep 'conflicts with' crafttweaker.log | sort | uniq | grep -Evf dev/tools/conflict.ignore | sed \"s/^[^ ]* //\" >&2",
     "dev:entities": "tsx dev/automation/entities.js",

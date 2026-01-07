@@ -20,7 +20,6 @@ discardable:
 scopes:
   jei      : JEI
   config   : Configs
-  bansoukou: ''
 
 # If any commit would be autored with other person,
 # it would be listed as contribution

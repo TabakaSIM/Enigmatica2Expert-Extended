@@ -512,7 +512,7 @@ scripts.process.alloy([
 
 // ------------------------------------------------------------------------------
 // Melting / casting rework
-// based on Bansoukou chancges in TConstruct
+// based on Mixin changes in TConstruct
 // ------------------------------------------------------------------------------
 
 // Blood Magic Tcon Integration adds many slate - cast recipes
