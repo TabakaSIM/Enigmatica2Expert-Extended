@@ -349,8 +349,6 @@ Some screenshots of new worldgen:
 
 - [**Dynamic Surroundings**](https://www.curseforge.com/minecraft/mc-mods/dynamic-surroundings)+[**OreLib**](https://www.curseforge.com/minecraft/mc-mods/orelib) - better sounds and environmental, but increasing load time and lower FPS a bit
 
-- [**Fluidlogged API**](https://modrinth.com/mod/fluidlogged-api) - adds basic fluidlogging, widely configured for `E2E-E`. Its not included by default since causing slight TPS consumption [[1]](https://github.com/jbredwards/Fluidlogged-API/issues/184)[[2]](https://github.com/jbredwards/Fluidlogged-API/issues/182).
-
 ### Shaders
 
 - Optifine must be installed.
