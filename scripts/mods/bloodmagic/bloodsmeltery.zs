@@ -8,5 +8,5 @@ for i, fluid in [
   <fluid:vengeful_will>,
   <fluid:steadfast_will>,
 ] {
-  scripts.process.melt(<bloodmagic:demon_extras>.definition.makeStack(i), fluid);
+  scripts.process.melt(<bloodmagic:demon_extras>.definition.makeStack(i), fluid * 50);
 }
