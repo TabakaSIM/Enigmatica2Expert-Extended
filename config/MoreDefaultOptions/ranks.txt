@@ -6,6 +6,7 @@ default_player_rank: true
 ftbutilities.chunkloader.load_offline: false
 ftbutilities.claims.max_chunks: 9
 ftbutilities.chunkloader.max_chunks: 1
+ftbutilities.chat.nickname.set: true
 
 [conflux_i]
 power: 10
