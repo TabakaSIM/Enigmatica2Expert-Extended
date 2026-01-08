@@ -1,67 +1,49 @@
-## ⚡ Performance Improvements
-
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/a184644)⚡Crank up IE machines work speed
-    > Now almost all IE multiblock machines work 1-2 tick / operation.
-    > 
-    > This will allow to process huge amounts of input/outputs without spamming many machines.
-    > 
-    > This considered as performance⚡ improvment, since IE multiblocks are significant FPS reducers. So, less multiblocks - more FPS.
-    > 
-    > Also added TIP about IE multiblocks reduce FPS.
-    > 
-    > Affected machines by this buff:  
-    > - Arc Furnace  
-    > - Auto Workbench  
-    > - Fermenter  
-    > - Mixer  
-    > - Refinery  
-    > - Squeezer
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/f5dd646)⚡Prevent ![](https://github.com/Krutoy242/mc-icons/raw/master/i/immersiveengineering/coresample__0.png "Core Sample") for being placed on ground
-    > Numerous Core Samples in world reduce FPS. This feature is redundant since all Mineral Deposits could be viewen on the map. So Core Samples could be thrashed right after picked up.
-
-## ✨ New Features
-
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/03c0947)🌷New Botania vials (+buffs for old ones)
-    > > Contributed by [TabakaSIM](https://github.com/tabakasim)
-    >
-    > - Botania vials are buffed, up to 12 real hours duration and some effects  
-    > - Added some potion combinations  
-    > - 4 new potion effects:  
-    >   * *Chronos* - increase the gain of Time in a Bottle  
-    >   * *Darkness Resistance* - give immunity to darkness damage in deep dark  
-    >   * *Easyculty* - temporary lowers player difficulty
-    >   * *Self Sacifice* - increase blood output
-
 ## 🐛 Fixes
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/9f7d8eb)⛏️Fix ![](https://github.com/Krutoy242/mc-icons/raw/master/i/minecraft/snow_layer__0.png "Snow") harvest speed
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/7805534)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/mctsmelteryio/machine__3.png "Advanced Seared Drain") remove since causing crashes
-    > Related: https://github.com/tgstyle/MCT-Smeltery-IO/issues/6
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/569e81c)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/draconicevolution/mob_soul__0__e22dcfc.png "Demon Cat Soul") now drop ![](https://github.com/Krutoy242/mc-icons/raw/master/i/bloodmagic/demon_extras__0.png "Raw Stone") instead of ![](https://github.com/Krutoy242/mc-icons/raw/master/i/extrautils2/ingredients__11.png "Demon Ingot")
-    > And then Raw Stone could be melted to allow Vegan🥒 run
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/8fc3f41)🎛️Teak Zume options little bit
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/8f9f6de)🐦Migrate Blood Magic tweaks `Bansoukou` => `ZS mixins`
-    > It should not have any effect on gameplay.
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/1e2e971)🐦Migrate VoidIslandControl tweaks `Bansoukou` => `ZS mixins`
-    > It should not have any effect on gameplay.
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/05faddf)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/ic2/te__111.png "Wooden Storage Box") cheaper
+    > Also Iron and Bronzwe cheaper too
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/b2546c4)✏️Fix ![](https://github.com/Krutoy242/mc-icons/raw/master/i/bloodmagic/demon_extras__0.png "Raw Stone") amount output on smelt
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/07b11dd)🌱![](https://github.com/Krutoy242/mc-icons/raw/master/i/mysticalagriculture/basalt_essence__0.png "Basalt Essence")![](https://github.com/Krutoy242/mc-icons/raw/master/i/mysticalagriculture/stone_essence__0.png "Stone Essence") now should be burnt for 81 blocks
+    > Also Basalt Seed now level 1
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/cf77e54)🌷Fix Java 8 script error
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/5d39095)🐦Migrate Rustic tweaks `Bansoukou` => `ZS mixins`
+    > > Contributed by [Lucas Sivars](https://github.com/lucassivars)
+    >
+    > This changes shouldn't impact gameplay at all.
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/8fb6e49)🔴Remov Bansoukou
+    > Now, after year+ of coding, finally, no more mod duplicates. And soon, Java 25 migration will be way easier!
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/f368141)🔴Remove "Snow real magic" and "Kiwi"
+    > Snow mod caused repeatedly client silent crashlogs like `NullPointerException  
+    > "SoundEvent.func_187503_a()" because "☃" is null`
 
-  #### Balance
+  #### Configs
 
-  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/bef4901)✏️![](https://github.com/Krutoy242/mc-icons/raw/master/i/advgenerators/turbine_controller__0.png "Gas Turbine controller") nerf ![](https://github.com/Krutoy242/mc-icons/raw/master/i/gas/gas__ethene.png "Liquid Ethylene")
-    > Ethylene outclass other fuel variants so need little nerf
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/b199c60)🧩Allow any player to use `/nick` command
+
+  #### Quest
+
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/19d4421)📖![](https://github.com/Krutoy242/mc-icons/raw/master/i/mctsmelteryio/machine__3.png "Advanced Seared Drain") remove from a task
+    > Related ec0c6f28acc8c29137cbdccbb92368f408680138
 
 
 ## Mods changes
+
+### 🔴 Removed Mods
+
+Icon | Summary | Reason
+----:|:--------|:-------
+<img src="https://media.forgecdn.net/avatars/thumbnails/775/790/30/30/638117430215424259.png"            > |                    [**Kiwi 🥝 (Neo/Forge)**](https://www.curseforge.com/minecraft/mc-mods/kiwi)                         <sup><sub>Kiwi-1.12.2-0.5.3.32.jar                         </sub></sup><br>Minecraft modding library | 
+<img src="https://media.forgecdn.net/avatars/thumbnails/181/338/30/30/636799740021478717.png"            > |        [**Snow! Real Magic! ⛄ (Neo/Forge)**](https://www.curseforge.com/minecraft/mc-mods/snow-real-magic)              <sup><sub>SnowRealMagic-1.12.2-0.7.4.jar                   </sub></sup><br>Not a magic mod. | Snow Gravity &amp; Accumulation | Snow-covered blocks | Tweak snow behaviors | 
+<img src="https://media.forgecdn.net/avatars/thumbnails/329/717/30/30/637455786531686894.png"            > |          [**Bansoukou [絆創膏] - Mod Patcher**](https://www.curseforge.com/minecraft/mc-mods/bansoukou)                    <sup><sub>_bansoukou-4.3.1.jar                             </sub></sup><br>A simple coremod that streamlines patching of mods. | 
+-----------
+
 ### 🟡 Updated Mods
 
 Icon | Summary | Old / New
 ----:|:--------|:---------
-<img src="https://media.forgecdn.net/avatars/thumbnails/142/108/30/30/636546700830987709.png"            > |                           [**CraftTweaker**](https://www.curseforge.com/minecraft/mc-mods/crafttweaker)                | <nobr>CraftTweaker2-1.12-4.1.20.709</nobr><br><nobr>CraftTweaker2-1.12-4.1.20.711</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/108/684/30/30/636374315485450120.png"            > |                            [**U Team Core**](https://www.curseforge.com/minecraft/mc-mods/u-team-core)                 | <nobr>u_team_core-forge-1.12.2-2.2.5.339</nobr><br><nobr>u_team_core-forge-1.12.2-2.2.5.375</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1362/814/30/30/638885115958149175.png"           > |                           [**PackagedAuto**](https://www.curseforge.com/minecraft/mc-mods/packagedauto)                | <nobr>PackagedAuto-1.12.2-1.0.23.72</nobr><br><nobr>PackagedAuto-1.12.2-1.0.24.73</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/193/20/30/30/636866336057434948.png"             > |                          [**Fantastic Lib**](https://www.curseforge.com/minecraft/mc-mods/fantastic-lib)               | <nobr>FantasticLib-1.12.2.052</nobr><br><nobr>FantasticLib-1.12.2.070</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/544/923/30/30/637877302202441012.png"            > |                              [**Atlas Lib**](https://www.curseforge.com/minecraft/mc-mods/atlas-lib)                   | <nobr>Atlas-Lib-1.12.2-1.1.8a</nobr><br><nobr>Atlas-Lib-1.12.2-1.1.9</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/417/700/30/30/637642020488223140.png"            > |                          [**RandomTweaker**](https://www.curseforge.com/minecraft/mc-mods/randomtweaker)               | <nobr>RandomTweaker-1.4.9</nobr><br><nobr>RandomTweaker-1.4.10</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/641/454/30/30/638043757664856777.png"            > |                       [**Universal Tweaks**](https://www.curseforge.com/minecraft/mc-mods/universal-tweaks)            | <nobr>UniversalTweaks-1.12.2-1.17.0</nobr><br><nobr>UniversalTweaks-1.12.2-1.18.0</nobr>
-<img src="https://media.forgecdn.net/avatars/thumbnails/1409/140/30/30/638913115744696491.png"           > |                           [**Armored Arms**](https://www.curseforge.com/minecraft/mc-mods/armored-arms)                | <nobr>ArmoredArms-v1.3.7-release</nobr><br><nobr>ArmoredArms-v1.4.1-release</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/5/961/30/30/635351438467975270.png"              > |                               [**Forestry**](https://www.curseforge.com/minecraft/mc-mods/forestry)                    | <nobr>forestry_1.12.2-5.8.2.426</nobr><br><nobr>forestry_1.12.2-5.8.2.427</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/385/984/30/30/637574191414697010.png"            > |                        [**Fluidlogged API**](https://www.curseforge.com/minecraft/mc-mods/fluidlogged-api)             | <nobr>Fluidlogged-API-v3.1.2-mc1.12.2</nobr><br><nobr>Fluidlogged-API-v3.1.3-mc1.12.2</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/907/322/30/30/638358340959112160.png"            > |                               [**Red Core**](https://www.curseforge.com/minecraft/mc-mods/red-core)                    | <nobr>!Red-Core-MC-1.8-1.12-0.6</nobr><br><nobr>!Red-Core-MC-1.8-1.12-0.7</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1176/204/30/30/638748608591942674.png"           > |                       [**RandomComplement**](https://www.curseforge.com/minecraft/mc-mods/random-complement)           | <nobr>random_complement-1.8.6</nobr><br><nobr>random_complement-1.8.9</nobr>
+<img src="https://media.forgecdn.net/avatars/thumbnails/1409/140/30/30/638913115744696491.png"           > |                           [**Armored Arms**](https://www.curseforge.com/minecraft/mc-mods/armored-arms)                | <nobr>ArmoredArms-v1.4.1-release</nobr><br><nobr>ArmoredArms-v1.4.2-1.12.2-release</nobr>
 -----------
