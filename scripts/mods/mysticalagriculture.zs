@@ -253,6 +253,7 @@ function addTieredRecipe(
 
 // *======= Seeds Tier 1 =======*
 curr_tier = 1;
+addTieredRecipe(<mysticalagriculture:basalt_seeds>,         [<chisel:basalt2:7>, <mysticalagriculture:crafting>]);
 addTieredRecipe(<mysticalagriculture:nature_seeds>,         [<mysticalagriculture:crafting:6>, <ore:ingotInferium>]);
 addTieredRecipe(itemUtils.getItem('mysticalcreations:creosolite_seeds'), [<openblocks:tank>.withTag({ tank: { FluidName: 'creosote', Amount: 24000 } }) ?? Bucket('creosote'), <ore:runeEarthB>]);
 
@@ -860,7 +861,7 @@ remakeFluid ('mysticalagriculture:obsidian'             , <fluid:obsidian>      
 // remakeFluid ("mysticalagriculture:sand_1"               , <fluid:sand>                              , [<mysticalagriculture:dirt_essence> * 2, <mysticalagriculture:fire_essence>]);
 // remakeFluid ("mysticalagriculture:sand"                 , <fluid:sand>                              , [<mysticalagriculture:fire_essence> * 2, <mysticalagriculture:dirt_essence>]);
 // remakeFluid ("mysticalagriculture:soul_sand"            , <fluid:sand>                              , [<mysticalagriculture:nether_essence>]);
-// remakeFluid ("mysticalagriculture:stone"                , <fluid:stone>                             , [<mysticalagriculture:stone_essence>]);
+remakeBlock   ("mysticalagriculture:stone"                , <blockstate:additionalcompression:stone_compressed:level=1>, [<mysticalagriculture:stone_essence>]);
 remakeBlock   ('mysticalagriculture:gemquartzblack'       , <blockstate:actuallyadditions:block_misc:type=ore_black_quartz>          , [<mysticalagriculture:black_quartz_essence> * 7]);
 remakeBlock   ('mysticalagriculture:crystalcertusquartz'  , <blockstate:appliedenergistics2:quartz_ore>          , [<mysticalagriculture:certus_quartz_essence>]);
 remakeBlock   ('mysticalagriculture:blockcustomore'       , <blockstate:astralsorcery:blockcustomore:oretype=rock_crystal>, [<mysticalagriculture:rock_crystal_essence>]);
@@ -901,7 +902,7 @@ remakeManapool('mysticalagriculture:ingotknightmetal', <twilightforest:armor_sha
 remakeCrucible('mysticalagriculture:ingotironwood', <twilightforest:root:1> * 2, [<mysticalagriculture:ironwood_essence>], Aspects('❤️'));
 // remakeSimple("mysticalagriculture:apple"                , <minecraft:apple> * 8                     , [<mysticalagriculture:nature_essence> * 3                                            ]);
 // remakeSimple("mysticalagriculture:arrow"                , <minecraft:arrow> * 8                     , [<mysticalagriculture:skeleton_essence> * 3                                          ]);
-// remakeSimple("mysticalagriculture:basalt2"              , <chisel:basalt2:7> * 24                   , [<mysticalagriculture:basalt_essence> * 8                                            ]);
+remakeBlock   ("mysticalagriculture:basalt2"              , <blockstate:contenttweaker:compressed_basalt_double> , [<mysticalagriculture:basalt_essence>]);
 // remakeSimple("mysticalagriculture:beetroot"             , <minecraft:beetroot> * 12                 , [<mysticalagriculture:nature_essence> * 3                                            ]);
 // remakeSimple("mysticalagriculture:blaze_rod"            , <minecraft:blaze_rod> * 3                 , [<mysticalagriculture:blaze_essence> * 5                                             ]);
 // remakeSimple("mysticalagriculture:blockmarble"          , <astralsorcery:blockmarble> * 16          , [<mysticalagriculture:marble_essence> * 8, <mysticalagriculture:aquamarine_essence>  ]);
