@@ -7,8 +7,6 @@ Quark is a dependency. See note in client.zs
 // load before rustic.zs and client.zs
 #priority 1
 
-import native.net.minecraft.client.gui.inventory.GuiContainer;
-
 // Settings - You can safely modify these!
 static SHOW_PLAYER_INVENTORY_TITLE as bool = false;
 static COLUMNS as int = 18;
