@@ -325,16 +325,6 @@ ScrapBox.addDrop(<thermalfoundation:ore:1>, 0.7f);
 // Energy crystal compat
 scripts.process.compress(<ic2:dust:6> * 9, <ic2:energy_crystal:27>, 'except: compressor');
 
-// Harder wooden box
-craft.remake(<ic2:te:111>, ['pretty',
-  'A B A',
-  'B C B',
-  'A B A'], {
-  A: <ore:logWood>,
-  B: <ore:plankWood>,
-  C: <quark:iron_button>,
-});
-
 // Construction foam
 // Remove CF Powder but replace it with Building Gadget's powder
 scripts.process.solution([<buildinggadgets:constructionpaste>], [<fluid:water> * 4000], [<fluid:ic2construction_foam> * 4000], null, 'Except: highoven');
