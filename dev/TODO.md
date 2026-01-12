@@ -1,44 +1,36 @@
 # TODO
 
-## Recent tasks 🚧✅❌⚠️♻️
+## Recent tasks 🚧✅❌⚠️♻️🕊️
 
 ### 🐛 Bugfixes
 
-- [ ] 📖 IC2 Storage Boxes add to "Storage" quests
-- [ ] 📖 RE Battery choice actually no choice
-- [ ] 📖 Remove `Advanced Seared Drain` from quest task
-- [ ] GUI flickering on `Focus` select screen
-- [ ] `Refining` doesnt work on Redstone Ore
+- [ ] ✏️ `TF Magic Tree Core` prevent to be movable with Cardboard
+- [ ] 🔨 `Refining` doesnt work on Redstone Ore
 - [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
 - [ ] ✏️ Fix `Replicator` add difficulty based on dimension
-- [ ] ✏️ `Industrial Squeezer` remove excess popped chorus recipe
 
 ### ✨ New features
 
-- [ ] ✏️ `Impulse Hopper` make way cheaper
-- [ ] ✨ RMB furnaces to take out items
+- [ ] ✏️ `Sonic Glasses` add new recipe mechanic where you need to locate sound
+- [ ] ✏️ `Player Interface` cheaper
+- [ ] ✏️ `chorus glass` reduce usage since require a lot of crafting repeats
+- [ ] ✏️ Use `Roids Tweaker` to turn items into baubles
+- [ ] ✨ LMB furnaces to take out items
 - [ ] 👃 Migrate villagers/merchants to RoidsTweaker from VTT
-- [ ] ✨ add wireless linking thingy from ae2stuff to Omniwand
 - [ ] 🔨 `Vaporizer` should clear fluids by using FluidloggedAPI
+- [ ] 🔨 `Vaporizer` reduce durability
 - [ ] 🐛 Migrate vtt and add `tinkerer, brewer, redstoner`
-- [ ] 📖 When player enters world for the first time, pin first quest to the screen. This enforce people to know how to disable pins.
-- [ ] 📖 Add hint that `Robot` can automate Singularities
 - [ ] ✨ Idea: Difficulty cant grow if you didnt died
-- [ ] ➡️ Ctrt+Shift => Take 20 stacks from a drawer
 - [ ] 🔵 Add `mc2discord` mod to server pack and add configuration description
 - [ ] 🐢 `/restart_server` do not account AFK players
-- [ ] ✏️ Add `Troll Weapon` recipe to allow Peaceful playthrough
-- [ ] 📖 `Amazing Glasses` - disable GUIs when wear
-- [ ] 📖 Add `Porous Stone` Block drops
 - [ ] 🔨 Craft.zs add Thaumcraft Aspect transformer into emojis
-- [ ] ✏️ Blacklist `Rock Crystal Ore` from Rat Nuggets
+- [ ] 🖼️ Blacklist `Rock Crystal Ore` from all item form recipes
 - [ ] 🔨 `Resistant` modifier make multiplicative bonus instead of additive (+2% right now, shuld be something like *10%)
-- [ ] 🔨 `Borrowing` should levelup tinker's tools
 - [ ] 🖥️ "Spedrun server" scripts - server restarts each 2 hours after player join, recreate world
-- [ ] `Butterfly` => `Wasp` in witch water
-- [ ] ✏️ Make `Quantum Armor` Tinker's alternative or add Airtight Seal book add to it
+- [ ] 🦋 `Butterfly` => 🐝 `Wasp` in witch water
+- [ ] 🛡️ Make `Quantum Armor` Tinker's alternative or add Airtight Seal book add to it
 - [ ] ✏️ Remove any kind of shears from game so players use Kama
-- [ ] ✏️ Remap `thermalexpansion.Enchanter` recipes since no one using them 
+- [ ] ✏️ Remap `thermalexpansion.Enchanter` recipes since no one using them
 - [ ] ✏️ for `Invar` recipe to replace ingot to dust in ArcFurnace
 - [ ] ✏️ `Redstone Cable` harder recipe
 - [ ] 🤖 Nanomachines give next levels of potions
@@ -85,6 +77,16 @@ Planned non-urgent changes, or just good ideas:
 - [x] ⚡ Add Tips note about IE multiblocks causing strong FPS strain. Also make them all work so fast only 1 machine needed
 
 ### Quests and Docs expansion
+- [ ] 📖 When player enters world for the first time, pin first quest to the screen. This enforce people to know how to disable pins.
+- [ ] 📖 Add hint that `Robot` can automate Singularities
+- [ ] 📖 `Amazing Glasses` - disable GUIs when wear
+- [ ] 📖 `Wood Pile` add tip that `Shift+K` compress item you hover mouse
+- [ ] 📖 Add tip about pressing TAB after crafting
+- [ ] 📖 Place `Curvy Pipes` later in rewards progression, since very powerful
+- [ ] 📖 Quests can have `{text}` insertions, localized with ZenScript
+- [ ] 📖 `Strongbox` in loot chest swap to Enderium tier
+- [ ] 📖 RE Battery choice actually no choice
+- [ ] 📖 `Sorting Tree` give in some of *Getting Started* chapter
 - [ ] 📖 Conflux should be announced as team too
 - [ ] 📖 Add tip about `/nick` command
 - [ ] 📖 `Interdiction Pulsar` add to some quest reward and describe how to use
@@ -163,13 +165,20 @@ Planned non-urgent changes, or just good ideas:
   * Probably need to reward a player with a IE banners since they are rare and purely cosmetical.
   * Rewards could give some "multiplayer enchancing" status, like badges or skins.
   * Ideas for goals: Mined blocks, Jumps, Deaths.
+  * Ideas for benefits: Infinite decorative blocks, 
   * Table with more ideas: https://www.reddit.com/r/feedthememes/comments/jk9rag/the_political_compass_but_its_types_of_ftb_players/
+
+### "Building" expansion
+- [ ] ➡️ Ctrt+Shift => Take 20 stacks from a drawer
+- [ ] 🎁 Schematica allow to use `/Dank/Null`
+- [ ] 🎁 Schematica allow to use `/dev/null`
 
 ### Skyblock expansion
 
 - [ ] 🧱 Skyblock: Make `Porouse Stone` and `AA Ore Laser` mandatory in skyblock
 
 ### Mods
+- [ ] 🔵 Remove AR `tick` mixin when migrating to new versions
 - [ ] 🟠 Migrate `vtt` => `Roidstweaker` when fixed https://github.com/roidrole/Roids-Tweaker/issues/11
 - [ ] 🟢 Enable `Gnetum` when fixed: https://github.com/decce6/Gnetum/issues/55
 - [ ] 🟠 Do not update **Advanced Rocketry - Reworked** until fixed https://github.com/dercodeKoenig/AdvancedRocketry/issues/50
@@ -189,6 +198,8 @@ Planned non-urgent changes, or just good ideas:
 
 ### Other
 
+- [ ] ✏️ `Mining Tree` doesnt have core https://github.com/CaliforniaDemise/twilightforest/issues/30
+- [ ] ✏️ `Industrial Squeezer` remove excess popped chorus recipe
 - [ ] 🔨 Right-clicking brick with a pickaxe turn it into Cracked Brick (work with chiseled too)
 - [ ] 🐛 Fix Harvest Levels not working for non-"stone" material. For some reason, `setHarvestLevel` wont affect non-pickaxe blocks
 - [ ] ✏️ Remove `Advanced Bee Analyzer` and just speed up Forestry Analyzer with mixin instead
@@ -432,3 +443,8 @@ Items that should have more uses:
 - Hardcore "Death Stranding" mode
   > Player death causing DE Reactor explosion.
   > Maybe world border
+- True movement
+  > - No Creative Flight
+  > - No cross-dimension TP
+  > - No item teleportation, including:
+  >   * Alumite

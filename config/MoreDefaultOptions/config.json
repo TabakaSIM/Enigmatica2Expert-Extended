@@ -41,6 +41,10 @@
       "inverted": false
     },
     {
+      "name": "nbt_all_values",
+      "inverted": false
+    },
+    {
       "name": "id",
       "inverted": false
     }

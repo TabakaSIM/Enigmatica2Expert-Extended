@@ -1,9 +1,3 @@
-[main/ERROR] [FML]: Coremod RedCorePlugin: Unable to class load the plugin dev.redstudio.redcore.RedCorePlugin
-java.lang.ClassNotFoundException: dev.redstudio.redcore.RedCorePlugin
-	at top.outlands.foundation.boot.ActualClassLoader.findClass(ActualClassLoader.java:258)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:557)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
-  [...]
 [main/WARN] [Foundation]: Tweak name org.spongepowered.asm.mixin.EnvironmentStateTweaker has already been visited -- skipping
 [main/ERROR] [mixin]: Critical problem: mixins.stellar_core_forge_asmmodparser.json:MixinASMModParser from mod unknown-owner target net.minecraftforge.fml.common.discovery.asm.ASMModParser was loaded too early.
 [main/WARN] [mixin]: Error loading class: Config (java.lang.ClassNotFoundException: The specified class 'Config' was not found)
@@ -17,6 +11,7 @@ java.lang.ClassNotFoundException: dev.redstudio.redcore.RedCorePlugin
 [Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:E:\mc\packs\E2EE-Java25\.minecraft\resources\minecraft\missingno (Не удается найти указанный файл)
 [Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:missingno
 [Client thread/WARN] [CustomLoadingScreen]: [debug]   - Failed to open stream as class java.io.FileNotFoundException:E:\mc\packs\E2EE-Java25\.minecraft\resources\minecraft\missingno (Не удается найти указанный файл)
+[DE Contributors DL Thread/ERROR] [draconicevolution]: Failed to download contributors list
 [Client thread/WARN] [mixin]: Method overwrite conflict for getStackInSlot in mixins/mods/mixins.bibliocraft.handler.json:UTBiblioTileEntityMixin from mod UniversalTweaks-1.12.2-1.18.0.jar, previously written by io.github.lxgaming.sledgehammer.mixin.bibliocraft.tileentities.BiblioTileEntityMixin. Skipping method.
 [Client thread/WARN] [mixin]: @Inject(@At("INVOKE")) Shift.BY=2 on mixins.thaumictweaker.json:tiles.TileVoidSiphonMixin from mod unknown-owner::handler$xxx000$unknown_owner$wussModeSeedCreation exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.
 [Client thread/WARN] [net.minecraft.client.renderer.texture.TextureMap]: Texture mekanism:textures/blocks/models/multipart/pressurizedtubeverticalelite.png with size 12x12 will have visual artifacts at mip level 4, it can only support level 2. Please report to the mod author that the texture should be some multiple of 16x16.
@@ -67,6 +62,8 @@ java.lang.ClassNotFoundException: dev.redstudio.redcore.RedCorePlugin
 [Client thread/WARN] [net.minecraft.client.renderer.texture.TextureMap]: Texture mekanism:textures/blocks/models/multipart/opaque/thermodynamicconductorverticalultimate.png with size 12x12 will have visual artifacts at mip level 4, it can only support level 2. Please report to the mod author that the texture should be some multiple of 16x16.
 [Client thread/ERROR] [loottweaker.sanity_checks]: Unexpected duplicate pool name 'marbled_cheese_golem' in table 'rats:marbled_cheese_golem'. Duplicate added as 'marbled_cheese_golem0'.
 Report this to the loot adder.
+[Client thread/WARN] [xaero.hud.minimap.MinimapLogs]: io exception while checking patreon: Online mod data expired! Date: Mon Jan 19 11:03:25 MSK 2026
+[Client thread/WARN] [xaero.hud.minimap.MinimapLogs]: io exception while checking versions: Online mod data expired! Date: Mon Jan 19 11:03:25 MSK 2026
 [Client thread/ERROR] [Had Enough Items]: Recipe has no output. Minecraft minecraft:air_0 class net.minecraftforge.oredict.ShapedOreRecipe
 Outputs:
 net.minecraft.item.ItemStack: [[]]

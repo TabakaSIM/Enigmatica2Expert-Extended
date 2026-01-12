@@ -13,7 +13,7 @@ fboEnable:true
 fancyGraphics:true
 ao:2
 renderClouds:true
-resourcePacks:["Better Gendustry v1.0.zip","Sonomagy TC6 v1.6.zip","BloomTech-1.0.0.zip"]
+resourcePacks:["Better Gendustry v1.0.zip","Sonomagy TC6 v1.6.zip","BloomTech-1.1.0.zip"]
 incompatibleResourcePacks:[]
 lang:en_us
 chatVisibility:0
@@ -55,6 +55,7 @@ key_bbw.key.mode:78:NONE:
 key_bloodmagic.keybind.cycle_holding_neg:0:NONE:
 key_bloodmagic.keybind.cycle_holding_pos:0:NONE:
 key_bloodmagic.keybind.open_holding:53:CONTROL:29
+key_bogosort.key.lock_slot:19:CONTROL:29
 key_bogosort.key.move_all:-100:NONE:57
 key_Boost Key:0:NONE:
 key_Change Caster Focus:34:NONE:
@@ -140,11 +141,11 @@ key_key.conarm.toggle_leg.desc:36:NONE:
 key_key.connected_area:0:NONE:
 key_key.craftingtweaks.balance:0:NONE:
 key_key.craftingtweaks.clear:0:NONE:
-key_key.craftingtweaks.compressAll:37:SHIFT:42
-key_key.craftingtweaks.compressOne:37:CONTROL:29
+key_key.craftingtweaks.compressAll:17:SHIFT:42
+key_key.craftingtweaks.compressOne:17:CONTROL:29
 key_key.craftingtweaks.compressStack:37:NONE:
-key_key.craftingtweaks.decompressAll:0:NONE:
-key_key.craftingtweaks.decompressOne:0:NONE:
+key_key.craftingtweaks.decompressAll:31:SHIFT:42
+key_key.craftingtweaks.decompressOne:31:CONTROL:29
 key_key.craftingtweaks.decompressStack:0:NONE:
 key_key.craftingtweaks.force_clear:0:NONE:
 key_key.craftingtweaks.refill_last:15:NONE:
@@ -380,8 +381,8 @@ key_schematica.key.layerToggle:0:NONE:
 key_schematica.key.load:73:NONE:
 key_schematica.key.moveHere:0:NONE:
 key_schematica.key.pickBlock:71:NONE:
-key_schematica.key.printerToggle:0:NONE:
-key_schematica.key.renderToggle:0:NONE:
+key_schematica.key.printerToggle:72:CONTROL:29
+key_schematica.key.renderToggle:73:CONTROL:29
 key_schematica.key.save:55:NONE:
 key_Show Biome Borders:48:ALT:56
 key_Side Inventory Key:77:NONE:
@@ -431,6 +432,13 @@ key_flare.key.start_sampling:0:NONE:
 key_flare.key.stop_client_sampling:0:NONE:
 key_flare.key.stop_sampling:0:NONE:
 key_gnetum.config.keyMapping:207:NONE:
+key_key.effortlessbuilding.altplacement.desc:29:NONE:
+key_key.effortlessbuilding.creative.desc:0:NONE:
+key_key.effortlessbuilding.hud.desc:78:NONE:
+key_key.effortlessbuilding.mode.desc:56:NONE:
+key_key.effortlessbuilding.redo.desc:21:CONTROL:29
+key_key.effortlessbuilding.replace.desc:74:NONE:
+key_key.effortlessbuilding.undo.desc:44:CONTROL:29
 key_key.hitindication.toggle_block_indicators:80:NONE:
 key_key.hitindication.toggle_edge_of_screen_mode:71:NONE:
 key_key.hitindication.toggle_hit_indication:72:NONE:
@@ -442,7 +450,7 @@ key_key.start_craft.desc:-98:ALT:56
 key_key.toggleVisible:0:NONE:
 key_keybind.endermodpacktweaks.toggle:0:NONE:
 key_of.key.zoom:-97:NONE:
-key_Open Key Wizard:65:NONE:
+key_Open Key Wizard:0:NONE:
 key_zume.zoom:-97:NONE:
 key_zume.zoom_in:13:NONE:
 key_zume.zoom_out:12:NONE:
