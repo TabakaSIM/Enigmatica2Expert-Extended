@@ -96,6 +96,7 @@ static lifeRecipes as double[IItemStack][IEntityDefinition] = {
       val amount = outChance < 1.0 ? 1 : rnd.nextInt(outChance) + 1;
       val itemEntity = (outItem * amount).createEntityItem(w, entity.x as float, entity.y as float, entity.z as float);
       itemEntity.motionY = 0.4;
+      itemEntity.native.setDefaultPickupDelay(); // Not sure if this works
       world.spawnEntity(itemEntity);
       createParticles(world, p, EnumParticleTypes.HEART, 3);
     }
