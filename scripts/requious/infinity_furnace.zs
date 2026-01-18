@@ -1016,6 +1016,7 @@ blacklist(<quark:crab_leg:*>);
 infinFurnace(<quark:frog_leg:*>, <quark:cooked_frog_leg>);
 infinFurnace(<quark:trowel>, <minecraft:iron_nugget>);
 infinFurnace(<randomthings:beanpod>, <thaumicaugmentation:urn:2>);
+infinFurnace(<randomthings:beans:2>, <twilightforest:magic_beans>);
 infinFurnace(<randomthings:biomestone>, <randomthings:biomestone:1>);
 blacklist(<rats:marbled_cheese_brick:*>);
 infinFurnace(<rats:marbled_cheese_raw:*>, <rats:marbled_cheese>);
@@ -1180,7 +1181,6 @@ blacklist(<trinity:barium>);
 blacklist(<trinity:dust_au_198:*>);
 infinFurnace(<twilightforest:armor_shard_cluster:*>, <twilightforest:knightmetal_ingot>);
 infinFurnace(<twilightforest:ironwood_raw:*>, <twilightforest:ironwood_ingot> * 2);
-infinFurnace(<twilightforest:magic_beans>, <randomthings:beans:2>);
 // SKIP: <twilightforest:magic_log:*>
 infinFurnace(<twilightforest:raw_meef:*>, <twilightforest:cooked_meef>);
 infinFurnace(<twilightforest:raw_venison:*>, <twilightforest:cooked_venison>);

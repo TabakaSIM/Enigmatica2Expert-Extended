@@ -522,8 +522,8 @@ craft.remake(<randomthings:inventoryrerouter>, ['pretty',
   'W': <bithop:pullhop>,
 });
 
-// Magic Bean alt
-furnace.addRecipe(<randomthings:beans:2>, <twilightforest:magic_beans>, 50);
+// Magic Bean skyblock alt
+furnace.addRecipe(<twilightforest:magic_beans>, <randomthings:beans:2>, 50);
 scripts.jei.crafting_hints.add1to1(<randomthings:beans:2>, <randomthings:beanpod>);
 
 // Used as ingredient
