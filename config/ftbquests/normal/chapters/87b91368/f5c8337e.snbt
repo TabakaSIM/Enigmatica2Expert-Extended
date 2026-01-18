@@ -12,6 +12,22 @@
 		type: "item",
 		items: [{
 			item: "iceandfire:fire_dragon_blood"
-		}]
+		},
+		{
+			item: "iceandfire:ice_dragon_blood"
+		}],
+		ignore_nbt: 1b
+	}],
+	rewards: [{
+		uid: "a6c6a0e9",
+		type: "item",
+		item: "iceandfire:fire_dragon_blood",
+		count: 4
+	},
+	{
+		uid: "866aecd7",
+		type: "item",
+		item: "iceandfire:ice_dragon_blood",
+		count: 4
 	}]
 }
