@@ -14,6 +14,7 @@ static superwand as IItemStack = <omniwand:wand>.withTag({
   "omniwand:data": {
     actuallyadditions   : {id: "actuallyadditions:item_laser_wrench"            , Count: 1, tag: { "omniwand:definedMod": "actuallyadditions"    }},
     actuallyadditions0  : {id: "actuallyadditions:item_crafter_on_a_stick"      , Count: 1, tag: { "omniwand:definedMod": "actuallyadditions0"   }},
+    ae2stuff            : {id: "ae2stuff:wireless_kit"                          , Count: 1, tag: { "omniwand:definedMod": "ae2stuff"             }},
     appliedenergistics2 : {id: "appliedenergistics2:nether_quartz_wrench"       , Count: 1, tag: { "omniwand:definedMod": "appliedenergistics2"  }},
     appliedenergistics20: {id: "appliedenergistics2:nether_quartz_cutting_knife", Count: 1, tag: { "omniwand:definedMod": "appliedenergistics20" }},
     appliedenergistics21: {id: "appliedenergistics2:network_tool"               , Count: 1, tag: { "omniwand:definedMod": "appliedenergistics21" }},
