@@ -1,6 +1,7 @@
 #modloaded randomthings nuclearcraft
 
 import crafttweaker.item.IIngredient;
+import crafttweaker.item.IItemStack;
 
 // Defined by hammering
 recipes.remove(<randomthings:ingredient:5>);
@@ -576,3 +577,25 @@ for i, dye in scripts.vars.oreDye {
     '-': <ore:blockBricks>,
   });
 }
+
+function increaseLuminousOutput(oldName as string, output as IItemStack, ingredient as IIngredient) as void {
+  recipes.removeByRecipeName(oldName);
+  val p = <randomthings:ingredient:5>;
+  recipes.addShaped(oldName ~ 'x32', output * 32, [[p, ingredient], [p, p]]);
+}
+increaseLuminousOutput('randomthings:luminousblock_yellow', <randomthings:luminousblock:4>, <ore:dyeYellow>);
+increaseLuminousOutput('randomthings:luminousblock_white', <randomthings:luminousblock>, <ore:dyeWhite>);
+increaseLuminousOutput('randomthings:luminousblock_silver', <randomthings:luminousblock:8>, <ore:dyeLightGray>);
+increaseLuminousOutput('randomthings:luminousblock_red', <randomthings:luminousblock:14>, <ore:dyeRed>);
+increaseLuminousOutput('randomthings:luminousblock_purple', <randomthings:luminousblock:10>, <ore:dyePurple>);
+increaseLuminousOutput('randomthings:luminousblock_pink', <randomthings:luminousblock:6>, <ore:dyePink>);
+increaseLuminousOutput('randomthings:luminousblock_orange', <randomthings:luminousblock:1>, <ore:dyeOrange>);
+increaseLuminousOutput('randomthings:luminousblock_magenta', <randomthings:luminousblock:2>, <ore:dyeMagenta>);
+increaseLuminousOutput('randomthings:luminousblock_lime', <randomthings:luminousblock:5>, <ore:dyeLime>);
+increaseLuminousOutput('randomthings:luminousblock_lightblue', <randomthings:luminousblock:3>, <ore:dyeLightBlue>);
+increaseLuminousOutput('randomthings:luminousblock_green', <randomthings:luminousblock:13>, <ore:dyeGreen>);
+increaseLuminousOutput('randomthings:luminousblock_gray', <randomthings:luminousblock:7>, <ore:dyeGray>);
+increaseLuminousOutput('randomthings:luminousblock_cyan', <randomthings:luminousblock:9>, <ore:dyeCyan>);
+increaseLuminousOutput('randomthings:luminousblock_brown', <randomthings:luminousblock:12>, <ore:dyeBrown>);
+increaseLuminousOutput('randomthings:luminousblock_blue', <randomthings:luminousblock:11>, <ore:dyeBlue>);
+increaseLuminousOutput('randomthings:luminousblock_black', <randomthings:luminousblock:15>, <ore:dyeBlack>);
