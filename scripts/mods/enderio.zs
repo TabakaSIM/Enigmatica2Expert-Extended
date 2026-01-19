@@ -13,13 +13,12 @@ val casing = <teslacorelib:machine_case> | <actuallyadditions:block_misc:9> | <m
 // [Impulse_Hopper] from [Basic_Machine_Casing][+4]
 craft.remake(<enderio:block_impulse_hopper>, ['pretty',
   '▬ ◘ ▬',
-  'I □ I',
-  '▬ ♥ ▬'], {
-  '□': <ore:machineBlock>, // Basic Machine Casing
-  '♥': <ore:blockRedstone>, // Block of Redstone
-  '◘': <ore:blockHopper>, // Hopper
+  '□ I □',
+  '▬ ◘ ▬'], {
+  '□': <enderio:item_material:69>,
+  '◘': <bithop:pullhop>,
   'I': <ore:gearIronInfinity>, // Infinity Bimetal Gear
-  '▬': <ore:ingotDarkSteel>, // Dark Steel Ingot
+  '▬': <ic2:casing:4>,
 });
 
 // Advanced Item Filter
