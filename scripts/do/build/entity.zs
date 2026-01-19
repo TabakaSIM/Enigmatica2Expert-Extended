@@ -185,7 +185,7 @@ zenClass MobBuild {
 
 static builds as MobBuild[] = [] as MobBuild[];
 
-function add(entity as IEntityDefinition, volume as string[][], map as IItemStack[string], spawnFnc as function(IWorld,Position3f)void = null) as MobBuild {
+function add(entity as IEntityDefinition, volume as string[][], map as IItemStack[string], spawnFnc as function(IWorld,Position3f)void = function(w as IWorld, p as Position3f) as void {}) as MobBuild {
   val m =  MobBuild();
 
   if (isNull(entity)) return m;
