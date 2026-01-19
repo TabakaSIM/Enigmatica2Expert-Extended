@@ -352,12 +352,13 @@ function tick(m as MachineContainer) as void {
   if (isNull(ownerUUID) || ownerUUID == '') return pushErr(m, '§0Need\n§0 player ☻');
 
   // Get difficulty based on player's one + dimension changes
-  val dfclty = scripts.lib.mod.scalinghealth.getPlayerDimDifficulty(ownerUUID, m.world.dimension);
+  val personalDfclty = scripts.lib.mod.scalinghealth.getPlayerDifficulty(ownerUUID);
+  val localDfclty = scripts.lib.mod.scalinghealth.getDimDifficulty(personalDfclty, m.world.dimension);
 
   // 🎯 Update penalty text each tick
-  if (dfclty < 0 || scripts.lib.fake.isFake(ownerUUID, m.getString('owner')))
+  if (personalDfclty < 0 || scripts.lib.fake.isFake(ownerUUID, m.getString('owner')))
     return pushErr(m, '§0No fakes\n§0 allowed ☹');
-  updatePenaltyText(m, dfclty);
+  updatePenaltyText(m, localDfclty);
 
   // ⚡ Check energy
   val upgrAmount = getUpgrAmount(m);
@@ -367,10 +368,10 @@ function tick(m as MachineContainer) as void {
 
   // 📦 Output is stuck
   val goal = m.getInteger('goal');
-  if (goal < 0) return pushOutput(m, powr, dfclty);
+  if (goal < 0) return pushOutput(m, powr, personalDfclty);
 
   // ⚙️ Check if we already working
-  if (goal > 0) return work(m, tick, upgrAmount, powr, dfclty);
+  if (goal > 0) return work(m, tick, upgrAmount, powr, personalDfclty);
 
   // ❔ Find what item we should replicate
   val disk = m.getItem(diskX, diskY);
@@ -395,12 +396,12 @@ function tick(m as MachineContainer) as void {
   if (catlCost <= 0) return pushErr(m, '§7Unusable\n§7 catalyst');
 
   // 💲 Calculate cost and penalty based on difficulty
-  if (uu.getCost(item, dfclty) >= catlCost) return pushErr(m, '§5Catalyst\n§5 too simple');
+  if (uu.getCost(item, localDfclty) >= catlCost) return pushErr(m, '§5Catalyst\n§5 too simple');
 
   // ✔️ Consume catalyst and start operation
   m.setItem(catlX, catlY, catl.amount > 1 ? catl * (catl.amount - 1) : null);
   m.setInteger('goal', catlCost);
-  work(m, tick, upgrAmount, powr, dfclty);
+  work(m, tick, upgrAmount, powr, personalDfclty);
 }
 
 x.addRecipe(AssemblyRecipe.create(function (c) {})
