@@ -32,19 +32,19 @@
     "jarName": "!mod-director-launchwrapper-1.9.1.jar",
     "modrinthHash": "13d7c102ae616f8fa74b4ce5f2d8cc26fc397026"
   },
-  "!Red-Core-MC-1.8-1.12-0.7.jar": {
-    "curseForgeHash": 3937023730,
-    "jarName": "!Red-Core-MC-1.8-1.12-0.7.jar",
+  "!Red-Core-MC-1.8-1.12-0.7.1.jar": {
+    "curseForgeHash": 2660540505,
+    "jarName": "!Red-Core-MC-1.8-1.12-0.7.1.jar",
     "modId": "redcore",
-    "modrinthHash": "ff2fde42c10fae1e127f024463dd965004627ce4",
-    "version": "0.7"
+    "modrinthHash": "d272efd0c807908138edbac8e6cb2d90127ac01a",
+    "version": "0.7.1"
   },
-  "+Fugue-0.22.6.jar": {
-    "curseForgeHash": 1455217593,
-    "jarName": "+Fugue-0.22.6.jar",
+  "+Fugue-0.22.9.jar": {
+    "curseForgeHash": 2397244607,
+    "jarName": "+Fugue-0.22.9.jar",
     "modId": "fugue",
-    "modrinthHash": "c61eac0a7c0a82071c9093932bd39013a11acc8f",
-    "version": "0.22.6"
+    "modrinthHash": "0cb5bf039cd944285de7f31ab2fbf5795232034f",
+    "version": "0.22.9"
   },
   "[MC-1.12.2] Key Binding Patch v1.3.3.3 - 2024-12-1.jar": {
     "curseForgeHash": 1044045050,
@@ -231,12 +231,12 @@
     "modrinthHash": "646b49f2db0eb2d9f4e17ec65b6aa6d7a16b72e4",
     "version": "1.12.2-1.1.8"
   },
-  "ArmoredArms-v1.4.2-1.12.2-release.jar": {
-    "curseForgeHash": 3427296278,
-    "jarName": "ArmoredArms-v1.4.2-1.12.2-release.jar",
+  "ArmoredArms-v1.4.4-1.12.2-release.jar": {
+    "curseForgeHash": 2875068786,
+    "jarName": "ArmoredArms-v1.4.4-1.12.2-release.jar",
     "modId": "armoredarms",
-    "modrinthHash": "4fc8df12d4b972d67341754bbdd04d1eb717c58b",
-    "version": "v1.4.2-1.12.2-release"
+    "modrinthHash": "174e6cab5b5e96461d86ab3be45e364ba6dbbda1",
+    "version": "v1.4.4-1.12.2-release"
   },
   "armoryexpansion-2.0.0-alpha.jar": {
     "curseForgeHash": 3077282103,
@@ -470,12 +470,12 @@
     "modrinthHash": "06f0da5cf79645437ee5e666be23176eea1dfb94",
     "version": "2.17.6"
   },
-  "bogosorter-1.5.0.jar": {
-    "curseForgeHash": 2449373032,
-    "jarName": "bogosorter-1.5.0.jar",
+  "bogosorter-1.6.1.jar": {
+    "curseForgeHash": 1576178836,
+    "jarName": "bogosorter-1.6.1.jar",
     "modId": "bogosorter",
-    "modrinthHash": "92ff58180f72ff871986a6597983e03fdeda1730",
-    "version": "1.5.0"
+    "modrinthHash": "35d11d6e3c01ca55ab6b03008c2ad3d0928f7f3a",
+    "version": "1.6.1"
   },
   "Bookshelf-1.12.2-2.3.590.jar": {
     "curseForgeHash": 2546524333,
@@ -1602,11 +1602,11 @@
     "modrinthHash": "f70b39168f2a02d47792cf29bef432e20d0bcd57",
     "version": "1.2.0.42"
   },
-  "magicultureintegrations-1.12.2-2.2.6.jar": {
-    "curseForgeHash": 2911101043,
-    "jarName": "magicultureintegrations-1.12.2-2.2.6.jar",
+  "magicultureintegrations-1.12.2-2.2.7.jar": {
+    "curseForgeHash": 2835245472,
+    "jarName": "magicultureintegrations-1.12.2-2.2.7.jar",
     "modId": "magicultureintegrations",
-    "modrinthHash": "389f4f05ef528b8da75b741006e1de766f896f17",
+    "modrinthHash": "0e970de3105548c2c0597e7e71c2443d59ebb8dc",
     "version": "1.12.2-2.2.3"
   },
   "maleksinfinitygauntlet.jar": {
@@ -1700,11 +1700,11 @@
     "modrinthHash": "79753fa4c57cc96466fa56d47c00de8a3de2c146",
     "version": "2.3.2"
   },
-  "MmmMmmMmmMmm-1.12-2.0.5.jar": {
-    "curseForgeHash": 3492584709,
-    "jarName": "MmmMmmMmmMmm-1.12-2.0.5.jar",
+  "MmmMmmMmmMmm-1.12-2.0.6.jar": {
+    "curseForgeHash": 196249466,
+    "jarName": "MmmMmmMmmMmm-1.12-2.0.6.jar",
     "modId": "testdummy",
-    "modrinthHash": "458840e397180dca219b8f89066338afdcb5ee9f",
+    "modrinthHash": "75d25024ba41f978aa02f152d2d6b2994b1da6a5",
     "version": "2.0.0"
   },
   "modnametooltip_1.12.2-1.10.1.jar": {
@@ -1721,12 +1721,12 @@
     "modrinthHash": "f0bdbf6f4257e392e59023289998aaa8c295df47",
     "version": "4.0.20.11"
   },
-  "modularui-3.0.6.jar": {
-    "curseForgeHash": 3738992258,
-    "jarName": "modularui-3.0.6.jar",
+  "modularui-3.0.8.jar": {
+    "curseForgeHash": 867453808,
+    "jarName": "modularui-3.0.8.jar",
     "modId": "modularui",
-    "modrinthHash": "602adda259f398d9ad022b289d55460431728aaf",
-    "version": "3.0.6"
+    "modrinthHash": "3006ff01765a1366be42461014d793d88211e8e7",
+    "version": "3.0.8"
   },
   "moredefaultoptions-1.12-0.0.2.jar": {
     "curseForgeHash": 2119973449,
@@ -1889,12 +1889,12 @@
     "modrinthHash": "0b26436ab98f4cc0397d2285d1f0674af1c51287",
     "version": "1.5.5"
   },
-  "omniwand-1.12.2-2.0.2.jar": {
-    "curseForgeHash": 2776505875,
-    "jarName": "omniwand-1.12.2-2.0.2.jar",
+  "omniwand-1.12.2-2.0.4.jar": {
+    "curseForgeHash": 1665930626,
+    "jarName": "omniwand-1.12.2-2.0.4.jar",
     "modId": "omniwand",
-    "modrinthHash": "f34f53b08bd95186abcbe7f1b4a1d52f2767fc78",
-    "version": "1.12.2-2.0.2"
+    "modrinthHash": "66c3f1f4e7761a9ff830d2d4f41d1951ad4b80a5",
+    "version": "1.12.2-2.0.4"
   },
   "OpenBlocksReopened-1.12.2-1.8.3.1.jar": {
     "curseForgeHash": 2570592600,
@@ -2541,12 +2541,12 @@
     "modrinthHash": "0239563127f984fbc7f4f103b144ce6f2c631c3b",
     "version": "1.2.2"
   },
-  "thaumicwonders-2.2.2.jar": {
-    "curseForgeHash": 292595906,
-    "jarName": "thaumicwonders-2.2.2.jar",
+  "thaumicwonders-2.2.3.jar": {
+    "curseForgeHash": 700064428,
+    "jarName": "thaumicwonders-2.2.3.jar",
     "modId": "thaumicwonders",
-    "modrinthHash": "52b3a5fb9f5a26423a622827f7677d35c8a428fb",
-    "version": "2.2.2"
+    "modrinthHash": "5976c8288c78f59784954cb5c299aec6201fea22",
+    "version": "2.2.3"
   },
   "TheOneSmeagle-1.12-1.1.5.jar": {
     "curseForgeHash": 1256373557,
@@ -2929,12 +2929,12 @@
     "modrinthHash": "538e306575d826b220638969a67cf17dfe8a18a7",
     "version": "1.1"
   },
-  "zenutils-1.26.11.jar": {
-    "curseForgeHash": 3963354206,
-    "jarName": "zenutils-1.26.11.jar",
+  "zenutils-1.26.13.jar": {
+    "curseForgeHash": 3400025629,
+    "jarName": "zenutils-1.26.13.jar",
     "modId": "zenutils",
-    "modrinthHash": "ed623a92619a6fe2996b1aa129a0f4dd44600770",
-    "version": "1.26.11"
+    "modrinthHash": "cd66e3e6dcec8cbdd2fdbeb7fcd6637bf0d82bde",
+    "version": "1.26.13"
   },
   "zume-1.2.1.jar": {
     "curseForgeHash": 3006123426,
