@@ -38,7 +38,8 @@ Bloodbound,tconevo.bloodbound_armor,20,The multitudinous seas incarnadine...\nTh
 Bloodbound,tconevo.bloodbound,60,The multitudinous seas incarnadine...\nThis tool siphons its user's life essence to prevent damage to itself.,Tool will drain from the users LP network to repair itself
 Bloodlust,bloodlust,30,,Add life essence into Blood Network on kill
 Bloody Mary,bloodymary,80,"Brought to you by the legendary Queen of England...\nDeals bonus damage depending on the amount of health already lost by the target. Also, a chance to drop a Coagulated Blood for each hit.",Increases damage based on total HP loss of enemy; Chance to drop Coagulated Blood on strike
-Botanical,botanical,20,I eat zombies for breakfast\nIncreases the amount of modifier slots; the effect stacks greatly.,Gain +1 modifier (per stack)
+Botanical,botanical,20,I eat zombies for breakfast\nIncreases the amount of modifier slots; the effect stacks greatly.,Gain +1 modifier (NOT stack)
+Botanical II,botanical2,50,I eat zombies for breakfast\nIncreases the amount of modifier slots; the effect stacks greatly.,Gain +1 modifier (NOT stack)
 Bouncy,bouncy_armor,50,Always a bounce house!\nYour armor tends to bounce around.,"Protects well from fall damage, ease of moving around."
 Breakable,breakable,-20,This side up!\nProjectiles have a 50% chance to break on impact.,Projectile has a 50% chance of breaking on impact
 Brown Magic,brownmagic,90,"You're weird.\nPress the ""set portal"" key (default ""N"") to set a virtual portal on the block you are pointing at. By default, press ""Y"" to teleport there (if there is enough space).","Press the ""set portal"" key (default ""N"") to set a virtual portal on the block you are pointing at. Press ""Y"" to teleport there at the cost of durability."
@@ -156,7 +157,7 @@ Mana-Infused,tconevo.mana_infused_armor,45,Mining in the database?\nThis armour 
 Mana-Infused,tconevo.mana_infused,90,Mining in the database?\nThis tool repairs itself using mana.,Tool will repair itself using mana
 Mana,mana,90,"Rechargeable... with flowers\nMana can be used in place of durability, and can heal the tool over time.",Mana (Botania) can be used instead of durability; Will repair itself using Mana
 Mirabile Visu,mirabile,80,"Wonderful to see\nOccasionally, a gold or diamond ore will appear in stone immediately surrounding you (at the cost of durability).",
-Modifiable II,tconevo.modifiable2,50,The infinite spring!\nThis equipment has additional free modifier slots.,Grants an extra modifier (2 per stack)
+Modifiable II,tconevo.modifiable2,30,The infinite spring!\nThis equipment has additional free modifier slots.,Grants an extra modifier (2 per stack)
 Modifiable,tconevo.modifiable1,30,The infinite spring!\nThis equipment has additional free modifier slots.,Grants an extra modifier (1 per stack)
 Moldable,moldable_armor,35,Maître Chocolatier.\nBlend additional modifiers into your armor.,Gain 1 modifier
 Moldable,moldable,50,Maître Chocolatier.\nBlend additional modifiers into your tool.,Gain 1 modifier
