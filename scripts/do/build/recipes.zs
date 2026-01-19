@@ -239,6 +239,16 @@ scripts.do.build.entity.add(<entity:emberroot:knight_fallen>, [
   x: <contenttweaker:conglomerate_of_life>
 });
 
+scripts.do.build.entity.add(<entity:iceandfire:if_troll>, [
+  ['x'],
+  ['a'],
+  ['a'],
+  ['a'],
+], {
+  a: <additionalcompression:cobblestonemossy_compressed>,
+  x: <contenttweaker:conglomerate_of_life>,
+});
+
 scripts.do.build.entity.add(<entity:iceandfire:dread_lich>, [
   [
     '  a  '

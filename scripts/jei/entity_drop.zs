@@ -152,7 +152,7 @@ return list.map(({ groups: { id, display, items } }) => {
   add(<entity:iceandfire:if_cockatrice>               , [<iceandfire:cockatrice_eye> * 4, <iceandfire:cockatrice_skull> * 2, <iceandfire:witherbone> * 99, <minecraft:chicken> * 204, <minecraft:feather> * 151]); // Cockatrice
 # add(<entity:iceandfire:if_hydra>                    , []); // Hydra
   add(<entity:iceandfire:if_pixie>                    , [<iceandfire:pixie_dust> * 103, <iceandfire:pixie_wings> * 4]); // Pixie
-  add(<entity:iceandfire:if_troll>                    , [<iceandfire:troll_leather_forest> * 221, <iceandfire:troll_skull> * 3, <iceandfire:troll_tusk> * 58, <minecraft:brown_mushroom> * 113, <minecraft:red_mushroom> * 100]); // Troll
+  add(<entity:iceandfire:if_troll>                    , [<iceandfire:troll_leather_forest> * 221, <iceandfire:troll_skull> * 3, <iceandfire:troll_tusk> * 58, <minecraft:brown_mushroom> * 113, <minecraft:red_mushroom> * 100, <iceandfire:troll_weapon.axe>, <iceandfire:troll_weapon.column>, <iceandfire:troll_weapon.column_forest>, <iceandfire:troll_weapon.column_frost>, <iceandfire:troll_weapon.hammer>, <iceandfire:troll_weapon.trunk>, <iceandfire:troll_weapon.trunk_frost>]); // Troll
   add(<entity:iceandfire:myrmex_egg>                  , [<iceandfire:myrmex_desert_egg> * 100, <thermalfoundation:material:771> * 19]); // Myrmex Egg
 # add(<entity:iceandfire:myrmex_queen>                , []); // Myrmex Queen
 # add(<entity:iceandfire:myrmex_royal>                , []); // Myrmex Royal
