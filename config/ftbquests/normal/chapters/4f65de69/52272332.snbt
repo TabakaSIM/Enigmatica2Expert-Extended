@@ -55,6 +55,22 @@
 			item: "ironchest:iron_chest 1 6"
 		},
 		{
+			id: "ic2:te",
+			Damage: 112s
+		},
+		{
+			id: "ic2:te",
+			Damage: 113s
+		},
+		{
+			id: "ic2:te",
+			Damage: 114s
+		},
+		{
+			id: "ic2:te",
+			Damage: 115s
+		},
+		{
 			item: "ironchest:iron_shulker_box_purple"
 		},
 		{
