@@ -434,6 +434,30 @@
 		}
 	},
 	{
+		item: {
+			id: "openblocks:dev_null",
+			tag: {
+				enchantmentColor: 4408131,
+				ench: [{}],
+				Unbreakable: 1b,
+				infinite: {
+					id: "engineersdecor:halfslab_rebar_concrete",
+					Count: 1,
+					Damage: 0s
+				},
+				inventory: {
+					size: 1,
+					Items: [{
+						Slot: 0b,
+						id: "engineersdecor:halfslab_rebar_concrete",
+						Count: 64,
+						Damage: 0s
+					}]
+				}
+			}
+		}
+	},
+	{
 		icon: "chisel:lapis 4 7",
 		item: "chisel:lapis 1 7",
 		count: 4
@@ -737,11 +761,6 @@
 	{
 		icon: "engineersdecor:thin_steel_pole 64",
 		item: "engineersdecor:thin_steel_pole",
-		count: 64
-	},
-	{
-		icon: "engineersdecor:halfslab_rebar_concrete 64",
-		item: "engineersdecor:halfslab_rebar_concrete",
 		count: 64
 	},
 	{
