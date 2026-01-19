@@ -126,6 +126,46 @@ simple('randomthings:beanpod', [
   [4, 5, 7, 8],
 ])
 
+simple('thaumcraft:stone_porous', [
+  'minecraft:gravel',
+  'thaumcraft:amber',
+  'thaumcraft:cluster',
+  'thaumcraft:cluster:2',
+  'thaumcraft:cluster:3',
+  'thaumcraft:cluster:5',
+  'thaumcraft:cluster:6',
+  'thaumcraft:cluster:4',
+], [
+  [0.80, 0.60, 0.40, 0.20],
+  [0.05, 0.10, 0.15, 0.20],
+  [0.05, 0.11, 0.16, 0.22],
+  [0.04, 0.08, 0.12, 0.16],
+  [0.04, 0.08, 0.12, 0.16],
+  [0.03, 0.06, 0.09, 0.12],
+  [0.03, 0.06, 0.09, 0.12],
+  [0.03, 0.05, 0.08, 0.11],
+])
+
+simple('thaumcraft:stone_porous', [
+  'thaumcraft:cluster:1',
+  'minecraft:clay_ball',
+  'minecraft:quartz',
+  'minecraft:redstone',
+  'minecraft:emerald',
+  'minecraft:prismarine_shard',
+  'minecraft:prismarine_crystals',
+  'minecraft:diamond',
+], [
+  [0.022, 0.044, 0.066, 0.088],
+  [0.064, 0.128, 0.192, 0.256],
+  [0.037, 0.074, 0.111, 0.148],
+  [0.033, 0.066, 0.099, 0.132],
+  [0.009, 0.018, 0.027, 0.036],
+  [0.008, 0.016, 0.024, 0.032],
+  [0.007, 0.014, 0.021, 0.028],
+  [0.003, 0.006, 0.009, 0.012],
+])
+
 for (let i = -1; i < 16; i++) {
   simple(
     `minecraft:${i === -1 ? '' : 'stained_'}glass:${Math.max(0, i)}`,
