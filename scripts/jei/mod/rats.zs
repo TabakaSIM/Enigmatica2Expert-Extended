@@ -53,7 +53,10 @@ JEI.createJei(ID, game.localize(`e2ee.jei.${ID}.title`))
 //recipe hint: ore -> ore poop
 for poop in ratsprocessing.listRatPoop as IItemStack[] {
   val oreItem = poop.tag.OreItem.toItemStack();
-  if (isNull(oreItem)) {
+  if (
+    isNull(oreItem)
+    || <astralsorcery:blockcustomore> has oreItem // Blacklist since cant be mined as block
+  ) {
     continue;
   }
   JEI.createJeiRecipe(ID)

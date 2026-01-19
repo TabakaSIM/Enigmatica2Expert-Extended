@@ -224,8 +224,8 @@ recipes.addShaped('twilightforest_moonworm', <twilightforest:moonworm> * 10, [
 // [Glowstone Dust] from [Firefly][+1]
 scripts.process.crush(<twilightforest:firefly>, <minecraft:glowstone_dust> * 20, 'only: crushingBlock', null, null);
 
-// 🚒 Inworld crafting
-furnace.addRecipe(<twilightforest:uberous_soil>, <biomesoplenty:farmland_1>, 1.0);
+// 🚒 Inworld smelting
+scripts.do.inworld_smelting.add(<twilightforest:uberous_soil>, <biomesoplenty:farmland_1>);
 
 // -------------------------------------------------------------------------
 // SPAWNERS

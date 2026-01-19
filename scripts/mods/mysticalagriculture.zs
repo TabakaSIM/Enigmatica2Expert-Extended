@@ -366,8 +366,8 @@ for i in 0 .. 5 {
   });
 }
 
-// 🚒 Inworld crafting
-furnace.addRecipe(<mysticalagriculture:prosperity_ore>, <astralsorcery:blockcustomore>, 1.0);
+// 🚒 Inworld smelting
+scripts.do.inworld_smelting.add(<mysticalagriculture:prosperity_ore>, <astralsorcery:blockcustomore>);
 
 // ######################################################################
 //
