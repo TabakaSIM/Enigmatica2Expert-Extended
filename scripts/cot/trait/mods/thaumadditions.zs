@@ -789,8 +789,8 @@ researcherTrait.onBlockHarvestDrops = function (trait, tool, event) {
     }
   }
 
-  var nonRefinableDrops = [] as [IItemStack];
-  var clustersFound = {} as IItemStack[string];
+  var nonRefinableDrops = [] as [WeightedItemStack];
+  var clustersFound = {} as WeightedItemStack[string];
   var hasRefinedSomething = false;
 
   for originalDrop in event.drops {
@@ -838,7 +838,7 @@ researcherTrait.onBlockHarvestDrops = function (trait, tool, event) {
 
   event.drops = [];
   for is in newDrops {
-    event.addItem((is as IItemStack * finalAmount).weight(1.0));
+    event.addItem((is.stack * finalAmount).weight(1.0));
   }
   if(event.isPlayer) event.player.sendPlaySoundPacket('minecraft:entity.experience_orb.pickup', 'player', event.position.asPosition3f(), 0.2f, 0.7f + event.world.random.nextFloat() * 0.2f);
 };
