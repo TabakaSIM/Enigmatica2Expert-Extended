@@ -100,8 +100,10 @@ function addLootToPool(tableName as string, poolName as string, lootTable as int
   val pool = loottweaker.LootTweaker.getTable(tableName).getPool(poolName);
   for key, value in lootTable {
     if (isNull(key)) continue;
+    val weight = value[0];
+    val luckQuality = value[1];
     pool.addItemEntry(
-      key, value[0], value[1],
+      key, weight, luckQuality,
       [Functions.setCount(value[2], value[3])],
       []
     );
