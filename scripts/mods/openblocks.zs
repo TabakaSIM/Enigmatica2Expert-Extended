@@ -106,3 +106,14 @@ craft.remake(<openblocks:builder_guide>, ['pretty',
   'G': <ore:shardGlass>,
   'F': <randomthings:ingredient:7>,
 });
+
+// More expensive because it instantly breaks blocks
+craft.remake(<openblocks:block_breaker>, ['pretty',
+  '▬ ╱ ▬',
+  '╱ ¤ ╱',
+  '░ ░ ░'], {
+  '▬': <ore:ingotAlubrass>,
+  '╱': <ore:stickAluminum> | <ore:stickAluminium>,
+  '¤': <ore:gearBronze>,
+  '░': <ore:compressed3xCobblestone>,
+});
