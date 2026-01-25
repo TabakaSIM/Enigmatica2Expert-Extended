@@ -422,7 +422,7 @@ craft.remake(<cyclicmagic:block_hydrator>, ['pretty',
 });
 
 // [Tempered Glass]
-craft.remake(<cyclicmagic:glass_strong> * 6, ['pretty',
+craft.remake(<cyclicmagic:glass_strong> * 12, ['pretty',
   'r F r',
   'r M r',
   'r r r'], {
