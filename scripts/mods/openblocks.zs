@@ -97,3 +97,12 @@ craft.remake(<openblocks:crane_backpack>, [
   'H': <immersiveengineering:wirecoil:3>, // Hemp Rope Coil
   '■': <ore:blockFakeIron>, // Iron Alloy Block
 });
+
+// Cheaper because it is quite difficult to manage with it
+craft.remake(<openblocks:builder_guide>, ['pretty',
+  'G F G',
+  'F   F',
+  'G F G'], {
+  'G': <ore:shardGlass>,
+  'F': <randomthings:ingredient:7>,
+});
