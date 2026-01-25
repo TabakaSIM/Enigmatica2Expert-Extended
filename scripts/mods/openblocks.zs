@@ -1,8 +1,6 @@
 #modloaded openblocks
 
 scripts.lib.tooltip.desc.tooltip(<openblocks:tank>);
-scripts.lib.tooltip.desc.tooltip(<openblocks:builder_guide>, 'redstone.need');
-scripts.lib.tooltip.desc.tooltip(<openblocks:guide>, 'redstone.need');
 
 val o = <ore:ingotAlubrass>;
 
