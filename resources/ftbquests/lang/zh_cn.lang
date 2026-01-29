@@ -90,6 +90,7 @@ q.getting_started.crafters.name=自动合成器
 q.getting_started.crafters.desc=能自动化工作台配方的方块。
 q.getting_started.harder_branch_mining.name=更难的采矿法
 q.getting_started.harder_branch_mining.desc=§2更难的采矿§r会以多种的方式使挖矿更艰难，鼓励你找矿洞。\n\n从 Y=48 开始变难，Y=5 处难度达到最高。\n\n大多数§2矿石§r是例外，不会更难挖。
+q.getting_started.cracked_stone_bricks.desc=用§3镐§r右击石头类方块，可以将其变为“裂纹”变种。这个过程会消耗工具的耐久，但这是个获得装饰性方块的好方法。
 q.getting_started.morphing_tool.desc=这个工具可以与几乎所有模组的扳手结合，它会在你使用时自动切换。用铜、锡、银、铅齿轮与它合成能够使它获取全部变形。
 q.getting_started.infusion_enchantme.name=注魔附魔
 q.getting_started.infusion_enchantme.desc="收集" 和 "借用" 注魔附魔可以通过将工具与Vis水晶一起合成来应用于TCon工具。

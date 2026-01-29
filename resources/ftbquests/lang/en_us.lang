@@ -90,6 +90,7 @@ q.getting_started.crafters.name=Crafters
 q.getting_started.crafters.desc=Blocks that can automate Crafting Table recipes.
 q.getting_started.harder_branch_mining.name=Harder Branch Mining
 q.getting_started.harder_branch_mining.desc=§2Harder Branch Mining§r gives you tools to make branch mining more difficult in various ways and to encourage caving.\n\nIt starts getting harder at depth §248§r and maxes out at depth §25§r.\n\nMost §2Ores are exceptions§r and do not get hardened.
+q.getting_started.cracked_stone_bricks.desc=Right-click stone-like blocks with a §3Pickaxe§r to create their 'cracked' variants. This process will wear down your tool, but it's a great way to get decorative blocks.
 q.getting_started.morphing_tool.desc=This tool can be combined with almost every wrench from different mods, allowing you to switch between them automatically.
 q.getting_started.infusion_enchantme.name=Infusion Enchantments
 q.getting_started.infusion_enchantme.desc="Collection" and "Borrowing" Infusion enchantments can be applied to TCon tools by just craft a tool together with Vis Crystal.
