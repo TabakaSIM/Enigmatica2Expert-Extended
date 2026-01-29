@@ -78,6 +78,7 @@ function attemptToPutIn(e as PlayerInteractBlockEvent) as void {
   val item = e.player.currentItem;
   if (
     isNull(item)
+    || isNull(item.definition)
     || !item.definition.id.startsWith('danknull:dank_null_')
   ) return;
 
@@ -101,13 +102,12 @@ function attemptToPutIn(e as PlayerInteractBlockEvent) as void {
 }
 
 function attemptToTakeOff(e as PlayerInteractBlockEvent) as void {
-  if (!isNull(e.player.mainHandHeldItem) || !isNull(e.player.offHandHeldItem)) return;
+  if (!isNull(e.player.mainHandHeldItem) || !isNull(e.player.offHandHeldItem) || isNull(e.block.data)) return;
 
-  val d = D(e.block.data);
-  val id = d.getString('DankNullStack.id');
-  if (isNull(id)) return;
+  val id = e.block.data.DankNullStack?.id.asString();
+  if (isNull(id) || id == 'minecraft:air') return;
 
-  val dankInside = itemUtils.getItem(id, d.getShort('DankNullStack.Damage', 0));
+  val dankInside = itemUtils.getItem(id, e.block.data.DankNullStack?.Damage ?? 0);
   if (isNull(dankInside)) return;
 
   val requiredItem = getRequiredItem(dankInside);
