@@ -12,7 +12,7 @@ scripts.lib.loot.removePools(location,
 
 scripts.lib.loot.clearPool(location, 'main');
 scripts.lib.loot.addLootToPool(location, 'main', {
-  <mekanism:machineblock2:11>.withTag({tier: 0, mekData: {fluidTank: {FluidName: 'pyrotheum', Amount: 40000}}}): [20, 0, 1, 1],
+  <mekanism:machineblock2:11>.withTag({tier: 0, mekData: {fluidTank: {FluidName: 'canolaoil', Amount: 40000}}}): [20, 0, 1, 1],
   <mekanism:machineblock2:11>.withTag({tier: 0, mekData: {fluidTank: {FluidName: 'lava', Amount: 40000}}})     : [5, 0, 1, 1],
   <ic2:forge_hammer>                                                                                           : [20, 0, 1, 1],
 

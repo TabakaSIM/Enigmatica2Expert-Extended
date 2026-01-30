@@ -12,6 +12,7 @@ scripts.lib.loot.removePools(location,
 
 scripts.lib.loot.clearPool(location, 'main');
 scripts.lib.loot.addLootToPool(location, 'main', {
+  <mekanism:machineblock2:11>.withTag({tier: 0, mekData: {fluidTank: {FluidName: 'pyrotheum', Amount: 40000}}}): [20, 0, 1, 1],
   <randomthings:lavacharm>             : [10,  0, 1, 1],
   <randomthings:obsidianskullring>     : [10,  0, 1, 1],
   <cyclicmagic:book_ender>             : [5,  0, 1, 1],
