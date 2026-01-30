@@ -95,16 +95,15 @@ static psiSpells as int[][IItemStack] = { // Total weight = 80
   <psi:spell_bullet:1>.withTag({spell: {spellName: 'Blink', uuidMost: -5160180429860157288 as long, validSpell: 1 as byte, spellList: [{data: {key: 'selectorCaster'}, x: 3, y: 2}, {data: {params: {_distance: 4, _target: 1}, key: 'trickBlink'}, x: 3, y: 3}, {data: {key: 'constantNumber', constantValue: '4'}, x: 4, y: 3}], uuidLeast: -5769275948216450916 as long}}) : [10, 0, 1, 1],
 };
 
-static sigils as int[][IItemStack] = { // Total weight = 90
-  <animus:sigil_builder>            : [10, 0, 1, 1],
-  <animus:sigil_storm>              : [10, 0, 1, 1],
-  <bloodmagic:sigil_air>            : [10, 0, 1, 1],
-  <bloodmagic:sigil_compression>    : [10, 0, 1, 1],
-  <bloodmagic:sigil_ender_severance>: [10, 0, 1, 1],
-  <bloodmagic:sigil_fast_miner>     : [10, 0, 1, 1],
-  <bloodmagic:sigil_green_grove>    : [10, 0, 1, 1],
-  <bloodmagic:sigil_haste>          : [10, 0, 1, 1],
-  <bloodmagic:sigil_phantom_bridge> : [10, 0, 1, 1],
+static sigils as int[][IItemStack] = { // Total weight = 16
+  <animus:sigil_storm>              : [2, 0, 1, 1],
+  <bloodmagic:sigil_air>            : [2, 0, 1, 1],
+  <bloodmagic:sigil_compression>    : [2, 0, 1, 1],
+  <bloodmagic:sigil_ender_severance>: [2, 0, 1, 1],
+  <bloodmagic:sigil_fast_miner>     : [2, 0, 1, 1],
+  <bloodmagic:sigil_green_grove>    : [2, 0, 1, 1],
+  <bloodmagic:sigil_haste>          : [2, 0, 1, 1],
+  <bloodmagic:sigil_phantom_bridge> : [2, 0, 1, 1],
 };
 
 static ancientTomes as int[][IItemStack] = { // Total weight = 52
