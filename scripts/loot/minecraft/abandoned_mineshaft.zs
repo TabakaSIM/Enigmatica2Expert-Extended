@@ -50,7 +50,6 @@ scripts.lib.loot.addLootToPool(location, 'main', {
   <tconstruct:tool_rod>.withTag({Material: 'pigiron'})        : [3, 0, 1, 1],
   <tconstruct:hammer_head>.withTag({Material: 'boron'})       : [3, 0, 1, 1],
   <tconstruct:large_plate>.withTag({Material: 'obsidian'})    : [3, 0, 1, 1],
-  <tconstruct:materials:16>                                   : [1, 0, 1, 1],
 
   <botania:brewvial>.withTag({brewKey: "nightVision"}): [3, 0, 1, 1],
   <botania:brewvial>.withTag({brewKey: "haste"})      : [3, 0, 1, 1],
