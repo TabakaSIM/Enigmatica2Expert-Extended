@@ -51,8 +51,8 @@ scripts.lib.loot.addLootToPool(location, 'main', {
   <tconstruct:hammer_head>.withTag({Material: 'boron'})       : [3, 0, 1, 1],
   <tconstruct:large_plate>.withTag({Material: 'obsidian'})    : [3, 0, 1, 1],
 
-  <botania:brewvial>.withTag({brewKey: "nightVision"}): [3, 0, 1, 1],
-  <botania:brewvial>.withTag({brewKey: "haste"})      : [3, 0, 1, 1],
+  <botania:brewvial>.withTag({brewKey: "nightVision"}): [3, 2, 1, 1],
+  <botania:brewvial>.withTag({brewKey: "haste"})      : [3, 2, 1, 1],
 });
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.tinkersModifiers);
 loottweaker.LootTweaker.getTable(location).getPool('main').setRolls(1, 2);
@@ -93,10 +93,10 @@ scripts.lib.loot.addLootToPool(location, 'pool1', {
   <harvestcraft:tunafishsandwichitem>          : [10, 0, 3, 7],
   <harvestcraft:watermelonjellysandwichitem>   : [10, 0, 3, 7],
 
-  <advgenerators:turbine_kit_bronze>: [2,0,1,3],
-  <cookingforblockheads:cow_jar>    : [10, 0, 1, 1],
+  <advgenerators:turbine_kit_bronze>: [2, 20,1,3],
+  <cookingforblockheads:cow_jar>    : [10, 5, 1, 1],
   <tconstruct:moms_spaghetti>       : [5, 0, 1, 2],
-  <harvestcraft:minerstewitem>      : [3, 0, 1, 1],
+  <harvestcraft:minerstewitem>      : [3, 3, 1, 1],
 });
 scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.badFood);
 scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.goodFood);
