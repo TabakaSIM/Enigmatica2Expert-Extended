@@ -1,4 +1,5 @@
 #modloaded chisel modtweaker
+#ignoreBracketErrors
 
 import crafttweaker.item.IItemStack;
 import mods.chisel.Carving.addVariation;
