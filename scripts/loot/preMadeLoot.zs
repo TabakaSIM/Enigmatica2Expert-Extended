@@ -198,20 +198,34 @@ static goodFood as int[][IItemStack] = { // Total weight = 51
   <harvestcraft:thankfuldinneritem>      : [3, 0, 1, 2],
 };
 
-static techComponents as int[][IItemStack] = { // Total weight = 308
+static techComponents as int[][IItemStack] = { // Total weight = 405
+  <forestry:oak_stick>             : [20, 0, 2, 6],
+  <ic2:component_heat_vent>        : [5, 0, 1, 2],
   <ic2:crafting:1>                 : [50, 0, 1, 2],
   <ic2:crafting:2>                 : [20, 0, 1, 2],
   <ic2:crafting:6>                 : [20, 0, 1, 1],
   <ic2:crafting:7>                 : [20, 0, 1, 2],
+  <ic2:heat_exchanger>             : [5, 0, 1, 2],
+  <ic2:heat_vent>                  : [5, 0, 1, 2],
+  <ic2:overclocked_heat_vent>      : [5, 0, 1, 2],
   <immersiveengineering:material:1>: [30, 0, 1, 2],
   <immersiveengineering:material:2>: [30, 0, 1, 2],
   <immersiveengineering:material:8>: [30, 0, 1, 2],
   <immersiveengineering:material:9>: [30, 0, 1, 2],
+  <immersiveengineering:material>  : [15, 0, 4, 10],    
   <mechanics:empty_rod>            : [10, 0, 1, 1],
   <mekanismgenerators:solarpanel>  : [50, 0, 1, 3],
   <nuclearcraft:part:7>            : [5, 0, 1, 2],
   <nuclearcraft:part:8>            : [5, 0, 1, 2],
   <nuclearcraft:part:9>            : [5, 0, 1, 2],
+  <opencomputers:card:2>           : [5, 0, 1, 1],
+  <opencomputers:component:1>      : [5, 0, 1, 1],
+  <opencomputers:component:8>      : [5, 0, 1, 1],
+  <opencomputers:storage:3>        : [5, 0, 1, 1],
+  <thermalfoundation:material:256> : [5, 0, 1, 3],
+  <thermalfoundation:material:258> : [5, 0, 1, 3],
+  <thermalfoundation:material:26>  : [5, 0, 1, 3],
+  <thermalfoundation:material:291> : [5, 0, 1, 3],
 };
 
 static tinkersModifiers as int[][IItemStack] = { // Total weight = 57
