@@ -13,9 +13,9 @@ scripts.lib.loot.removePools(location,
 scripts.lib.loot.clearPool(location, 'main');
 scripts.lib.loot.addLootToPool(location, 'main', {
   <thaumadditions:wormhole_mirror>.withTag({'tc.charge': 250})    : [10, 0, 1, 1],
-  <cyclicmagic:book_ender>                                        : [1, 1, 1, 1],
+  <cyclicmagic:book_ender>                                        : [1,  1, 1, 1],
   <thermalfoundation:tome_experience>.withTag({Experience: 10000}): [10, 0, 1, 1],
-  <rats:plague_doctorate>                                         : [3, 2, 1, 1],
+  <rats:plague_doctorate>                                         : [3,  2, 1, 1],
 
   <botania:brewvial>.withTag({brewKey: "absorption"}): [5, 2, 1, 1],
   <botania:brewvial>.withTag({brewKey: "healing"})   : [5, 2, 1, 1],
@@ -28,7 +28,7 @@ loottweaker.LootTweaker.getTable(location).getPool('main').setRolls(1, 2);
 
 loottweaker.LootTweaker.getTable(location).addPool('pool1', 1.0f, 2.0f, 0.0f, 0.0f);
 scripts.lib.loot.addLootToPool(location, 'pool1', {
-  <minecraft:book>         : [40, 0, 2, 8],
+  <minecraft:book>         : [40,  0, 2, 8],
   <minecraft:paper>        : [100, 0, 5, 13],
   <minecraft:writable_book>: [10, 10, 1, 3],
 });

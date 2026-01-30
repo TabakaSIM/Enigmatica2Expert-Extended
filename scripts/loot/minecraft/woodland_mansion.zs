@@ -26,7 +26,7 @@ loottweaker.LootTweaker.getTable(location).getPool('main').setRolls(1, 2);
 scripts.lib.loot.clearPool(location, 'pool1');
 scripts.lib.loot.addLootToPool(location, 'pool1', {
   <advgenerators:turbine_kit_adv_alloy> : [5, 20, 1, 3],
-  <randomthings:ingredient:1>           : [5, 5, 1, 3],
+  <randomthings:ingredient:1>           : [5, 5,  1, 3],
 });
 scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.badFood);
 scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.goodFood);
