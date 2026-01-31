@@ -1,3 +1,4 @@
+#sideonly client
 #modloaded immersiveengineering
 #reloadable
 
