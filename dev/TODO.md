@@ -4,16 +4,24 @@
 
 ### 🐛 Bugfixes
 
+- [ ] 🐛 FluidloggedAPI breaking IE wire damage
 - [ ] 🔨 `Refining` doesnt work on Redstone Ore
 - [ ] ✏️ Disable `Vanta Oil` recipes to remove cluttering
 - [ ] ✏️ Disable `NC Infiltrator` since its crashing game https://discord.com/channels/425461908712325130/528692982757588992/1439702472125055087
 - [ ] 📖 `Conglomerate of Life` fix pick reward
 - [ ] ✏️ `Archeologiest` rat not working with speed? Test it.
-- [ ] ✏️ Creative mana pool+Scroll of massive knowledge doesnt give additional loot box with 0 diff
-- [ ] ✏️ Add Big=>Small recipes for: `Bronze Lithium Sulfur Emerald Lapis`
+- [ ] 📖 Creative mana pool+Scroll of massive knowledge doesnt give additional loot box with 0 diff
+- [ ] ✏️ Add Big=>Small dust recipes for: `Bronze Lithium Sulfur Emerald Lapis`
+- [ ] ✏️ Remove melting of psidust in NC
+- [ ] 🚀 Improve AR integration of GasMissions - now they allow to pump lot of gasses
 
 ### ✨ New features
 
+- [ ] 🟢 Add https://www.curseforge.com/minecraft/mc-mods/ae2fluidcraft-rework-unofficial
+- [ ] 🔨 `TiC Bauble ring` for getting traits power without armor
+- [ ] ✏️ `Mud ball` make stack 64
+- [ ] ✏️ `Time in a Bottle` do not add time when AFK
+- [ ] ✏️ `Structural Arms` and other `Steel` stuff from IE make cheaper
 - [ ] 📀 Rustic's barrel make as x4 chests but allow accept only "dust" items
 - [ ] ✏️ `Charcoal Pile` rebalance wall blocks and fix JEI amounts
 - [ ] ✏️ `Sonic Glasses` add new recipe mechanic where you need to locate sound
