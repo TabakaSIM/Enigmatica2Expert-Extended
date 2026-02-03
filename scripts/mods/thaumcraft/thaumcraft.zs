@@ -896,6 +896,17 @@ mods.thaumcraft.Infusion.registerRecipe(
   [<thaumcraft:plank_greatwood>, <thaumcraft:plate>, <thaumcraft:plank_greatwood>, <minecraft:iron_pickaxe:*>]
 );
 
+// [Supreme focus]
+mods.thaumcraft.Infusion.registerRecipe(
+  'focus_4', // Name
+  'FOCUSSUPREME', // Research
+  <thaumcraft:focus_4>, // Output
+  6, // Instability
+  Aspects('150🔮 25🔥 25💨 25💧 25⛰️ 25⟁ 25⚡ 100☀️ 50〇'),
+  <thaumcraft:focus_3>, // CentralItem
+  [<thaumcraft:quicksilver>, <botania:bifrostperm>, <thaumcraft:quicksilver>, <astralsorcery:itemcraftingcomponent:4>, <thaumcraft:quicksilver>, <thaumicwonders:primordial_grain>, <thaumcraft:quicksilver>, <astralsorcery:itemcraftingcomponent:4>,]
+);
+
 /*
  ██████╗██████╗ ██╗   ██╗ ██████╗██╗██████╗ ██╗     ███████╗
 ██╔════╝██╔══██╗██║   ██║██╔════╝██║██╔══██╗██║     ██╔════╝
