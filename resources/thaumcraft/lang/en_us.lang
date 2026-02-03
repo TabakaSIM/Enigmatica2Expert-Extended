@@ -117,3 +117,11 @@ item.focus_4.name=Blank Supreme Focus
 research_name.supreme_focus=Supreme Focus
 research_stage.supreme_focus.1=I have managed to acquire a fragment of primal grain. Its capabilities seem to resonate deeply with raw vis itself, suggesting that my previous studies in auromancy may warrant a thorough reexamination.
 research_stage.supreme_focus.2=Pushing these principles even further, I have once again succeeded in doubling the complexity of a focus. Infusing it with primal grain and several auxiliary components proved sufficient to stabilize the process.
+
+research_name.vampirysm=Vampirysm
+research_stage.vampirysm.1=Having heard countless tales of vampires, I cannot help but wonder whether there is a grain of truth hidden within these legends. After all, there must be some connection between mythical creatures and the workings of magic.
+research_stage.vampirysm.2=Not only have I succeeded in creating a spell that steals life from my enemies, but the stolen vitality can also be used to nourish my very own blood network.
+focus.common.lifesteal=Lifesteal
+focus.common.bloodOrb=Blood network conversion
+thaumcraft.VAMPIRYSM.name=Vampirysm
+thaumcraft.VAMPIRYSM.text=Vampirysm
