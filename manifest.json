@@ -12,7 +12,7 @@
   "manifestType": "minecraftModpack",
   "manifestVersion": 1,
   "name": "Enigmatica2Expert-Extended",
-  "version": "v1.72.2",
+  "version": "v1.73.0-beta",
   "author": "krutoy242",
   "overrides": "overrides",
   "files": [
@@ -347,7 +347,7 @@
     {"projectID":541068,"fileID":3749881,"___name":"Better Animals Plus Plus"                ,"downloadUrl":"https://edge.forgecdn.net/files/3749/881/betteranimalsplusplus-4-13-2022b.jar","required":true},
     {"projectID":554387,"fileID":3556105,"___name":"Persistency"                             ,"downloadUrl":"https://edge.forgecdn.net/files/3556/105/persistency-1.2.0.jar","required":true},
     {"projectID":554861,"fileID":3556724,"___name":"Villager Trade Tables - Emerald Edition" ,"downloadUrl":"https://edge.forgecdn.net/files/3556/724/VillagerTrades-1.12.2-0.6.5.jar","required":true},
-    {"projectID":557549,"fileID":7387686,"___name":"Had Enough Items"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7387/686/HadEnoughItems_1.12.2-4.29.14.jar","required":true},
+    {"projectID":557549,"fileID":7515497,"___name":"Had Enough Items"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7515/497/HadEnoughItems_1.12.2-4.29.15.jar","required":true},
     {"projectID":570458,"fileID":6302098,"___name":"AE2 Unofficial Extended Life"            ,"downloadUrl":"https://edge.forgecdn.net/files/6302/98/ae2-uel-v0.56.7.jar","required":true},
     {"projectID":571482,"fileID":4430763,"___name":"AssetMover"                              ,"downloadUrl":"https://edge.forgecdn.net/files/4430/763/assetmover-2.5.jar","required":true},
     {"projectID":594562,"fileID":3735912,"___name":"Villager Market - NBT Fix"               ,"downloadUrl":"https://edge.forgecdn.net/files/3735/912/villager-market-nbt-fix-1.12.2-1.0.4.jar","required":true},
@@ -400,7 +400,7 @@
     {"projectID":968474,"fileID":6386622,"___name":"FermiumBooter"                           ,"downloadUrl":"https://edge.forgecdn.net/files/6386/622/%60FermiumBooter-1.2.0.jar","required":true},
     {"projectID":977883,"fileID":7095096,"___name":"TheOneSmeagle"                           ,"downloadUrl":"https://edge.forgecdn.net/files/7095/96/TheOneSmeagle-1.12-1.1.5.jar","required":true},
     {"projectID":994251,"fileID":5481496,"___name":"Villager Contracts"                      ,"downloadUrl":"https://edge.forgecdn.net/files/5481/496/villagercontracts-1.12.2-1.2.1.jar","required":true},
-    {"projectID":1005815,"fileID":7481704,"___name":"Fugue"                                   ,"downloadUrl":"https://edge.forgecdn.net/files/7481/704/%2bFugue-0.22.9.jar","required":true},
+    {"projectID":1005815,"fileID":7485095,"___name":"Fugue"                                   ,"downloadUrl":"https://edge.forgecdn.net/files/7485/95/%2bFugue-0.22.10.jar","required":true},
     {"projectID":1016395,"fileID":6596160,"___name":"XU2-Patcher"                             ,"downloadUrl":"https://edge.forgecdn.net/files/6596/160/XU2-Patcher-1.0.2.jar","required":true},
     {"projectID":1024225,"fileID":6007708,"___name":"Advanced Rocketry - Reworked"            ,"downloadUrl":"https://edge.forgecdn.net/files/6007/708/AdvancedRocketry-1.12.2-2.1.4-9.jar","required":true},
     {"projectID":1032769,"fileID":5414463,"___name":"NCO Java Legacy Lib"                     ,"downloadUrl":"https://edge.forgecdn.net/files/5414/463/NCOLegacyLib-1.12.2-1.2.jar","required":true},
@@ -417,7 +417,7 @@
     {"projectID":1094214,"fileID":6728191,"___name":"Fluid Interaction Tweaker"               ,"downloadUrl":"https://edge.forgecdn.net/files/6728/191/fluidintetweaker-1.5.4.jar","required":true},
     {"projectID":1121489,"fileID":5814089,"___name":"AE2 Crafting Tree - Legacy"              ,"downloadUrl":"https://edge.forgecdn.net/files/5814/89/AE2CT-Legacy-0.1.2.jar","required":true},
     {"projectID":1132293,"fileID":6476059,"___name":"Backpack Display"                        ,"downloadUrl":"https://edge.forgecdn.net/files/6476/59/backpackdisplay-1.6.4.jar","required":true},
-    {"projectID":1133738,"fileID":6940634,"___name":"Patchouli Books"                         ,"downloadUrl":"https://edge.forgecdn.net/files/6940/634/patchoulibooks-0.2.7.jar","required":true},
+    {"projectID":1133738,"fileID":7506249,"___name":"Patchouli Books"                         ,"downloadUrl":"https://edge.forgecdn.net/files/7506/249/patchoulibooks-0.3.0.jar","required":true},
     {"projectID":1147522,"fileID":7017913,"___name":"Backpack Opener"                         ,"downloadUrl":"https://edge.forgecdn.net/files/7017/913/bpopener-1.1.0.jar","required":true},
     {"projectID":1151126,"fileID":7241171,"___name":"Curvy Pipes"                             ,"downloadUrl":"https://edge.forgecdn.net/files/7241/171/curvy_pipes-1.12.2-1.13.5.jar","required":true},
     {"projectID":1153744,"fileID":5964549,"___name":"NoiseThreader"                           ,"downloadUrl":"https://edge.forgecdn.net/files/5964/549/NoiseThreader-1.0.0.jar","required":true},
@@ -436,11 +436,11 @@
     {"projectID":1281678,"fileID":7365542,"___name":"Roid's Tweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7365/542/roidtweaker-1.2.2.jar","required":true},
     {"projectID":1307741,"fileID":7445203,"___name":"Thaumic Wonders Unofficial"              ,"downloadUrl":"https://edge.forgecdn.net/files/7445/203/thaumicwonders-2.2.3.jar","required":true},
     {"projectID":1329068,"fileID":6902995,"___name":"MorphOverlay"                            ,"downloadUrl":"https://edge.forgecdn.net/files/6902/995/morphoverlay-1.0.1.jar","required":true},
-    {"projectID":1331377,"fileID":7431340,"___name":"Armored Arms"                            ,"downloadUrl":"https://edge.forgecdn.net/files/7431/340/ArmoredArms-v1.4.4-1.12.2-release.jar","required":true},
-    {"projectID":1341792,"fileID":7241925,"___name":"Congrega Mystica"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7241/925/CongregaMystica-1.12.2-1.0.8.jar","required":true},
-    {"projectID":1341797,"fileID":7288903,"___name":"ThaumicTweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7288/903/thaumictweaker-1.2.2.jar","required":true},
+    {"projectID":1331377,"fileID":7506520,"___name":"Armored Arms"                            ,"downloadUrl":"https://edge.forgecdn.net/files/7506/520/ArmoredArms-v1.4.5-1.12.2-release.jar","required":true},
+    {"projectID":1341792,"fileID":7521955,"___name":"Congrega Mystica"                        ,"downloadUrl":"https://edge.forgecdn.net/files/7521/955/CongregaMystica-1.12.2-1.0.9.jar","required":true},
+    {"projectID":1341797,"fileID":7523519,"___name":"ThaumicTweaker"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7523/519/thaumictweaker-1.2.4.jar","required":true},
     {"projectID":1342654,"fileID":7294306,"___name":"OpenBlocks Reopened"                     ,"downloadUrl":"https://edge.forgecdn.net/files/7294/306/OpenBlocksReopened-1.12.2-1.8.3.1.jar","required":true},
     {"projectID":1394222,"fileID":7339320,"___name":"Antique Armory"                          ,"downloadUrl":"https://edge.forgecdn.net/files/7339/320/AntiqueArmory-1.12.2-1.2.7.jar","required":true},
-    {"projectID":1395213,"fileID":7448056,"___name":"BloomTech"                               ,"downloadUrl":"https://edge.forgecdn.net/files/7448/56/BloomTech-1.1.0.zip","required":true}
+    {"projectID":1395213,"fileID":7501474,"___name":"BloomTech"                               ,"downloadUrl":"https://edge.forgecdn.net/files/7501/474/BloomTech-1.2.0.zip","required":true}
   ]
 }
