@@ -190,7 +190,7 @@ function init() as void {
 }
 
 events.register(function (e as PlayerInteractBlockEvent) {
-  if (e.hand != 'MAIN_HAND') return;
+  if (e.hand != 'MAIN_HAND' || e.player.isSneaking) return;
 
   val item = e.item;
   if (isNull(item) || !(item.toolClasses has 'pickaxe')) return;
@@ -199,6 +199,8 @@ events.register(function (e as PlayerInteractBlockEvent) {
   val blockState = e.blockState;
   val recipesForDef = crackableDefs[blockState.block.definition];
   if (isNull(recipesForDef)) return;
+
+  if (!item.canHarvestBlock(blockState)) return;
 
   for originalItem, crackedStateDef in recipesForDef {
     // If the original item has a specific meta, check if the block state matches that meta.
