@@ -133,7 +133,7 @@ for ore_entry in oreDict {
     if (isNull(output) || output.empty) continue;
 
     mods.advancedrocketry.RecipeTweaker.forMachine('SmallPlatePresser').builder()
-      .inputOre(ore_entry).outputItem(output.firstItem * 3).build();
+      .inputOre(ore_entry).outputItem(output.firstItem).build();
 
     continue;
   }
