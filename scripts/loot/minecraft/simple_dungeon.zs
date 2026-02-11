@@ -41,7 +41,7 @@ scripts.lib.loot.addLootToPool(location, 'main', {
   <botania:brewvial>.withTag({brewKey: "soulCross"}): [5, 0, 1, 1],
 });
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.sigils);
-scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.ancientTomes);
+scripts.lib.loot.addAncientTomes(location, 'main', 52);
 loottweaker.LootTweaker.getTable(location).getPool('main').setRolls(1, 2);
 
 scripts.lib.loot.clearPool(location, 'pool1');

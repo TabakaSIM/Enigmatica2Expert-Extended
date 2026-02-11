@@ -19,7 +19,7 @@ scripts.lib.loot.addLootToPool(location, 'main', {
   <thaumadditions:meteor_belt>         : [1,  1, 1, 1],
 });
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.tinkersModifiers);
-scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.ancientTomes);
+scripts.lib.loot.addAncientTomes(location, 'main', 52);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.baubles);
 
 loottweaker.LootTweaker.getTable(location).addPool('pool1', 1.0f, 2.0f, 0.0f, 0.0f);

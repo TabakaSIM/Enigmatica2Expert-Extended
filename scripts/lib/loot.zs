@@ -127,6 +127,10 @@ function addRandomCapacitor(tableName as string, chance as float) as void {
   pool.addConditions([Conditions.randomChance(chance)]);
 }
 
+function addAncientTomes(tableName as string, poolName as string, weight as int) as void{
+  loottweaker.LootTweaker.getTable(tableName).getPool(poolName).addItemEntry(<quark:ancient_tome>, weight, 0, [{"function":"quark:enchant_tome"}], []);
+}
+
 /*
 ██████╗  █████╗  ██████╗██╗  ██╗██████╗  █████╗  ██████╗██╗  ██╗    ██╗  ██╗ █████╗ ███╗   ██╗██╗     ██████╗ ███████╗██████╗
 ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝    ██║  ██║██╔══██╗████╗  ██║██║     ██╔══██╗██╔════╝██╔══██╗

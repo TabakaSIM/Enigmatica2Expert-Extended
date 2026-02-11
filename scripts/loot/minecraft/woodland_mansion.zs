@@ -18,7 +18,7 @@ scripts.lib.loot.addLootToPool(location, 'main', {
   <botania:brewvial>.withTag({brewKey: "regenWeak"})     : [5, 5, 1, 1],
 });
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.sigils);
-scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.ancientTomes);
+scripts.lib.loot.addAncientTomes(location, 'main', 52);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.thaumcraftSpells);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.baubles);
 loottweaker.LootTweaker.getTable(location).getPool('main').setRolls(1, 2);

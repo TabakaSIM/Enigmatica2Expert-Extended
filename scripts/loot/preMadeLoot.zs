@@ -106,35 +106,6 @@ static sigils as int[][IItemStack] = { // Total weight = 16
   <bloodmagic:sigil_phantom_bridge> : [2, 0, 1, 1],
 };
 
-static ancientTomes as int[][IItemStack] = { // Total weight = 52
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 1 as short, id: 23}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 2 as short, id: 19}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 2 as short, id: 20}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 2 as short, id: 49}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 12}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 13}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 21}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 22}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 34}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 35}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 61}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 62}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 73}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 78}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 79}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 3 as short, id: 7}]}) : [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 4 as short, id: 2}]}) : [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 4 as short, id: 72}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 4 as short, id: 74}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 4 as short, id: 75}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 5 as short, id: 15}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 5 as short, id: 16}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 5 as short, id: 17}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 5 as short, id: 18}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 5 as short, id: 32}]}): [2, 0, 1, 1],
-  <quark:ancient_tome>.withTag({StoredEnchantments: [{lvl: 5 as short, id: 48}]}): [2, 0, 1, 1],
-};
-
 /////////////////////////////////
 // Consumable related loottables//
 /////////////////////////////////

@@ -26,7 +26,7 @@ scripts.lib.loot.addLootToPool(location, 'main', {
   <botania:brewvial>.withTag({brewKey: "speed"})     : [5, 2, 1, 1],
 });
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.sigils);
-scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.ancientTomes);
+scripts.lib.loot.addAncientTomes(location, 'main', 52);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.baubles);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.psiSpells);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.thaumcraftSpells);

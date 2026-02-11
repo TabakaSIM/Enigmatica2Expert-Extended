@@ -35,7 +35,7 @@ scripts.lib.loot.addLootToPool(location, 'main', {
   <botania:brewvial>.withTag({brewKey: "regen"})    : [1,   1, 1, 1],
 });
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.baubles);
-scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.ancientTomes);
+scripts.lib.loot.addAncientTomes(location, 'main', 52);
 loottweaker.LootTweaker.getTable(location).getPool('main').setRolls(1, 2);
 
 loottweaker.LootTweaker.getTable(location).addPool('pool1', 1.0f, 2.0f, 0.0f, 0.0f);
@@ -53,6 +53,6 @@ scripts.lib.loot.addLootToPool(location, 'pool1', {
 scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.badFood);
 scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.magicConsumables);
 scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.thaumcraftSpells);
-scripts.lib.loot.addLootToPool(location, 'pool1', scripts.loot.preMadeLoot.ancientTomes);
+scripts.lib.loot.addAncientTomes(location, 'pool1', 52);
 
 scripts.lib.loot.addSpecialTool(location, <tconstruct:arrow>, ['reed', 'sunnarium', 'amphithere_feather'], '§eProvidence Echoes');

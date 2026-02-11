@@ -22,7 +22,7 @@ scripts.lib.loot.addLootToPool(location, 'main', {
 });
 loottweaker.LootTweaker.getTable(location).getPool('main').addItemEntry(<minecraft:book>, 50, 0, [Functions.enchantWithLevels(5, 50, true)], []);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.sigils);
-scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.ancientTomes);
+scripts.lib.loot.addAncientTomes(location, 'main', 52);
 scripts.lib.loot.addLootToPool(location, 'main', scripts.loot.preMadeLoot.thaumcraftSpells);
 loottweaker.LootTweaker.getTable(location).getPool('main').setRolls(1, 2);
 
