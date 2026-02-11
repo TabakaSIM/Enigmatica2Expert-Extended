@@ -15,6 +15,7 @@ import crafttweaker.block.IBlockDefinition;
 import crafttweaker.block.IBlockState;
 import crafttweaker.event.PlayerInteractBlockEvent;
 import crafttweaker.item.IItemStack;
+import native.net.minecraft.util.EnumHand;
 
 static statCrackedBlocks as mods.zenutils.PlayerStat = mods.zenutils.PlayerStat.getBasicStat('stat.cracked_blocks');
 
@@ -188,17 +189,15 @@ function init() as void {
   }
 }
 
-events.onPlayerInteractBlock(function (e as PlayerInteractBlockEvent) {
-  init();
-
-  if (e.world.remote || e.hand != 'MAIN_HAND') return;
+events.register(function (e as PlayerInteractBlockEvent) {
+  if (e.hand != 'MAIN_HAND') return;
 
   val item = e.item;
   if (isNull(item) || !(item.toolClasses has 'pickaxe')) return;
 
+  init();
   val blockState = e.blockState;
-  val blockDef = blockState.block.definition;
-  val recipesForDef = crackableDefs[blockDef];
+  val recipesForDef = crackableDefs[blockState.block.definition];
   if (isNull(recipesForDef)) return;
 
   for originalItem, crackedStateDef in recipesForDef {
@@ -219,16 +218,20 @@ events.onPlayerInteractBlock(function (e as PlayerInteractBlockEvent) {
       }
     }
 
-    // Replace the block and create particles.
-    e.world.destroyBlock(e.position, false);
-    e.world.setBlockState(crackedState, e.position);
+    if (e.world.remote) {
+      e.player.native.swingArm(EnumHand.MAIN_HAND);
+    } else {
+      // Replace the block and create particles.
+      e.world.destroyBlock(e.position, false);
+      e.world.setBlockState(crackedState, e.position);
 
-    // Damage the tool if not in creative mode.
-    if (!e.player.creative) {
-      item.mutable().damageItem(1, e.player);
+      // Damage the tool if not in creative mode.
+      if (!e.player.creative) {
+        item.mutable().damageItem(1, e.player);
+      }
+
+      e.player.addStat(statCrackedBlocks, 1);
     }
-
-    e.player.addStat(statCrackedBlocks, 1);
 
     e.cancel();
     return; // Exit after processing the first valid match.
