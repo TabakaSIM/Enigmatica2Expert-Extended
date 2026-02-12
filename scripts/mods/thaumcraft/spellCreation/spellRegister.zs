@@ -5,4 +5,4 @@ import native.net.minecraft.util.ResourceLocation;
 import native.thaumcraft.api.casters.FocusEngine;
 import scripts.mods.thaumcraft.spellCreation.spellVampirysm.SpellVampirysm;
 
-FocusEngine.registerElement(SpellVampirysm.class, ResourceLocation("thaumcraft", "textures/foci/vampirysm.png"), 7868946);
+FocusEngine.registerElement(SpellVampirysm.class, ResourceLocation("thaumcraft", "textures/foci/vampirysm.png"), 0xFF781212);
