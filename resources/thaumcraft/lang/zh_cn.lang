@@ -125,3 +125,10 @@ focus.common.lifesteal=生命汲取
 focus.common.bloodOrb=血之网络转化
 thaumcraft.VAMPIRYSM.name=吸血术
 thaumcraft.VAMPIRYSM.text=从他人身上吸取生命精华。
+
+research_name.blackout=断光
+research_stage.blackout.1=每天在这些光源下，我的眼睛都感到疲惫！<BR>我可以自己移除所有光，但那实在太麻烦了。<BR>我必须找到一种安全有效的方式来熄灭它。
+research_stage.blackout.2=我的研究非常成功。这个新法术显然有两个主要效果：<BR>如果击中敌人，它会致盲敌人，非常简单。<BR>另一方面，如果击中物体，它会吸收附近的微弱光源，帮助我看清。这非常适合增强我的感知，让我能够比每秒24帧更快地注意到细节！
+focus.common.range=范围
+thaumcraft.BLACKOUT.name=断光
+thaumcraft.BLACKOUT.text=将世界恢复到其永恒黑暗的起源。
