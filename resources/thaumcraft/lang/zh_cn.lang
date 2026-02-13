@@ -132,3 +132,9 @@ research_stage.blackout.2=我的研究非常成功。这个新法术显然有两
 focus.common.range=范围
 thaumcraft.BLACKOUT.name=断光
 thaumcraft.BLACKOUT.text=将世界恢复到其永恒黑暗的起源。
+
+research_name.lineage=加速血统
+research_stage.lineage.1=我已厌倦等待我的蜜蜂完成它们的工作。必定存在一种方法，在不损害其脆弱血统的前提下，加快它们的自然循环。
+research_stage.lineage.2=经过缜密研究，我创造了一种名为“加速血统”的法术。它能提升蜂箱的效率，大幅提高繁殖速度与产出效率。该法术在 Forestry 与 Pam's 的蜜蜂上效果显著，但在 Rustic 的蜂箱中未见任何变化——或许那些生物更像黄蜂，而非真正的蜜蜂。
+thaumcraft.LINEAGE.name=加速血统
+thaumcraft.LINEAGE.text=加快蜜蜂的繁殖与生产进程。

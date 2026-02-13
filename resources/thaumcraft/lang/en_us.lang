@@ -132,3 +132,9 @@ research_stage.blackout.2=My research was really succesful. This new spell has a
 focus.common.range=Range
 thaumcraft.BLACKOUT.name=Blackout
 thaumcraft.BLACKOUT.text=Return world to it's origin of ethernal darkness.
+
+research_name.lineage=Accelerated Lineage
+research_stage.lineage.1=I have grown tired of waiting for my bees to finish their work. There must be a way to hasten their natural cycle without harming their delicate lineage.
+research_stage.lineage.2=Through careful study, I have devised a spell I call "Accelerated Lineage." It enhances the productivity of my apiaries, greatly increasing breeding speed and production rate. It functions well with Forestry and Pam's bees, though I have observed no effect on Rustic apiaries — perhaps those creatures are wasps rather than true bees.
+thaumcraft.LINEAGE.name=Accelerated Lineage
+thaumcraft.LINEAGE.text=Speeds up bee breeding and production progress.
