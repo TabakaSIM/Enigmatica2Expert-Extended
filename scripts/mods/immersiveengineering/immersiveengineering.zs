@@ -523,7 +523,7 @@ val sheetmetalRecipes = {
 for typeName, output in sheetmetalRecipes {
   recipes.removeByRecipeName(`immersiveengineering:sheetmetal/${typeName.toLowerCase()}_sheetmetal`);
   val plate = oreDict[`plate${typeName}`];
-  recipes.addShaped(`sheets${typeName}`, output * 64, [
+  recipes.addShaped(`sheets${typeName}`, output * 32, [
     [null, plate, null],
     [plate, null, plate],
     [null, plate, null],
