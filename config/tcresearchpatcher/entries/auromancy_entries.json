@@ -75,6 +75,24 @@
       ]
     },
     {
+      "key": "LINEAGE",
+      "name": "research_name.lineage",
+      "icons": ["focus:thaumcraft.LINEAGE"],
+      "category": "AUROMANCY",
+      "location": [-2, 8],
+      "parents": ["FOCUSHEAL"],
+      "meta": [],
+      "stages": [
+        {
+          "text": "research_stage.lineage.1",
+          "required_knowledge": ["THEORY;AUROMANCY;1"]
+        },
+        {
+          "text": "research_stage.lineage.2"
+        }
+      ]
+    },
+    {
       "key": "FOCUSSUPREME",
       "name": "research_name.supreme_focus",
       "icons": ["thaumcraft:focus_4"],
