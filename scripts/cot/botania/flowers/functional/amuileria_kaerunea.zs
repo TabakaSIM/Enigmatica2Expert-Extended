@@ -45,6 +45,7 @@ function add(input as IIngredient, output as IItemStack) as void {
   if (world.remote
     || !world.worldInfo.isThundering()
     || world.worldInfo.worldTotalTime % 20 != 0
+    || subtile.isRedstonePowered(world, pos)
   ) {
     return;
   }

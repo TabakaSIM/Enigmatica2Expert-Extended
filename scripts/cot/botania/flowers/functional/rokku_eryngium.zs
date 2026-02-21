@@ -33,12 +33,17 @@ rokku_eryngium.onUpdate = function (subtile, world, pos) {
     || world.worldInfo.worldTotalTime % 20 != 5) {
     return;
   }
+  val isRedstonePowered = subtile.isRedstonePowered(world, pos);
   if (isNull(subtile.data)
     || isNull(subtile.data.crystalProperties)
     || subtile.data.crystalProperties.collectiveCapability == -1) {
-    pickCrystal(world, pos, subtile);
+    if (!isRedstonePowered) pickCrystal(world, pos, subtile);
   }
   else {
+    if (isRedstonePowered) {
+      dropCrystal(world, pos, subtile);
+      return;
+    }
     if (subtile.getMana() < manaCostPerCut) return;
     subtile.consumeMana(manaCostPerCut);
     workOnCrystal(world, pos, subtile);
