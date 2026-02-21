@@ -22,9 +22,9 @@ Lexicon.addPetalPage('botania.page.campanimia1', 'botania.entry.campanimia', 1, 
   <botania:rune:2>,
   <botania:rune:3>,
   <botania:rune>,
-  <quark:rune:14>,
-  <quark:rune:2>,
-  <quark:rune:4>,
+  <botania:petal:14>,
+  <botania:petal:2>,
+  <botania:petal:4>,
 ]]);
 Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: 'campanimia'}), 'botania.entry.campanimia', 0);
 
@@ -32,10 +32,10 @@ Lexicon.addEntry('botania.entry.nuclianthus', 'botania.category.generationFlower
 Lexicon.setEntryKnowledgeType('botania.entry.nuclianthus', 'alfheim');
 Lexicon.addTextPage('botania.page.nuclianthus0', 'botania.entry.nuclianthus', 0);
 Lexicon.addPetalPage('botania.page.nuclianthus1', 'botania.entry.nuclianthus', 1, [<botania:specialflower>.withTag({type: 'nuclianthus'})], [[
-  <quark:rune:5>,
-  <quark:rune:4>,
-  <quark:rune:4>,
-  <quark:rune:1>,
+  <botania:petal:13>,
+  <botania:petal:4>,
+  <botania:petal:4>,
+  <botania:petal:1>,
   <botania:manaresource:1>,
   <botania:rune:6>,
   <botania:rune:6>,
@@ -68,9 +68,9 @@ Lexicon.addPetalPage('botania.page.rokku_eryngium1', 'botania.entry.rokku_eryngi
   <botania:manaresource:9>,
   <botania:rune:11>,
   <botania:rune:12>,
-  <quark:rune:11>,
-  <quark:rune>,
-  <quark:rune>,
+  <botania:petal:2>,
+  <botania:petal:4>,
+  <botania:petal:4>,
 ]]);
 Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: 'rokku_eryngium'}), 'botania.entry.rokku_eryngium', 0);
 
@@ -81,9 +81,9 @@ Lexicon.addPetalPage('botania.page.jikanacea1', 'botania.entry.jikanacea', 1, [<
   <astralsorcery:itemcraftingcomponent:4>,
   <botania:rune:14>,
   <botania:rune:9>,
-  <quark:rune:2>,
-  <quark:rune:4>,
-  <quark:rune:4>,
+  <botania:petal:2>,
+  <botania:petal:2>,
+  <botania:petal:5>,
   <thaumicaugmentation:material:5>,
 ]]);
 Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: 'jikanacea'}), 'botania.entry.jikanacea', 0);
@@ -91,9 +91,10 @@ Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: 'jikanacea'}), '
 Lexicon.addEntry('botania.entry.echinacenko', 'botania.category.functionalFlowers', <botania:specialflower>.withTag({type: 'echinacenko'}));
 Lexicon.addTextPage('botania.page.echinacenko0', 'botania.entry.echinacenko', 0);
 Lexicon.addPetalPage('botania.page.echinacenko1', 'botania.entry.echinacenko', 1, [<botania:specialflower>.withTag({type: 'echinacenko'})], [[
-  <quark:rune:2>,
-  <quark:rune:2>,
-  <quark:rune:5>,
+  <botania:rune:15>,
+  <botania:petal:2>,
+  <botania:petal>,
+  <botania:petal>,
   <botania:rune:10>,
   <botania:rune:12>,
   <botania:manaresource:1>,
@@ -107,10 +108,10 @@ Lexicon.addPetalPage('botania.page.amuileria_kaerunea1', 'botania.entry.amuileri
   <botania:manaresource:9>,
   <botania:rune:8>,
   <minecraft:end_rod>,
-  <quark:rune:3>,
-  <quark:rune:3>,
-  <quark:rune:4>,
-  <quark:rune>,
+  <botania:petal:3>,
+  <botania:petal:3>,
+  <botania:petal:4>,
+  <botania:petal>,
 ]]);
 Lexicon.addRecipeMapping(<botania:specialflower>.withTag({type: 'amuileria_kaerunea'}), 'botania.entry.amuileria_kaerunea', 0);
 
