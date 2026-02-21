@@ -248,11 +248,10 @@ globSync('config/ftbquests/normal/chapters/*'+'/*.snbt')
     .forEach((f) => {
       const text = loadText(f)
       const replaced = text.replace(
-        /rewards: \[\{\n\s+uid: "(?<uid>\w+)",\s+type: "item",(?<auto>\n\s+auto: "[^"]+",)?\s+item: \{\s+id: "ftbquests:lootcrate",(?:\n\s+Count: (?<count>\d+),)?\s+tag: \{\s+type: "(?<type>\w+)"(?:\s+\},?){2}\n\s+\}(?<tail>\])?/gi,
+        /(?<head>rewards: \[\{(\n.+)+?)uid: "(?<uid>\w+)",\s+type: "item",(?<auto>\n\s+auto: "[^"]+",)?\s+item: \{\s+id: "ftbquests:lootcrate",(?:\n\s+Count: (?<count>\d+),)?\s+tag: \{\s+type: "(?<type>\w+)"(?:\s+\},?){2}\n\s+\}(?<tail>\])?/gi,
   (m, ...args) => {
-  const {uid, auto, type, count, tail} = args.pop()
-  return `rewards: [{
-		uid: "${uid}",
+  const {head, uid, auto, type, count, tail} = args.pop()
+  return `${head}uid: "${uid}",
 		type: "custom",
 		title: "{e2ee.quest.${type}}",
 		icon: {
