@@ -64,6 +64,7 @@ Lexicon.addEntry('botania.entry.rokku_eryngium', 'botania.category.functionalFlo
 Lexicon.setEntryKnowledgeType('botania.entry.rokku_eryngium', 'alfheim');
 Lexicon.addTextPage('botania.page.rokku_eryngium0', 'botania.entry.rokku_eryngium', 0);
 Lexicon.addPetalPage('botania.page.rokku_eryngium1', 'botania.entry.rokku_eryngium', 1, [<botania:specialflower>.withTag({type: 'rokku_eryngium'})], [[
+  <botania:manaresource:6>,
   <botania:manaresource:5>,
   <botania:manaresource:9>,
   <botania:rune:11>,
@@ -78,6 +79,7 @@ Lexicon.addEntry('botania.entry.jikanacea', 'botania.category.functionalFlowers'
 Lexicon.setEntryKnowledgeType('botania.entry.jikanacea', 'alfheim');
 Lexicon.addTextPage('botania.page.jikanacea0', 'botania.entry.jikanacea', 0);
 Lexicon.addPetalPage('botania.page.jikanacea1', 'botania.entry.jikanacea', 1, [<botania:specialflower>.withTag({type: 'jikanacea'})], [[
+  <botania:manaresource:6>,
   <astralsorcery:itemcraftingcomponent:4>,
   <botania:rune:14>,
   <botania:rune:9>,
@@ -105,6 +107,7 @@ Lexicon.addEntry('botania.entry.amuileria_kaerunea', 'botania.category.functiona
 Lexicon.setEntryKnowledgeType('botania.entry.amuileria_kaerunea', 'alfheim');
 Lexicon.addTextPage('botania.page.amuileria_kaerunea0', 'botania.entry.amuileria_kaerunea', 0);
 Lexicon.addPetalPage('botania.page.amuileria_kaerunea1', 'botania.entry.amuileria_kaerunea', 1, [<botania:specialflower>.withTag({type: 'amuileria_kaerunea'})], [[
+  <botania:manaresource:6>,
   <botania:manaresource:9>,
   <botania:rune:8>,
   <minecraft:end_rod>,

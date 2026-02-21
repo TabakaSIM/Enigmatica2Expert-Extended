@@ -19,7 +19,8 @@ jikanacea.maxMana = manaCostMultipier * 64;
 jikanacea.range = 8;
 jikanacea.onUpdate = function (subtile, world, pos) {
   if (world.remote
-    || world.worldInfo.worldTotalTime  % 300 != 0) {
+    || world.worldInfo.worldTotalTime  % 300 != 0
+    || subtile.getRedstoneLevel(world, pos) != 0) {
     return;
   }
 
