@@ -17,7 +17,8 @@
 	}],
 	rewards: [{
 		uid: "576ac4cc",
-		type: "choice",
-		table: 126
+		type: "item",
+		item: "contenttweaker:conglomerate_of_life",
+		count: 4
 	}]
 }
