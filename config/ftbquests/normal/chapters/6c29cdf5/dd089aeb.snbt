@@ -143,6 +143,7 @@
 		tags: [
 			"chapcomplete"
 		],
+		team_reward: 1b,
 		auto: "invisible"
 	}]
 }
