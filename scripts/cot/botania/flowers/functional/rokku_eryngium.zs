@@ -33,7 +33,7 @@ rokku_eryngium.onUpdate = function (subtile, world, pos) {
     || world.worldInfo.worldTotalTime % 20 != 5) {
     return;
   }
-  val isRedstonePowered = subtile.getRedstoneLevel(world, pos) != 0;
+  val isRedstonePowered = subtile.isRedstonePowered(world, pos);
   if (isNull(subtile.data)
     || isNull(subtile.data.crystalProperties)
     || subtile.data.crystalProperties.collectiveCapability == -1) {
