@@ -651,6 +651,26 @@ scripts.process.electrolyze(<fluid:nitric_oxide> * 100, [<fluid:nitrogen> * 500,
 // Remove worthless recipes
 // ------------------------------------------------------------
 
+// Purge Infiltrator multiblock since its crashing and wasnt fixed for 6 months
+// https://github.com/tomdodd4598/NuclearCraft/issues/843
+// https://github.com/tomdodd4598/NuclearCraft/issues/855
+Purge(<nuclearcraft:infiltrator_controller>);
+Purge(<nuclearcraft:infiltrator_pressure_chamber>);
+Purge(<nuclearcraft:infiltrator_heating_unit>);
+mods.nuclearcraft.InfiltratorPressureFluid.removeAll();
+mods.nuclearcraft.MultiblockInfiltrator.removeAllRecipes();
+mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
+  .inputItem(<nuclearcraft:part:13> * 2)
+  .inputLiquid(<fluid:polymethylsilylene_methylene> * 144)
+  .outputItem(<nuclearcraft:alloy:14>)
+  .power(30000).timeRequired(10).build();
+mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
+  .inputItem(<nuclearcraft:part:17>)
+  .inputItem(<nuclearcraft:dust2>)
+  .inputLiquid(<fluid:polyphenylene_sulfide> * 144)
+  .outputItem(<nuclearcraft:part:19>)
+  .power(30000).timeRequired(10).build();
+
 // Unimplemented multiblocks
 Purge(<nuclearcraft:heat_exchanger_controller>);
 Purge(<nuclearcraft:condenser_controller>);
