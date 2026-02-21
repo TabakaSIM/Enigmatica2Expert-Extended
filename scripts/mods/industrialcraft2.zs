@@ -389,16 +389,13 @@ for out, inp in {
 }
 
 // Remake Dust compession recipes
-function tinyDustFix(a as IItemStack, b as IItemStack) as void {
-  recipes.addShapeless('Pack dist_' ~ a.damage, b, [a,a,a,a,a,a,a,a,a]);
-}
-
-tinyDustFix(<ic2:dust:22>, <ic2:dust:9>);
-tinyDustFix(<ic2:dust:25>, <thermalfoundation:material:770>);
-tinyDustFix(<ic2:dust:35>, <actuallyadditions:item_dust:3>);
-tinyDustFix(<ic2:dust:18>, <thermalfoundation:material:99>);
-tinyDustFix(<ic2:dust:24>, <ic2:dust:11>);
-tinyDustFix(<ic2:dust:27>, <thermalfoundation:material:771>);
+// Do not touch tiny dust without any sources
+utils.compact(<ic2:dust:22>, <ic2:dust:9>);
+// utils.compact(<ic2:dust:25>, <thermalfoundation:material:770>);
+// utils.compact(<ic2:dust:35>, <actuallyadditions:item_dust:3>);
+// utils.compact(<ic2:dust:18>, <thermalfoundation:material:99>);
+utils.compact(<ic2:dust:24>, <ic2:dust:11>);
+// utils.compact(<ic2:dust:27>, <thermalfoundation:material:771>);
 
 // Convert purged tin and copper
 recipes.addShapeless(<thermalfoundation:ore> * 2        , [<ic2:resource:1>, <ic2:resource:1>] /* Copper Ore */);
