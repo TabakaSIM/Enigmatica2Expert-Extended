@@ -272,6 +272,8 @@ mods.nuclearcraft.Crystallizer.addRecipe(<fluid:sodium_nitrate_solution> * 666, 
 mods.industrialforegoing.FluidDictionary.add("fluid_quicksilver", "mercury", 1);
 mods.industrialforegoing.FluidDictionary.add("mercury", "fluid_quicksilver", 1);
 
+mods.nuclearcraft.Melter.removeRecipeWithOutput(<fluid:mercury> * 144);
+
 // Mercury should be very heat-resistant
 mods.nuclearcraft.FissionHeating.removeRecipeWithOutput(<fluid:high_pressure_mercury> * 2);
 mods.nuclearcraft.Turbine.removeRecipeWithOutput(<liquid:exhaust_mercury> * 3);
