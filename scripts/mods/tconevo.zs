@@ -37,7 +37,7 @@ mods.tconstruct.Casting.addTableRecipe(
 
 function recast(block as IItemStack, fluid as ILiquidStack) as void {
   mods.tconstruct.Melting.addRecipe(fluid * 1296, block);
-mods.tconstruct.Casting.addBasinRecipe(block, null, fluid, 1296);
+  mods.tconstruct.Casting.addBasinRecipe(block, null, fluid, 1296);
 }
 
 // Add missed block <=> Molten recipes
