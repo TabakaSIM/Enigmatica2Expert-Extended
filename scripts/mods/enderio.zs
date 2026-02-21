@@ -847,7 +847,7 @@ mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
   .inputLiquid(<fluid:sand> * 5000)
   .outputItem(<enderio:item_material:4> * 64)
   .outputItem(<enderio:item_material:4> * 56)
-  .build();
+  .power(30000).timeRequired(10).build();
 
 // Cheaper to let players use it earlier
 // [Totemic Capacitor] from [MV Capacitor][+2]

@@ -667,7 +667,7 @@ mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
   .inputOre(<ore:circuitAdvanced>, 4)
   .inputLiquid(<fluid:lapis> * 10000)
   .outputItem(<ic2:lapotron_crystal> * 4)
-  .build();
+  .power(30000).timeRequired(10).build();
 
 // [Scaffold]*20 from [Stick][+1]
 craft.remake(<ic2:scaffold> * 20, ['pretty',

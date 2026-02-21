@@ -519,7 +519,7 @@ mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
   .inputOre(<ore:dustBoron>, 5)
   .inputLiquid(<fluid:ammonia> * 5000)
   .outputItem(<nuclearcraft:gem:1> * 10)
-  .build();
+  .power(30000).timeRequired(10).build();
 
 // Platings Laser Alternatives
 mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionLaserEtcher').builder()

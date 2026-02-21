@@ -864,4 +864,4 @@ mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
   .input(<actuallyadditions:item_canola_seed> * 64)
   .inputLiquid(<fluid:ic2biomass> * 100)
   .outputItem(<actuallyadditions:item_misc:21> * 64)
-  .build();
+  .power(30000).timeRequired(10).build();
