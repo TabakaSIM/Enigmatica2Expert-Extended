@@ -38,14 +38,12 @@ function getPlayOneMinute(player as ForgePlayer) as int {
 }
 
 function formatPlayTimeFromTicks(t as int) as string {
-  val days = (t as double) / (20.0 * 60.0 * 60.0 * 24.0);
-  val hours = days * 24.0 - (days as int * 24);
+  val hours = (t as double) / (20.0 * 60.0 * 60.0);
   val mins = hours * 60.0 - (hours as int * 60);
   val secs = mins * 60.0 - (mins as int * 60);
   return (
-    (days >= 1 ? ' ' ~ days as int ~ 'd' : '')
-    ~ (hours >= 1 ? ' ' ~ hours as int ~ 'h' : '')
-    ~ (mins >= 1 && days < 1 ? ' ' ~ mins as int ~ 'm' : '')
+    (hours >= 1 ? ' ' ~ hours as int ~ 'h' : '')
+    ~ (mins >= 1 ? ' ' ~ mins as int ~ 'm' : '')
     ~ (secs >= 1 && hours < 1 ? ' ' ~ secs as int ~ 's' : '')
   ).trim();
 }
