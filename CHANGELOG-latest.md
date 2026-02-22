@@ -5,6 +5,13 @@
     >
     > To free inventory slot for Twilight Forest flight
 
+  * [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/067496c)💐Custom botania flowers use redstone
+    > > Contributed by [TabakaSIM](https://github.com/tabakasim)
+    >
+    > - `Jikanacea`, `Amuileria Kaerunea`, `Rokku Eryngium` now accept redstone  
+    > - Additionally `Rokku Eryngium` now drops contained crystal when redstone powered  
+    > - Fixed wrong lexicon researches
+
   #### Quest
 
   * <img src="https://i.imgur.com/FJuNyWr.png" align=right> [🖇](https://github.com/Krutoy242/Enigmatica2Expert-Extended/commit/a0560cf)📖Rework AE2 chapter
