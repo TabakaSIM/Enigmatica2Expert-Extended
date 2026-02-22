@@ -116,10 +116,7 @@ Gen('ender')
   <forge:bucketfilled>.withTag({Amount:1000, FluidName:"enderium"}),
 ])
 //    rf/t, d    h    m    s    t
-.add(  600,           5 * 60 * 20, <ic2:dust:32>)
 .add(  600,           5 * 60 * 20, <thaumictinkerer:kamiresource>)
-.add(  900,           5 * 60 * 20, <cyclicmagic:horse_upgrade_jump>)
-.add( 1200,           5 * 60 * 20, <extrautils2:enderlilly>)
 .add( 3000,           5 * 60 * 20, <endreborn:item_ingot_endorium>)
 .add( 3600,           5 * 60 * 20, <extendedcrafting:material:36>)
 .add( 4000,      6 * 60 * 60 * 20, <avaritia:endest_pearl>)

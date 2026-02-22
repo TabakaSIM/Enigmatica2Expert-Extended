@@ -489,9 +489,7 @@ for ingr, fluid in {
   <ore:ingotMirion>          : <liquid:mirion> * 144,
   <ore:blockMirion>          : <liquid:mirion> * 1296,
   <psi:material:1>           : <liquid:psimetal> * 144,
-  <psi:material:0>           : <liquid:psimetal> * 144,
   <psi:psi_decorative:1>     : <liquid:psimetal> * 1296,
-  <psi:psi_decorative:0>     : <liquid:psimetal> * 1296,
   <ore:nuggetThaumium>       : <liquid:thaumium> * 16,
   <ore:ingotThaumium>        : <liquid:thaumium> * 144,
   <ore:blockThaumium>        : <liquid:thaumium> * 1296,
@@ -521,7 +519,7 @@ mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
   .inputOre(<ore:dustBoron>, 5)
   .inputLiquid(<fluid:ammonia> * 5000)
   .outputItem(<nuclearcraft:gem:1> * 10)
-  .build();
+  .power(30000).timeRequired(10).build();
 
 // Platings Laser Alternatives
 mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionLaserEtcher').builder()
@@ -652,6 +650,26 @@ scripts.process.electrolyze(<fluid:nitric_oxide> * 100, [<fluid:nitrogen> * 500,
 // ------------------------------------------------------------
 // Remove worthless recipes
 // ------------------------------------------------------------
+
+// Purge Infiltrator multiblock since its crashing and wasnt fixed for 6 months
+// https://github.com/tomdodd4598/NuclearCraft/issues/843
+// https://github.com/tomdodd4598/NuclearCraft/issues/855
+Purge(<nuclearcraft:infiltrator_controller>);
+Purge(<nuclearcraft:infiltrator_pressure_chamber>);
+Purge(<nuclearcraft:infiltrator_heating_unit>);
+mods.nuclearcraft.InfiltratorPressureFluid.removeAll();
+mods.nuclearcraft.MultiblockInfiltrator.removeAllRecipes();
+mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
+  .inputItem(<nuclearcraft:part:13> * 2)
+  .inputLiquid(<fluid:polymethylsilylene_methylene> * 144)
+  .outputItem(<nuclearcraft:alloy:14>)
+  .power(30000).timeRequired(10).build();
+mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
+  .inputItem(<nuclearcraft:part:17>)
+  .inputItem(<nuclearcraft:dust2>)
+  .inputLiquid(<fluid:polyphenylene_sulfide> * 144)
+  .outputItem(<nuclearcraft:part:19>)
+  .power(30000).timeRequired(10).build();
 
 // Unimplemented multiblocks
 Purge(<nuclearcraft:heat_exchanger_controller>);

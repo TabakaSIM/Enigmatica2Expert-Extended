@@ -38,14 +38,12 @@ function getPlayOneMinute(player as ForgePlayer) as int {
 }
 
 function formatPlayTimeFromTicks(t as int) as string {
-  val days = (t as double) / (20.0 * 60.0 * 60.0 * 24.0);
-  val hours = days * 24.0 - (days as int * 24);
+  val hours = (t as double) / (20.0 * 60.0 * 60.0);
   val mins = hours * 60.0 - (hours as int * 60);
   val secs = mins * 60.0 - (mins as int * 60);
   return (
-    (days >= 1 ? ' ' ~ days as int ~ 'd' : '')
-    ~ (hours >= 1 ? ' ' ~ hours as int ~ 'h' : '')
-    ~ (mins >= 1 && days < 1 ? ' ' ~ mins as int ~ 'm' : '')
+    (hours >= 1 ? ' ' ~ hours as int ~ 'h' : '')
+    ~ (mins >= 1 ? ' ' ~ mins as int ~ 'm' : '')
     ~ (secs >= 1 && hours < 1 ? ' ' ~ secs as int ~ 's' : '')
   ).trim();
 }
@@ -248,11 +246,10 @@ globSync('config/ftbquests/normal/chapters/*'+'/*.snbt')
     .forEach((f) => {
       const text = loadText(f)
       const replaced = text.replace(
-        /rewards: \[\{\n\s+uid: "(?<uid>\w+)",\s+type: "item",(?<auto>\n\s+auto: "[^"]+",)?\s+item: \{\s+id: "ftbquests:lootcrate",(?:\n\s+Count: (?<count>\d+),)?\s+tag: \{\s+type: "(?<type>\w+)"(?:\s+\},?){2}\n\s+\}(?<tail>\])?/gi,
+        /(?<head>rewards: \[\{(\n.+)+?)uid: "(?<uid>\w+)",\s+type: "item",(?<auto>\n\s+auto: "[^"]+",)?\s+item: \{\s+id: "ftbquests:lootcrate",(?:\n\s+Count: (?<count>\d+),)?\s+tag: \{\s+type: "(?<type>\w+)"(?:\s+\},?){2}\n\s+\}(?<tail>\])?/gi,
   (m, ...args) => {
-  const {uid, auto, type, count, tail} = args.pop()
-  return `rewards: [{
-		uid: "${uid}",
+  const {head, uid, auto, type, count, tail} = args.pop()
+  return `${head}uid: "${uid}",
 		type: "custom",
 		title: "{e2ee.quest.${type}}",
 		icon: {

@@ -501,6 +501,7 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "nuclia
 recipes.addShapeless(<botania:floatingspecialflower>.withTag({type: "nuclianthus"}), [<botania:specialflower>.withTag({type: "nuclianthus"}), <botania:floatingspecialflower:*>]);
 
 mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "rokku_eryngium"}), [
+<botania:manaresource:6>,
 <botania:manaresource:5>,
 <botania:manaresource:9>,
 <botania:rune:11>,
@@ -512,6 +513,7 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "rokku_
 recipes.addShapeless(<botania:floatingspecialflower>.withTag({type: "rokku_eryngium"}), [<botania:specialflower>.withTag({type: "rokku_eryngium"}), <botania:floatingspecialflower:*>]);
 
 mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "jikanacea"}), [
+<botania:manaresource:6>,
 <astralsorcery:itemcraftingcomponent:4>,
 <botania:rune:14>,
 <botania:rune:9>,
@@ -545,6 +547,7 @@ mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "antirr
 recipes.addShapeless(<botania:floatingspecialflower>.withTag({type: "antirrhift"}), [<botania:specialflower>.withTag({type: "antirrhift"}), <botania:floatingspecialflower:*>]);
 
 mods.botania.Apothecary.addRecipe(<botania:specialflower>.withTag({type: "amuileria_kaerunea"}), [
+<botania:manaresource:6>,
 <botania:manaresource:9>,
 <botania:rune:8>,
 <minecraft:end_rod>,

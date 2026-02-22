@@ -583,7 +583,7 @@ mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
   .inputOre(<ore:dustFluorite>, 6)
   .inputLiquid(<fluid:sulfuric_acid> * 6000)
   .outputItem(<nuclearcraft:compound> * 6)
-  .build();
+  .power(30000).timeRequired(10).build();
 
 // Remove carbon (defined in ExNihilio configs)
 recipes.remove(<advancedrocketry:misc:1>);
@@ -593,7 +593,7 @@ mods.advancedrocketry.RecipeTweaker.forMachine('Crystallizer').builder()
   .input(<extrautils2:enderlilly>)
   .inputLiquid(<fluid:ice> * 1000)
   .outputItem(<endreborn:item_raw_endorium> * 10)
-  .build();
+  .power(30000).timeRequired(10).build();
 
 // [Basic Circuit Plate] from [Graphite Ingot][+2]
 mods.advancedrocketry.RecipeTweaker.forMachine('PrecisionLaserEtcher').builder()

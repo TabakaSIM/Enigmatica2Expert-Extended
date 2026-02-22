@@ -119,11 +119,11 @@ export const config = createHashedFunction((filename: string): Record<string, an
     .replace(
       /^ *\w:(?:([\w.]+)|"([^"]+)") *<[\s\S]*?> *$/gm,
       (match, p1, p2) => {
-        const lines = match.split('\n')
+        const lines = match.split(/\n|\r\n?/)
         const content = lines.slice(1, lines.length - 1)
         return [
           `"${p1 || p2}": [`,
-          ...content.map(l => `"${l.trim()}",`),
+          ...content.map(l => `"${l.trimStart()}",`),
           '],',
         ].join('\n')
       }
@@ -339,14 +339,14 @@ export function isPathHasChanged(pPath: string): boolean {
 }
 
 interface Helper {
-  begin            : (s: string, steps?: number) => Promise<void> | void
-  done             : (s?: unknown) => Promise<void> | void
-  error            : (...data: any[]) => Promise<void> | void
+  begin : (s: string, steps?: number) => Promise<void> | void
+  done : (s?: unknown) => Promise<void> | void
+  error : (...data: any[]) => Promise<void> | void
   isUnfinishedTask?: boolean
-  result           : (s?: unknown) => Promise<void> | void
-  step             : (s?: unknown) => Promise<void> | void
-  taskResult?      : string
-  warn             : (...data: any[]) => Promise<void> | void
+  result : (s?: unknown) => Promise<void> | void
+  step : (s?: unknown) => Promise<void> | void
+  taskResult? : string
+  warn : (...data: any[]) => Promise<void> | void
 }
 
 export const defaultHelper: Helper = {
