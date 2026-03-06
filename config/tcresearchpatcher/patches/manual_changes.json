@@ -556,7 +556,19 @@
   "value": ["REVERSE"]},
   {"op":"replace",
   "path":"stages/1/warp",
-  "value": 1}
+  "value": 1},
+  {"op":"replace",
+  "path":"location",
+  "value": [0,7]}
+]}
+
+,{"key":"FOCUSHEAL","ops":[
+  {"op":"add",
+  "path":"meta",
+  "value": ["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [-2,6]}
 ]}
 
 ,{"key":"FOCUSRIFT","ops":[
@@ -1147,6 +1159,36 @@
   {"op":"replace",
   "path":"location",
   "value": [5,4]}
+]}
+
+,{"key":"RECHARGEPEDESTAL","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-4,0]}
+]}
+
+,{"key":"VISBATTERY","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-6,-2]}
+]}
+
+,{"key":"VISAMULET","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-6,2]}
+]}
+
+,{"key":"WORKBENCHCHARGER","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-4,2]}
+]}
+
+,{"key":"FOCUSGREATER","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-1,-3]}
 ]}
 
 ]
