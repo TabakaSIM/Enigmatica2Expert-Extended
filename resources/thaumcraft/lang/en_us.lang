@@ -138,3 +138,22 @@ research_stage.lineage.1=I have grown tired of waiting for my bees to finish the
 research_stage.lineage.2=Through careful study, I have devised a spell I call "Accelerated Lineage." It enhances the productivity of my apiaries, greatly increasing breeding speed and production rate. It functions well with Forestry and Pam's bees, though I have observed no effect on Rustic apiaries — perhaps those creatures are wasps rather than true bees.
 thaumcraft.LINEAGE.name=Accelerated Lineage
 thaumcraft.LINEAGE.text=Speeds up bee breeding and production progress.
+
+research_name.rootwake=Rootwake
+research_stage.rootwake.1=Plants grow in silence, their roots drinking deeply from the soil. I have long suspected that this quiet strength could be stirred, guided by will rather than by season.
+research_stage.rootwake.2=By channeling the Herba aspect into cultivated crops, I have devised a spell I call "Rootwake." It alters a chosen crop’s inner vitality, strengthening its growth, gain, or resistance. Yet such interference is unstable — fortune may bless the plant, or it may wither slightly under the strain. Each casting consumes fertilizer from the caster’s inventory, binding the spell to both preparation and risk.
+thaumcraft.ROOTWAKE.name=Rootwake
+thaumcraft.ROOTWAKE.text=Alters IC2 crop stats.
+focus.common.tendency=Tendency
+focus.common.positive=Stat up
+focus.common.negative=Stat down
+focus.common.stat=Stat
+focus.common.growth=Growth
+focus.common.resistance=Resist
+focus.common.gain=Gain
+
+research_name.germinare=Germinare
+research_stage.germinare.1=Crossed crop sticks are not merely supports of wood and string, but a crucible of life. When two plants stand in quiet proximity, their essence may mingle beneath the soil, awaiting only the proper catalyst to awaken.
+research_stage.germinare.2=By channeling the Visium aspect into the latent union held within double crop sticks, I have devised a spell I name "Germinare." When cast upon crossed sticks, it compels nearby compatible crops to attempt hybridization at once. It does not create life where none may arise, but hastens the natural convergence of neighboring strains.
+thaumcraft.GERMINARE.name=Germinare
+thaumcraft.GERMINARE.text=Encourages IC2 crop crossbreeding on double crop sticks.

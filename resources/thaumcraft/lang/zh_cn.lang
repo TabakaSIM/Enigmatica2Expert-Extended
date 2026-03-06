@@ -138,3 +138,22 @@ research_stage.lineage.1=我已厌倦等待我的蜜蜂完成它们的工作。�
 research_stage.lineage.2=经过缜密研究，我创造了一种名为“加速血统”的法术。它能提升蜂箱的效率，大幅提高繁殖速度与产出效率。该法术在 Forestry 与 Pam's 的蜜蜂上效果显著，但在 Rustic 的蜂箱中未见任何变化——或许那些生物更像黄蜂，而非真正的蜜蜂。
 thaumcraft.LINEAGE.name=加速血统
 thaumcraft.LINEAGE.text=加快蜜蜂的繁殖与生产进程。
+
+research_name.rootwake=根之苏醒
+research_stage.rootwake.1=植物在寂静中生长，根系深深汲取土壤中的养分。我一直怀疑，这种沉静的力量并非只能顺应季节，也可以被意志唤醒。
+research_stage.rootwake.2=通过将Herba要素引导至栽培作物之中，我创造了一种名为“根之苏醒”的法术。它能够改变所选作物的内在生命力，强化其生长、产量或抗性。然而这种干预并不稳定——幸运时植物会得到祝福，不幸时则可能略微衰弱。每次施放都会消耗施法者背包中的肥料，使此法术既需要准备，也伴随风险。
+thaumcraft.ROOTWAKE.name=根之苏醒
+thaumcraft.ROOTWAKE.text=改变IC2作物的属性。
+focus.common.tendency=趋势
+focus.common.positive=属性提升
+focus.common.negative=属性下降
+focus.common.stat=属性
+focus.common.growth=成长
+focus.common.resistance=抗性
+focus.common.gain=增益
+
+research_name.germinare=Germinare
+research_stage.germinare.1=交叉作物架不仅是木与绳的支撑，更是生命的熔炉。当两株植物静静相邻，它们的本质可能在土壤下交融，只待适当的催化剂唤醒。
+research_stage.germinare.2=通过将Visium魔素注入双作物架的潜在结合中，我创造了名为“Germinare”的咒语。施法于交叉作物架时，它会促使附近相容作物立即尝试杂交。它不会在无法生长的地方创造生命，而是加速邻近品种的自然融合。
+thaumcraft.GERMINARE.name=Germinare
+thaumcraft.GERMINARE.text=促进IC2作物在双作物架上的交叉育种。

@@ -93,6 +93,42 @@
       ]
     },
     {
+      "key": "ROOTWAKE",
+      "name": "research_name.rootwake",
+      "icons": ["focus:thaumcraft.ROOTWAKE"],
+      "category": "AUROMANCY",
+      "location": [-3, 4],
+      "parents": ["FOCUSHEAL"],
+      "meta": [],
+      "stages": [
+        {
+          "text": "research_stage.rootwake.1",
+          "required_knowledge": ["THEORY;AUROMANCY;1"]
+        },
+        {
+          "text": "research_stage.rootwake.2"
+        }
+      ]
+    },
+    {
+      "key": "GERMINARE",
+      "name": "research_name.germinare",
+      "icons": ["focus:thaumcraft.GERMINARE"],
+      "category": "AUROMANCY",
+      "location": [-5, 4],
+      "parents": ["LINEAGE", "ROOTWAKE"],
+      "meta": [],
+      "stages": [
+        {
+          "text": "research_stage.germinare.1",
+          "required_knowledge": ["THEORY;AUROMANCY;1"]
+        },
+        {
+          "text": "research_stage.germinare.2"
+        }
+      ]
+    },
+    {
       "key": "FOCUSSUPREME",
       "name": "research_name.supreme_focus",
       "icons": ["thaumcraft:focus_4"],
