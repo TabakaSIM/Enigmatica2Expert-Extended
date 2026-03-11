@@ -93,6 +93,10 @@ zenClass MixinTileEntityCrop {
     function growFaster(crop as CropCard, tile as ICropTile) as int {
         return crop.getGrowthDuration(tile) / 10;
     }
+
+    function attemptCrossingPublic() as bool {
+        return this0.attemptCrossing();
+    }
 }
 
 #mixin {targets: "ic2.core.item.tool.ItemCropnalyzer"}
