@@ -157,3 +157,9 @@ research_stage.germinare.1=Crossed crop sticks are not merely supports of wood a
 research_stage.germinare.2=By channeling the Visium aspect into the latent union held within double crop sticks, I have devised a spell I name "Germinare." When cast upon crossed sticks, it compels nearby compatible crops to attempt hybridization at once. It does not create life where none may arise, but hastens the natural convergence of neighboring strains.
 thaumcraft.GERMINARE.name=Germinare
 thaumcraft.GERMINARE.text=Encourages IC2 crop crossbreeding on double crop sticks.
+
+research_name.feralis=Feralis
+research_stage.feralis.1=I do not yet fully understand the nature of this discovery, but it seems closely related to the concept embodied by Imperium essentia. Further study of this aspect may reveal how authority and dominance can influence the minds of lesser creatures.
+research_stage.feralis.2=Through deeper study of the aspect of Imperium, I have discovered a method to bend the will of beasts. By channeling this force through a focused spell, even the most stubborn creature may be persuaded to acknowledge a new master. Creatures already bound to another may even be convinced to change their allegiance.
+thaumcraft.FERALIS.name=Feralis
+thaumcraft.FERALIS.text=Dominates the will of animals, taming them or claiming them from other masters.

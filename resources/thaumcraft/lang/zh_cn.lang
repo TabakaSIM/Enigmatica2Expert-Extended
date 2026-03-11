@@ -157,3 +157,9 @@ research_stage.germinare.1=交叉作物架不仅是木与绳的支撑，更是�
 research_stage.germinare.2=通过将Visium魔素注入双作物架的潜在结合中，我创造了名为“Germinare”的咒语。施法于交叉作物架时，它会促使附近相容作物立即尝试杂交。它不会在无法生长的地方创造生命，而是加速邻近品种的自然融合。
 thaumcraft.GERMINARE.name=Germinare
 thaumcraft.GERMINARE.text=促进IC2作物在双作物架上的交叉育种。
+
+research_name.feralis=驭兽术
+research_stage.feralis.1=我尚未完全理解这一发现的本质，但它似乎与“Imperium”本质所代表的概念密切相关。进一步研究这一要素，也许能够揭示支配与统御如何影响低等生物的心智。
+research_stage.feralis.2=通过对 Imperium 要素的深入研究，我发现了一种能够支配野兽意志的方法。将这种力量注入到聚焦法术之中，即使是最顽固的生物也可能被迫承认新的主人。即便是已经效忠于他人的生物，也可能被说服改变它们的忠诚。
+thaumcraft.FERALIS.name=驭兽术
+thaumcraft.FERALIS.text=支配动物的意志，使其被驯服或转而效忠于你。

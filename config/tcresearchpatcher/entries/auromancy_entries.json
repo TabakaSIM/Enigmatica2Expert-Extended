@@ -129,6 +129,24 @@
       ]
     },
     {
+      "key": "FERALIS",
+      "name": "research_name.feralis",
+      "icons": ["focus:thaumcraft.FERALIS"],
+      "category": "AUROMANCY",
+      "location": [2, 8],
+      "parents": ["FOCUSCURSE"],
+      "meta": [],
+      "stages": [
+        {
+          "text": "research_stage.feralis.1",
+          "required_knowledge": ["THEORY;AUROMANCY;1"]
+        },
+        {
+          "text": "research_stage.feralis.2"
+        }
+      ]
+    },
+    {
       "key": "FOCUSSUPREME",
       "name": "research_name.supreme_focus",
       "icons": ["thaumcraft:focus_4"],
