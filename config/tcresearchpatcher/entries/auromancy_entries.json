@@ -49,7 +49,8 @@
       "stages": [
         {
           "text": "research_stage.vampirysm.1",
-          "required_knowledge": ["THEORY;AUROMANCY;1"]
+          "required_knowledge": ["THEORY;AUROMANCY;1"],
+          "required_research": ["!sanguis"]
         },
         {
           "text": "research_stage.vampirysm.2"
@@ -67,7 +68,8 @@
       "stages": [
         {
           "text": "research_stage.blackout.1",
-          "required_knowledge": ["THEORY;AUROMANCY;1"]
+          "required_knowledge": ["THEORY;AUROMANCY;1"],
+          "required_research": ["!tenebrae"]
         },
         {
           "text": "research_stage.blackout.2"
@@ -85,7 +87,8 @@
       "stages": [
         {
           "text": "research_stage.lineage.1",
-          "required_knowledge": ["THEORY;AUROMANCY;1"]
+          "required_knowledge": ["THEORY;AUROMANCY;1"],
+          "required_research": ["!sensus"]
         },
         {
           "text": "research_stage.lineage.2"
@@ -103,7 +106,8 @@
       "stages": [
         {
           "text": "research_stage.rootwake.1",
-          "required_knowledge": ["THEORY;AUROMANCY;1"]
+          "required_knowledge": ["THEORY;AUROMANCY;1"],
+          "required_research": ["!herba"]
         },
         {
           "text": "research_stage.rootwake.2"
@@ -121,7 +125,8 @@
       "stages": [
         {
           "text": "research_stage.germinare.1",
-          "required_knowledge": ["THEORY;AUROMANCY;1"]
+          "required_knowledge": ["THEORY;AUROMANCY;1"],
+          "required_research": ["!visum"]
         },
         {
           "text": "research_stage.germinare.2"
@@ -139,7 +144,8 @@
       "stages": [
         {
           "text": "research_stage.feralis.1",
-          "required_knowledge": ["THEORY;AUROMANCY;1"]
+          "required_knowledge": ["THEORY;AUROMANCY;1"],
+          "required_research": ["!imperium"]
         },
         {
           "text": "research_stage.feralis.2"

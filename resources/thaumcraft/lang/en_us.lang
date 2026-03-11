@@ -118,7 +118,7 @@ research_name.supreme_focus=Supreme Focus
 research_stage.supreme_focus.1=I have managed to acquire a fragment of primal grain. Its capabilities seem to resonate deeply with raw vis itself, suggesting that my previous studies in auromancy may warrant a thorough reexamination.
 research_stage.supreme_focus.2=Pushing these principles even further, I have once again succeeded in doubling the complexity of a focus. Infusing it with primal grain and several auxiliary components proved sufficient to stabilize the process.
 
-research_name.vampirysm=Vampirysm
+research_name.vampirysm=Focus Effect: Vampirysm
 research_stage.vampirysm.1=Having heard countless tales of vampires, I cannot help but wonder whether there is a grain of truth hidden within these legends. After all, there must be some connection between mythical creatures and the workings of magic.
 research_stage.vampirysm.2=Not only have I succeeded in creating a spell that steals life from my enemies, but the stolen vitality can also be used to nourish my very own blood network.
 focus.common.lifesteal=Lifesteal
@@ -126,20 +126,20 @@ focus.common.bloodOrb=Blood network conversion
 thaumcraft.VAMPIRYSM.name=Vampirysm
 thaumcraft.VAMPIRYSM.text=Drain life essence from others.
 
-research_name.blackout=Blackout
+research_name.blackout=Focus Effect: Blackout
 research_stage.blackout.1=My eyes grow weary each day in the presence of these lights! I could remove all the light myself, but that would be far too much hassle. I must find a way to extinguish it safely and efficiently.
 research_stage.blackout.2=My research was really succesful. This new spell has apparently two primary effects:<BR>If it hits an enemy, it blinds it. Fairy simple.<BR>On the other hand if it hits object, it absorbs nearby weak light sources, helping me see. This is perfect for enhancing my perception, allowing me to notice details faster than 24 frames per second!
 focus.common.range=Range
 thaumcraft.BLACKOUT.name=Blackout
 thaumcraft.BLACKOUT.text=Return world to it's origin of ethernal darkness.
 
-research_name.lineage=Accelerated Lineage
+research_name.lineage=Focus Effect: Accelerated Lineage
 research_stage.lineage.1=I have grown tired of waiting for my bees to finish their work. There must be a way to hasten their natural cycle without harming their delicate lineage.
 research_stage.lineage.2=Through careful study, I have devised a spell I call "Accelerated Lineage." It enhances the productivity of my apiaries, greatly increasing breeding speed and production rate. It functions well with Forestry and Pam's bees, though I have observed no effect on Rustic apiaries — perhaps those creatures are wasps rather than true bees.
 thaumcraft.LINEAGE.name=Accelerated Lineage
 thaumcraft.LINEAGE.text=Speeds up bee breeding and production progress.
 
-research_name.rootwake=Rootwake
+research_name.rootwake=Focus Effect: Rootwake
 research_stage.rootwake.1=Plants grow in silence, their roots drinking deeply from the soil. I have long suspected that this quiet strength could be stirred, guided by will rather than by season.
 research_stage.rootwake.2=By channeling the Herba aspect into cultivated crops, I have devised a spell I call "Rootwake." It alters a chosen crop’s inner vitality, strengthening its growth, gain, or resistance. Yet such interference is unstable — fortune may bless the plant, or it may wither slightly under the strain. Each casting consumes fertilizer from the caster’s inventory, binding the spell to both preparation and risk.
 thaumcraft.ROOTWAKE.name=Rootwake
@@ -152,13 +152,13 @@ focus.common.growth=Growth
 focus.common.resistance=Resist
 focus.common.gain=Gain
 
-research_name.germinare=Germinare
+research_name.germinare=Focus Effect: Germinare
 research_stage.germinare.1=Crossed crop sticks are not merely supports of wood and string, but a crucible of life. When two plants stand in quiet proximity, their essence may mingle beneath the soil, awaiting only the proper catalyst to awaken.
 research_stage.germinare.2=By channeling the Visium aspect into the latent union held within double crop sticks, I have devised a spell I name "Germinare." When cast upon crossed sticks, it compels nearby compatible crops to attempt hybridization at once. It does not create life where none may arise, but hastens the natural convergence of neighboring strains.
 thaumcraft.GERMINARE.name=Germinare
 thaumcraft.GERMINARE.text=Encourages IC2 crop crossbreeding on double crop sticks.
 
-research_name.feralis=Feralis
+research_name.feralis=Focus Effect: Feralis
 research_stage.feralis.1=I do not yet fully understand the nature of this discovery, but it seems closely related to the concept embodied by Imperium essentia. Further study of this aspect may reveal how authority and dominance can influence the minds of lesser creatures.
 research_stage.feralis.2=Through deeper study of the aspect of Imperium, I have discovered a method to bend the will of beasts. By channeling this force through a focused spell, even the most stubborn creature may be persuaded to acknowledge a new master. Creatures already bound to another may even be convinced to change their allegiance.
 thaumcraft.FERALIS.name=Feralis

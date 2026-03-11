@@ -118,7 +118,7 @@ research_name.supreme_focus=至高法术焦点
 research_stage.supreme_focus.1=我成功获得了一块原初晶粒的碎片。它的特性似乎与最原始的源质产生了深刻的共鸣，这暗示着我或许需要彻底重新审视自己过去在灵气操控方面的研究。
 research_stage.supreme_focus.2=在进一步推进这些理论后，我再次成功地将法术焦点的复杂度提升了一倍。将其灌注以原初晶粒以及若干辅助材料，证明足以稳定整个过程。
 
-research_name.vampirysm=吸血术
+research_name.vampirysm=核心效果：吸血术
 research_stage.vampirysm.1=在听闻了无数关于吸血鬼的传说之后，我不禁怀疑这些故事之中是否隐藏着一丝真实。毕竟，神话生物与魔法的运作方式之间，必然存在某种联系。
 research_stage.vampirysm.2=我不仅成功创造出能够从敌人身上窃取生命的法术，而且这些被夺取的生命力还能用于滋养我自己的血之网络。
 focus.common.lifesteal=生命汲取
@@ -126,20 +126,20 @@ focus.common.bloodOrb=血之网络转化
 thaumcraft.VAMPIRYSM.name=吸血术
 thaumcraft.VAMPIRYSM.text=从他人身上吸取生命精华。
 
-research_name.blackout=断光
+research_name.blackout=核心效果：断光
 research_stage.blackout.1=每天在这些光源下，我的眼睛都感到疲惫！<BR>我可以自己移除所有光，但那实在太麻烦了。<BR>我必须找到一种安全有效的方式来熄灭它。
 research_stage.blackout.2=我的研究非常成功。这个新法术显然有两个主要效果：<BR>如果击中敌人，它会致盲敌人，非常简单。<BR>另一方面，如果击中物体，它会吸收附近的微弱光源，帮助我看清。这非常适合增强我的感知，让我能够比每秒24帧更快地注意到细节！
 focus.common.range=范围
 thaumcraft.BLACKOUT.name=断光
 thaumcraft.BLACKOUT.text=将世界恢复到其永恒黑暗的起源。
 
-research_name.lineage=加速血统
+research_name.lineage=核心效果：加速血统
 research_stage.lineage.1=我已厌倦等待我的蜜蜂完成它们的工作。必定存在一种方法，在不损害其脆弱血统的前提下，加快它们的自然循环。
 research_stage.lineage.2=经过缜密研究，我创造了一种名为“加速血统”的法术。它能提升蜂箱的效率，大幅提高繁殖速度与产出效率。该法术在 Forestry 与 Pam's 的蜜蜂上效果显著，但在 Rustic 的蜂箱中未见任何变化——或许那些生物更像黄蜂，而非真正的蜜蜂。
 thaumcraft.LINEAGE.name=加速血统
 thaumcraft.LINEAGE.text=加快蜜蜂的繁殖与生产进程。
 
-research_name.rootwake=根之苏醒
+research_name.rootwake=核心效果：根之苏醒
 research_stage.rootwake.1=植物在寂静中生长，根系深深汲取土壤中的养分。我一直怀疑，这种沉静的力量并非只能顺应季节，也可以被意志唤醒。
 research_stage.rootwake.2=通过将Herba要素引导至栽培作物之中，我创造了一种名为“根之苏醒”的法术。它能够改变所选作物的内在生命力，强化其生长、产量或抗性。然而这种干预并不稳定——幸运时植物会得到祝福，不幸时则可能略微衰弱。每次施放都会消耗施法者背包中的肥料，使此法术既需要准备，也伴随风险。
 thaumcraft.ROOTWAKE.name=根之苏醒
@@ -152,14 +152,14 @@ focus.common.growth=成长
 focus.common.resistance=抗性
 focus.common.gain=增益
 
-research_name.germinare=Germinare
-research_stage.germinare.1=交叉作物架不仅是木与绳的支撑，更是生命的熔炉。当两株植物静静相邻，它们的本质可能在土壤下交融，只待适当的催化剂唤醒。
-research_stage.germinare.2=通过将Visium魔素注入双作物架的潜在结合中，我创造了名为“Germinare”的咒语。施法于交叉作物架时，它会促使附近相容作物立即尝试杂交。它不会在无法生长的地方创造生命，而是加速邻近品种的自然融合。
-thaumcraft.GERMINARE.name=Germinare
-thaumcraft.GERMINARE.text=促进IC2作物在双作物架上的交叉育种。
+research_name.germinare=萌芽术
+research_stage.germinare.1=交叉作物架不仅仅是木头与绳索的支撑结构，更像是孕育生命的熔炉。当两株植物在其上静静相邻时，它们的本质可能在土壤中悄然交融，只等待合适的催化来唤醒这种变化。
+research_stage.germinare.2=通过将统御要素的魔力注入双作物架潜在的结合之中，我创造出名为“萌芽术”的法术。对交叉作物架施放时，它会促使附近兼容的作物立即尝试进行杂交。它不会在无法生长的地方创造生命，而只是加速邻近品种之间原本可能发生的自然融合。
+thaumcraft.GERMINARE.name=萌芽术
+thaumcraft.GERMINARE.text=促进 IC2 作物在双作物架上的杂交育种。
 
-research_name.feralis=驭兽术
-research_stage.feralis.1=我尚未完全理解这一发现的本质，但它似乎与“Imperium”本质所代表的概念密切相关。进一步研究这一要素，也许能够揭示支配与统御如何影响低等生物的心智。
-research_stage.feralis.2=通过对 Imperium 要素的深入研究，我发现了一种能够支配野兽意志的方法。将这种力量注入到聚焦法术之中，即使是最顽固的生物也可能被迫承认新的主人。即便是已经效忠于他人的生物，也可能被说服改变它们的忠诚。
+research_name.feralis=核心效果：驭兽术
+research_stage.feralis.1=我尚未完全理解这一发现的本质，但它似乎与统御要素所代表的概念密切相关。进一步研究这一要素，也许能够揭示支配与统御如何影响较低等生物的心智。
+research_stage.feralis.2=通过对统御要素的深入研究，我发现了一种能够支配野兽意志的方法。将这种力量注入到聚焦法术之中，即使是最顽固的生物也可能被迫承认新的主人。即便是已经效忠于他人的生物，也可能被说服改变它们的忠诚。
 thaumcraft.FERALIS.name=驭兽术
 thaumcraft.FERALIS.text=支配动物的意志，使其被驯服或转而效忠于你。
