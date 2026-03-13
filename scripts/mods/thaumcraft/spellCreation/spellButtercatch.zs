@@ -24,6 +24,7 @@ import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 import native.forestry.api.lepidopterology.IEntityButterfly;
 import native.net.minecraft.util.SoundCategory;
 import native.net.minecraft.init.SoundEvents;
+import native.net.minecraft.util.math.BlockPos;
 
 zenClass SpellButtercatch extends FocusEffect {
 
@@ -67,7 +68,7 @@ zenClass SpellButtercatch extends FocusEffect {
 
     function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
         val world = this.getPackage().world;
-        val pos = target.getBlockPos();
+        val pos = target.getBlockPos() ?? BlockPos(target.hitVec.x, target.hitVec.y, target.hitVec.z);
         val range = this.getSettingValue('range');
         PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
 
