@@ -9,6 +9,7 @@ import scripts.mods.thaumcraft.spellCreation.spellLineage.SpellLineage;
 import scripts.mods.thaumcraft.spellCreation.spellRootwake.SpellRootwake;
 import scripts.mods.thaumcraft.spellCreation.spellGerminare.SpellGerminare;
 import scripts.mods.thaumcraft.spellCreation.spellFeralis.SpellFeralis;
+import scripts.mods.thaumcraft.spellCreation.spellButtercatch.SpellButtercatch;
 
 //Do not make fully black color - it fails to render it!
 FocusEngine.registerElement(SpellVampirysm.class, ResourceLocation("thaumcraft", "textures/foci/vampirysm.png"), 0xFF781212);
@@ -17,3 +18,4 @@ FocusEngine.registerElement(SpellLineage.class,   ResourceLocation("thaumcraft",
 FocusEngine.registerElement(SpellRootwake.class,  ResourceLocation("thaumcraft", "textures/foci/rootwake.png"),  0xFF8BC763);
 FocusEngine.registerElement(SpellGerminare.class, ResourceLocation("thaumcraft", "textures/foci/germinare.png"), 0xFFDCB250);
 FocusEngine.registerElement(SpellFeralis.class,   ResourceLocation("thaumcraft", "textures/foci/feralis.png"),   0xFFCC8408);
+FocusEngine.registerElement(SpellButtercatch.class, ResourceLocation("thaumcraft", "textures/foci/buttercatch.png"),  0xFFC8C8C8);

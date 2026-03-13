@@ -163,3 +163,9 @@ research_stage.feralis.1=I do not yet fully understand the nature of this discov
 research_stage.feralis.2=Through deeper study of the aspect of Imperium, I have discovered a method to bend the will of beasts. By channeling this force through a focused spell, even the most stubborn creature may be persuaded to acknowledge a new master. Creatures already bound to another may even be convinced to change their allegiance.
 thaumcraft.FERALIS.name=Feralis
 thaumcraft.FERALIS.text=Dominates the will of animals, taming them or claiming them from other masters.
+
+research_name.buttercatch=Focus Effect: Buttercatch
+research_stage.buttercatch.1=Butterflies are delicate creatures, yet strangely attuned to the flows of natural magic. By weaving a gentle pulling force into a focus effect, it should be possible to draw nearby butterflies toward a chosen point.
+research_stage.buttercatch.2=The spell does not harm the insects. Instead it briefly folds space around them, gathering wandering butterflies from the surrounding area and depositing them at the focus impact location.
+thaumcraft.BUTTERCATCH.name=Buttercatch
+thaumcraft.BUTTERCATCH.text=Gathers nearby butterflies.

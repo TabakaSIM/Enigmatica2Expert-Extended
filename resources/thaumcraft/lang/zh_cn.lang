@@ -163,3 +163,9 @@ research_stage.feralis.1=我尚未完全理解这一发现的本质，但它似�
 research_stage.feralis.2=通过对统御要素的深入研究，我发现了一种能够支配野兽意志的方法。将这种力量注入到聚焦法术之中，即使是最顽固的生物也可能被迫承认新的主人。即便是已经效忠于他人的生物，也可能被说服改变它们的忠诚。
 thaumcraft.FERALIS.name=驭兽术
 thaumcraft.FERALIS.text=支配动物的意志，使其被驯服或转而效忠于你。
+
+research_name.buttercatch=核心效果：捕蝶
+research_stage.buttercatch.1=蝴蝶是脆弱的生物，但它们似乎对自然魔法的流动格外敏感。如果在焦点效果中编织一股温和的牵引之力，也许可以将附近的蝴蝶吸引到指定的位置。
+research_stage.buttercatch.2=该法术不会伤害这些昆虫。它只是短暂地折叠它们周围的空间，将周围游荡的蝴蝶聚集起来，并把它们传送到焦点命中的位置。
+thaumcraft.BUTTERCATCH.name=捕蝶
+thaumcraft.BUTTERCATCH.text=聚集附近的蝴蝶。
