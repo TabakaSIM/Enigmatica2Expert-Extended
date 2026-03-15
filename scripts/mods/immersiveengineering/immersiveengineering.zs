@@ -28,7 +28,7 @@ mods.immersiveengineering.ArcFurnace.removeRecipe(<immersiveengineering:metal:29
 mods.immersiveengineering.ArcFurnace.removeRecipe(<ore:ingotSilicon>.firstItem);
 
 // Fix second ingredient not consuming
-scripts.process.alloy([<ore:ingotNickel>, <ore:ingotFakeIron> * 2], <thermalfoundation:material:162> * 3, 'strict: ArcFurnace');
+scripts.process.alloy([<ore:dustNickel>, <ore:ingotFakeIron> * 2], <thermalfoundation:material:162> * 3, 'strict: ArcFurnace');
 
 // Sheetmetal Chute Smeltery compat
 mods.tconstruct.Melting.addRecipe(<liquid:iron> * 72, <immersiveengineering:conveyor>.withTag({ conveyorType: 'immersiveengineering:chute_iron' }));
@@ -65,22 +65,6 @@ mods.immersiveengineering.Crusher.removeRecipesForInput(<minecraft:sandstone>);
 mods.immersiveengineering.Crusher.addRecipe(<minecraft:sand> * 2, <ore:sandstone>, 2048, <thermalfoundation:material:772>, 0.5);
 
 mods.immersiveengineering.Crusher.removeRecipe(<libvulpes:productdust:3>);
-
-// Aluminum Scaffolding
-recipes.remove(<immersiveengineering:metal_decoration2:8>);
-recipes.addShapedMirrored('Aluminum Scaffolding',
-  <immersiveengineering:metal_decoration2:8> * 4,
-  [[<ore:stickAluminum>, null, null],
-    [<ore:scaffoldingAluminium>, <ore:stickAluminum>, null],
-    [<ore:scaffoldingAluminium>, <ore:scaffoldingAluminium>, <ore:stickAluminum>]]);
-
-// Steel Scaffolding
-recipes.remove(<immersiveengineering:metal_decoration2:7>);
-recipes.addShapedMirrored('Steel Scaffolding',
-  <immersiveengineering:metal_decoration2:7> * 4,
-  [[<ore:stickSteel>, null, null],
-    [<ore:scaffoldingSteel>, <ore:stickSteel>, null],
-    [<ore:scaffoldingSteel>, <ore:scaffoldingSteel>, <ore:stickSteel>]]);
 
 // Concrete Conversion recipes
 recipes.addShapedMirrored('Concrete Panel', <immersiveengineering:stone_device:4>, [[<ore:plateConcrete>, null, null],[<ore:plateConcrete>, null, null], [null, null, null]]);
@@ -529,3 +513,49 @@ for typeName, output in sheetmetalRecipes {
     [null, plate, null],
   ]);
 }
+
+// ////////////////////////////////////////////////////////////////
+// Cheaper building blocks
+// ////////////////////////////////////////////////////////////////
+recipes.removeByRecipeName("immersiveengineering:metal_decoration/steel_scaffolding");
+craft.make(<immersiveengineering:metal_decoration1:1> * 24, ['pretty',
+  '▬ ▬ ▬',
+  '  ╱  ',
+  '╱   ╱'], {
+  '▬': <ore:ingotSteel>,
+  '╱': <ore:stickSteel>,
+});
+craft.remake(<immersiveengineering:metal_decoration1> * 12, ['pretty',
+  '▬ ╱ ▬',
+  '▬ ╱ ▬'], {
+  '▬': <ore:ingotSteel>,
+  '╱': <ore:stickSteel>,
+});
+craft.remake(<immersiveengineering:metal_decoration2:7> * 16, ['pretty',
+  '╱    ',
+  'S ╱  ',
+  'S S ╱'], {
+  '╱': <ore:stickSteel>,
+  'S': <ore:scaffoldingSteel>,
+});
+recipes.removeByRecipeName("immersiveengineering:metal_decoration/aluminum_scaffolding");
+craft.make(<immersiveengineering:metal_decoration1:5> * 24, ['pretty',
+  '▬ ▬ ▬',
+  '  ╱  ',
+  '╱   ╱'], {
+  '▬': <ore:ingotAluminum>,
+  '╱': <ore:stickAluminum>,
+});
+craft.remake(<immersiveengineering:metal_decoration1:4> * 12, ['pretty',
+  '▬ ╱ ▬',
+  '▬ ╱ ▬'], {
+  '▬': <ore:ingotAluminum>,
+  '╱': <ore:stickAluminum>,
+});
+craft.remake(<immersiveengineering:metal_decoration2:8> * 16, ['pretty',
+  '╱    ',
+  'A ╱  ',
+  'A A ╱'], {
+  '╱': <ore:stickAluminum>,
+  'A': <ore:scaffoldingAluminum>,
+});
