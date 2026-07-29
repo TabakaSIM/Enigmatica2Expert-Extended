@@ -318,7 +318,7 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('growth_chamber',
 // [Knowledge tome] - replacement for thaumic tinkerer tome of knowledge
 mods.thaumcraft.ArcaneWorkbench.removeRecipe('thaumadditions:knowledge_tome');
 mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('knowledge_tome',
-  'TT_SHARE_TOME',
+  'FIRSTSTEPS',
   10,
   [],
   <thaumadditions:knowledge_tome>,
