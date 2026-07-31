@@ -937,13 +937,16 @@ add(<ore:coilGold>, <nuclearcraft:turbine_dynamo_coil:3>);
 add(<ore:coilAluminum>, <nuclearcraft:turbine_dynamo_coil:2>);
 
 // Sequoia
-addItems(<ore:logSequoia>, [
+// Noun goes last (`sequoiaLog`, not `logSequoia`): a `log…`/`plank…` name on a
+// concrete metadata shadows `logWood`/`plankWood` in Thermal Expansion's recipe
+// lookup and its machines stop accepting the wood. See `scripts/lib/wood.zs`.
+addItems(<ore:sequoiaLog>, [
   <forestry:logs.1:3>,
   <forestry:logs.6>,
   <forestry:logs.fireproof.1:3>,
   <forestry:logs.fireproof.6>,
 ]);
-addItems(<ore:plankSequoia>, [
+addItems(<ore:sequoiaPlank>, [
   <forestry:planks.0:7>,
   <forestry:planks.1:8>,
   <forestry:planks.fireproof.0:7>,

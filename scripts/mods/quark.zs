@@ -225,5 +225,5 @@ mods.thaumcraft.Crucible.registerRecipe(
 craft.make(<quark:archaeologist_hat>, ['pretty',
   '# # #',
   '#   #'], {
-  '#': <ore:plankFireproof>,
+  '#': <ore:fireproofPlank>,
 });

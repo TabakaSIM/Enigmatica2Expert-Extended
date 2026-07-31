@@ -208,7 +208,7 @@ val bixbiteIngrs = [
   <minecraft:dragon_breath>,
   <biomesoplenty:terrarium:*>,
   <ore:itemFiery>,
-  <ore:logSequoia>,
+  <ore:sequoiaLog>,
 ] as IIngredient[];
 
 mods.extendedcrafting.CombinationCrafting.addRecipe(
