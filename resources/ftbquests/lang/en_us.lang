@@ -684,6 +684,7 @@ q.immersive_engineer.metal_press_molds.desc=Metal Press Molds decide what the Me
 q.immersive_engineer.automatic_lubricator.desc=Supply machines from Immersive Petroleum and Immersive Engineering with Lubricant to allow them to operate faster.
 q.immersive_engineer.mixer.desc=The §6Mixer§r is required for creating several fluids, like §bLiquid Concrete§r.
 q.immersive_engineer.heavy_engineering_.desc=This block is used for some Multiblock machines.
+q.immersive_engineer.cooling_tower.desc=Cools hot fluids back down. Both input hatches are interchangeable.\n\n§4Rules:§r\n§6-§r Runs up to §l3§r batches at once, so real throughput is up to §l3x§r what the JEI time suggests.\n§6-§r Biome sets the speed: dry and cold is faster, hot and humid is slower.\n§6-§r In the §lNether§r it does not run at all.
 q.immersive_engineer.crusher.name=Crusher
 q.immersive_engineer.crusher.desc=The Crusher is a 3x5x3 multi-block that doubles ore and has easier crafting recipes
 q.immersive_engineer.arc_furnace.name=Arc Furnace
@@ -691,6 +692,7 @@ q.immersive_engineer.arc_furnace.desc=The Arc Furnace is a 5x5x5 Multiblock mach
 q.immersive_engineer.generator_block.desc=This block is used for some Multiblock machines.
 q.immersive_engineer.metal_press.name=Metal Press
 q.immersive_engineer.metal_press.desc=The Metal Press is a 3x1x3 multi-block. It is used to create Plates, Rods, Wires, and Gears.
+q.immersive_engineer.radiator.desc=Radiates heat into open air. Works anywhere, but is far weaker than the §l{tile.immersivetech.metal_multiblock.cooling_tower.name}§r.\n\n§4Rules:§r\n§6-§r Output=JEI amount x efficiency, §lrounded down§r. The input shrinks by the same share, so nothing is wasted.\n§6-§r Efficiency wants space: clear air to both sides of the fins, up to §l24§r blocks. Closer obstacles cut it down steeply.\n§6-§r Dry and cold biomes add efficiency, hot and humid ones take it away. The §lNether§r gives zero.
 q.immersive_engineer.concrete_sheet.desc=To get §6Concrete Sheets§r, pour §bLiquid Concrete§r onto the ground and wait until it spreads and hardens.\n\nMost concrete blocks provide a 45%% speed boost when used as roads. §6Asphalt§r provides an even greater boost of 55%%.
 q.immersive_engineer.radiator_block.desc=This block is used for some Multiblock machines.
 q.immersive_engineer.graphite_electrode.desc=Arc Furnace needs 3 of them to function.\n\nHas an §5Unbreakable§r recipe.
