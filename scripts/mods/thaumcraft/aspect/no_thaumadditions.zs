@@ -1,7 +1,9 @@
 /*
   If there is no thaumadditions, fallback its aspects to vanilla
 */
-#modloaded !thaumadditions thaumcraft
+// Should be `!thaumadditions`, but ZenUtils reads modid from mcmod.info verbatim
+// https://github.com/friendlyhj/ZenUtils/issues/138
+#modloaded !thaumicadditions thaumcraft
 #priority 3500
 #reloadable
 

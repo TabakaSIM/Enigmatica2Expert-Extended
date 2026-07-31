@@ -1,5 +1,7 @@
 #loader contenttweaker
-#modloaded thaumadditions zenutils
+// Should be `thaumadditions`, but ZenUtils reads modid from mcmod.info verbatim
+// https://github.com/friendlyhj/ZenUtils/issues/138
+#modloaded thaumicadditions zenutils
 
 import crafttweaker.block.IBlock;
 import crafttweaker.data.IData;
