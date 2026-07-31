@@ -42,7 +42,7 @@
 /mods/memory_repo
 /mods/OptiFine*.jar.disabled-by-mod-director
 /natives
-/OpenComputersMod-1.8.9a-53-libjnlua53-windows-x86_64.dll
+/opencomputers/natives
 /options.txt
 /optionsof.txt
 /optionsshaders.txt

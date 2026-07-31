@@ -1,7 +1,7 @@
 {
   "_comment_en_us": "Material power sorting config. Use /ticpa power fields to export available stat fields, /ticpa test print power to inspect score calculations, and /ticpa power reload after editing this file.",
   "_comment_zh_cn": "材料总评排序配置。使用 /ticpa power fields 导出可用属性字段，使用 /ticpa test print power 查看评分计算过程，修改本文件后使用 /ticpa power reload 重载。",
-  "enabled": false,
+  "enabled": true,
   "_enabled_en_us": "Set to true to enable the Power sort. It is disabled by default so modpack authors can decide whether to use custom scoring.",
   "_enabled_zh_cn": "设为 true 可启用总评排序。该功能默认关闭，方便整合包作者自行决定是否使用自定义评分。",
   "aggregation": {
@@ -10,9 +10,11 @@
     "trait_mode": "average"
   },
   "formula": {
-    "_comment_en_us": "When enabled is true, formulas are used as the final score instead of the stats/traits weight sum. tool_expression is used for tools/weapons, armor_expression is used for armor, and expression is the common fallback. Available stat variables include exact keys like head.attack and wildcard keys like *.durability.",
-    "_comment_zh_cn": "当 enabled 为 true 时，公式结果会作为最终评分，替代 stats/traits 的权重相加结果。tool_expression 用于工具/武器，armor_expression 用于护甲，expression 是通用回退公式。可用属性变量包括 head.attack 这类精确键，以及 *.durability 这类通配键。",
-    "enabled": false,
+    "_comment_en_us": "When enabled is true, formulas are used as the final score instead of the stats/traits weight sum. tool_expression is used for tools/weapons, armor_expression is used for armor, and expression is the common fallback.",
+    "_syntax_en_us": "Operators: +, -, *, /, **, parentheses. Functions: min(...), max(...), avg(...), abs(x), sqrt(x), log(x), floor(x), ceil(x), round(x), sign(x), clamp(x,min,max). Variables: exact stat fields such as head.attack, wildcard fields such as *.durability, trait totals such as traits.sum / traits.average / traits.max / traits.count, and single traits such as trait.ecological. Missing variables and invalid formula results are treated as 0.",
+    "_comment_zh_cn": "当 enabled 为 true 时，公式结果会作为最终评分，替代 stats/traits 的权重相加结果。tool_expression 用于工具/武器，armor_expression 用于护甲，expression 是通用回退公式。",
+    "_syntax_zh_cn": "运算符：+、-、*、/、** 和括号。函数：min(...)、max(...)、avg(...)、abs(x)、sqrt(x)、log(x)、floor(x)、ceil(x)、round(x)、sign(x)、clamp(x,min,max)。变量：head.attack 这类精确属性字段、*.durability 这类通配字段、traits.sum / traits.average / traits.max / traits.count 这类特性汇总变量，以及 trait.ecological 这类单个特性变量。缺失变量和无效公式结果会按 0 处理。",
+    "enabled": true,
     "expression": "",
     "tool_expression": "sqrt(abs(*.durability * 10)) * sign(*.durability) / 3 + (*.attack + 1) ** 2 + *.miningspeed + *.modifier * 5 + traits.average",
     "armor_expression": "sqrt(abs(*.durability * 10)) * sign(*.durability) / 3 + *.defense * 6 + *.toughness * 8 + traits.average"

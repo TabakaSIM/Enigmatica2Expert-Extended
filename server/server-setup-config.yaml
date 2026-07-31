@@ -81,7 +81,6 @@ install:
       - 285492 # Thaumic JEI
       - 285742 # Smooth Font
       - 291727 # Just Enough Petroleum
-      - 293496 # OldJavaWarning
       - 295736 # MemoryTester
       - 297038 # CraftPresence
       - 297363 # Biome Border Viewer
