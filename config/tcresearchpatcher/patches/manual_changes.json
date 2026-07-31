@@ -160,20 +160,6 @@
     "value": [-2,0]} 
  ]}
  
- ,{"key":"TT_SHARE_TOME", "ops":[
-   {"op":"replace",
-    "path":"name",
-    "value": "research_name.thaumadditions:knowledge_tome"},
-  {"op":"replace",
-    "path":"icons",
-    "value": ["thaumadditions:knowledge_tome"]}
-  ,{"op":"replace",
-   "path":"stages/0/text",
-   "value": "research_stage.thaumadditions:knowledge_tome.2"}
-  ,{"op":"replace",
-   "path":"stages/0/recipes",
-   "value": ["thaumcraft:knowledge_tome"]} 
- ]}
  
  ,{"key": "BASEALCHEMY","ops": [
    {"op": "add",
@@ -261,7 +247,7 @@
  ,{"key":"FIRSTSTEPS","ops":[
    {"op":"add",
    "path": "stages/2/recipes/-",
-   "value":["crafttweaker:[thaumonomicon lectern] from [lectern][+2]"]}
+   "value":["crafttweaker:[thaumonomicon lectern] from [lectern][+2]", "knowledge_tome"]}
  ]}
 
  ,{"key":"TWOND_VOID_FORTRESS_ARMOR","ops":[
