@@ -6,9 +6,18 @@ import crafttweaker.world.IWorld;
 import mods.zenutils.StringList;
 import mods.zenutils.command.CommandUtils;
 import mods.zenutils.command.ZenCommand;
+import mods.zenutils.command.ZenUtilsCommandSender;
 
 import scripts.lib.expansions.ftblib.getFTBUPlayerData;
 import native.com.feed_the_beast.ftbutilities.FTBUtilitiesConfig;
+import native.net.minecraft.entity.player.EntityPlayerMP;
+
+// `sender` is always a ZenUtilsCommandSender wrapper, never an IPlayer, so
+// `instanceof IPlayer` is useless. Unwrap to the vanilla sender to tell a
+// real player apart from console/command-block senders.
+function isPlayerSender(sender as ZenUtilsCommandSender) as bool {
+  return sender.native instanceof EntityPlayerMP;
+}
 
 val voteTime = 600;
 
@@ -97,7 +106,7 @@ function notifyActivePlayersAboutQuery(initiator as IPlayer) as void {
 
 cmd.requiredPermissionLevel = 0; // require no permission, everyone can execute the command.
 cmd.execute = function (command, server, sender, args) {
-  if (!(sender instanceof IPlayer)) {
+  if (!isPlayerSender(sender)) {
     if (!isNull(inProcess.restart)) {
       sender.sendMessage(game.localize('commands.restart_server.in_process'));
       return;
