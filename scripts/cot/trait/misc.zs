@@ -131,9 +131,9 @@ trait_armor.onHurt = function (trait, armor, victim, source, damage, newDamage, 
   if (victim instanceof IPlayer) {
     val player as IPlayer = victim;
     level = getArmorMatsAmount(player, 'essence_metal');
-    player.addExperience((ceil(newDamage as double / 5.0) * level as double) as int);
+    player.addExperience((ceil(newDamage as double / 5.0) * level) as int);
   }
-  return newDamage - (newDamage as double * (0.075 * level as double)) as int;
+  return newDamage - (newDamage as double * (0.075 * level)) as int;
 };
 trait_armor.register();
 

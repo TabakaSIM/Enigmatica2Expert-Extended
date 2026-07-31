@@ -72,7 +72,7 @@ glitch_power.calcDamage = function (trait, tool, attacker, target, originalDamag
   if (isNull(tag)) return newDamage;
   val permDamage = tag.getInteger('permDamage');
   if (permDamage <= 0) return newDamage;
-  return newDamage + permDamage as float;
+  return newDamage + permDamage;
 };
 
 glitch_power.extraInfo = function (thisTrait, item, tag) {

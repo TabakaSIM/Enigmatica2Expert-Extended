@@ -121,7 +121,7 @@ function dumpMobDrops(player as IPlayer, damageSource as IDamageSource) as void 
     // Output
     cat.run(function (world, context) {
       for k, v in accumulator {
-        print(k ~ ' * ' ~ (v as double / repeat as double + 0.5) as int);
+        print(k ~ ' * ' ~ (v as double / repeat + 0.5) as int);
       }
     }).start();
   }

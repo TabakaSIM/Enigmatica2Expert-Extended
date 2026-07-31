@@ -29,7 +29,7 @@ function calcLevel(ingredientCount as int, manaCost as int, maxDuration as int, 
 function addPGRecipe(item as IIngredient, level as int) as void {
   if (isNull(item)) return;
   val rft = 100 * (level + 1);
-  val t = 100 * Math.exp(level as double, 2.0) as int;
+  val t = 100 * Math.exp(level as double, 2.0);
   getMachine('extrautils2:generator_potion').addRecipe({ 'input': item }, {}, min(t as long * rft, 2000000000l) as int, t);
   if (utils.DEBUG) print('PG: added Lv' ~ level ~ ' ' ~ rft ~ 'RF/t ' ~ t ~ 't');
 }

@@ -82,7 +82,7 @@ function cost(mod as IModifier) as int { return scripts.equipment.equipData.getM
 
 // Lowest difficulty at which a modifier of the given cost may appear.
 function unlockDifficulty(c as int) as double {
-  val ratio = c as double / getTopCost() as double;
+  val ratio = c as double / getTopCost();
   return pow(min(1.0, max(0.0, ratio)), 1.0 / UNLOCK_POW);
 }
 
@@ -161,7 +161,7 @@ function selectModifiers(candidates as IModifier[], difficulty as double, w as I
   }
   if (eligible.length == 0) return chosen;
 
-  var budget = pow(difficulty, BUDGET_POW) * getTopCost() as double;
+  var budget = pow(difficulty, BUDGET_POW) * getTopCost();
 
   // spend the budget on affordable, not-yet-chosen modifiers
   var guard = 0;
@@ -178,7 +178,7 @@ function selectModifiers(candidates as IModifier[], difficulty as double, w as I
   }
 
   // floor: guarantee a minimum headcount at high difficulty (cheapest first)
-  val minMods = ((difficulty * MIN_AT_FULL as double) + 0.5) as int;
+  val minMods = ((difficulty * MIN_AT_FULL) + 0.5) as int;
   guard = 0;
   while chosen.length < minMods && guard < 400 {
     guard += 1;
@@ -224,7 +224,7 @@ function applyLeveled(item as IItemStack, mod as IModifier, extra as int) as IIt
 }
 
 function rollExtraLevels(difficulty as double, w as IWorld) as int {
-  return rndCube(w) * difficulty * MAX_EXTRA_LEVELS as double + 0.0;
+  return rndCube(w) * difficulty * MAX_EXTRA_LEVELS + 0.0;
 }
 
 // -------------------------------
@@ -234,7 +234,7 @@ function randomFrom(loot as IItemStack[], difficulty as double, w as IWorld) as 
   if (loot.length == 0) return null;
   val base = loot[weightedIndex(loot.length, difficulty, w)];
   if (isNull(base)) return null;
-  val cnt = 1 + (w.random.nextDouble() * difficulty * 8.0) as int;
+  val cnt = 1 + (w.random.nextDouble() * difficulty * 8.0);
   return base * min(cnt, base.maxStackSize);
 }
 
@@ -245,7 +245,7 @@ function fillHandler(modTag as NBTTagCompound, key as string, size as int, loot 
     if (!isNull(existing) && existing.hasKey('Size')) handler.deserializeNBT(existing);
   }
   // fill a difficulty-scaled fraction of distinct slots (~25-85% at full difficulty)
-  val fillCount = min(size, 1 + ((0.25 + 0.6 * w.random.nextDouble()) * difficulty * size as double) as int);
+  val fillCount = min(size, 1 + ((0.25 + 0.6 * w.random.nextDouble()) * difficulty * size));
   for slot in 0 .. fillCount {
     val drop = randomFrom(loot, difficulty, w);
     if (!isNull(drop)) handler.setStackInSlot(slot, drop as ItemStack);
@@ -297,7 +297,7 @@ function applyDraconicTiers(item as IItemStack, isArmor as bool, difficulty as d
   for mod in scripts.equipment.utils_tcon.allDraconicMods {
     val id = mod.getIdentifier();
     if (!ToolUtils.hasModifier(st as ItemStack, id)) continue; // only the ones the material granted (already tier 0)
-    var bonus = (rndCube(w) * difficulty * (evolvedTier + 1) as double) as int;
+    var bonus = (rndCube(w) * difficulty * (evolvedTier + 1)) as int;
     if (difficulty >= 0.999) bonus = evolvedTier; // full material tier at max difficulty
     bonus = min(evolvedTier, bonus);
     // each extra application raises the upgrade one tier (it is already at tier 0)

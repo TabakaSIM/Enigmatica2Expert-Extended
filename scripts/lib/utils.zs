@@ -217,8 +217,8 @@ zenClass Utils {
     val stepY = options?.y?.step;
 
     // Determine doulbe steps
-    val intervalX = (maxX - minX) / max(1, width - 1) as double;
-    val intervalY = (maxY - minY) / max(1, height - 1) as double;
+    val intervalX = (maxX - minX) / max(1, width - 1);
+    val intervalY = (maxY - minY) / max(1, height - 1);
 
     // Write result
     val result as string[][double[string]] = {};

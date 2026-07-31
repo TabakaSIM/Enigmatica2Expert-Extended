@@ -66,7 +66,7 @@ zenClass SpellApiaryAcceleration extends FocusEffect {
       val world = this.getPackage().world;
       val apiary = world.getTileEntity(target.getBlockPos());
       if(isNull(apiary)) return false;
-      val bonus = finalPower * this.getSettingValue('power') * 50 as int;
+      val bonus = finalPower * this.getSettingValue('power') * 50;
 
       if(apiary instanceof TileBeeHousingBase || apiary instanceof TileEntityApiary || apiary instanceof TileApiary){
         val house = apiary as ITickable;
