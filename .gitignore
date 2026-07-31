@@ -62,6 +62,7 @@
 /shaderpacks
 /structures/inactive
 /time.history
+/todo
 /TombManyGraves
 /usercache.json
 /usernamecache.json
@@ -90,6 +91,7 @@ config/brandon3055/ProjectIntelligence
 config/brandon3055/ResourceCache
 config/cherishedworlds/favorites.dat
 config/cleanroom_load_timings.dat
+config/cleanroom_mod_list_favourites.txt
 config/codechicken/supporters.json
 config/craftpresence.json
 config/creativecore.json
@@ -100,6 +102,8 @@ config/enderio/recipes/*.xml
 config/enderio/recipes/**/*.xsd
 config/enderio/recipes/examples
 config/fantasticlib/reference
+config/flare/activity
+config/flare/profiler
 config/jei/worldSettings.cfg
 config/JustEnoughCalculation/data/groups.json
 config/JustEnoughCalculation/record.json

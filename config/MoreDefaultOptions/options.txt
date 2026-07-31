@@ -12,7 +12,7 @@ maxFps:120
 fboEnable:true
 fancyGraphics:true
 ao:2
-resourcePacks:["Better Gendustry v1.0.zip","Sonomagy TC6 v1.7.zip","BloomTech-1.2.0.zip","BloomTech - E2EE Addon"]
+resourcePacks:["Better Gendustry v1.0.zip","Sonomagy TC6 v1.7.zip","Vibrant Tooltips","BloomTech-1.2.0.zip","BloomTech - E2EE Addon"]
 incompatibleResourcePacks:[]
 lang:en_us
 chatVisibility:0
@@ -222,6 +222,7 @@ key_key.jeiutilities.pickBookmark:-98
 key_key.jeiutilities.transferRecipe:17:CONTROL:29
 key_key.jeiutilities.transferRecipeMax:20:CONTROL:29
 key_key.jump:57:NONE:
+key_key.kami.open_focus_pouch:47:NONE:
 key_key.keyExtraCraftin:0:NONE:
 key_key.keyExtraInvo:18:CONTROL:29
 key_key.keyWheel:0:NONE:
@@ -443,6 +444,10 @@ key_key.effortlessbuilding.mode.desc:56:NONE:
 key_key.effortlessbuilding.redo.desc:21:CONTROL:29
 key_key.effortlessbuilding.replace.desc:74:NONE:
 key_key.effortlessbuilding.undo.desc:44:CONTROL:29
+key_key.hei.bookmarkNewGroup:30:CONTROL:29
+key_key.hei.bookmarkNewGroupToTop:0:NONE:
+key_key.hei.moveGroupDown:208:SHIFT:42
+key_key.hei.moveGroupUp:200:SHIFT:42
 key_key.hei.previousCategory:201:SHIFT:42
 key_key.hei.recipeBookmark:30:CONTROL:29
 key_key.hitindication.toggle_block_indicators:80:NONE:
@@ -451,6 +456,8 @@ key_key.hitindication.toggle_hit_indication:72:NONE:
 key_key.open_basic_extended_wireless_crafting_terminal:0:NONE:
 key_key.open_elite_extended_wireless_crafting_terminal:0:NONE:
 key_key.open_ultimate_extended_wireless_crafting_terminal:0:NONE:
+key_key.possiblybaubles.open_sack:47:NONE:
+key_key.possiblybaubles.toggle_magnet:49:NONE:
 key_key.retrieve_item.desc:-98:CONTROL:29
 key_key.start_craft.desc:-98:ALT:56
 key_key.toggleVisible:0:NONE:

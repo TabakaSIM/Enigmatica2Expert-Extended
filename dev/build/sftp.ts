@@ -1,4 +1,6 @@
 /* eslint-disable antfu/no-top-level-await */
+import type { UpdateBox } from './build_utils.js'
+
 import process from 'node:process'
 
 import { consola } from 'consola'
@@ -11,6 +13,15 @@ import { $, fs, glob } from 'zx'
 import { confirm, getBoxForLabel } from './build_utils.js'
 
 const { readFileSync, writeFileSync, unlinkSync, existsSync, statSync } = fs
+
+/** `  modpackUrl: https://…/E2E-Extended-v1.2.3.zip` — groups: the `key:` prefix, the URL. */
+const MODPACK_URL_RE = /^([ \t]*modpackUrl[ \t]*:[ \t]*)(\S+)[ \t]*$/m
+
+/**
+ * The `localFiles:` key plus every entry/comment line indented under it.
+ * Each repetition starts at a literal newline, so lines cannot be split apart.
+ */
+const LOCAL_FILES_RE = /^([ \t]*)localFiles:[ \t]*$(?:\n[ \t]*[#-][^\n]*)*\n?/m
 
 interface SftpConfig {
   host?        : string
@@ -49,16 +60,18 @@ export async function manageSFTP(serverSetupConfig: string = 'server/server-setu
     return
   }
 
-  const currentVersion = (await $`git describe --tags --abbrev=0`.text()).trim()
+  // `.stdout`, not `.text()`: the latter also carries stderr into the version string.
+  const described = await $`git describe --tags --abbrev=0`.nothrow()
+  const currentVersion = described.exitCode === 0 ? described.stdout.trim() : ''
+  if (!currentVersion)
+    consola.warn('No git tag found — the server version banner will be left blank.')
 
   // Build the temp server-setup-config.yaml that points overrides/ -> .
   const serverConfigTmp = '~tmp-server-setup-config.yaml'
   const confSource = readFileSync(serverSetupConfig, 'utf8')
   const confText = confSource.replace(
-    /(localFiles:\s*)\n +\S.*\n +\S.*$/m,
-    `$1
-    - from: overrides/
-      to: .`
+    LOCAL_FILES_RE,
+    (_full, indent: string) => `${indent}localFiles:\n${indent}  - from: overrides/\n${indent}    to: .\n`
   )
   if (confText === confSource) {
     consola.warn(`Could not patch "localFiles:" block in ${serverSetupConfig} — `
@@ -121,8 +134,8 @@ function validateSftpConfig(config: SftpConfig): string[] {
   if (!config.password && !config.privateKey)
     problems.push('missing credentials: provide either "password" or "privateKey"')
 
-  if (config.port !== undefined && Number.isNaN(Number(config.port)))
-    problems.push(`"port" is not a number: ${JSON.stringify(config.port)}`)
+  if (config.port !== undefined && !isValidPort(config.port))
+    problems.push(`"port" is not a valid port number (1-65535): ${JSON.stringify(config.port)}`)
 
   // privateKey in ssh2 must be the key *contents*, not a path. Catch the common
   // mistake of passing a file path that doesn't even exist on disk.
@@ -136,6 +149,12 @@ function validateSftpConfig(config: SftpConfig): string[] {
   }
 
   return problems
+}
+
+/** `Number('')` and `Number(' ')` are `0`, so an empty port must be rejected explicitly. */
+function isValidPort(port: string | number): boolean {
+  const parsed = typeof port === 'string' ? Number(port.trim() || Number.NaN) : port
+  return Number.isInteger(parsed) && parsed > 0 && parsed <= 65535
 }
 
 /**
@@ -255,18 +274,18 @@ async function uploadOffline(
   sftp: Client,
   conf: LoadedConfig,
   { serverConfigTmp, confText, updateBox, basePath }:
-  { serverConfigTmp: string, confText: string, updateBox: (...a: any[]) => void, basePath: string }
+  { serverConfigTmp: string, confText: string, updateBox: UpdateBox, basePath: string }
 ) {
-  const offlineConfigTmp = `~${serverConfigTmp}`
-  const zipRgx = `https:\/\/github.com\/Krutoy242\/Enigmatica2Expert-Extended\/releases\/download\/[^/]+\/`
-  const zipName = confText.match(new RegExp(`${zipRgx}(.+)`))?.[1]
-  const zipPath = join('dist', zipName || '')
-
+  // Derived from the config instead of a hardcoded repo URL, so renaming the
+  // repo or hosting the zip elsewhere cannot silently break offline uploads.
+  const zipName = confText.match(MODPACK_URL_RE)?.[2].split('/').pop()
   if (!zipName) {
     logUpdate.done()
-    consola.warn(`Offline upload for "${conf.label}" skipped: could not find modpack zip URL in the config.`)
+    consola.warn(`Offline upload for "${conf.label}" skipped: no "modpackUrl:" found in the server setup config.`)
     return
   }
+
+  const zipPath = join('dist', zipName)
   if (!existsSync(zipPath)) {
     logUpdate.done()
     consola.warn(`Offline upload for "${conf.label}" skipped: modpack zip not built at "${zipPath}".\n  `
@@ -274,7 +293,10 @@ async function uploadOffline(
     return
   }
 
-  writeFileSync(offlineConfigTmp, confText.replace(new RegExp(zipRgx), 'file://'))
+  // The server downloads the pack from its own folder rather than from GitHub.
+  const offlineConfigTmp = `~${serverConfigTmp}`
+  // Function form: a `$` in the file name must not be read as a replacement pattern.
+  writeFileSync(offlineConfigTmp, confText.replace(MODPACK_URL_RE, (_full, prefix: string) => `${prefix}file://${zipName}`))
   updateBox(`[Upload Offline mode]`, `\n${offlineConfigTmp}\n${zipPath}`)
   try {
     // Small config first, then the big zip with a live progress indicator.
@@ -296,7 +318,7 @@ async function fastPutWithProgress(
   local: string,
   remote: string,
   label: string,
-  updateBox: (...a: any[]) => void
+  updateBox: UpdateBox
 ) {
   const total = statSync(local).size
   const startTime = Date.now()
@@ -349,15 +371,16 @@ function progressBar(ratio: number, width = 24): string {
   return `${'█'.repeat(filled)}${'░'.repeat(width - filled)}`
 }
 
-function formatBytes(n: number): string {
-  if (!Number.isFinite(n) || n < 0) return '?'
+function formatBytes(bytes: number): string {
+  if (!Number.isFinite(bytes) || bytes < 0) return '?'
   const units = ['B', 'KB', 'MB', 'GB', 'TB']
+  let value = bytes
   let i = 0
-  while (n >= 1024 && i < units.length - 1) {
-    n /= 1024
+  while (value >= 1024 && i < units.length - 1) {
+    value /= 1024
     i++
   }
-  return `${n.toFixed(i === 0 || n >= 100 ? 0 : 1)} ${units[i]}`
+  return `${value.toFixed(i === 0 || value >= 100 ? 0 : 1)} ${units[i]}`
 }
 
 function formatDuration(sec: number): string {
@@ -375,7 +398,7 @@ async function uploadOnline(
   sftp: Client,
   conf: LoadedConfig,
   { serverConfigTmp, currentVersion, updateBox, basePath }:
-  { serverConfigTmp: string, currentVersion: string, updateBox: (...a: any[]) => void, basePath: string }
+  { serverConfigTmp: string, currentVersion: string, updateBox: UpdateBox, basePath: string }
 ) {
   updateBox(`Copy ${serverConfigTmp}`)
   await sftp.fastPut(serverConfigTmp, posix.join(basePath, 'server-setup-config.yaml'))
