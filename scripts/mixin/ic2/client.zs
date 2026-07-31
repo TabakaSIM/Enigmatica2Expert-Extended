@@ -21,7 +21,7 @@ https://curseforge.com/minecraft/texture-packs/ic2-seedbag-display
 zenClass ItemCropSeedMixin {
   #mixin Inject { method: '<init>', at: { value: 'RETURN' } }
   function addPropertyOverride(ci as CallbackInfo) as void {
-    val item = this0 as ItemCropSeed;
+    val item = this0;
 
     val cropIdMap as float[string] = {
       acacia_sapling: 1.0f,

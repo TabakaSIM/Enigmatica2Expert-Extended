@@ -10,8 +10,7 @@ Rebalance item count for Dank Null
 zenClass MixinDankNullTier {
   #mixin Overwrite
   function getMaxStackSize() as int {
-    val self = this0 as native.p455w0rd.danknull.init.ModGlobals.DankNullTier;
-    val level = self.ordinal();
+    val level = this0.ordinal();
     if (level >= 5) {
       return 2147483647;
     }

@@ -158,7 +158,7 @@ static list as IItemStack[][string] = {
     <randomthings:spectrecharger:3>,
     <randomthings:spectrecharger>,
     <rftools:coalgenerator>,
-    <thermalexpansion:machine:9>.withTag({ RSControl: 0 as byte, Facing: 3 as byte, Energy: 0, SideCache: [1, 1, 2, 2, 2, 2] as byte[] as byte[], Level: 0 as byte }),
+    <thermalexpansion:machine:9>.withTag({ RSControl: 0 as byte, Facing: 3 as byte, Energy: 0, SideCache: [1, 1, 2, 2, 2, 2] as byte[], Level: 0 as byte }),
   ],
 
   user: [
@@ -189,7 +189,7 @@ static list as IItemStack[][string] = {
     <thermallogistics:crafter:2>,
     <thermallogistics:crafter:3>,
     <thermallogistics:crafter:4>,
-    <thermalexpansion:machine:11>.withTag({ RSControl: 0 as byte, Facing: 3 as byte, Energy: 0, SideCache: [1, 1, 2, 2, 2, 2] as byte[] as byte[], Level: 0 as byte }),
+    <thermalexpansion:machine:11>.withTag({ RSControl: 0 as byte, Facing: 3 as byte, Energy: 0, SideCache: [1, 1, 2, 2, 2, 2] as byte[], Level: 0 as byte }),
     <mekanism:machineblock3:5>,
     <appliedenergistics2:molecular_assembler>,
     <threng:big_assembler:2>,
