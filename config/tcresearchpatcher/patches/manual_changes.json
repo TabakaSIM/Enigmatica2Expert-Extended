@@ -612,7 +612,7 @@
 ]}
 
 ,{"key":"FOCUSHEAL","ops":[
-  {"op":"replace",
+  {"op":"add",
   "path":"meta",
   "value": ["REVERSE"]},
   {"op":"replace",
@@ -890,13 +890,13 @@
 
 ,{"key":"TT_FELINE_CHARM","ops":[
   {"op":"replace",
-  "path":"stages/0/recipes",
+  "path":"stages/1/recipes",
   "value":["thaumcraft:feline_charm"]}
 ]}
 
 ,{"key":"TT_XP_TALISMAN","ops":[
   {"op":"replace",
-  "path":"stages/0/recipes",
+  "path":"stages/1/recipes",
   "value":["thaumcraft:xp_talisman"]}
 ]}
 
@@ -1547,8 +1547,6 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"remove",
-  "path": "meta"},
   {"op":"replace",
   "path":"location",
   "value": [9,4]}
@@ -1584,7 +1582,7 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"replace",
+  {"op":"add",
   "path": "meta",
   "value":["REVERSE"]},
   {"op":"replace",
@@ -1596,7 +1594,7 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"replace",
+  {"op":"add",
   "path": "meta",
   "value":["REVERSE"]},
   {"op":"replace",
@@ -1614,7 +1612,7 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"replace",
+  {"op":"add",
   "path": "meta",
   "value":["REVERSE"]},
   {"op":"replace",
