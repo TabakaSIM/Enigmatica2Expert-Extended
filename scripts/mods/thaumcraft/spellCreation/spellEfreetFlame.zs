@@ -4,11 +4,7 @@
 import native.com.blamejared.compat.thaumcraft.handlers.ThaumCraft;
 import native.net.minecraft.block.Block;
 import native.net.minecraft.entity.Entity;
-import native.net.minecraft.entity.player.EntityPlayer;
-import native.net.minecraft.util.ResourceLocation;
 import native.net.minecraft.util.SoundCategory;
-import native.net.minecraft.util.SoundEvent;
-import native.net.minecraft.util.math.BlockPos;
 import native.net.minecraft.util.math.RayTraceResult;
 import native.net.minecraft.world.World;
 import native.net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -25,7 +21,6 @@ import native.net.minecraft.item.crafting.FurnaceRecipes;
 import native.net.minecraft.init.SoundEvents;
 
 zenClass SpellEfreetFlame extends FocusEffect {
-
   zenConstructor() {
     super();
   }
@@ -37,7 +32,7 @@ zenClass SpellEfreetFlame extends FocusEffect {
   function getResearch() as string {
     return 'EFREET_FLAME';
   }
-    
+
   function getKey() as string {
     return 'thaumcraft.EFREET_FLAME';
   }
@@ -45,7 +40,7 @@ zenClass SpellEfreetFlame extends FocusEffect {
   //===================================
   //Set up focalmanipulator spell stats
   //===================================
-    
+
   function getAspect() as Aspect {
     return ThaumCraft.getAspect(Aspects('🧨')[0]);
   }
@@ -65,12 +60,12 @@ zenClass SpellEfreetFlame extends FocusEffect {
   function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
     PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
     val world = this.getPackage().world;
-    if(target.typeOfHit == RayTraceResult.Type.BLOCK){
+    if (target.typeOfHit == RayTraceResult.Type.BLOCK) {
     val pos = target.getBlockPos();
-    val state = world.getBlockState(pos);
-    val blockStack = ItemStack(state.getBlock(), 1, state.getBlock().getMetaFromState(state));
-    val result = FurnaceRecipes.instance().getSmeltingResult(blockStack);
-      if(!result.isEmpty() && result.getItem() instanceof ItemBlock) {
+      val state = world.getBlockState(pos);
+      val blockStack = ItemStack(state.getBlock(), 1, state.getBlock().getMetaFromState(state));
+      val result = FurnaceRecipes.instance().getSmeltingResult(blockStack);
+      if (!result.isEmpty() && result.getItem() instanceof ItemBlock) {
         world.setBlockState(pos, Block.getBlockFromItem(result.getItem()).getStateFromMeta(result.getItemDamage()), 3);
         world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 0.6f, 1.0f);
         return true;

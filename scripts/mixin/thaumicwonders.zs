@@ -15,7 +15,7 @@ import native.net.minecraft.item.ItemStack;
   field it receives, so `isEnchantable()` always returns false, and
   `isBookEnchantable()` is hardcoded to false.
 */
-#mixin {targets: "com.verdantartifice.thaumicwonders.common.items.catalysts.ItemCatalystStone"}
+#mixin { targets: 'com.verdantartifice.thaumicwonders.common.items.catalysts.ItemCatalystStone' }
 zenClass MixinItemCatalystStone {
   // isEnchantable
   #mixin Overwrite
@@ -25,8 +25,9 @@ zenClass MixinItemCatalystStone {
 
   #mixin Overwrite
   function isBookEnchantable(stack as ItemStack, book as ItemStack) as bool {
-    for k in EnchantmentHelper.getEnchantments(book).keySet
+    for k in EnchantmentHelper.getEnchantments(book).keySet {
       if (canApplyAtEnchantingTable(stack, k)) return true;
+    }
     return false;
   }
 

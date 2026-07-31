@@ -12,7 +12,6 @@ import native.thaumcraft.api.casters.NodeSetting;
 import native.thaumcraft.api.casters.Trajectory;
 
 zenClass SpellExplosion extends FocusEffect {
-
   zenConstructor() {
     super();
   }
@@ -24,7 +23,7 @@ zenClass SpellExplosion extends FocusEffect {
   function getResearch() as string {
     return 'EXPLOSION';
   }
-    
+
   function getKey() as string {
     return 'thaumcraft.EXPLOSION';
   }
@@ -32,7 +31,7 @@ zenClass SpellExplosion extends FocusEffect {
   //===================================
   //Set up focalmanipulator spell stats
   //===================================
-    
+
   function getAspect() as Aspect {
     return ThaumCraft.getAspect(Aspects('💣')[0]);
   }
@@ -44,7 +43,7 @@ zenClass SpellExplosion extends FocusEffect {
   function createSettings() as NodeSetting[] {
     return [
       NodeSetting('power',     'focus.common.power',      NodeSetting.NodeSettingIntRange(1, 4)),
-      NodeSetting('destroy',   'focus.common.destroy',    NodeSetting.NodeSettingIntList([0, 1],       ['focus.common.no', 'focus.common.yes']))
+      NodeSetting('destroy',   'focus.common.destroy',    NodeSetting.NodeSettingIntList([0, 1],       ['focus.common.no', 'focus.common.yes'])),
     ];
   }
 

@@ -18,78 +18,76 @@ import native.thaumcraft.common.lib.network.PacketHandler;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellCrossbreed extends FocusEffect {
+  zenConstructor() {
+    super();
+  }
 
-    zenConstructor() {
-        super();
+  //======================
+  //Set up some basic info
+  //======================
+
+  function getResearch() as string {
+    return 'CROSSBREED';
+  }
+
+  function getKey() as string {
+    return 'thaumcraft.CROSSBREED';
+  }
+
+  //===================================
+  //Set up focalmanipulator spell stats
+  //===================================
+
+  function getAspect() as Aspect {
+    return ThaumCraft.getAspect(Aspects('🛎️')[0]);
+  }
+
+  function getComplexity() as int {
+    return 15;
+  }
+
+  function createSettings() as NodeSetting[] {
+    return [];
+  }
+
+  //==========================
+  //Set up executable function
+  //==========================
+
+  function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
+    val world = this.getPackage().world;
+    val pos = target.getBlockPos();
+
+    PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
+
+    if (target.typeOfHit != RayTraceResult.Type.BLOCK) return false;
+
+    val block = world.getTileEntity(pos);
+    if (isNull(block) || !(block instanceof TileEntityCrop)) return false;
+
+    val tileCrop = block as TileEntityCrop;
+
+    if (!tileCrop.isCrossingBase()) return false;
+
+    for i in 0 .. 5 {
+      if (tileCrop.attemptCrossingPublic()) {
+        world.playSound(null, pos, SoundsTC.wand, SoundCategory.AMBIENT, 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
+        return true;
+      }
     }
 
-    //======================
-    //Set up some basic info
-    //======================
+    return false;
+  }
 
-    function getResearch() as string {
-        return 'CROSSBREED';
-    }
-    
-    function getKey() as string {
-        return 'thaumcraft.CROSSBREED';
-    }
+  function onCast(caster as Entity) {
 
-    //===================================
-    //Set up focalmanipulator spell stats
-    //===================================
-    
-    function getAspect() as Aspect {
-        return ThaumCraft.getAspect(Aspects('🛎️')[0]);
-    }
+  }
 
-    function getComplexity() as int {
-        return 15;
-    }
+  //==================
+  //Particle rendering
+  //==================
 
-    function createSettings() as NodeSetting[] {
-        return [];
-    }
-
-    //==========================
-    //Set up executable function
-    //==========================
-
-    function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
-        val world = this.getPackage().world;
-        val pos = target.getBlockPos();
-
-        PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
-
-        if (target.typeOfHit != RayTraceResult.Type.BLOCK) return false;
-
-        val block = world.getTileEntity(pos);
-        if (isNull(block) || !(block instanceof TileEntityCrop)) return false;
-
-        val tileCrop = block as TileEntityCrop;
-
-        if(!tileCrop.isCrossingBase()) return false;
-
-        for i in 0 .. 5 {
-          if (tileCrop.attemptCrossingPublic()) {
-            world.playSound(null, pos, SoundsTC.wand, SoundCategory.AMBIENT, 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
-            return true;
-          }
-        }
-
-        return false;
-    }
-
-    function onCast(caster as Entity) { 
-        
-    }
-
-    //==================
-    //Particle rendering
-    //==================
-
-    function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
-        if (!isNull(SpellFX.crossbreed)) SpellFX.crossbreed(this, world, posX, posY, posZ, motionX, motionY, motionZ);
-    }
-
+  function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
+    if (!isNull(SpellFX.crossbreed)) SpellFX.crossbreed(this, world, posX, posY, posZ, motionX, motionY, motionZ);
+  }
 }

@@ -22,94 +22,92 @@ import native.thaumcraft.common.lib.network.PacketHandler;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellFeralis extends FocusEffect {
+  zenConstructor() {
+    super();
+  }
 
-    zenConstructor() {
-        super();
+  //======================
+  //Set up some basic info
+  //======================
+
+  function getResearch() as string {
+    return 'FERALIS';
+  }
+
+  function getKey() as string {
+    return 'thaumcraft.FERALIS';
+  }
+
+  //===================================
+  //Set up focalmanipulator spell stats
+  //===================================
+
+  function getAspect() as Aspect {
+    return ThaumCraft.getAspect(Aspects('🙌')[0]);
+  }
+
+  function getComplexity() as int {
+    return 10;
+  }
+
+  function createSettings() as NodeSetting[] {
+    return [];
+  }
+
+  //==========================
+  //Set up executable function
+  //==========================
+
+  function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
+    val world = this.getPackage().world;
+    val pos = target.getBlockPos();
+
+    PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
+
+    val caster = this.getPackage().getCaster();
+    if (!(caster instanceof EntityPlayer)) return false;
+    val player = caster as EntityPlayer;
+
+    val entity = target.entityHit;
+
+    if (isNull(entity) || target.typeOfHit != RayTraceResult.Type.ENTITY || !entity instanceof EntityAnimal) return false;
+    if (entity instanceof EntityTameable) {
+      val entityTame = entity as EntityTameable;
+
+      val wasOwned = !isNull(entityTame.getOwner());
+      (world as WorldServer).spawnParticle(EnumParticleTypes.HEART, entityTame.posX, entityTame.posY + entityTame.eyeHeight, entityTame.posZ, 7, 0.5, 0.5, 0.5, 0.01, 0);
+      entityTame.setTamedBy(player);
+      if (wasOwned) return true;
+
+      //entityTame.setSitting(true);
+      entityTame.heal(entityTame.getMaxHealth());
+      entityTame.setAttackTarget(null);
+
+      if (entityTame instanceof EntityOcelot) {
+        (entityTame as EntityOcelot).setTameSkin(1 + world.rand.nextInt(3));
+      }
+
+      return true;
     }
 
-    //======================
-    //Set up some basic info
-    //======================
-
-    function getResearch() as string {
-        return 'FERALIS';
-    }
-    
-    function getKey() as string {
-        return 'thaumcraft.FERALIS';
+    if (entity instanceof AbstractHorse) {
+      val horse = entity as AbstractHorse;
+      horse.setTamedBy(player);
+      (world as WorldServer).spawnParticle(EnumParticleTypes.HEART, horse.posX, horse.posY + horse.eyeHeight, horse.posZ, 7, 0.5, 0.5, 0.5, 0.01, 0);
     }
 
-    //===================================
-    //Set up focalmanipulator spell stats
-    //===================================
-    
-    function getAspect() as Aspect {
-        return ThaumCraft.getAspect(Aspects('🙌')[0]); 
-    }
+    return false;
+  }
 
-    function getComplexity() as int {
-        return 10;
-    }
+  function onCast(caster as Entity) {
 
-    function createSettings() as NodeSetting[] {
-        return [];
-    }
+  }
 
-    //==========================
-    //Set up executable function
-    //==========================
+  //==================
+  //Particle rendering
+  //==================
 
-    function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
-        val world = this.getPackage().world;
-        val pos = target.getBlockPos();
-
-        PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
-
-        val caster = this.getPackage().getCaster();
-        if(!(caster instanceof EntityPlayer)) return false;
-        val player = caster as EntityPlayer;
-
-        val entity = target.entityHit;
-
-        if (isNull(entity) || target.typeOfHit != RayTraceResult.Type.ENTITY || !entity instanceof EntityAnimal) return false;
-        if(entity instanceof EntityTameable){
-            val entityTame = entity as EntityTameable;
-
-            val wasOwned = !isNull(entityTame.getOwner());
-            (world as WorldServer).spawnParticle(EnumParticleTypes.HEART, entityTame.posX, entityTame.posY + entityTame.eyeHeight, entityTame.posZ, 7, 0.5, 0.5, 0.5, 0.01, 0);
-            entityTame.setTamedBy(player);
-            if(wasOwned) return true;
-
-            //entityTame.setSitting(true);
-            entityTame.heal(entityTame.getMaxHealth());
-            entityTame.setAttackTarget(null);
-
-            if(entityTame instanceof EntityOcelot){
-                (entityTame as EntityOcelot).setTameSkin(1 + world.rand.nextInt(3));
-            }
-
-            return true;
-        }
-
-        if(entity instanceof AbstractHorse){
-            val horse = entity as AbstractHorse;
-            horse.setTamedBy(player);
-            (world as WorldServer).spawnParticle(EnumParticleTypes.HEART, horse.posX, horse.posY + horse.eyeHeight, horse.posZ, 7, 0.5, 0.5, 0.5, 0.01, 0);
-        }
-
-        return false;
-    }
-
-    function onCast(caster as Entity) {
-        
-    }
-
-    //==================
-    //Particle rendering
-    //==================
-
-    function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
-        if (!isNull(SpellFX.feralis)) SpellFX.feralis(this, world, posX, posY, posZ, motionX, motionY, motionZ);
-    }
-
+  function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
+    if (!isNull(SpellFX.feralis)) SpellFX.feralis(this, world, posX, posY, posZ, motionX, motionY, motionZ);
+  }
 }
