@@ -3,15 +3,15 @@
  *
  * ## Usage
  * ```bash
- * npx tsx .agents/skills/zs/run-cmd.ts [command]
+ * pnpm tsx .agents/skills/test-mc/run-cmd.ts [command]
  * ```
  *
  * If no command is provided, defaults to `/list`.
  *
  * @example
- * npx tsx .agents/skills/zs/run-cmd.ts "/say Hello from CLI!"
- * npx tsx .agents/skills/zs/run-cmd.ts "/give @p minecraft:diamond 64"
- * npx tsx .agents/skills/zs/run-cmd.ts                 # defaults to /list
+ * pnpm tsx .agents/skills/test-mc/run-cmd.ts "/say Hello from CLI!"
+ * pnpm tsx .agents/skills/test-mc/run-cmd.ts "/give @p minecraft:diamond 64"
+ * pnpm tsx .agents/skills/test-mc/run-cmd.ts                 # defaults to /list
  */
 
 import process from 'node:process'

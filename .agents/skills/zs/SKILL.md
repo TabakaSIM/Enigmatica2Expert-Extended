@@ -56,14 +56,15 @@ Failed lookups print fuzzy "did you mean" suggestions. Ambiguous short names (e.
 - **Map primitives are wrapped/nullable**: `map[key]` may return `null`. Cast to native primitive (`as int`, `as bool`) before use.
 - **Null checks**: `isNull(x)` / `!isNull(x)` — never `x == null` / `x != null` on objects (errors `operator not supported`).
 - **Object → primitive**: ZS cannot cast `Object` directly to `int`/`double`/`bool`. Double-cast via wrapper: `obj as Integer as int`, `obj as Double as double`.
+- **`IData.asString()` prints byte arrays with a doubled `as byte[] as byte[]`** — copy it out of a log and drop one; a single cast produces the same NBT.
 - **Native types**: only `string`; no `char`/`CharSequence`. No varargs — use `T[]`. Replace Java collections with ZenScript list syntax `[type]`.
 - **Tooltips/JEI**: use `scripts.lib.tooltip.desc` helpers (`desc.jei`, `desc.tooltip`, `desc.both`) instead of raw JEI API. Lang keys auto-prefixed with `tooltips.lang.`.
 - **Loader directives**: `#loader contenttweaker` for `VanillaFactory`/`IItemUse`; default loader for recipes/JEI. `#modloaded a b c` skips file unless all mods present. `#ignoreBracketErrors` when brackets reference optional mods.
-- **Native collections**: annotate the **left-hand side** (`val recipes as [IRecipe] = ...`). Right-hand casts are ignored.
-- **Upcasting**: must use an unsafe left-hand cast; right-hand cast is ignored:
-  ```zs
-  val entityLiving as IEntityLiving = entity; // Left-hand upcast
-  ```
+- **Native `Map`**: use `.length` and `for k in map`; `.size()`/`.keySet()` don't resolve.
+- **Cast on the right by default**: `expr as T` emits the real conversion, while `val x as T = expr` emits nothing and merely relabels the local — a wrong left cast surfaces later as `VerifyError` (kills the whole file before its first line runs) or `IncompatibleClassChangeError` at first use. Native downcasts and `.native`/`.wrapper` conversions must be right-hand.
+- **Cast left — CrT downcast**: narrowing a `crafttweaker.*` type has no casting rule and fails to compile on the right, so use `val player as IPlayer = entity;`. Unchecked: a wrong object throws at the first member access, not at the cast.
+- **Cast left — live native collection**: `list as [T]` hands back a detached `ArrayList` **copy** when `T` matches the declared Java generic (writes are lost), and a bare `checkcast` otherwise (throws unless the value really is a `List`). `val l as [T] = list;` always aliases the original — use it when sorting/mutating in place.
+- **Native collection → `T[]` never works** (right-hand: `ClassCastException`, left-hand: `VerifyError`) — use `[T]`.
 - **Prefer ZS maps/lists**: use `type[type]` and `[type]` instead of `HashMap`/`ArrayList`/`Map`. Java types only at API boundaries.
 - **Maps can't hold functions as values**: a typed function-value map (`function(T)void[string]`) fails to parse, and an `any[string]` map errors when you assign a function (`map[key] = fn`). For a name→handler registry, use two parallel lists — `[string]` keys + `[function(T)void]` handlers — and dispatch by linear scan (see the `/dump` subcommand dispatch in `scripts/debug/dump/main.zs`).
 - **Map iteration**: generics are erased; cast each entry explicitly:
@@ -74,7 +75,7 @@ Failed lookups print fuzzy "did you mean" suggestions. Ambiguous short names (e.
     val value = entry.value as double;
   }
   ```
-- `static variable as type = ...;` left-handed typing is mandatory. Would error without type from the left.
+- **Script-level `static` always infers `any`** — even from a literal, and a right-hand cast does not help; only `static name as T = ...;` is usable (`any values not yet supported` otherwise). `zenClass` statics infer normally.
 - **`static` fields are final at runtime**: reassigning throws `IllegalAccessError` at runtime (not caught by `ct syntax`). Use a mutable map for global state: `static flags as bool[string] = {};` then `flags['k'] = true;`.
 - **`IItemStack.native` returns a copy**: mutations are discarded. Reach the live stack via `entity.getItemStackFromSlot(slot)` and match with `ItemStack.areItemStacksEqual`. CoT trait callbacks (`onToolDamage`, `onArmorDamaged`) have the same limitation.
 - **Array inference**: contextual typing wins (`as T[]`). Empty `[]` → `any[]`. Homogeneous infers to element type. Primitives (`int`, `long`, `float`, `double`, `bool`) never mix without context. Objects may share a common super-interface (e.g., `[<item>, <liquid>]` → `IIngredient[]`).
@@ -105,12 +106,13 @@ Advanced: `zenClass` can `extends` one native class plus any number of native in
 
 ## Mod source code lookup
 
-Get the local path to a mod's **Java source** when you need method signatures, field names, or bytecode — for native access (above), mixins, or understanding mod internals. Do NOT use for config/recipe questions.
+Get the local path to a mod's **source** (Java, Scala or Kotlin) when you need method signatures, field names, or bytecode — for native access (above), mixins, or understanding mod internals. Do NOT use for config/recipe questions.
 
 ```bash
-pnpm mod-source <mod_name_or_id>   # prints absolute source path to stdout
-pnpm mod-source mod_name_or_id | eza -T --stdin | head -60
+pnpm mod-source <modid>            # prints absolute source path to stdout
 ```
+
+Prefer the **modid** as the query — it beats a CurseForge name fragment, and forks are resolved by it (`jei` → Had Enough Items). The checkout is pinned to the version the pack actually installs.
 
 The single result path goes to stdout; all diagnostics go to stderr. It resolves in order: existing local folder/cache → clone from `minecraftinstance.json`/CurseForge → jar metadata + GitHub search → same-author/Gemini → decompile. Backed by the `@mctools/source` package (`mc-tools/packages/source`).
 
@@ -153,18 +155,15 @@ When native access shows only SRG names like `field_135054_a`, look up the MCP d
 
 Where `config/mcp_stable-39-1.12.zip` is the MCP mapping archive in the project root. If a field is missing from the native dump but exists in the mappings, you may still be able to reference it by either its SRG or MCP name (both work in ZS native access).
 
-## MC command executing
+## Testing in-game
 
-There is running MC instance with current modpack. You can execute commands and receive their responces.
-
-```bash
-npx tsx .agents/skills/zs/run-cmd.ts 'say Hello!' # Execute `/say Hello!` from the server
-npx tsx .agents/skills/zs/run-cmd.ts 'say Hello' 'say World!' # allow chaining
-```
-- Pass commands **without** a leading `/`
-- A chain stops at the first failing command.
+A running MC instance can execute commands (`pnpm mc-cmd 'say hi'`) and expose live
+state — see the `test-mc` skill.
 
 ## Troubleshooting
+
+### Script silently not applied
+`Loading Script:` is traced even for skipped files — the real verdict is `Ignoring script {...} due to the following #modloaded preprocessor settings`.
 
 ### Runtime command errors
 A command failing in-game with `An unknown error occurred while attempting to perform this command` (or any unclear runtime error) throws a Java exception logged to the **tail of `./logs/debug.log`**, not `crafttweaker.log`.
