@@ -260,12 +260,8 @@ gitGraph
 Just use *New Instance* feature of your launcher and choose "from CurseForge".  
 [Prism Launcher example](https://i.imgur.com/u1TgH6r.png).
 
-> [!WARNING]
-> **💥 CurseForge Launcher & Java Version**
->
-> The CurseForge launcher uses an outdated, bundled version of Java 8 (`1.8.0_51`) that causes crashes. To ensure stability, you **must** configure the launcher to use a modern Java 8 release (e.g., `1.8.0_400+`) in its Minecraft settings.
->
-> You can verify the Java version in-game with F3 or in the `logs/latest.log` file.
+> [!NOTE]
+> The modpack runs on **Cleanroom**. On the first launch, `Cleanroom Relauncher` downloads a modern Java itself and restarts the game with it, so the Java version configured in your launcher doesn't matter.
 
 ### ✊ Manual installation
 
@@ -288,7 +284,7 @@ In order to create a new Skyblock world, you need:
 
 <table><tr><td>
 
-- Loading time ~8 minutes (~4 with Cleanroom)
+- Loading time ~4 minutes
 - First load could take 10+ minutes to create cache
 - Recommended RAM: `6Gb`
 
@@ -384,10 +380,6 @@ Some screenshots of new worldgen:
 
   It seems like your firewall or proxy settings are not allowing you to download Optifine. Remove the file `config/mod-director/optifine.url.json`.
 
-- **I updated Java, but it still shows me the "Outdated Java" warning.** <img alt="Outdated Java Version message" src="https://i.imgur.com/1hBsDJU.png" align=right width=200>
-
-  The *CurseForge Launcher* and *Mojang Launcher* use their built-in 8-year-old Java. To fix this, explicitly configure the path to your new `javaw.exe` in BOTH launchers, or use another launcher such as [Prism](https://prismlauncher.org/).
-
 - **I can't see crash logs.**
 
   Crash logs are located in the folder `crash-reports/`. If there are no files, check the file `logs/latest.log`. If there is still no information about the crash, enable debug logging and the generation of the file `debug.log` in your launcher.
@@ -447,12 +439,6 @@ If you want to run developer scripts (`pnpm dev:*`) that rely on `mc-tools`:
 ### Reddit
 
 - [The whole modpack beaten in only peaceful mode!](https://www.reddit.com/r/feedthebeast/comments/10p6uva/the_whole_modpack_beaten_in_only_peaceful_mode/?utm_source=share&utm_medium=web2x&context=3)
-
-### Migrate to Java 22 (Recommended)
-
-[![Migrate to Java 22](https://img.youtube.com/vi/bXXuKDeFGsQ/0.jpg)](https://www.youtube.com/embed/bXXuKDeFGsQ)
-
-[Also text guide on E2EE Discord server](https://discord.com/channels/911676461050642432/1215301438297735168).
 
 ### Modpack Review (English)
 
