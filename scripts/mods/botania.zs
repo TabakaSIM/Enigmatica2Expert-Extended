@@ -46,6 +46,16 @@ mods.botania.Orechid.removeOre('oreRedstone');
 mods.botania.Orechid.removeOre('oreApatite');
 mods.botania.Orechid.addOre('oreApatite', 7000);
 
+/*
+Botania registers its default Orechid Ignem ores while loading, and skips any
+`oreNetherX` whose overworld `oreX` is not in the OreDictionary yet. Nickel,
+silver and platinum ores are added by Thermal Foundation, which loads later, so
+they silently vanish from the flower. Add them back with Botania's own weights.
+*/
+mods.botania.OrechidIgnem.addOre('oreNetherNickel', 1790);
+mods.botania.OrechidIgnem.addOre('oreNetherPlatinum', 170);
+mods.botania.OrechidIgnem.addOre('oreNetherSilver', 1550);
+
 // Add Orechid Ingem ores
 mods.botania.OrechidIgnem.addOre('oreNetherChargedCertusQuartz', 800);
 mods.botania.OrechidIgnem.addOre('oreNetherRuby', 8000);
