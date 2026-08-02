@@ -4,8 +4,10 @@
 import native.ic2.api.crops.CropCard;
 import native.ic2.api.crops.ICropTile;
 import native.ic2.core.item.tool.EntityMiningLaser;
+import native.ic2.core.crop.cropcard.CropWeed;
 import native.ic2.core.crop.cropcard.GenericCropCard;
 import native.ic2.core.recipe.ScrapboxRecipeManager;
+import native.java.util.Random;
 import native.net.minecraft.item.ItemStack;
 
 #mixin { targets: 'ic2.core.block.wiring.TileEntityChargepadBatBox' }
@@ -132,6 +134,79 @@ zenClass MixinTileEntityCrop {
   #mixin ModifyReturnValue { method: 'getScanLevel', at: { value: 'RETURN' } }
   function alwaysFullyScanned(value as int) as int {
     return 4;
+  }
+
+  /*
+    Seed drops from pick() (left click on a plant, block break, farmland removed under it) stop
+    being a lottery once the plant has actually grown: a crop past its planting size always
+    yields at least one seed bag, so a bred genome can no longer be lost.
+    A freshly planted crop starts at size 1 (both tryPlantIn() and reset() force it) and keeps
+    the vanilla behaviour completely — plant a seed and immediately break it and it may well
+    give nothing back.
+    Vanilla rolls a second seed only for a crop that is already harvest-ready, so
+    canBeHarvested() is forced to true for every grown crop — the "not grown yet" branch is
+    then skipped and both rolls below are reached, which also lets the growth phase influence
+    the second seed for every crop.
+    Weeds are deliberately left out: their canBeHarvested() stays false, so they keep the
+    vanilla branch and their old, mostly empty seed chance.
+  */
+  #mixin Redirect
+  #{
+  #  method: 'pick',
+  #  at: {
+  #    value: 'INVOKE',
+  #    target: 'Lic2/api/crops/CropCard;canBeHarvested(Lic2/api/crops/ICropTile;)Z'
+  #  }
+  #}
+  function rollBothSeedsWhenGrown(crop as CropCard, tile as ICropTile) as bool {
+    if (crop instanceof CropWeed || tile.getCurrentSize() <= 1) return crop.canBeHarvested(tile);
+    return true;
+  }
+
+  /*
+    First seed — guaranteed, but only for a grown crop. Both rolls are `nextFloat() <= chance`,
+    so a redirected 0.0F always passes the test and 1000.0F (far above the highest chance
+    vanilla can compute) never does. The size check is repeated here because a crop card could
+    report canBeHarvested() at size 1 on its own. Not reached for weeds.
+  */
+  #mixin Redirect
+  #{
+  #  method: 'pick',
+  #  at: {
+  #    value: 'INVOKE',
+  #    target: 'Ljava/util/Random;nextFloat()F',
+  #    ordinal: 0
+  #  }
+  #}
+  function dropFirstSeedWhenGrown(rand as Random) as float {
+    if (this0.getCurrentSize() <= 1) return rand.nextFloat();
+    return 0.0f;
+  }
+
+  /*
+    Second seed — exponentially rare.
+    quality = (statGrowth + statGain + statResistance) / 93 * currentSize / maxSize, i.e. 0..1
+    chance  = 1000 ^ (quality - 1): 0.1% at the very bottom, ~3% for an average full grown
+    crop, 100% for a perfect 31/31/31 one at full size. 1000.0 is the steepness knob.
+    Global pow(), not Math.pow(): the formatter round trip rewrites the latter into the `**`
+    operator, which ZenScript has no rule for.
+  */
+  #mixin Redirect
+  #{
+  #  method: 'pick',
+  #  at: {
+  #    value: 'INVOKE',
+  #    target: 'Ljava/util/Random;nextFloat()F',
+  #    ordinal: 1
+  #  }
+  #}
+  function rarelyDropSecondSeed(rand as Random) as float {
+    val stats = this0.getStatGrowth() + this0.getStatGain() + this0.getStatResistance();
+    val phase = this0.getCurrentSize() as double / this0.getCrop().getMaxSize() as double;
+    var quality = stats as double / 93.0 * phase;
+    if (quality > 1.0) quality = 1.0;
+    if (rand.nextFloat() as double < pow(1000.0, quality - 1.0)) return 0.0f;
+    return 1000.0f;
   }
 }
 
