@@ -151,10 +151,11 @@ static fluidMaxInput as int[string] = {
   PrecisionAssembler: 32000,
 } as int[string];
 
-function avdRockXmlRecipeFlatten(
+// Same as avdRockXmlRecipeFlatten, but ingredients are already a flat list
+function avdRockRecipeFlat(
   filename as string,
   output as IItemStack,
-  ingredients as IIngredient[][],
+  ingredients as IIngredient[],
   fluidInput as ILiquidStack = null,
   box as IItemStack = null,
   altMaxMult as int = 64
@@ -176,34 +177,31 @@ function avdRockXmlRecipeFlatten(
     );
   }
 
-  // Iterate the grid
-  for y, row in ingredients {
-    for x, ingr in row {
-      if (isNull(ingr)) continue;
+  for ingr in ingredients {
+    if (isNull(ingr)) continue;
 
-      // Merge if we already have same ingredient
-      var merged = false;
-      for i, exist in ingrs {
-        if (merged) continue;
-        if ((exist has ingr) && (ingr has exist)) {
-          countRaw[i] = countRaw[i] + ingr.amount;
-          merged = true;
-        }
+    // Merge if we already have same ingredient
+    var merged = false;
+    for i, exist in ingrs {
+      if (merged) continue;
+      if ((exist has ingr) && (ingr has exist)) {
+        countRaw[i] = countRaw[i] + ingr.amount;
+        merged = true;
       }
+    }
 
-      // Push new exist entry
-      if (!merged) {
-        ingrs += ingr;
-        countRaw += ingr.amount;
+    // Push new exist entry
+    if (!merged) {
+      ingrs += ingr;
+      countRaw += ingr.amount;
 
-        // Calculate max stack size for ingredient
-        var maxSize = 0;
-        for item in ingr.items {
-          maxSize = max(maxSize, item.maxStackSize);
-        }
-        // If ingredient have no items in it, its probably late-registered oredict
-        if (maxSize != 0) maxStackSize = min(maxStackSize, maxSize);
+      // Calculate max stack size for ingredient
+      var maxSize = 0;
+      for item in ingr.items {
+        maxSize = max(maxSize, item.maxStackSize);
       }
+      // If ingredient have no items in it, its probably late-registered oredict
+      if (maxSize != 0) maxStackSize = min(maxStackSize, maxSize);
     }
   }
 
@@ -251,4 +249,22 @@ function avdRockXmlRecipeFlatten(
     .power(20000 * multiplier)
     .timeRequired(5 * multiplier)
     .build();
+}
+
+// Turn a crafting grid into an Advanced Rocketry machine recipe
+function avdRockXmlRecipeFlatten(
+  filename as string,
+  output as IItemStack,
+  ingredients as IIngredient[][],
+  fluidInput as ILiquidStack = null,
+  box as IItemStack = null,
+  altMaxMult as int = 64
+) as void {
+  var flat = [] as IIngredient[];
+  for row in ingredients {
+    for ingr in row {
+      if (!isNull(ingr)) flat += ingr;
+    }
+  }
+  avdRockRecipeFlat(filename, output, flat, fluidInput, box, altMaxMult);
 }

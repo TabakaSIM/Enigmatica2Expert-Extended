@@ -113,7 +113,7 @@ for i in 0 .. 6 {
     ? <mysticalagradditions:insanium:1>
     : <mysticalagriculture:crafting>.definition.makeStack(i + 17);
   recipes.remove(output);
-  if (i == 5) scripts.mods.forestry.Carpenter.addRecipe(output, shape, 40, <liquid:sewage> * 1000);
+  if (i == 5) mods.forestry.Carpenter.addRecipe(output, shape, 40, <liquid:sewage> * 1000);
   else recipes.addShaped(output, shape);
 }
 

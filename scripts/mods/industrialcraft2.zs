@@ -166,7 +166,7 @@ recipes.addShaped('Jetpack Attachment Plate',
 
 //  Overclocker Upgrade
 recipes.remove(<ic2:upgrade>);
-scripts.mods.forestry.Carpenter.addRecipe(<ic2:upgrade> * 2,
+mods.forestry.Carpenter.addRecipe(<ic2:upgrade> * 2,
   [[<ore:plateTin>, <ore:plateTin>, <ore:plateTin>],
     [<ic2:cable>, <ore:circuitBasic>, <ic2:cable>],
     [<ore:plateTin>, <ore:plateTin>, <ore:plateTin>]], 40, <liquid:ic2coolant> * 3000);

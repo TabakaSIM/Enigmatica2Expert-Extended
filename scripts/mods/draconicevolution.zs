@@ -228,25 +228,27 @@ mods.advancedrocketry.RecipeTweaker
 
 // [Wyvern Energy Core] from [Wyvern Core][+3]
 recipes.remove(<draconicevolution:wyvern_energy_core>);
-scripts.mods.forestry.Carpenter.addRecipe(<draconicevolution:wyvern_energy_core>, Grid(['pretty',
+mods.forestry.Carpenter.addRecipe(<draconicevolution:wyvern_energy_core>, Grid(['pretty',
   '  ▬  ',
   '▬ W ▬',
   '  ■  '], {
   '▬': <ore:ingotCrystallineAlloy>, // Crystalline Alloy Ingot
   'W': <draconicevolution:wyvern_core>, // Wyvern Core
   '■': <environmentaltech:pladium>, // Pladium
-}).shaped(), 40, <fluid:ic2hot_coolant> * 4000, null, 2);
+}).shaped(), 40, <fluid:ic2hot_coolant> * 4000);
+scripts.mods.forestry.alt.setMaxMult(<draconicevolution:wyvern_energy_core>, 2);
 
 // [Draconic Energy Core] from [Awakened Core][+2]
 recipes.remove(<draconicevolution:draconic_energy_core>);
-scripts.mods.forestry.Carpenter.addRecipe(<draconicevolution:draconic_energy_core>, Grid(['pretty',
+mods.forestry.Carpenter.addRecipe(<draconicevolution:draconic_energy_core>, Grid(['pretty',
   '  ▬  ',
   '▬ A ▬',
   '  ■  '], {
   '▬': <ore:ingotDraconiumAwakened>, // Awakened Draconium Ingot
   'A': <draconicevolution:awakened_core>, // Awakened Core
   '■': <environmentaltech:ionite>, // Ionite
-}).shaped(), 40, <fluid:ic2hot_coolant> * 8000, null, 2);
+}).shaped(), 40, <fluid:ic2hot_coolant> * 8000);
+scripts.mods.forestry.alt.setMaxMult(<draconicevolution:draconic_energy_core>, 2);
 
 // [Basic Fusion Crafting Injector] from [Genetics Processor][+5]
 scripts.mods.extendedcrafting_engineering.remakeAlted(
@@ -352,13 +354,14 @@ craft.make(<draconicevolution:ender_energy_manipulator>, ['pretty',
   'O': <randomthings:obsidianskull>, // Obsidian Skull
   'D': <draconicevolution:dislocator:*>, // Dislocator
 });
-scripts.mods.forestry.Carpenter.addRecipe(<draconicevolution:ender_energy_manipulator>, Grid(['pretty',
+mods.forestry.Carpenter.addRecipe(<draconicevolution:ender_energy_manipulator>, Grid(['pretty',
   'W O W',
   '  D  '], {
   'W': <draconicevolution:wyvern_core>, // Wyvern Core
   'O': <randomthings:obsidianskull>, // Obsidian Skull
   'D': <draconicevolution:dislocator:*>, // Dislocator
-}).shaped(), 40, <fluid:hot_spring_water> * 8000, null, 1);
+}).shaped(), 40, <fluid:hot_spring_water> * 8000);
+scripts.mods.forestry.alt.setMaxMult(<draconicevolution:ender_energy_manipulator>, 1);
 
 // [Bound Dislocator (Point to Point)] from [Siren Tear][+2]
 craft.reshapeless(<draconicevolution:dislocator_bound:1>, 'DrDS', {

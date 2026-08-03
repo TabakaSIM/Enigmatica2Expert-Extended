@@ -36,7 +36,7 @@ recipes.addShapeless('Foresters Manual',
 
 // Intricate Circuit Board
 mods.forestry.Carpenter.removeRecipe(<forestry:chipsets:3>);
-scripts.mods.forestry.Carpenter.addRecipe(<forestry:chipsets:3>.withTag({ T: 3 as short }),
+mods.forestry.Carpenter.addRecipe(<forestry:chipsets:3>.withTag({ T: 3 as short }),
   Grid(['pretty',
     '◊ B ◊',
     '◊ E ◊',
@@ -63,7 +63,7 @@ scripts.mods.extendedcrafting_engineering.remakeAlted(
 
 // [Hardened Casing] from [Sturdy Casing][+1]
 mods.forestry.Carpenter.removeRecipe(<forestry:hardened_machine>);
-scripts.mods.forestry.Carpenter.addRecipe(<forestry:hardened_machine>,
+mods.forestry.Carpenter.addRecipe(<forestry:hardened_machine>,
   Grid(['pretty',
     '◊   ◊',
     '  ⌂  ',
@@ -185,7 +185,7 @@ mods.forestry.Carpenter.removeRecipe(<forestry:oak_stick>);
 mods.forestry.Carpenter.removeRecipe(<forestry:impregnated_casing>);
 for oil in [<liquid:oliveoil>, <liquid:seed.oil>] as ILiquidStack[] {
   // Use OreDict recipe for impregnated stick
-  scripts.mods.forestry.Carpenter.addRecipe(<forestry:oak_stick> * 2, [[<ore:logWood>],[<ore:logWood>]], 40, oil * 100);
+  mods.forestry.Carpenter.addRecipe(<forestry:oak_stick> * 2, [[<ore:logWood>],[<ore:logWood>]], 40, oil * 100);
   mods.thermalexpansion.Transposer.addFillRecipe(<forestry:oak_stick> * 9, <additionalcompression:logwood_compressed>, oil * 900, 9000);
 
   // Use OreDict recipe for Impregnated Casing
@@ -201,8 +201,8 @@ for oil in [<liquid:oliveoil>, <liquid:seed.oil>] as ILiquidStack[] {
 mods.forestry.Carpenter.removeRecipe(<forestry:wood_pulp>);
 mods.forestry.Carpenter.removeRecipe(<forestry:crafting_material:4>);
 mods.forestry.Carpenter.removeRecipe(<forestry:iodine_capsule>);
-scripts.mods.forestry.Carpenter.addRecipe(<forestry:crafting_material:4>, [[<forestry:honeydew>, <ic2:fluid_cell>]], 100, <fluid:water> * 1000);
-scripts.mods.forestry.Carpenter.addRecipe(<forestry:iodine_capsule>, [[<forestry:honey_drop>, <ic2:fluid_cell>]], 100, <fluid:water> * 1000);
+mods.forestry.Carpenter.addRecipe(<forestry:crafting_material:4>, [[<forestry:honeydew>, <ic2:fluid_cell>]], 100, <fluid:water> * 1000);
+mods.forestry.Carpenter.addRecipe(<forestry:iodine_capsule>, [[<forestry:honey_drop>, <ic2:fluid_cell>]], 100, <fluid:water> * 1000);
 
 // [Honey Pot] from [Honey Drop][+1]
 craft.remake(<forestry:honey_pot>, [
@@ -335,7 +335,7 @@ for i, input in farmBlocks {
 
 // Since tubes was buffed via mixins, make Blazing Tube recipe way harder
 mods.forestry.ThermionicFabricator.removeCast(<forestry:thermionic_tubes:7> * 4);
-scripts.mods.forestry.ThermionicFabricator.addCast(<forestry:thermionic_tubes:7> * 4, Grid(['pretty',
+mods.forestry.ThermionicFabricator.addCast(<forestry:thermionic_tubes:7> * 4, Grid(['pretty',
   '  ▲  ',
   '♥ ▲ ♥',
   '▲ ▲ ▲'], {

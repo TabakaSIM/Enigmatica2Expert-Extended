@@ -68,7 +68,7 @@ craft.make(<minecraft:web> * 16, ['pretty',
 
 // Buff Pulsating mesh output
 mods.forestry.Carpenter.removeRecipe(<minecraft:ender_pearl>);
-scripts.mods.forestry.Carpenter.addRecipe(<actuallyadditions:block_misc:6> * 4,
+mods.forestry.Carpenter.addRecipe(<actuallyadditions:block_misc:6> * 4,
   Grid(['AA','AA'], { A: <forestry:crafting_material:1> }).shaped(), 60);
 
 // Buff propolis to slime (was 1 poor slime ball)
@@ -103,8 +103,8 @@ val scentPanelGrid = Grid(['pretty',
   'H': <ore:dropHoneydew>, // Honeydew
 }).shaped();
 mods.forestry.Carpenter.removeRecipe(<forestry:crafting_material:6>);
-scripts.mods.forestry.Carpenter.addRecipe(<forestry:crafting_material:6>, scentPanelGrid, 40, <liquid:for.honey> * 500);
-scripts.mods.forestry.Carpenter.addRecipe(<forestry:crafting_material:6>, scentPanelGrid, 40, <liquid:honey>     * 500);
+mods.forestry.Carpenter.addRecipe(<forestry:crafting_material:6>, scentPanelGrid, 40, <liquid:for.honey> * 500);
+mods.forestry.Carpenter.addRecipe(<forestry:crafting_material:6>, scentPanelGrid, 40, <liquid:honey>     * 500);
 
 // Peaceful Skyblock alt
 // [Bee Sample - Species_ Steadfast] from [Genetic Waste][+2]
