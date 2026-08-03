@@ -247,7 +247,10 @@
  ,{"key":"FIRSTSTEPS","ops":[
    {"op":"add",
    "path": "stages/2/recipes/-",
-   "value":["crafttweaker:[thaumonomicon lectern] from [lectern][+2]", "knowledge_tome"]}
+   "value":"crafttweaker:[thaumonomicon lectern] from [lectern][+2]"}
+   ,{"op":"add",
+   "path": "stages/2/recipes/-",
+   "value":"thaumcraft:knowledge_tome"}
  ]}
 
  ,{"key":"TWOND_VOID_FORTRESS_ARMOR","ops":[
