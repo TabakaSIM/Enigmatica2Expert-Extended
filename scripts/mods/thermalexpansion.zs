@@ -6,8 +6,6 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
 import crafttweaker.recipes.IRecipeFunction;
 
-mods.jei.JEI.hideCategory('thermalexpansion.furnace');
-
 // Return disabled pulverizing of Bows and Fish rods
 mods.thermalexpansion.Pulverizer.addRecipe(<thermalfoundation:material:800> * 2, <minecraft:bow:*>, 1000, <thermalfoundation:material:800>, 50);
 mods.thermalexpansion.Pulverizer.addRecipe(<thermalfoundation:material:800> * 2, <minecraft:fishing_rod:*>, 1000, <thermalfoundation:material:800>, 50);

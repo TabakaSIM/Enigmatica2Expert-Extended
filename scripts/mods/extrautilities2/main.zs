@@ -11,10 +11,6 @@ function getCreativeHarvest(item as IItemStack) as IItemStack {
   });
 }
 
-mods.jei.JEI.hideCategory('xu2_machine_extrautils2:furnace');
-mods.jei.JEI.hideCategory('xu2_machine_extrautils2:generator_survival');
-mods.jei.JEI.hideCategory('xu2_machine_extrautils2:generator');
-
 static machineBlock as IIngredient = <extrautils2:machine>.only(function (item) { return !item.hasTag; });
 
 craft.remake(<extrautils2:spike_iron>, ['pretty',
