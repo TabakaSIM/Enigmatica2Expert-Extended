@@ -19,85 +19,83 @@ import native.thaumcraft.common.lib.network.PacketHandler;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellVampirysm extends FocusEffect {
+  zenConstructor() {
+    super();
+  }
 
-    zenConstructor() {
-        super();
+  //======================
+  //Set up some basic info
+  //======================
+
+  function getResearch() as string {
+    return 'VAMPIRYSM';
+  }
+
+  function getKey() as string {
+    return 'thaumcraft.VAMPIRYSM';
+  }
+
+  //===================================
+  //Set up focalmanipulator spell stats
+  //===================================
+
+  function getAspect() as Aspect {
+    return ThaumCraft.getAspect(Aspects('🩸')[0]);
+  }
+
+  function getComplexity() as int {
+    return this.getSettingValue('power') * 3 + this.getSettingValue('lifesteal') * 2 + this.getSettingValue('bloodOrb') * 5;
+  }
+
+  function getDamageForDisplay(finalPower as float) as float {
+    return (1.0f + this.getSettingValue('power')) * finalPower;
+  }
+
+  function createSettings() as NodeSetting[] {
+    return [
+      NodeSetting('power',     'focus.common.power',      NodeSetting.NodeSettingIntRange(1, 5)),
+      NodeSetting('lifesteal', 'focus.common.lifesteal',  NodeSetting.NodeSettingIntList([1, 2, 3, 4], ['10%', '20%', '30%', '40%'])),
+      NodeSetting('bloodOrb',  'focus.common.bloodOrb',   NodeSetting.NodeSettingIntList([0, 1],       ['focus.common.no', 'focus.common.yes'])),
+    ];
+  }
+
+  //==========================
+  //Set up executable function
+  //==========================
+
+  function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
+    PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
+    if (isNull(target.entityHit) && target.typeOfHit != RayTraceResult.Type.ENTITY) return false;
+
+    val damage = this.getDamageForDisplay(finalPower);
+    val lifesteal = this.getSettingValue('lifesteal');
+    val casterWrapper = this.getPackage().getCaster();
+    if (isNull(casterWrapper)) return false;
+    val caster as IEntityLivingBase = casterWrapper.wrapper;
+
+    target.entityHit.wrapper.attackEntityFrom(IDamageSource.createIndirectMagicDamage(caster, caster), damage);
+    if (isNull(caster)) return false;
+    caster.heal(damage * lifesteal / 10);
+    if (this.getSettingValue('bloodOrb') == 1) {
+      var player as IPlayer = caster instanceof IPlayer ? caster : null;
+      if (caster.native instanceof IEntityOwnable) {
+        val owner = (caster.native as IEntityOwnable).getOwner();
+        if (!isNull(owner) && owner.wrapper instanceof IPlayer) player = owner as IPlayer;
+      }
+      if (!isNull(player) && !isNull(player.soulNetwork)) player.soulNetwork.add(10 * lifesteal * damage, 50000000);
     }
+    return true;
+  }
 
-    //======================
-    //Set up some basic info
-    //======================
+  function onCast(caster as Entity) {
 
-    function getResearch() as string {
-        return 'VAMPIRYSM';
-    }
-    
-    function getKey() as string {
-        return 'thaumcraft.VAMPIRYSM';
-    }
+  }
 
-    //===================================
-    //Set up focalmanipulator spell stats
-    //===================================
-    
-    function getAspect() as Aspect {
-        return ThaumCraft.getAspect(Aspects('🩸')[0]);
-    }
+  //==================
+  //Particle rendering
+  //==================
 
-    function getComplexity() as int {
-        return this.getSettingValue('power') * 3 + this.getSettingValue('lifesteal') * 2 + this.getSettingValue('bloodOrb') * 5;
-    }
-
-    function getDamageForDisplay(finalPower as float) as float {
-        return (1.0f + this.getSettingValue('power')) * finalPower;
-    }
-
-    function createSettings() as NodeSetting[] {
-        return [
-            NodeSetting('power',     'focus.common.power',      NodeSetting.NodeSettingIntRange(1, 5)),
-            NodeSetting('lifesteal', 'focus.common.lifesteal',  NodeSetting.NodeSettingIntList([1, 2, 3, 4], ['10%', '20%', '30%', '40%'])),
-            NodeSetting('bloodOrb',  'focus.common.bloodOrb',   NodeSetting.NodeSettingIntList([0, 1],       ['focus.common.no', 'focus.common.yes']))
-            ];
-    }
-
-    //==========================
-    //Set up executable function
-    //==========================
-
-    function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
-        PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
-        if(isNull(target.entityHit) && target.typeOfHit != RayTraceResult.Type.ENTITY) return false;
-        
-        val damage = this.getDamageForDisplay(finalPower);
-        val lifesteal = this.getSettingValue('lifesteal');
-        val casterWrapper = this.getPackage().getCaster();
-        if(isNull(casterWrapper)) return false;
-        val caster as IEntityLivingBase = casterWrapper.wrapper;
-
-        target.entityHit.wrapper.attackEntityFrom(IDamageSource.createIndirectMagicDamage(caster, caster), damage);
-        if(isNull(caster)) return false;
-        caster.heal(damage * lifesteal / 10);
-        if(this.getSettingValue('bloodOrb') == 1){
-            var player as IPlayer = caster instanceof IPlayer ? caster : null;
-            if(caster.native instanceof IEntityOwnable){
-                val owner = (caster.native as IEntityOwnable).getOwner();
-                if(!isNull(owner) && owner.wrapper instanceof IPlayer) player = owner as IPlayer;
-            }
-            if(!isNull(player) && !isNull(player.soulNetwork)) player.soulNetwork.add(10 * lifesteal * damage, 50000000);
-        }
-        return true;
-    }
-
-    function onCast(caster as Entity) {
-        
-    }
-
-    //==================
-    //Particle rendering
-    //==================
-
-    function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
-        if (!isNull(SpellFX.vampirysm)) SpellFX.vampirysm(this, world, posX, posY, posZ, motionX, motionY, motionZ);
-    }
-    
+  function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
+    if (!isNull(SpellFX.vampirysm)) SpellFX.vampirysm(this, world, posX, posY, posZ, motionX, motionY, motionZ);
+  }
 }

@@ -115,7 +115,7 @@ zenClass MixinEntityButterfly {
 
     if (!(stack.getItem() instanceof native.forestry.api.core.IToolScoop)) return;
 
-    val entity = this0 as native.net.minecraft.entity.Entity;
+    val entity = this0;
 
     if (entity.getEntityData().hasKey('botania:looniumItemStackToDrop')) {
       val cmp = entity.getEntityData().getCompoundTag('botania:looniumItemStackToDrop');

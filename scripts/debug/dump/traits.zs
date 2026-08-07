@@ -27,14 +27,14 @@ function dumpTConInfo(sender as ICommandSender) as void {
   val uniqueTraitIds = {} as bool[string];
 
   for mat in mats {
-    matCount = matCount + 1 as int;
-    if (mat.hidden) hiddenMatCount = hiddenMatCount + 1 as int;
+    matCount = matCount + 1;
+    if (mat.hidden) hiddenMatCount = hiddenMatCount + 1;
 
     val defTraits as [ITrait] = mat.getDefaultTraits();
     if (!isNull(defTraits)) {
       for tr in defTraits {
         if (isNull(tr)) continue;
-        matTraitEntries = matTraitEntries + 1 as int;
+        matTraitEntries = matTraitEntries + 1;
         uniqueTraitIds[tr.identifier] = true;
       }
     }
@@ -56,21 +56,21 @@ function dumpTConInfo(sender as ICommandSender) as void {
   val tconTraitSet = {} as bool[string];
 
   for mod in mods {
-    modCount = modCount + 1 as int;
+    modCount = modCount + 1;
 
     val modId = mod.identifier;
     if (isNull(modId) || modId == '') continue;
 
     val isTrait = !isNull(TinkerRegistry.getTrait(modId));
     if (isTrait) {
-      traitModCount = traitModCount + 1 as int;
+      traitModCount = traitModCount + 1;
       tconTraitSet[modId] = true;
     }
-    if (mod.hidden) modHiddenCount = modHiddenCount + 1 as int;
+    if (mod.hidden) modHiddenCount = modHiddenCount + 1;
 
     val localized = mod.localizedName;
     val hasLocalized = !isNull(localized) && localized != '' && !localized.startsWith('modifier.') && !localized.startsWith('trait.');
-    if (!hasLocalized) modRawKeyCount = modRawKeyCount + 1 as int;
+    if (!hasLocalized) modRawKeyCount = modRawKeyCount + 1;
 
     val tTag = isTrait ? '\u00A7a[T] ' : '\u00A7d[M] ';
     val lName = hasLocalized ? localized : '\u00A78' ~ (isNull(localized) || localized == '' ? '<raw key>' : localized);
@@ -85,14 +85,14 @@ function dumpTConInfo(sender as ICommandSender) as void {
   var armorRawKeyCount = 0 as int;
 
   for aMod in armorMods {
-    armorModCount = armorModCount + 1 as int;
+    armorModCount = armorModCount + 1;
 
     val aId = aMod.identifier;
     if (isNull(aId) || aId == '') continue;
 
     val localized = aMod.localizedName;
     val hasLocalized = !isNull(localized) && localized != '' && !localized.startsWith('modifier.') && !localized.startsWith('trait.');
-    if (!hasLocalized) armorRawKeyCount = armorRawKeyCount + 1 as int;
+    if (!hasLocalized) armorRawKeyCount = armorRawKeyCount + 1;
 
     val lName = hasLocalized ? localized : '\u00A78' ~ (isNull(localized) || localized == '' ? '<raw key>' : localized);
     sender.sendMessage('  \u00A7b[A] \u00A7e' ~ aId ~ '\u00A77 \u2192 ' ~ lName);

@@ -6,8 +6,6 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
 import crafttweaker.recipes.IRecipeFunction;
 
-mods.jei.JEI.hideCategory('thermalexpansion.furnace');
-
 // Return disabled pulverizing of Bows and Fish rods
 mods.thermalexpansion.Pulverizer.addRecipe(<thermalfoundation:material:800> * 2, <minecraft:bow:*>, 1000, <thermalfoundation:material:800>, 50);
 mods.thermalexpansion.Pulverizer.addRecipe(<thermalfoundation:material:800> * 2, <minecraft:fishing_rod:*>, 1000, <thermalfoundation:material:800>, 50);
@@ -108,10 +106,11 @@ recipes.addShapedMirrored('Signalum Cell Frame Empty',
 mods.thermalexpansion.InductionSmelter.addRecipe(<thermalexpansion:frame:147>, <thermalexpansion:frame:131>, <minecraft:redstone_block> * 40, 100000);
 
 // Resonant Cell Frame (Empty)
-scripts.mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame:132>,
+mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame:132>,
   [[<thermalfoundation:material:166>, <actuallyadditions:block_misc:8>, <thermalfoundation:material:166>],
     [<thermalfoundation:glass_alloy:7>, <thermalexpansion:frame:147>, <thermalfoundation:glass_alloy:7>],
-    [<thermalfoundation:material:1028>, <thermalfoundation:material:1028>, <thermalfoundation:material:1028>]], <liquid:glass> * 4000, null, 4);
+    [<thermalfoundation:material:1028>, <thermalfoundation:material:1028>, <thermalfoundation:material:1028>]], <liquid:glass> * 4000);
+scripts.mods.forestry.alt.setMaxMult(<thermalexpansion:frame:132>, 4);
 
 // Resonant Cell Frame (Full)
 mods.extendedcrafting.CombinationCrafting.addRecipe(<thermalexpansion:frame:148>,
@@ -161,7 +160,7 @@ mods.mekanism.infuser.addRecipe('GLOWSTONE', 400, <thermalexpansion:frame>, <the
 
 // [Machine Frame]*2 from [Device Frame][+6]
 recipes.remove(<thermalexpansion:frame>);
-scripts.mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame> * 2,
+mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame> * 2,
   Grid(['pretty',
     '■ B ■',
     'M ◙ ⌂',
@@ -174,7 +173,8 @@ scripts.mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame> * 2,
     '*': <actuallyadditions:block_crystal:3>, // Void Crystal Block
     '▄': <immersiveengineering:metal_decoration0:5>, // Heavy Engineering Block
   }).shaped(),
-  <liquid:glass> * 6000, null, 4);
+  <liquid:glass> * 6000);
+scripts.mods.forestry.alt.setMaxMult(<thermalexpansion:frame>, 4);
 
 // Removing craftable Bronze
 recipes.removeShapeless(<thermalfoundation:material:163> * 4,
@@ -561,14 +561,14 @@ for i in 0 .. 5 {
 
 // [Device Frame] from [Copper Gear][+2]
 recipes.remove(<thermalexpansion:frame:64>);
-scripts.mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame:64>, Grid(['pretty',
+mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame:64>, Grid(['pretty',
   '▬   ▬',
   '  C  ',
   '▬   ▬'], {
   'C': <ore:gearCopper>, // Copper Gear
   '▬': <ore:ingotTin>, // Tin Ingot
 }).shaped(), <liquid:glass> * 1000, <forestry:wax_cast:*>);
-scripts.mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame:64>, Grid(['pretty',
+mods.forestry.ThermionicFabricator.addCast(<thermalexpansion:frame:64>, Grid(['pretty',
   '▬ ▬ ▬',
   '▬ C ▬',
   '▬ ▬ ▬'], {

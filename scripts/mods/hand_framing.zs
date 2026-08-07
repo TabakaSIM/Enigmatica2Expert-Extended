@@ -15,9 +15,16 @@ import crafttweaker.data.IData;
 val HFT as IItemStack = <contenttweaker:hand_framing_tool>;
 
 // Match any opaque-cube ItemBlock — the only valid frame material.
+// Cached: this predicate runs for every stack of every recipe-match attempt.
+static framingCache as bool[string] = {};
+
 static framingMaterial as IIngredient = <*>.only(function (stack as IItemStack) as bool {
-  if (stack.isItemBlock) return stack.asBlock().definition.getStateFromMeta(stack.metadata).opaqueCube;
-  return false;
+  if (!stack.isItemBlock) return false;
+  val key = stack.definition.id ~ ':' ~ stack.metadata;
+  if (framingCache has key) return framingCache[key];
+  val isOpaque = utils.safeStateFromMeta(stack.asBlock(), stack.metadata).opaqueCube;
+  framingCache[key] = isOpaque;
+  return isOpaque;
 });
 
 // JEI preview ingredients: shown as the recipe's exemplar but ANY opaque block works.

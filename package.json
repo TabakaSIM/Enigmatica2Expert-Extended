@@ -19,6 +19,8 @@
     "dev:modlist": "mctools-modlist --old=../E2E-unchanged/minecraftinstance.json --verbose --ignore=dev/.devonly.ignore --template=dev/tools/modlist_template.md --sort=addonID",
     "dev:tcon": "mctools-tcon --default=dev/default_configs/tweakersconstruct.cfg --tweaks=dev/tools/tcon/tweaks --save=dev/tools/tcon/stats",
     "dev": "tsx dev/build/run-dev.ts",
+    "mc-cmd": "tsx .agents/skills/test-mc/run-cmd.ts",
+    "mc-profile": "tsx .agents/skills/test-mc/profile.ts",
     "mod-source": "tsx mc-tools/packages/source/src/cli.ts",
     "zsfind": "tsx mc-tools/packages/zsfind/src/cli.ts",
     "prettify": "mctools-format 'scripts/**/*.zs'",
@@ -26,8 +28,8 @@
     "reducer": "mctools-reducer",
     "tellme-prune": "tsx dev/tellme-prune.ts",
     "tips:sync": "tsx dev/hooks/tips.ts",
-    "ct-syntax": "npx tsx .agents/skills/zs/run-cmd.ts 'ct clean' 'ct syntax' && rg \"\\[(ERROR|FATAL|WARNING)\\]\" crafttweaker.log",
-    "ct-reload": "bash -c \"if npx tsx .agents/skills/zs/run-cmd.ts 'ct clean' 'ct syntax' && ! rg '\\\\[(ERROR|FATAL|WARNING)\\\\]' crafttweaker.log; then npx tsx .agents/skills/zs/run-cmd.ts 'ct reload' && rg '\\\\[(ERROR|FATAL|WARNING)\\\\]' crafttweaker.log -A 40; else echo ':: /ct reload blocked - fix syntax errors first'; fi\""
+    "ct-syntax": "bash -c \"tsx .agents/skills/test-mc/run-cmd.ts 'ct clean' 'ct syntax' && ! rg '\\\\[(ERROR|FATAL|WARNING)\\\\]' crafttweaker.log\"",
+    "ct-reload": "bash -c \"if tsx .agents/skills/test-mc/run-cmd.ts 'ct clean' 'ct syntax' && ! rg '\\\\[(ERROR|FATAL|WARNING)\\\\]' crafttweaker.log; then tsx .agents/skills/test-mc/run-cmd.ts 'ct reload' && ! rg '\\\\[(ERROR|FATAL|WARNING)\\\\]' crafttweaker.log -A 40; else echo ':: /ct reload blocked - fix syntax errors first' >&2; exit 1; fi\""
   },
   "dependencies": {
     "cheerio": "^1.2.0",

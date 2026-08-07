@@ -5,6 +5,8 @@ preferWorkspacePackages: true
 shellEmulator: true
 
 trustPolicy: no-downgrade
+
+reporter: silent
 packages:
   - mc-tools/packages/*
 onlyBuiltDependencies:

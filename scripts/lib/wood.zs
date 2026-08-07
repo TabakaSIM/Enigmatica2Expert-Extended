@@ -144,12 +144,24 @@ static logPlankFireproof as IItemStack[IItemStack] = {
   <forestry:logs.vanilla.fireproof.1>  : <forestry:planks.vanilla.fireproof.0:4>,
 } as IItemStack[IItemStack]$orderly;
 
+/*
+  ⚠ Ore names for wood MUST NOT start with `log`/`plank` followed by an uppercase
+  letter (same for `ore` `ingot` `nugget` `dust` `gem` `block` `plate` `seed` `crop`).
+  Thermal Expansion keys Pulverizer/Redstone Furnace recipes by the *first* ore name
+  of an item that passes CoFH `OreValidator`, and those prefixes are what it accepts.
+  Vanilla and Forestry register `logWood`/`plankWood` on the *wildcard* stack, while
+  names added here land on a concrete metadata — and CoFH `OreDictionaryArbiter`
+  lists per-meta names before wildcard ones. So `logNonfireproof` would outrank
+  `logWood`, the recipe lookup would miss and machines would refuse wood (issue #641).
+  Hence the noun goes last: `nonfireproofLog`, not `logNonfireproof`.
+*/
+
 // Create nonfireproof oredict
 function addToNonfireproof(list as IItemStack[IItemStack]) as void {
   for log, plank in list {
     if (isNull(log) || isNull(plank)) continue;
-    <ore:logNonfireproof>.add(log);
-    <ore:plankNonfireproof>.add(plank);
+    <ore:nonfireproofLog>.add(log);
+    <ore:nonfireproofPlank>.add(plank);
   }
 }
 
@@ -159,8 +171,8 @@ addToNonfireproof(logPlankForestry);
 // Create fireproof oredict
 for log, plank in logPlankFireproof {
   if (isNull(log) || isNull(plank)) continue;
-  <ore:logFireproof>.add(log);
-  <ore:plankFireproof>.add(plank);
+  <ore:fireproofLog>.add(log);
+  <ore:fireproofPlank>.add(plank);
 }
 
 // Merge lists to main one

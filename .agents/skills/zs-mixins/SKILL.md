@@ -20,6 +20,13 @@ description: Write/edit ZenUtils bytecode mixins in scripts/mixin/. Load when ed
 - helpers are Unavailable in `#loader mixin` scripts:
   * Helpers from zenutils, eg `mods.zenutils.*`
   * Crafttweaker types, eg `crafttweaker.item.IItemStack`
+- Every type here is native, so cast on the right (`val self = this0 as Target;`) — see "Cast on the right by default" in the `zs` skill.
+- Left-cast exception: a list you mutate in place — `val result as [T] = cir.getReturnValue();` (see `jer.zs`) — since a right cast can hand you a detached copy.
+- `this0` is already typed as the target (inherited members included), so casting it to that same type is redundant.
+- Nested targets need the binary name (`Outer$Inner`); a `.` only logs a WARNING, `this0` degrades to `Object` and the mixin never applies.
+- Two or more `targets` means no `this0` at all — take the instance from an injected parameter instead.
+- A script error doesn't abort the mixin — it is injected as a stub that NPEs when first called, so check `crafttweaker.log` for `[ERROR]`.
+- The mixin phase ends ~20s into boot (`MixinZS loaded.` in `logs/debug.log`) — watch for it instead of waiting for a full load.
 
 ## Target syntax
 

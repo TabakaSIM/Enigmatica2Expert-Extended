@@ -67,7 +67,7 @@ function buildSingularity(id as string, ore as string, charge as int = 30000, gl
   scripts.cot.def.Op.singularCharges.add(charge);
 }
 
-buildSingularity('woodweave', 'plankFireproof', 30000);
+buildSingularity('woodweave', 'fireproofPlank', 30000);
 buildSingularity('fish', 'listAllfishraw', 3000);
 buildSingularity('ball', 'itemBall', 2000000000);
 buildSingularity('meat', 'listAllmeatraw', 300000);

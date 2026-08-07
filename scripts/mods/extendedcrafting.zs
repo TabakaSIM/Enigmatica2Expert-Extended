@@ -46,11 +46,12 @@ scripts.processWork.workEx('AdvRockLathe', null, [<ore:ingotBlackIron>], null, [
 
 // Crafting Core
 recipes.remove(<extendedcrafting:crafting_core>);
-scripts.mods.forestry.Carpenter.addRecipe(<extendedcrafting:crafting_core>,
+mods.forestry.Carpenter.addRecipe(<extendedcrafting:crafting_core>,
   [[<extendedcrafting:material:18>, <extendedcrafting:material:18>, <extendedcrafting:material:18>],
     [<plustic:osmiridiumingot>, <extendedcrafting:pedestal>, <plustic:osmiridiumingot>],
     [<extendedcrafting:pedestal>, <extendedcrafting:pedestal>, <extendedcrafting:pedestal>]],
-  40, <liquid:coal> * 5000, null, 1);
+  40, <liquid:coal> * 5000);
+scripts.mods.forestry.alt.setMaxMult(<extendedcrafting:crafting_core>, 1);
 
 // [Quantum Compressor] from [Elite Compressing Factory][+4]
 craft.remake(<extendedcrafting:compressor>, ['pretty',
@@ -136,7 +137,7 @@ craft.remake(<extendedcrafting:table_ultimate>, ['pretty',
 
 // Pedestal
 recipes.remove(<extendedcrafting:pedestal>);
-scripts.mods.forestry.Carpenter.addRecipe(<extendedcrafting:pedestal>,
+mods.forestry.Carpenter.addRecipe(<extendedcrafting:pedestal>,
   [[null, <extendedcrafting:material:2>, null],
     [null, blackIron, null],
     [blackIron, <extendedcrafting:storage>, blackIron]],

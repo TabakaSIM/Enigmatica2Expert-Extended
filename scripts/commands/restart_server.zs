@@ -7,6 +7,7 @@ import mods.zenutils.StringList;
 import mods.zenutils.command.CommandUtils;
 import mods.zenutils.command.ZenCommand;
 
+import scripts.lib.command.isPlayerSender;
 import scripts.lib.expansions.ftblib.getFTBUPlayerData;
 import native.com.feed_the_beast.ftbutilities.FTBUtilitiesConfig;
 
@@ -97,7 +98,7 @@ function notifyActivePlayersAboutQuery(initiator as IPlayer) as void {
 
 cmd.requiredPermissionLevel = 0; // require no permission, everyone can execute the command.
 cmd.execute = function (command, server, sender, args) {
-  if (!(sender instanceof IPlayer)) {
+  if (!isPlayerSender(sender)) {
     if (!isNull(inProcess.restart)) {
       sender.sendMessage(game.localize('commands.restart_server.in_process'));
       return;

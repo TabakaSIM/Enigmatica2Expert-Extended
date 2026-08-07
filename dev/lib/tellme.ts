@@ -2,17 +2,28 @@ import { globSync } from 'tinyglobby'
 
 import { config, getCSV, loadText, naturalSort } from './utils.js'
 
+/**
+ * Read the most recent TellMe dump of given kind.
+ * Folder keeps every dump ever made, so oldest one would have outdated mod ids.
+ * @example tellmeCSV('items') // parsed 'config/tellme/items-csv_2026-08-03_11.40.11.csv'
+ */
+export function tellmeCSV<T = Record<string, string>>(kind: string): T[] {
+  const newest = globSync(`config/tellme/${kind}-csv*.csv`).sort(naturalSort).at(-1)
+  if (!newest) throw new Error(`No TellMe dump found for "${kind}"`)
+  return getCSV(newest) as T[]
+}
+
 let isBlocks: Set<string> | undefined
 export function isBlock(itemID: string): boolean {
   return (isBlocks ??= new Set(
-    (getCSV(globSync('config/tellme/blocks-csv*.csv')[0]) as Record<string, string>[]).map(o => o['Registry name'])
+    tellmeCSV('blocks').map(o => o['Registry name'])
   )).has(itemID)
 }
 
 let existOreDicts: Set<string> | undefined
 export function isODExist(oreName: string): boolean {
   return (existOreDicts ??= new Set(
-    (getCSV(globSync('config/tellme/items-csv*.csv')[0]) as Record<string, string>[])
+    tellmeCSV('items')
       .map(o => o['Ore Dict keys'].split(','))
       .flat()
   )).has(oreName)
@@ -21,14 +32,14 @@ export function isODExist(oreName: string): boolean {
 let existItems: Set<string> | undefined
 export function isItemExist(id: string): boolean {
   return (existItems ??= new Set(
-    (getCSV(globSync('config/tellme/items-csv*.csv')[0]) as Record<string, string>[]).map(o => o['Registry name'])
+    tellmeCSV('items').map(o => o['Registry name'])
   )).has(id.split(':').slice(0, 2).join(':'))
 }
 
 let existFluids: Set<string> | undefined
 export function isFluidExist(id: string): boolean {
   return (existFluids ??= new Set(
-    (getCSV(globSync('config/tellme/fluids-csv*.csv')[0]) as Record<string, string>[]).map(o => o.Name)
+    tellmeCSV('fluids').map(o => o.Name)
   )).has(id)
 }
 
@@ -61,7 +72,7 @@ export function getPurged(): Set<string> {
 let itemsTree: Record<string, Record<string, Set<string>>> | undefined
 
 export function getItemsTree() {
-  return itemsTree ??= (getCSV(globSync('config/tellme/items-csv*.csv')[0]) as Record<string, string>[]).reduce(
+  return itemsTree ??= tellmeCSV('items').reduce(
     (result, o) => {
       (result[o['Registry name']] ??= {})[o['Meta/dmg']] = new Set(
         o['Ore Dict keys'].split(',')
@@ -136,7 +147,7 @@ const getOresByRegexHash: Record<string, TMStack[]> = {}
 function getOresByRegex(rgx: RegExp): TMStack[] {
   if (!oresMap) {
     oresMap = new Map()
-    ;(getCSV(globSync('config/tellme/items-csv*.csv')[0]) as Record<string, string>[])
+    tellmeCSV('items')
       .filter(o => o['Ore Dict keys'])
       .map(tellmeToObj)
       .forEach((o) => {
@@ -290,7 +301,7 @@ export function smelt(tm: TMStack): TMStack | undefined {
   )
   if (!r) return undefined
 
-  const item = (getCSV(globSync('config/tellme/items-csv*.csv')[0]) as Record<string, string>[])
+  const item = tellmeCSV('items')
     .find(o => o['Registry name'] === r.out_id && o['Meta/dmg'] === (r.out_meta ?? '0'))
   return item ? tellmeToObj(item) : undefined
 }

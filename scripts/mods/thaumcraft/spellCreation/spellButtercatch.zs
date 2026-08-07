@@ -19,73 +19,71 @@ import native.thaumcraft.common.lib.network.PacketHandler;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellButtercatch extends FocusEffect {
+  zenConstructor() {
+    super();
+  }
 
-    zenConstructor() {
-        super();
+  //======================
+  //Set up some basic info
+  //======================
+
+  function getResearch() as string {
+    return 'BUTTERCATCH';
+  }
+
+  function getKey() as string {
+    return 'thaumcraft.BUTTERCATCH';
+  }
+
+  //===================================
+  //Set up focalmanipulator spell stats
+  //===================================
+
+  function getAspect() as Aspect {
+    return ThaumCraft.getAspect(Aspects('♒')[0]);
+  }
+
+  function getComplexity() as int {
+    return this.getSettingValue('range') / 5;
+  }
+
+  function createSettings() as NodeSetting[] {
+    return [
+      NodeSetting('range',     'focus.common.range',      NodeSetting.NodeSettingIntList([25, 75, 125, 250], ['25', '75', '125', '250'])),
+    ];
+  }
+
+  //==========================
+  //Set up executable function
+  //==========================
+
+  function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
+    val world = this.getPackage().world;
+    val pos = target.getBlockPos() ?? BlockPos(target.hitVec.x, target.hitVec.y, target.hitVec.z);
+    val range = this.getSettingValue('range');
+    PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
+
+    var didSomething = false;
+    for entity in world.wrapper.getEntities() {
+      if (entity.native instanceof IEntityButterfly && entity.native.getDistanceSq(pos) < 250) {
+        entity.position = pos.wrapper;
+        didSomething = true;
+      }
     }
+    if (didSomething) world.playSound(null, pos, SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.AMBIENT, 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
 
-    //======================
-    //Set up some basic info
-    //======================
+    return didSomething;
+  }
 
-    function getResearch() as string {
-        return 'BUTTERCATCH';
-    }
-    
-    function getKey() as string {
-        return 'thaumcraft.BUTTERCATCH';
-    }
+  function onCast(caster as Entity) {
 
-    //===================================
-    //Set up focalmanipulator spell stats
-    //===================================
-    
-    function getAspect() as Aspect {
-        return ThaumCraft.getAspect(Aspects('♒')[0]);
-    }
+  }
 
-    function getComplexity() as int {
-        return this.getSettingValue('range') / 5;
-    }
+  //==================
+  //Particle rendering
+  //==================
 
-    function createSettings() as NodeSetting[] {
-        return [
-            NodeSetting('range',     'focus.common.range',      NodeSetting.NodeSettingIntList([25, 75, 125, 250], ['25', '75', '125', '250']))
-        ];
-    }
-
-    //==========================
-    //Set up executable function
-    //==========================
-
-    function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
-        val world = this.getPackage().world;
-        val pos = target.getBlockPos() ?? BlockPos(target.hitVec.x, target.hitVec.y, target.hitVec.z);
-        val range = this.getSettingValue('range');
-        PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
-
-        var didSomething = false;
-        for entity in world.wrapper.getEntities() {
-            if (entity.native instanceof IEntityButterfly && entity.native.getDistanceSq(pos) < 250) {
-                entity.position = pos.wrapper;
-                didSomething = true;
-            }
-        }
-        if (didSomething) world.playSound(null, pos, SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.AMBIENT, 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
-
-        return didSomething;
-    }
-
-    function onCast(caster as Entity) {
-        
-    }
-
-    //==================
-    //Particle rendering
-    //==================
-
-    function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
-        if (!isNull(SpellFX.buttercatch)) SpellFX.buttercatch(this, world, posX, posY, posZ, motionX, motionY, motionZ);
-    }
-
+  function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
+    if (!isNull(SpellFX.buttercatch)) SpellFX.buttercatch(this, world, posX, posY, posZ, motionX, motionY, motionZ);
+  }
 }

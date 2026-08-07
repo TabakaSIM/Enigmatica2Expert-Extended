@@ -5,10 +5,12 @@ Modpack, Minecraft 1.12.2 Forge/Cleanroom. Active dev: ZenScript, mod configs, T
 ## Directories
 `scripts/` ZenScript · `config/` 400+ mod configs · `dev/` TS automation · `mc-tools/` CLI submodule (errors, manifest, modlist, tcon) · `resources/` pack overrides · `patchouli_books/` guidebook.
 
+`minecraftinstance.json` is one huge line — never `git log -p` it.
+
 ## Commits — Conventional Commits + mandatory emoji
 Format: `<type>(<scope>): <emoji><desc>` → blank → why (1 sentence, audience = players) → `Related: <hash>` if it fixes another commit's fallout.
 - Scopes: recipes quest config balance worldgen mods gear jei …
-- Pick the emoji used before for that file: `git log -n5 --pretty=%B -- <path>`.
+- Pick the emoji used before for that file: `git log -n20 --pretty=%B -- <path>`.
 - Wrap item names in `[]`; resolve an ID with `.agents/find-item.sh mod:item:meta`.
 
 ## Submodules

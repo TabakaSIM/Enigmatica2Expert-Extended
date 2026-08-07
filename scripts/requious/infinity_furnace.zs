@@ -23,7 +23,7 @@ craft.remake(<requious:infinity_furnace>, ['pretty',
   '# ▬ Ϟ ▬ #',
   'T R E R T'], {
   'R': <rats:rat_upgrade_basic_ratlantean>,
-  '#': <ore:logSequoia>,                          // Sequoia
+  '#': <ore:sequoiaLog>,                          // Sequoia
   'T': <mysticalagriculture:supremium_furnace>,
   'E': <contenttweaker:empowered_phosphor>,       // Empowered Phosphor
   'r': <rats:idol_of_ratlantis>,

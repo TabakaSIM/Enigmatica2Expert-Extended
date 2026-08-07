@@ -18,7 +18,7 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichor',
     'B': <psi:material:3>, // Ebony psi metal
     'I': <psi:material:4>, // Ivony psi metal
     'A': <ore:gemAmber>, // Amber
-}).shaped());
+  }).shaped());
 
 mods.astralsorcery.Lightwell.addLiquefaction(<kami:ichor>, <liquid:ichorium>, 0.1, 15.0, 15630848);
 mods.astralsorcery.Lightwell.addLiquefaction(<kami:ichor_block>, <liquid:ichorium>, 0.2, 75.0, 15630848);
@@ -35,7 +35,7 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichor_cloth',
     '  E  '], {
     'I': <kami:ichorium_ingot>,
     'E': <thaumcraft:fabric>,
-}).shaped());
+  }).shaped());
 
 mods.thaumcraft.ArcaneWorkbench.removeRecipe(<kami:blessed_silverwood_rod>);
 mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('blessed_silverwood_rod',
@@ -49,9 +49,8 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('blessed_silverwood_rod',
     'W E  '], {
     'I': <kami:ichorium_ingot>,
     'W': <thaumcraft:log_silverwood>,
-    'E': <randomthings:ingredient:5>
-}).shaped());
-
+    'E': <randomthings:ingredient:5>,
+  }).shaped());
 
 mods.thaumcraft.Infusion.removeRecipe(<kami:awakened_ichorium_sword>);
 mods.thaumcraft.Infusion.registerRecipe(
@@ -92,7 +91,7 @@ mods.thaumcraft.Infusion.registerRecipe(
   'KAMI_AWAKENED_ICHORIUM_AXE', // Research
   <kami:awakened_ichorium_axe>.withTag({ mode: 0, Unbreakable: 1 as byte }), // Output
   10, // Instability
-  
+
   Aspects('500🌱 200💪 200💣 200🛠️ 200🗯️ 200♾️'),
   <kami:ichorium_axe:*>, // CentralItem
   [<thaumadditions:mithminite_ingot>, <cyclicmagic:ender_lightning>, <bloodmagic:cutting_fluid:1>, <botania:lens:10>]
@@ -148,7 +147,7 @@ mods.thaumcraft.Infusion.registerRecipe(
   'KAMI_ICHORIUM_CASTER', // Research
   <kami:ichorium_caster>, // Output
   10, // Instability
-  
+
   Aspects('250✨ 250♾️ 150💪 250🔮 250〇'),
   <thaumicaugmentation:gauntlet:1>, // CentralItem
   [<thaumcraft:primordial_pearl:*>, <kami:ichorweave_fabric>, <kami:ichorium_ingot>, <kami:ichorweave_fabric>,  <kami:ichorium_ingot>, <kami:ichorweave_fabric>,  <kami:ichorium_ingot>, <kami:ichorweave_fabric>]
@@ -175,9 +174,9 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichorweave_hood',
     'E E E',
     'E I E',
     '     '], {
-    'I': <thaumcraft:void_robe_helm:*>, 
+    'I': <thaumcraft:void_robe_helm:*>,
     'E': <kami:ichorweave_fabric>,
-}).shaped());
+  }).shaped());
 
 mods.thaumcraft.ArcaneWorkbench.removeRecipe(<kami:ichorweave_robe>);
 mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichorweave_robe',
@@ -189,9 +188,9 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichorweave_robe',
     'E I E',
     'E E E',
     'E E E'], {
-    'I': <thaumcraft:void_robe_chest:*>, 
+    'I': <thaumcraft:void_robe_chest:*>,
     'E': <kami:ichorweave_fabric>,
-}).shaped());
+  }).shaped());
 
 mods.thaumcraft.ArcaneWorkbench.removeRecipe(<kami:ichorweave_leggings>);
 mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichorweave_leggings',
@@ -203,9 +202,9 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichorweave_leggings',
     'E E E',
     'E I E',
     'E   E'], {
-    'I': <thaumcraft:void_robe_legs:*>, 
+    'I': <thaumcraft:void_robe_legs:*>,
     'E': <kami:ichorweave_fabric>,
-}).shaped());
+  }).shaped());
 
 mods.thaumcraft.ArcaneWorkbench.removeRecipe(<kami:ichorweave_boots>);
 mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichorweave_boots',
@@ -217,6 +216,6 @@ mods.thaumcraft.ArcaneWorkbench.registerShapedRecipe('ichorweave_boots',
     '     ',
     'E   E',
     'E I E'], {
-    'I': <thaumicaugmentation:void_boots:*>, 
+    'I': <thaumicaugmentation:void_boots:*>,
     'E': <kami:ichorweave_fabric>,
-}).shaped());
+  }).shaped());

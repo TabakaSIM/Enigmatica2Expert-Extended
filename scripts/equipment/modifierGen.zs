@@ -26,6 +26,7 @@ import crafttweaker.util.Math.max;
 import crafttweaker.util.Math.min;
 
 import native.net.minecraft.item.ItemStack;
+import native.net.minecraft.enchantment.Enchantment;
 import native.net.minecraft.nbt.NBTTagList;
 import native.net.minecraft.nbt.NBTTagCompound;
 import native.net.minecraftforge.items.ItemStackHandler;
@@ -82,18 +83,26 @@ function cost(mod as IModifier) as int { return scripts.equipment.equipData.getM
 
 // Lowest difficulty at which a modifier of the given cost may appear.
 function unlockDifficulty(c as int) as double {
-  val ratio = c as double / getTopCost() as double;
+  val ratio = c as double / getTopCost();
   return pow(min(1.0, max(0.0, ratio)), 1.0 / UNLOCK_POW);
 }
 
 // -------------------------------
 // Native applicability filter  [#1]
 // -------------------------------
-// True only if `mod` is compatible with every trait & base modifier already on
-// the piece. Replicates IModifier.canApply's compatibility checks using only
-// boolean calls, so we never trip its TinkerGuiException throw path.
+// True only if `mod` is compatible with every trait, base modifier and
+// enchantment already on the piece. Replicates IModifier.canApply's
+// compatibility checks using only boolean calls, so we never trip its
+// TinkerGuiException throw path.
 function modCompatible(root as NBTTagCompound, mod as IModifier) as bool {
   if (isNull(root)) return true;
+  // Already granted by the material — Tinkers would refuse to apply it a second
+  // time ("max level reached" / "only once"), so it is not a valid pick either.
+  val id = mod.getIdentifier();
+  if (TinkerUtil.hasModifier(root, id)
+    || TinkerUtil.getIndexInList(TagUtil.getModifiersTagList(root), id) >= 0) {
+    return false;
+  }
   val traits = TagUtil.getTraitsTagList(root);
   for i in 0 .. traits.tagCount() {
     val t as ITrait = TinkerRegistry.getTrait(traits.getStringTagAt(i));
@@ -104,21 +113,34 @@ function modCompatible(root as NBTTagCompound, mod as IModifier) as bool {
     val m as IModifier = TinkerRegistry.getModifier(mods.getStringTagAt(i));
     if (!isNull(m) && (!mod.canApplyTogether(m) || !m.canApplyTogether(mod))) return false;
   }
+  // Enchantments baked in by material traits (e.g. sponge's `squeaky` grants
+  // Silk Touch) — canApply throws on these, so they must be filtered here.
+  val ench = root.getTagList('ench', 10);
+  for i in 0 .. ench.tagCount() {
+    val e = Enchantment.getEnchantmentByID(ench.getCompoundTagAt(i).getShort('id') as int);
+    if (!isNull(e) && !mod.canApplyTogether(e)) return false;
+  }
   return true;
 }
 
 // canApply is relatively expensive and runs on every spawned mob, so the
-// slot/category/custom verdict is cached per item definition. It is made
-// material-independent by stripping the scratch piece's material traits before
-// the canApply pass; the (cheap) material-specific trait/modifier compatibility
-// is then re-applied per piece below.
+// slot/category/custom verdict is cached per item definition. Everything the
+// material contributed is stripped from the scratch piece first, which both
+// makes the cached verdict material-independent and keeps canApply off all of
+// its TinkerGuiException paths (incompatible trait/modifier/enchantment, "max
+// level reached", "can only be applied once"). ZenScript has no try-catch, so a
+// single leftover would abort the whole spawn handler. The (cheap)
+// material-specific compatibility is re-applied per piece in modCompatible.
 static slotPoolCache as IModifier[][string] = {} as IModifier[][string];
 
 function buildSlotPool(item as IItemStack, isArmor as bool) as IModifier[] {
   val scratch = (item as ItemStack).copy();
   val sroot = scratch.tagCompound;
   if (!isNull(sroot)) {
-    TagUtil.setTraitsTagList(sroot, NBTTagList());        // ignore material traits for the cached verdict
+    TagUtil.setTraitsTagList(sroot, NBTTagList());        // material traits
+    TagUtil.setModifiersTagList(sroot, NBTTagList());     // ... their level data
+    TagUtil.setBaseModifiersTagList(sroot, NBTTagList()); // ... modifiers granted on build
+    sroot.removeTag('ench');                              // ... enchantments they baked in
     scratch.setTagCompound(sroot);
   }
   ToolUtils.getAndSetModifierCount(scratch, FILTER_BUDGET); // never starve the free-modifier check
@@ -161,7 +183,7 @@ function selectModifiers(candidates as IModifier[], difficulty as double, w as I
   }
   if (eligible.length == 0) return chosen;
 
-  var budget = pow(difficulty, BUDGET_POW) * getTopCost() as double;
+  var budget = pow(difficulty, BUDGET_POW) * getTopCost();
 
   // spend the budget on affordable, not-yet-chosen modifiers
   var guard = 0;
@@ -178,7 +200,7 @@ function selectModifiers(candidates as IModifier[], difficulty as double, w as I
   }
 
   // floor: guarantee a minimum headcount at high difficulty (cheapest first)
-  val minMods = ((difficulty * MIN_AT_FULL as double) + 0.5) as int;
+  val minMods = ((difficulty * MIN_AT_FULL) + 0.5) as int;
   guard = 0;
   while chosen.length < minMods && guard < 400 {
     guard += 1;
@@ -224,7 +246,7 @@ function applyLeveled(item as IItemStack, mod as IModifier, extra as int) as IIt
 }
 
 function rollExtraLevels(difficulty as double, w as IWorld) as int {
-  return rndCube(w) * difficulty * MAX_EXTRA_LEVELS as double + 0.0;
+  return rndCube(w) * difficulty * MAX_EXTRA_LEVELS + 0.0;
 }
 
 // -------------------------------
@@ -234,7 +256,7 @@ function randomFrom(loot as IItemStack[], difficulty as double, w as IWorld) as 
   if (loot.length == 0) return null;
   val base = loot[weightedIndex(loot.length, difficulty, w)];
   if (isNull(base)) return null;
-  val cnt = 1 + (w.random.nextDouble() * difficulty * 8.0) as int;
+  val cnt = 1 + (w.random.nextDouble() * difficulty * 8.0);
   return base * min(cnt, base.maxStackSize);
 }
 
@@ -245,7 +267,7 @@ function fillHandler(modTag as NBTTagCompound, key as string, size as int, loot 
     if (!isNull(existing) && existing.hasKey('Size')) handler.deserializeNBT(existing);
   }
   // fill a difficulty-scaled fraction of distinct slots (~25-85% at full difficulty)
-  val fillCount = min(size, 1 + ((0.25 + 0.6 * w.random.nextDouble()) * difficulty * size as double) as int);
+  val fillCount = min(size, 1 + ((0.25 + 0.6 * w.random.nextDouble()) * difficulty * size));
   for slot in 0 .. fillCount {
     val drop = randomFrom(loot, difficulty, w);
     if (!isNull(drop)) handler.setStackInSlot(slot, drop as ItemStack);
@@ -297,7 +319,7 @@ function applyDraconicTiers(item as IItemStack, isArmor as bool, difficulty as d
   for mod in scripts.equipment.utils_tcon.allDraconicMods {
     val id = mod.getIdentifier();
     if (!ToolUtils.hasModifier(st as ItemStack, id)) continue; // only the ones the material granted (already tier 0)
-    var bonus = (rndCube(w) * difficulty * (evolvedTier + 1) as double) as int;
+    var bonus = (rndCube(w) * difficulty * (evolvedTier + 1)) as int;
     if (difficulty >= 0.999) bonus = evolvedTier; // full material tier at max difficulty
     bonus = min(evolvedTier, bonus);
     // each extra application raises the upgrade one tier (it is already at tier 0)

@@ -18,9 +18,6 @@ mods.nuclearcraft.FissionModerator.add(<draconicevolution:infused_obsidian>, 46,
 mods.nuclearcraft.FissionModerator.add(<draconicevolution:draconium_block:1>, 52, 1.05);
 mods.nuclearcraft.FissionModerator.add(<draconicevolution:draconic_block>, 80, 1.20);
 
-// Unused category
-mods.jei.JEI.hideCategory('nuclearcraft_pebble_fission');
-
 // <ore:ingotPlutonium239> <=> <ic2:nuclear:3>
 <ore:ingotPlutonium239>.add(<ic2:nuclear:3>);
 <ore:ingotPlutonium239All>.add(<ic2:nuclear:3>);

@@ -4,8 +4,6 @@
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 
-mods.jei.JEI.hideCategory('mekanism.energizedsmelter');
-
 // Clear tooltip for Osmium Ore since its not spawned everywhere
 (<mekanism:oreblock> as IIngredient).removeTooltip('.*LSHIFT.*');
 (<mekanism:oreblock> as IIngredient).removeTooltip('.*any height.*');

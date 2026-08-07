@@ -21,7 +21,6 @@ import native.thaumcraft.common.lib.network.PacketHandler;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellChronostasis extends FocusEffect {
-
   zenConstructor() {
     super();
   }
@@ -33,7 +32,7 @@ zenClass SpellChronostasis extends FocusEffect {
   function getResearch() as string {
     return 'CHRONOSTASIS';
   }
-    
+
   function getKey() as string {
     return 'thaumcraft.CHRONOSTASIS';
   }
@@ -41,7 +40,7 @@ zenClass SpellChronostasis extends FocusEffect {
   //===================================
   //Set up focalmanipulator spell stats
   //===================================
-    
+
   function getAspect() as Aspect {
     return ThaumCraft.getAspect(Aspects('♾️')[0]);
   }
@@ -52,8 +51,8 @@ zenClass SpellChronostasis extends FocusEffect {
 
   function createSettings() as NodeSetting[] {
     return [
-      NodeSetting('range',      'focus.common.range',    NodeSetting.NodeSettingIntList( [1, 2, 3, 4], ['5', '10', '20', '40'])),
-      NodeSetting('duration',  'focus.common.duration',  NodeSetting.NodeSettingIntRange(1, 5))
+      NodeSetting('range',      'focus.common.range',    NodeSetting.NodeSettingIntList([1, 2, 3, 4], ['5', '10', '20', '40'])),
+      NodeSetting('duration',  'focus.common.duration',  NodeSetting.NodeSettingIntRange(1, 5)),
     ];
   }
 
@@ -63,17 +62,17 @@ zenClass SpellChronostasis extends FocusEffect {
 
   function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
     PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [this.getKey()]), NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
-    if(this.getPackage().getCaster() instanceof EntityPlayer){
+    if (this.getPackage().getCaster() instanceof EntityPlayer) {
       val player = this.getPackage().getCaster() as EntityPlayer;
       if (player.cooldownTracker.hasCooldown(<thaumcraft:caster_basic>.native.getItem())) return false;
-      
+
       val world = this.getPackage().world;
-      val range = 5 * pow(2, this.getSettingValue('range') - 1) ;
+      val range = 5 * pow(2, this.getSettingValue('range') - 1);
       val duration = (finalPower * this.getSettingValue('duration') * 10) as int;
       val pos = BlockPos(trajectory.source.add(trajectory.direction));
 
       player.cooldownTracker.setCooldown(<thaumcraft:caster_basic>.native.getItem(), duration);
-      
+
       TimeStopController.freezeWorldAt(TimeStopZone.EntityTargetController.noPlayers(), world, pos, true, range, duration);
       world.playSound(null, pos, SoundsTC.wand, SoundCategory.AMBIENT, 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
       return true;

@@ -1,6 +1,6 @@
-# ℹ️ Remove creation date.
-# › git config filter.ic2_config_date_update.clean "grep -v '^; created'"
-config/IC2.ini filter=ic2_config_date_update
+# ℹ️ Remove creation date and unwrap the lone CRs IC2 writes inside comments.
+# › git config filter.ic2_cleanup.clean "perl -0777 -pe 's/\r\n/\n/g; s/\r/\n/g; s/^; created .*\n//m'"
+config/IC2.ini filter=ic2_cleanup
 
 # › git config filter.remove_date.clean "sed 's/#... ... .*$//'"
 config/splash.properties filter=remove_date
@@ -24,6 +24,10 @@ config/jei/itemBlacklist.cfg filter=itemBlacklist
 # › git config filter.json-sorter.smudge "jq 'walk(if type==\"object\" then to_entries|sort_by(.key|ascii_downcase)|from_entries else . end)'"
 config/xaero/**/*.json filter=json-sorter
 config/crash_assistant/**/*.json filter=json-sorter
+
+# ℹ️ Blank out machine-local Relauncher settings (JDK path, dev-only flag).
+# › git config filter.relauncher_local.clean "jq -j '.javaPath=\"\" | .clearCleanroomFolder=true' | tr -d '\r'"
+config/relauncher.json filter=relauncher_local
 
 # ℹ️ Remove random values that change on every load.
 # › git config filter.enderio_cleanup.clean "sed 's/S:optifineConfirmed=.*/S:optifineConfirmed=0/; s/default: [I@[a-f0-9]*$/default: [I@00000000/"

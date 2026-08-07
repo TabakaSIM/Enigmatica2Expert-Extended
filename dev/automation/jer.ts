@@ -60,7 +60,7 @@ const main = defineCommand({
       description: `
 Filter entries matching key=glob (multiple rules separated by &&)
                                Example:
-                                 npx tsx dev/automation/jer.ts --removeif="block=botania:mushroom* && dim=!(*[(]{0,-1,1}[)])"
+                                 pnpm tsx dev/automation/jer.ts --removeif="block=botania:mushroom* && dim=!(*[(]{0,-1,1}[)])"
 `.trim(),
     },
   },

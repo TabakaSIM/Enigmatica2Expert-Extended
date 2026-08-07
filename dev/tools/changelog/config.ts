@@ -7,7 +7,7 @@ import type { CommitGroup, CommitKnownProps, FinalContext, Options as WriterOpti
 import type { ParserStreamOptions } from 'conventional-commits-parser'
 
 import type { Minecraftinstance } from '../../../mc-tools/packages/curseforge/src/minecraftinstance.js'
-// @ts-check
+
 import { existsSync, readFileSync } from 'node:fs'
 
 import { dirname, resolve } from 'node:path'
@@ -38,36 +38,49 @@ interface Config {
   scopes       : Record<string, string>
 }
 
-const configPath = resolve(__dirname, 'config.yml')
-if (!existsSync(configPath)) {
-  throw new Error(`Missing changelog config file: ${configPath}`)
+/**
+ * Read a file shipped alongside this config, failing with the full path.
+ * Tool-owned assets resolve from `__dirname`; repo content stays cwd-relative.
+ */
+function readAsset(...segments: string[]): string {
+  const path = resolve(__dirname, ...segments)
+  if (!existsSync(path)) {
+    throw new Error(`Missing changelog asset: ${path}`)
+  }
+  return readFileSync(path, 'utf8')
 }
 
-const config: Config = parse(readFileSync(configPath, 'utf8')) as Config
+const config: Config = parse(readAsset('config.yml')) as Config
 
 // Extract mod changes between tags
 async function getModChanges() {
-  const oldVersion = String(await $`git describe --tags --abbrev=0`)
-
-  const [fresh, old, template] = await Promise.all([
-    fs.readJson('minecraftinstance.json') as Promise<Minecraftinstance>,
-    (async () => {
-      const res = await $`git show tags/${oldVersion}:minecraftinstance.json`
-      return JSON.parse(String(res)) as Minecraftinstance
-    })(),
-    fs.readFile('dev/tools/changelog/modlist.md', 'utf8'),
-  ])
-
   const key = process.env.CF_API_KEY
   if (!key) {
     throw new Error('CF_API_KEY environment variable is required for changelog generation')
   }
 
+  const described = await $`git describe --tags --abbrev=0`.nothrow()
+  if (described.exitCode !== 0) {
+    throw new Error('Cannot determine the previous release: `git describe --tags` found no tag.\n'
+      + '  The mod-changes section compares against the latest tag, so at least one must exist.')
+  }
+  const oldVersion = described.stdout.trim()
+
+  const [fresh, old] = await Promise.all([
+    fs.readJson('minecraftinstance.json') as Promise<Minecraftinstance>,
+    (async () => {
+      // `.stdout`, not `String(res)`: the latter appends stderr, which would
+      // make `JSON.parse` choke on any warning git decides to print.
+      const res = await $`git show tags/${oldVersion}:minecraftinstance.json`
+      return JSON.parse(res.stdout) as Minecraftinstance
+    })(),
+  ])
+
   return generateModsList({
     fresh,
     old,
-    key     : String(key),
-    template: String(template),
+    key,
+    template: readAsset('modlist.md'),
   })
 }
 
@@ -96,8 +109,8 @@ interface CommitUnknownProps {
 type Commit = CommitKnownProps & CommitTemplateAdditionals & CommitUnknownProps
 
 const writer: WriterOptions = {
-  mainTemplate : readFileSync(resolve(__dirname, `templates/template.hbs`), 'utf8'),
-  commitPartial: readFileSync(resolve(__dirname, `templates/commit.hbs`), 'utf8'),
+  mainTemplate : readAsset('templates', 'template.hbs'),
+  commitPartial: readAsset('templates', 'commit.hbs'),
 
   commitGroupsSort: 'title',
   commitsSort     : (a: Commit, b: Commit) => (a.subject || '').localeCompare(b.subject || ''),

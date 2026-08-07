@@ -160,20 +160,6 @@
     "value": [-2,0]} 
  ]}
  
- ,{"key":"TT_SHARE_TOME", "ops":[
-   {"op":"replace",
-    "path":"name",
-    "value": "research_name.thaumadditions:knowledge_tome"},
-  {"op":"replace",
-    "path":"icons",
-    "value": ["thaumadditions:knowledge_tome"]}
-  ,{"op":"replace",
-   "path":"stages/0/text",
-   "value": "research_stage.thaumadditions:knowledge_tome.2"}
-  ,{"op":"replace",
-   "path":"stages/0/recipes",
-   "value": ["thaumcraft:knowledge_tome"]} 
- ]}
  
  ,{"key": "BASEALCHEMY","ops": [
    {"op": "add",
@@ -261,7 +247,10 @@
  ,{"key":"FIRSTSTEPS","ops":[
    {"op":"add",
    "path": "stages/2/recipes/-",
-   "value":["crafttweaker:[thaumonomicon lectern] from [lectern][+2]"]}
+   "value":"crafttweaker:[thaumonomicon lectern] from [lectern][+2]"}
+   ,{"op":"add",
+   "path": "stages/2/recipes/-",
+   "value":"thaumcraft:knowledge_tome"}
  ]}
 
  ,{"key":"TWOND_VOID_FORTRESS_ARMOR","ops":[
@@ -626,7 +615,7 @@
 ]}
 
 ,{"key":"FOCUSHEAL","ops":[
-  {"op":"replace",
+  {"op":"add",
   "path":"meta",
   "value": ["REVERSE"]},
   {"op":"replace",
@@ -904,13 +893,13 @@
 
 ,{"key":"TT_FELINE_CHARM","ops":[
   {"op":"replace",
-  "path":"stages/0/recipes",
+  "path":"stages/1/recipes",
   "value":["thaumcraft:feline_charm"]}
 ]}
 
 ,{"key":"TT_XP_TALISMAN","ops":[
   {"op":"replace",
-  "path":"stages/0/recipes",
+  "path":"stages/1/recipes",
   "value":["thaumcraft:xp_talisman"]}
 ]}
 
@@ -1561,8 +1550,6 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"remove",
-  "path": "meta"},
   {"op":"replace",
   "path":"location",
   "value": [9,4]}
@@ -1598,7 +1585,7 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"replace",
+  {"op":"add",
   "path": "meta",
   "value":["REVERSE"]},
   {"op":"replace",
@@ -1610,7 +1597,7 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"replace",
+  {"op":"add",
   "path": "meta",
   "value":["REVERSE"]},
   {"op":"replace",
@@ -1628,7 +1615,7 @@
   {"op":"replace",
   "path":"category",
   "value": "ELDRITCH"},
-  {"op":"replace",
+  {"op":"add",
   "path": "meta",
   "value":["REVERSE"]},
   {"op":"replace",

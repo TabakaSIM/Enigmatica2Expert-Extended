@@ -124,7 +124,7 @@ function tryConvertBlock(blockPos as IBlockPos, entityItem as IEntityItem, resul
     for state, chance in stateChance {
       if (blockState.block.definition.id != fluidToBlock[fluid]) continue;
 
-      val total = chance * entityItem.item.amount as double;
+      val total = chance * entityItem.item.amount;
       if (total < 1.0 && total < world.random.nextDouble()) {
         // Conversion failure
         (world.native as native.net.minecraft.world.WorldServer)

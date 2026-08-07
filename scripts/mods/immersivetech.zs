@@ -21,7 +21,7 @@ craft.shapeless(<immersivetech:stone_decoration> * 8, 'CCCC⌂CCCC', {
 
 // Oredict molten salt
 mods.immersivetechnology.MeltingCrucible.removeRecipe(<qmd:chemical_dust:3>);
-mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:moltensalt> * 400, <mekanism:saltblock>, 460, 2);
+mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:moltensalt> * 400, <mekanism:saltblock>, 2);
 
 // ------------------------------------------------------------------------
 // Harder Electolyze
@@ -62,11 +62,11 @@ mods.nuclearcraft.Melter.removeRecipeWithOutput(<liquid:diamond> *   74);
 mods.nuclearcraft.Melter.removeRecipeWithOutput(<liquid:diamond> *  666);
 mods.nuclearcraft.Melter.removeRecipeWithOutput(<liquid:diamond> * 1332);
 mods.nuclearcraft.Melter.removeRecipeWithOutput(<liquid:diamond> * 5994);
-mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *   74, <ore:nuggetDiamond>, 960, 4);
-mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *  165, <rats:rat_diamond>, 2400, 10);
-mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *  666, <ore:gemDiamond>, 9600, 40);
-mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *  666, <ore:dustDiamond>, 9600, 40);
-mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> * 5994, <ore:blockDiamond>, 96000, 400);
+mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *   74, <ore:nuggetDiamond>, 4);
+mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *  165, <rats:rat_diamond>, 10);
+mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *  666, <ore:gemDiamond>, 40);
+mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> *  666, <ore:dustDiamond>, 40);
+mods.immersivetechnology.MeltingCrucible.addRecipe(<liquid:diamond> * 5994, <ore:blockDiamond>, 400);
 
 // ------------------------------------------------------------------------
 // Steam compat
@@ -164,4 +164,4 @@ mods.immersivetechnology.GasTurbine.addFuel(<liquid:fluegas> * 5000, <liquid:die
 // ------------------------------------------------------------------------
 
 // Alt recipe for Pahoehoe
-mods.immersivetechnology.Radiator.addRecipe(<liquid:ic2pahoehoe_lava> * 1, <liquid:lava> * 1000, 5);
+mods.immersivetechnology.Radiator.addRecipe(<liquid:ic2pahoehoe_lava> * 1000, <liquid:lava> * 1000, 5);

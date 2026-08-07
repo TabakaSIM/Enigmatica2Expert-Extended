@@ -502,7 +502,7 @@ mods.tconstruct.Casting.addTableRecipe(
 );
 
 // Alt recipe
-scripts.mods.forestry.ThermionicFabricator.addCast(<tconstruct:clear_glass> * 16, Grid([
+mods.forestry.ThermionicFabricator.addCast(<tconstruct:clear_glass> * 16, Grid([
   'ggg', 'g g', 'ggg'], {
   'g': <ore:blockGlass>,
 }).shaped(), <liquid:glass> * 6000, <forestry:wax_cast:*>);

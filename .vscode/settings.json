@@ -93,6 +93,10 @@
     "mc-tools"
   ],
 
+  // MC Tools: the manifest.json watcher must produce the same file `pnpm dev:manifest`
+  // does, otherwise every Minecraft launch re-adds dev-only mods and dirties the tree.
+  "mc-tools.manifest.ignorePath": "dev/.devonly.ignore",
+
   // Schema for Village Trade Table mod (helping to not make mistakes)
   "json.schemas": [
     {

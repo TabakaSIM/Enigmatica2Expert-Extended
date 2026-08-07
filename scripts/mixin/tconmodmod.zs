@@ -13,7 +13,7 @@ zenClass MixinModReinforcedTMM {
     val level = ModifierNBT.readTag(modifierTag).level as int;
     if (level <= 0) return 0.0f;
     if (level >= 10) return 1.0f;
-    return 1.0f - pow(0.5, level) as float;
+    return 1.0f - pow(0.5, level);
   }
 
   #mixin Redirect { method: 'getExtraInfo', at: { value: 'INVOKE', target: 'Ljava/text/DecimalFormat;format(D)Ljava/lang/String;' } }
@@ -30,7 +30,7 @@ zenClass MixinModReinforcedConArmTMM {
     val level = ModifierNBT.readTag(modifierTag).level as int;
     if (level <= 0) return 0.0f;
     if (level >= 10) return 1.0f;
-    return 1.0f - pow(0.5, level) as float;
+    return 1.0f - pow(0.5, level);
   }
 
   #mixin Redirect { method: 'getExtraInfo', at: { value: 'INVOKE', target: 'Ljava/text/DecimalFormat;format(D)Ljava/lang/String;' } }

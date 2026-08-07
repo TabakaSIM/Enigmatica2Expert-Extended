@@ -4,8 +4,6 @@ import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import mods.requious.AssemblyRecipe;
 
-mods.jei.JEI.hideCategory('actuallyadditions.crushing');
-
 val x = <assembly:crafting_hints>;
 x.addJEIRecipe(AssemblyRecipe.create(function (c) {
   c.addFluidOutput('fluid_out', <liquid:canolaoil> * 80);

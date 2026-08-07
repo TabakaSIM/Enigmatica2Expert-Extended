@@ -1,4 +1,6 @@
 /* eslint-disable antfu/no-top-level-await */
+import type { UpdateBox } from './build_utils.js'
+
 import process from 'node:process'
 
 import { consola } from 'consola'
@@ -8,9 +10,18 @@ import { replaceInFileSync } from 'replace-in-file'
 import Client from 'ssh2-sftp-client'
 import { $, fs, glob } from 'zx'
 
-import { confirm, getBoxForLabel } from './build_utils.js'
+import { confirm, formatError, getBoxForLabel } from './build_utils.js'
 
 const { readFileSync, writeFileSync, unlinkSync, existsSync, statSync } = fs
+
+/** `  modpackUrl: https://…/E2E-Extended-v1.2.3.zip` — groups: the `key:` prefix, the URL. */
+const MODPACK_URL_RE = /^([ \t]*modpackUrl[ \t]*:[ \t]*)(\S+)[ \t]*$/m
+
+/**
+ * The `localFiles:` key plus every entry/comment line indented under it.
+ * Each repetition starts at a literal newline, so lines cannot be split apart.
+ */
+const LOCAL_FILES_RE = /^([ \t]*)localFiles:[ \t]*$(?:\n[ \t]*[#-][^\n]*)*\n?/m
 
 interface SftpConfig {
   host?        : string
@@ -49,16 +60,18 @@ export async function manageSFTP(serverSetupConfig: string = 'server/server-setu
     return
   }
 
-  const currentVersion = (await $`git describe --tags --abbrev=0`.text()).trim()
+  // `.stdout`, not `.text()`: the latter also carries stderr into the version string.
+  const described = await $`git describe --tags --abbrev=0`.nothrow()
+  const currentVersion = described.exitCode === 0 ? described.stdout.trim() : ''
+  if (!currentVersion)
+    consola.warn('No git tag found — the server version banner will be left blank.')
 
   // Build the temp server-setup-config.yaml that points overrides/ -> .
   const serverConfigTmp = '~tmp-server-setup-config.yaml'
   const confSource = readFileSync(serverSetupConfig, 'utf8')
   const confText = confSource.replace(
-    /(localFiles:\s*)\n +\S.*\n +\S.*$/m,
-    `$1
-    - from: overrides/
-      to: .`
+    LOCAL_FILES_RE,
+    (_full, indent: string) => `${indent}localFiles:\n${indent}  - from: overrides/\n${indent}    to: .\n`
   )
   if (confText === confSource) {
     consola.warn(`Could not patch "localFiles:" block in ${serverSetupConfig} — `
@@ -121,8 +134,8 @@ function validateSftpConfig(config: SftpConfig): string[] {
   if (!config.password && !config.privateKey)
     problems.push('missing credentials: provide either "password" or "privateKey"')
 
-  if (config.port !== undefined && Number.isNaN(Number(config.port)))
-    problems.push(`"port" is not a number: ${JSON.stringify(config.port)}`)
+  if (config.port !== undefined && !isValidPort(config.port))
+    problems.push(`"port" is not a valid port number (1-65535): ${JSON.stringify(config.port)}`)
 
   // privateKey in ssh2 must be the key *contents*, not a path. Catch the common
   // mistake of passing a file path that doesn't even exist on disk.
@@ -138,74 +151,53 @@ function validateSftpConfig(config: SftpConfig): string[] {
   return problems
 }
 
-/**
- * Turn a raw connection/transfer error into an explanation a human can act on.
- */
-function describeSftpError(error: unknown, config: SftpConfig): string {
-  const err = error as NodeJS.ErrnoException & { level?: string }
-  const host = config.host ?? '<unknown host>'
-  const port = config.port ?? 22
-  const target = `${host}:${port}`
-
-  switch (String(err.code)) {
-    case 'ENOTFOUND':
-      return `Host "${host}" could not be resolved (DNS lookup failed). `
-        + 'Check the "host" value for typos and your internet/VPN connection.'
-    case 'ECONNREFUSED':
-      return `Connection refused by ${target}. `
-        + 'The SFTP/SSH server is not accepting connections there — check it is running and the "port" is correct.'
-    case 'ETIMEDOUT':
-    case 'ERR_SOCKET_CONNECTION_TIMEOUT':
-      return `Connection to ${target} timed out. `
-        + 'The server is unreachable, a firewall is blocking it, or the host/port is wrong.'
-    case 'ECONNRESET':
-      return `Connection to ${host} was reset. The server closed the link unexpectedly (restart, idle timeout, or fail2ban?).`
-    case 'EHOSTUNREACH':
-      return `Host ${host} is unreachable. Check the network route / VPN.`
-    case 'ENETUNREACH':
-      return `Network unreachable while connecting to ${host}. Check your internet connection.`
-    case 'EPIPE':
-      return `Connection to ${host} broke mid-transfer (broken pipe). Retry — the server may have dropped the session.`
-    case 'ENOSPC':
-      return `Remote server ${host} is out of disk space (ENOSPC).`
-    case 'EACCES':
-    case 'EPERM':
-      return `Permission denied on ${host}. The user "${config.username}" lacks rights for that path.`
-    case 'ENOENT':
-      return `A path does not exist. Check "mc_root" (${config.mc_root ?? 'not set'}) on ${host} and local file paths.`
-    default:
-      break
-  }
-
-  const msg = err.message || String(error)
-
-  if (
-    err.level === 'client-authentication'
-    || /authentication|all configured authentication methods failed|permission denied/i.test(msg)
-  ) {
-    return `Authentication failed for user "${config.username}" on ${host}. `
-      + 'Check "username", "password"/"privateKey"'
-      + `${config.privateKey ? ' and "passphrase"' : ''}.`
-  }
-
-  if (/handshake/i.test(msg)) {
-    return `SSH handshake with ${host} failed. `
-      + 'The server may require key algorithms this client does not offer, or it is not an SSH/SFTP server.'
-  }
-
-  if (/time?d? ?out/i.test(msg))
-    return `Operation timed out talking to ${host}. ${msg}`
-
-  return `${msg}${err.code ? ` (code: ${err.code})` : ''}`
+/** `Number('')` and `Number(' ')` are `0`, so an empty port must be rejected explicitly. */
+function isValidPort(port: string | number): boolean {
+  const parsed = typeof port === 'string' ? Number(port.trim() || Number.NaN) : port
+  return Number.isInteger(parsed) && parsed > 0 && parsed <= 65535
 }
 
+/**
+ * Report an SFTP failure as it actually happened.
+ *
+ * Deliberately never guesses at a cause: a previous version pattern-matched the
+ * message and reported a remote "Permission denied" (SFTP status 3, thrown by
+ * `fastPut` long after login) as an authentication failure, which sent everyone
+ * looking at credentials that were fine. Print the real error plus the facts
+ * from the config needed to locate it, and nothing else.
+ */
+function describeSftpError(error: unknown, config: SftpConfig): string {
+  const target = `${config.username ?? '<no username>'}@${config.host ?? '<no host>'}:${config.port ?? 22}`
+  return `${formatError(error)}\n  target: ${target}  mc_root: ${config.mc_root ?? '<not set>'}`
+}
+
+/**
+ * Upload to one server, offering another attempt after every failure.
+ *
+ * Most things that break here — a dropped VPN, a wrong `mc_root`, a server-side
+ * permission — are fixed in another window in under a minute, and skipping would
+ * throw away a whole upload for that.
+ */
 async function uploadToServer(
   conf: LoadedConfig,
   ctx: { serverConfigTmp: string, confText: string, currentVersion: string }
 ) {
-  const { serverConfigTmp, confText, currentVersion } = ctx
-
   if (!await confirm(`Upload SFTP ${conf.label}?`)) return
+
+  while (!await attemptUpload(conf, ctx)) {
+    if (!await confirm(`Retry upload to SFTP ${conf.label}?`)) {
+      consola.warn(`SFTP "${conf.label}" skipped — the server still holds the previous version.`)
+      return
+    }
+  }
+}
+
+/** One connect-and-upload round trip. @returns whether it went through. */
+async function attemptUpload(
+  conf: LoadedConfig,
+  ctx: { serverConfigTmp: string, confText: string, currentVersion: string }
+): Promise<boolean> {
+  const { serverConfigTmp, confText, currentVersion } = ctx
 
   const sftp = new Client()
   const updateBox = getBoxForLabel(conf.label || '')
@@ -222,59 +214,68 @@ async function uploadToServer(
       ...port !== undefined ? { port: Number(port) } : {},
     })
     connected = true
-  }
-  catch (error) {
-    logUpdate.done()
-    consola.error(`Cannot connect to SFTP "${conf.label}": ${describeSftpError(error, conf.config)}`)
-    return
-  }
 
-  try {
-    if (conf.config.offline)
-      await uploadOffline(sftp, conf, { serverConfigTmp, confText, updateBox, basePath })
-    else
-      await uploadOnline(sftp, conf, { serverConfigTmp, currentVersion, updateBox, basePath })
+    const uploaded = conf.config.offline
+      ? await uploadOffline(sftp, conf, { serverConfigTmp, confText, updateBox, basePath })
+      : await uploadOnline(sftp, conf, { serverConfigTmp, updateBox, basePath })
+
+    // Both modes need this: the version banner and the server-only overrides are
+    // not part of the modpack zip, and `localFiles: overrides/ -> .` re-copies
+    // whatever sits in the remote `overrides/` on every install — a stale file
+    // there silently overwrites the fresh config of every later release.
+    if (uploaded)
+      await uploadOverrides(sftp, conf, { currentVersion, updateBox, basePath })
+
+    return true
   }
   catch (error) {
     logUpdate.done()
-    consola.error(`Upload to SFTP "${conf.label}" failed: ${describeSftpError(error, conf.config)}`)
+    const stage = connected ? 'Upload to' : 'Connection to'
+    consola.error(`${stage} SFTP "${conf.label}" failed: ${describeSftpError(error, conf.config)}`)
+    return false
   }
   finally {
     if (connected) {
       try {
         await sftp.end()
       }
-      catch {
-        // Closing an already-dead connection is not worth surfacing.
+      catch (error) {
+        // Closing an already-dead connection is expected after a failed upload,
+        // so this is not an error — but it is never hidden either.
+        consola.debug(`Closing SFTP "${conf.label}" failed: ${formatError(error)}`)
       }
     }
   }
 }
 
+/** @returns whether the pack was actually uploaded — `false` when there was nothing to send. */
 async function uploadOffline(
   sftp: Client,
   conf: LoadedConfig,
   { serverConfigTmp, confText, updateBox, basePath }:
-  { serverConfigTmp: string, confText: string, updateBox: (...a: any[]) => void, basePath: string }
-) {
-  const offlineConfigTmp = `~${serverConfigTmp}`
-  const zipRgx = `https:\/\/github.com\/Krutoy242\/Enigmatica2Expert-Extended\/releases\/download\/[^/]+\/`
-  const zipName = confText.match(new RegExp(`${zipRgx}(.+)`))?.[1]
-  const zipPath = join('dist', zipName || '')
-
+  { serverConfigTmp: string, confText: string, updateBox: UpdateBox, basePath: string }
+): Promise<boolean> {
+  // Derived from the config instead of a hardcoded repo URL, so renaming the
+  // repo or hosting the zip elsewhere cannot silently break offline uploads.
+  const zipName = confText.match(MODPACK_URL_RE)?.[2].split('/').pop()
   if (!zipName) {
     logUpdate.done()
-    consola.warn(`Offline upload for "${conf.label}" skipped: could not find modpack zip URL in the config.`)
-    return
+    consola.warn(`Offline upload for "${conf.label}" skipped: no "modpackUrl:" found in the server setup config.`)
+    return false
   }
+
+  const zipPath = join('dist', zipName)
   if (!existsSync(zipPath)) {
     logUpdate.done()
     consola.warn(`Offline upload for "${conf.label}" skipped: modpack zip not built at "${zipPath}".\n  `
       + 'Run the "Create EN .zip" build step first.')
-    return
+    return false
   }
 
-  writeFileSync(offlineConfigTmp, confText.replace(new RegExp(zipRgx), 'file://'))
+  // The server downloads the pack from its own folder rather than from GitHub.
+  const offlineConfigTmp = `~${serverConfigTmp}`
+  // Function form: a `$` in the file name must not be read as a replacement pattern.
+  writeFileSync(offlineConfigTmp, confText.replace(MODPACK_URL_RE, (_full, prefix: string) => `${prefix}file://${zipName}`))
   updateBox(`[Upload Offline mode]`, `\n${offlineConfigTmp}\n${zipPath}`)
   try {
     // Small config first, then the big zip with a live progress indicator.
@@ -284,6 +285,8 @@ async function uploadOffline(
   finally {
     if (existsSync(offlineConfigTmp)) unlinkSync(offlineConfigTmp)
   }
+
+  return true
 }
 
 /**
@@ -296,7 +299,7 @@ async function fastPutWithProgress(
   local: string,
   remote: string,
   label: string,
-  updateBox: (...a: any[]) => void
+  updateBox: UpdateBox
 ) {
   const total = statSync(local).size
   const startTime = Date.now()
@@ -349,15 +352,16 @@ function progressBar(ratio: number, width = 24): string {
   return `${'█'.repeat(filled)}${'░'.repeat(width - filled)}`
 }
 
-function formatBytes(n: number): string {
-  if (!Number.isFinite(n) || n < 0) return '?'
+function formatBytes(bytes: number): string {
+  if (!Number.isFinite(bytes) || bytes < 0) return '?'
   const units = ['B', 'KB', 'MB', 'GB', 'TB']
+  let value = bytes
   let i = 0
-  while (n >= 1024 && i < units.length - 1) {
-    n /= 1024
+  while (value >= 1024 && i < units.length - 1) {
+    value /= 1024
     i++
   }
-  return `${n.toFixed(i === 0 || n >= 100 ? 0 : 1)} ${units[i]}`
+  return `${value.toFixed(i === 0 || value >= 100 ? 0 : 1)} ${units[i]}`
 }
 
 function formatDuration(sec: number): string {
@@ -371,15 +375,25 @@ function formatDuration(sec: number): string {
   return `${ss}s`
 }
 
+/** The server downloads the pack itself, so only the setup config goes up here. */
 async function uploadOnline(
   sftp: Client,
   conf: LoadedConfig,
-  { serverConfigTmp, currentVersion, updateBox, basePath }:
-  { serverConfigTmp: string, currentVersion: string, updateBox: (...a: any[]) => void, basePath: string }
-) {
+  { serverConfigTmp, updateBox, basePath }:
+  { serverConfigTmp: string, updateBox: UpdateBox, basePath: string }
+): Promise<boolean> {
   updateBox(`Copy ${serverConfigTmp}`)
   await sftp.fastPut(serverConfigTmp, posix.join(basePath, 'server-setup-config.yaml'))
+  return true
+}
 
+/** Stamp the release into the Discord start banner and push the server-only overrides. */
+async function uploadOverrides(
+  sftp: Client,
+  conf: LoadedConfig,
+  { currentVersion, updateBox, basePath }:
+  { currentVersion: string, updateBox: UpdateBox, basePath: string }
+) {
   updateBox('Change and copy server overrides')
   const mc2discordPath = join(conf.dir, 'overrides/config/mc2discord.toml')
   if (!existsSync(mc2discordPath)) {

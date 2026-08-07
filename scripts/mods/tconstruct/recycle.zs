@@ -177,7 +177,7 @@ function disassemble(ins as IItemStack[string]) as IItemStack {
 
   // 4️⃣ Amount of Shard Stacks
   val poverValue = max(1.0, sqrt(average_power / 3.0)) as int;
-  val durabValue = 1.0 - ins.t.damage as double / ins.t.maxDamage as double;
+  val durabValue = 1.0 - ins.t.damage as double / ins.t.maxDamage;
 
   val shard = getShard(ins.t, average_level, poverValue, durabValue);
 

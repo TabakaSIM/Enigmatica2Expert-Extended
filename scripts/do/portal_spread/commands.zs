@@ -11,9 +11,9 @@
 #modloaded zenutils
 #priority -1
 
-import crafttweaker.player.IPlayer;
 import crafttweaker.world.IWorld;
 
+import scripts.lib.command.senderAsPlayerOrNull;
 import scripts.do.portal_spread.config.Config;
 import scripts.do.portal_spread.data.getDimsMap;
 import scripts.do.portal_spread.data.getPortalDataMap;
@@ -42,8 +42,9 @@ cmd.tabCompletionGetters = [tabCompletion];
 cmd.execute = function (command, server, sender, args) {
   if (args.length == 1) {
     if (args[0] == 'status') {
-      val world = sender instanceof IPlayer
-        ? mods.zenutils.command.CommandUtils.getCommandSenderAsPlayer(sender).world
+      val cmdPlayer = senderAsPlayerOrNull(sender);
+      val world = !isNull(cmdPlayer)
+        ? cmdPlayer.world
         : server.players.length > 0
           ? server.players[0].world
           : IWorld.getFromID(0);

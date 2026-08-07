@@ -1,4 +1,6 @@
-#modloaded thaumadditions
+// Should be `thaumadditions`, but ZenUtils reads modid from mcmod.info verbatim
+// https://github.com/friendlyhj/ZenUtils/issues/138
+#modloaded thaumicadditions
 #priority -1
 
 import crafttweaker.block.IBlock;

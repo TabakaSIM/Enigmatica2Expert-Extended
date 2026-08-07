@@ -9,12 +9,10 @@
 
 import { consola } from 'consola'
 import fse from 'fs-extra'
-import { globSync } from 'tinyglobby'
 
-import { getPurged, getSubMetas } from '../lib/tellme.js'
+import { getPurged, getSubMetas, tellmeCSV } from '../lib/tellme.js'
 import {
   config,
-  getCSV,
 } from '../lib/utils.js'
 
 const { readFileSync, writeFileSync } = fse
@@ -41,8 +39,8 @@ export async function init() {
 
   const pure: string[] = []
 
-  const modList = getCSV(globSync('config/tellme/mod-list-csv*.csv')[0]) as ModListItem[]
-  const itemsCsv = getCSV(globSync('config/tellme/items-csv*.csv')[0]) as ItemCsvItem[]
+  const modList = tellmeCSV<ModListItem>('mod-list')
+  const itemsCsv = tellmeCSV<ItemCsvItem>('items')
   const definitions: Record<string, boolean> = Object.fromEntries(itemsCsv.map(o => [o['Registry name'], true]))
 
   const cfg = config(jeiConfigPath)

@@ -13,7 +13,7 @@ Two commands cover the normal cycle — change something, reboot, confirm it loa
 ```sh
 pnpm reducer restart --detach              # (optionally change mods first) reboot, return in ~5s
 pnpm reducer ready --wait                  # block until the game is loaded & ready for commands
-npx tsx .agents/skills/zs/run-cmd.ts 'say hi'   # now run in-game commands (see the `zs` skill)
+pnpm mc-cmd 'say hi'                       # now run in-game commands (see the `test-mc` skill)
 ```
 - `restart --detach` launches and returns immediately — **use it for a full-pack
   boot** (minutes, longer than the shell timeout). `ready`/`ready --wait` then
@@ -106,6 +106,8 @@ a clear message and leaves the session open for `--continue` after you free it. 
 plain `pnpm reducer restart` always proceeds (it only warns about a stale record).
 
 ## Launcher override
-Default launcher is PrismLauncher (Windows). To use another, set
+Default launcher is PrismLauncher (Windows); of the instances pointing at this
+pack it picks the most recently launched one, and logs it as
+`E2EE · MC 1.12.2 · Forge 14.23.5.2860`. To use another launcher, set
 `launcher: { kind: command, launch: "<shell cmd>", processName: "javaw.exe" }`
 in `<mc>/reducer.config.yml`, or `REDUCER_LAUNCHER=command`.

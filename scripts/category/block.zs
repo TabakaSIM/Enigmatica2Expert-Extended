@@ -135,7 +135,7 @@ set(4, 'axe', <botania:livingwood0wall:*>, 8);
 set(4, 'axe', <botania:livingwood1slab:*>, 8);
 set(4, 'axe', <botania:livingwood1slabfull:*>, 8);
 set(4, 'axe', <botania:livingwood1stairs:*>, 8);
-set(4, 'axe', <ore:logSequoia>);
+set(4, 'axe', <ore:sequoiaLog>);
 set(4, 'pickaxe', <biomesoplenty:gem_ore:*>, 8);
 set(4, 'pickaxe', <botania:livingrock:*>, 8);
 set(4, 'pickaxe', <botania:pool:*>, 8);

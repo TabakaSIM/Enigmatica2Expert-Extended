@@ -9,6 +9,7 @@
 #priority 4000
 #reloadable
 
+import crafttweaker.block.IBlock;
 import crafttweaker.block.IBlockState;
 import crafttweaker.command.ICommandSender;
 import crafttweaker.data.IData;
@@ -19,6 +20,7 @@ import crafttweaker.oredict.IOreDictEntry;
 import crafttweaker.recipes.IRecipeFunction;
 import crafttweaker.world.IWorld;
 import crafttweaker.world.IBlockPos;
+import native.net.minecraft.block.Block;
 import native.net.minecraft.util.SoundCategory;
 import native.net.minecraft.util.SoundEvent;
 import native.net.minecraft.util.EnumParticleTypes;
@@ -217,8 +219,8 @@ zenClass Utils {
     val stepY = options?.y?.step;
 
     // Determine doulbe steps
-    val intervalX = (maxX - minX) / max(1, width - 1) as double;
-    val intervalY = (maxY - minY) / max(1, height - 1) as double;
+    val intervalX = (maxX - minX) / max(1, width - 1);
+    val intervalY = (maxY - minY) / max(1, height - 1);
 
     // Write result
     val result as string[][double[string]] = {};
@@ -507,6 +509,20 @@ zenClass Utils {
     return false;
   }
 
+  // Same as `IBlockDefinition.getStateFromMeta`, but never throws.
+  // Some blocks restrict a property to a subset of its values while their
+  // `getStateFromMeta` still maps raw meta onto the full set, so the vanilla
+  // call dies with `Cannot set property ... it is not an allowed value`
+  // (e.g. `bithop:screwhop` meta 0 -> `facing=down`). Walking the block's own
+  // valid states can only ever yield states the block accepts.
+  function safeStateFromMeta(block as IBlock, meta as int) as IBlockState {
+    val nativeBlock as Block = block.native;
+    for state in nativeBlock.blockState.validStates {
+      if (nativeBlock.getMetaFromState(state) == meta) return state.wrapper;
+    }
+    return nativeBlock.defaultState.wrapper;
+  }
+
   // Convert item to block.
   // Handle special cases when `asBlock` not propertly working
   function getStateFromItem(item as IItemStack) as IBlockState {
@@ -514,9 +530,7 @@ zenClass Utils {
     val trueItem = item.damage == 32767 ? item.withDamage(0) : item;
     val block = trueItem.asBlock();
     if (isNull(block)) return null;
-    val def = block.definition;
-    val state = def.getStateFromMeta(block.meta);
-    return state;
+    return safeStateFromMeta(block, block.meta);
   }
 
   function abs(n as double) as double { return n < 0 ? -n : n; }

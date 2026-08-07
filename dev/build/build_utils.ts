@@ -13,7 +13,87 @@ import logUpdate from 'log-update'
 import { $ } from 'zx'
 
 const { rmSync } = fse
-const $$ = $({ stdio: 'inherit', verbose: true })
+
+/** Shape of the extra fields errors carry in practice — axios responses, Node syscalls, `AggregateError`. */
+interface ErrorLike {
+  cause?   : unknown
+  code?    : string | number
+  config?  : { method?: string, url?: string }
+  errors?  : unknown[]
+  message? : string
+  name?    : string
+  response?: { status?: number, statusText?: string }
+  stack?   : string
+  syscall? : string
+}
+
+/** `read ECONNRESET` alone says nothing — pull out everything that identifies *which* call died. */
+function errorDetails(e: ErrorLike): string[] {
+  const details: string[] = []
+  if (e.code !== undefined) details.push(`code ${e.code}`)
+  if (e.syscall) details.push(`syscall ${e.syscall}`)
+  if (e.response?.status) details.push(`HTTP ${e.response.status}${e.response.statusText ? ` ${e.response.statusText}` : ''}`)
+  if (e.config?.url) details.push(`${(e.config.method ?? 'get').toUpperCase()} ${e.config.url}`)
+  return details
+}
+
+/**
+ * Human-readable description of anything thrown: the message plus the request /
+ * syscall that produced it, then the whole `cause` chain, then any nested
+ * `AggregateError` members.
+ *
+ * Stack traces are hidden unless `DEBUG` or `VERBOSE` is set — they bury the one
+ * line that matters in ten frames of Node internals.
+ */
+export function formatError(error: unknown, depth = 0): string {
+  if (depth > 4) return '…'
+  if (!(error instanceof Error)) return String(error)
+
+  const e = error as Error & ErrorLike
+  const details = errorDetails(e)
+  const lines = [
+    `${e.name && e.name !== 'Error' ? `${e.name}: ` : ''}${e.message}${details.length ? ` (${details.join(', ')})` : ''}`,
+  ]
+
+  for (const nested of e.errors ?? [])
+    lines.push(indent(`• ${formatError(nested, depth + 1)}`))
+
+  if (e.cause !== undefined && e.cause !== null)
+    lines.push(indent(`caused by: ${formatError(e.cause, depth + 1)}`))
+
+  if (showStacks() && e.stack)
+    lines.push(indent(chalk.gray(e.stack.split('\n').slice(1).join('\n'))))
+
+  return lines.join('\n')
+}
+
+export function showStacks(): boolean {
+  return Boolean(process.env.DEBUG || process.env.VERBOSE)
+}
+
+function indent(text: string): string {
+  return text.split('\n').map(line => `  ${line}`).join('\n')
+}
+
+/**
+ * Run labelled jobs in parallel, then report *every* failure at once.
+ *
+ * `Promise.all` rejects with whichever job lost first and drops both the label
+ * and the other failures — with seven concurrent file rewrites that leaves no
+ * clue about which one broke.
+ */
+export async function runAllLabeled(jobs: Record<string, () => Promise<unknown>>) {
+  const names = Object.keys(jobs)
+  const results = await Promise.allSettled(names.map(async name => jobs[name]()))
+
+  const failed = results.flatMap((result, i) =>
+    result.status === 'rejected' ? [{ name: names[i], error: result.reason as unknown }] : [])
+
+  if (!failed.length) return
+
+  const details = failed.map(({ name, error }) => `${chalk.red(`✖ ${name}`)}: ${formatError(error)}`).join('\n')
+  throw new Error(`${failed.length} of ${names.length} step(s) failed:\n${details}`)
+}
 
 export async function confirm(msg: string) {
   const result = await p.confirm({ message: msg })
@@ -31,10 +111,17 @@ export function globs(source: string | string[], options?: Options) {
   return fast_glob.sync(source, { dot: true, onlyFiles: false, ...options })
 }
 
+/**
+ * Files matched by the *positive* patterns of an `ignore` instance.
+ *
+ * `ignore` has no public API for reading back its rules, so this digs into its
+ * internals — see {@link getRules} for the version guard.
+ */
 export function getIgnoredFiles(ignored: ignore.Ignore, options?: Options) {
+  const rules = getRules(ignored)
   return globs(
-    getIgnorePositives(ignored as PrivateIgnored),
-    { ignore: getIgnoreNegative(ignored as PrivateIgnored), ...options }
+    rules.filter(rule => !rule.negative).map(rule => rule.pattern),
+    { ignore: rules.filter(rule => rule.negative).map(rule => rule.pattern), ...options }
   )
 }
 
@@ -44,40 +131,67 @@ interface PartialRule {
 }
 
 interface PrivateIgnored extends ignore.Ignore {
-  _rules: {
-    _rules: PartialRule[]
+  _rules?: {
+    _rules?: PartialRule[]
   }
 }
 
-function getIgnorePositives(ignored: PrivateIgnored) {
-  return ignored._rules._rules
-    .filter(p => !p.negative)
-    .map(p => p.pattern)
+/**
+ * Reach into `ignore`'s private rule list.
+ *
+ * A silent `[]` here would mean "nothing to strip", so a release could quietly
+ * ship dev-only files. Fail loudly instead if the internals ever move.
+ */
+function getRules(ignored: ignore.Ignore): PartialRule[] {
+  const rules = (ignored as PrivateIgnored)._rules?._rules
+  if (!Array.isArray(rules)) {
+    throw new TypeError(
+      'Cannot read rules from the "ignore" package: private field `_rules._rules` is gone.\n'
+      + '  The installed "ignore" version changed its internals — update getRules() in dev/build/build_utils.ts.'
+    )
+  }
+  return rules
 }
 
-function getIgnoreNegative(ignored: PrivateIgnored) {
-  return ignored._rules._rules
-    .filter(p => p.negative)
-    .map(p => p.pattern)
+export interface RemoveFilesResult {
+  /** Paths that are gone now (or never existed — `rmSync` is forced). */
+  removed: string[]
+  /** Paths that survived, with the reason. */
+  failed : { error: string, file: string }[]
 }
 
 /**
- * @param {string | readonly string[]} fileArg list of globs of files to remove
+ * Delete every given path, keeping going when one of them fails.
+ *
+ * Returns what happened instead of printing it: callers own the output, and a
+ * stray `process.stdout.write` corrupts any spinner running at the time.
+ *
+ * @param fileArg list of paths to remove
  */
-export function removeFiles(fileArg: readonly string[] | string) {
-  const files = [fileArg].flat(2)
-  const removed: string[] = []
-  files.forEach((file) => {
+export function removeFiles(fileArg: readonly string[] | string): RemoveFilesResult {
+  const result: RemoveFilesResult = { removed: [], failed: [] }
+
+  for (const file of [fileArg].flat()) {
     try {
       rmSync(file, { recursive: true, force: true })
-      removed.push(file)
+      result.removed.push(file)
     }
     catch (error) {
-      process.stdout.write(`\n${chalk.red(`Cannot remove: ${chalk.blue(file)}`)}\n\n${error instanceof Error ? error : String(error)}\n`)
+      result.failed.push({ file, error: error instanceof Error ? error.message : String(error) })
     }
-  })
-  return `removed: ${removed.length}\n${removed.map(s => chalk.gray(relative(process.cwd(), s))).join('\n')
-  }`
+  }
+
+  return result
+}
+
+/** Human-readable summary of {@link removeFiles}, relative to the cwd. */
+export function formatRemoveResult({ removed, failed }: RemoveFilesResult): string {
+  const rel = (file: string) => relative(process.cwd(), file)
+  return [
+    `removed: ${removed.length}`,
+    ...removed.map(file => chalk.gray(rel(file))),
+    ...failed.map(({ file, error }) => chalk.red(`cannot remove ${chalk.blue(rel(file))}: ${error}`)),
+  ].join('\n')
 }
 
 export const style = {
@@ -92,12 +206,17 @@ export const style = {
   end   : chalk.hex('#2e401c'),
 }
 
-export function getBoxForLabel(label: string) {
+/** Rewrites a single box in place; each argument is coloured one step further down {@link style}. */
+export type UpdateBox = (...args: unknown[]) => void
+
+export function getBoxForLabel(label: string): UpdateBox {
+  const palette = Object.values(style)
   logUpdate.done()
-  return function updateBox(...args: any[]) {
+  return function updateBox(...args: unknown[]) {
     return logUpdate(
       boxen(
-        args.map((v, i) => Object.values(style)[i](String(v))).join(' '),
+        // More arguments than colours is fine — the extras keep the last one.
+        args.map((v, i) => (palette[i] ?? palette[palette.length - 1])(String(v))).join(' '),
         {
           borderStyle: 'round',
           borderColor: '#22577a',
@@ -110,38 +229,17 @@ export function getBoxForLabel(label: string) {
   }
 }
 
-export async function commitOrFixup(fileName: string, commitMsg: string) {
-  // Check for staged files
-  const hasStagedFilesProc = await $`git diff --cached --quiet`.nothrow()
-  if (hasStagedFilesProc.exitCode !== 0) {
-    return 'There are staged files. Please unstage them before proceeding.'
-  }
-
-  // Add file to staging
-  await $`git add ${fileName}`
-
-  // Check if a commit with the same message already exists
-  const logProc = await $`git log --grep=${`^${commitMsg}$`} --format=%H -n 1`.nothrow()
-  const similarCommitSha = logProc.stdout.trim()
-
-  if (similarCommitSha) {
-    await $`git commit --fixup=${similarCommitSha}`
-  }
-  else {
-    await $`git commit -m ${commitMsg}`.nothrow()
-  }
-}
-
+/**
+ * Fold the staged changes into the previous commit when it is another run of
+ * the same step, otherwise start a new commit.
+ */
 export async function commitAmend(commitMsg: string) {
-  // Get the last commit message
-  const lastCommitMsg = (await $`git log -1 --pretty=%B`.text()).trim()
+  // `.stdout`, not `.text()`: the latter is stdout+stderr, so any git warning
+  // would end up compared against the commit message.
+  const lastCommitMsg = (await $`git log -1 --pretty=%B`.nothrow()).stdout.trim()
 
-  if (lastCommitMsg === commitMsg) {
-    // Amend the last commit
+  if (lastCommitMsg === commitMsg)
     await $`git commit --amend --no-edit`
-  }
-  else {
-    // Create a new commit
+  else
     await $`git commit -m ${commitMsg}`
-  }
 }

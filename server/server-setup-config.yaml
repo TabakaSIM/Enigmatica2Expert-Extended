@@ -22,7 +22,7 @@ install:
   # supports variables: {{@loaderversion@}} and {{@mcversion@}}
   # For forge: "http://files.minecraftforge.net/maven/net/minecraftforge/forge/{{@mcversion@}}-{{@loaderversion@}}/forge-{{@mcversion@}}-{{@loaderversion@}}-installer.jar"
   # For Fabric: "https://maven.fabricmc.net/net/fabricmc/fabric-installer/{{@loaderversion@}}/fabric-installer-{{@loaderversion@}}.jar"
-  installerUrl: 'https://github.com/CleanroomMC/Cleanroom/releases/download/0.5.14-alpha/cleanroom-0.5.14-alpha-installer.jar'
+  installerUrl: 'https://github.com/CleanroomMC/Cleanroom/releases/download/0.6.6-alpha/cleanroom-0.6.6-alpha-installer.jar'
 
   # Installer Arguments
   # These Arguments have to be passed to the installer
@@ -46,7 +46,7 @@ install:
 
   # Link to where the file where the modpack can be distributed
   # This supports loading from local files as well for most pack types if there is file://{PathToFile} in the beginning
-  modpackUrl: https://github.com/Krutoy242/Enigmatica2Expert-Extended/releases/download/v1.85.1-beta/E2E-Extended-v1.85.1-beta.zip
+  modpackUrl: https://github.com/Krutoy242/Enigmatica2Expert-Extended/releases/download/v1.86.0-beta/E2E-Extended-v1.86.0-beta.zip
 
   # This is used to specify in which format the modpack is distributed, the server launcher has to handle each individually if their format differs
   # current supported formats:
@@ -81,7 +81,6 @@ install:
       - 285492 # Thaumic JEI
       - 285742 # Smooth Font
       - 291727 # Just Enough Petroleum
-      - 293496 # OldJavaWarning
       - 295736 # MemoryTester
       - 297038 # CraftPresence
       - 297363 # Biome Border Viewer
@@ -223,7 +222,7 @@ launch:
   # For Forge 1.12-: "forge-{{@mcversion@}}-{{@loaderversion@}}-universal.jar"
   # For Forge 1.13+: "forge-{{@mcversion@}}-{{@loaderversion@}}.jar"
   # For Fabric: "fabric-server-launch.jar"
-  startFile: cleanroom-0.5.14-alpha.jar
+  startFile: cleanroom-0.6.6-alpha.jar
 
   # This is the command how the server is supposed to be started
   # For <1.16 it should be

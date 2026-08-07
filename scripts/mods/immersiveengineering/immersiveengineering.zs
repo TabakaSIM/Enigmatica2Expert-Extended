@@ -228,7 +228,7 @@ scripts.mods.extendedcrafting_engineering.remakeAlted(
 
 // Garden Cloche
 recipes.remove(<immersiveengineering:metal_device1:13>);
-scripts.mods.forestry.ThermionicFabricator.addCast(<immersiveengineering:metal_device1:13>,
+mods.forestry.ThermionicFabricator.addCast(<immersiveengineering:metal_device1:13>,
   [[null, <extrautils2:suncrystal>, null],
     [null, <ore:plateConcrete>, null],
     [<ore:plankTreatedWood>, <immersiveengineering:metal_decoration0:5>, <ore:plankTreatedWood>]],
@@ -377,7 +377,7 @@ craft.make(<immersiveengineering:stone_decoration:8>, ['pretty',
 });
 
 // [Insulating Glass*4] from [Cactus Green][+1]
-scripts.mods.forestry.ThermionicFabricator.addCast(<immersiveengineering:stone_decoration:8> * 8, Grid([
+mods.forestry.ThermionicFabricator.addCast(<immersiveengineering:stone_decoration:8> * 8, Grid([
   '▲d▲'], {
   '▲': <ore:dustIron>, // Pulverized Iron
   'd': <ore:dyeGreen>, // Cactus Green

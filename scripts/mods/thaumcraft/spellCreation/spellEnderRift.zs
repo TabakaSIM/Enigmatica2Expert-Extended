@@ -18,7 +18,6 @@ import native.thaumcraft.common.lib.network.PacketHandler;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellEnderRift extends FocusEffect {
-
   zenConstructor() {
     super();
   }
@@ -30,7 +29,7 @@ zenClass SpellEnderRift extends FocusEffect {
   function getResearch() as string {
     return 'ENDER_RIFT';
   }
-    
+
   function getKey() as string {
     return 'thaumcraft.ENDER_RIFT';
   }
@@ -38,7 +37,7 @@ zenClass SpellEnderRift extends FocusEffect {
   //===================================
   //Set up focalmanipulator spell stats
   //===================================
-    
+
   function getAspect() as Aspect {
     return ThaumCraft.getAspect(Aspects('🐀')[0]);
   }
@@ -63,9 +62,9 @@ zenClass SpellEnderRift extends FocusEffect {
 
     world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.wand, SoundCategory.PLAYERS, 0.33f, 5.0f + world.rand.nextGaussian() * 0.05f);
 
-    if(target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit instanceof EntityPlayer && caster instanceof EntityPlayer) {
-        (caster as EntityPlayer).displayGUIChest((target.entityHit as EntityPlayer).getInventoryEnderChest());
-        return true;
+    if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit instanceof EntityPlayer && caster instanceof EntityPlayer) {
+      (caster as EntityPlayer).displayGUIChest((target.entityHit as EntityPlayer).getInventoryEnderChest());
+      return true;
     }
 
     return false;

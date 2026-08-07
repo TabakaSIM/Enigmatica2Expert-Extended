@@ -1,4 +1,6 @@
-#modloaded thaumadditions
+// Should be `thaumadditions`, but ZenUtils reads modid from mcmod.info verbatim
+// https://github.com/friendlyhj/ZenUtils/issues/138
+#modloaded thaumicadditions
 
 import crafttweaker.data.IData;
 import crafttweaker.item.IItemStack;
@@ -964,7 +966,7 @@ mods.thaumcraft.Infusion.registerRecipe(
   'COMBINER', // Research
   <thaumadditions:aspect_combiner>, // Output
   2, // Instability
-  Aspects('50🔮 200⚗️ 100⚙️ 50👁️ 100🙌 50🗯️'), 
+  Aspects('50🔮 200⚗️ 100⚙️ 50👁️ 100🙌 50🗯️'),
   <thaumcraft:centrifuge>, // CentralItem
   [<thaumadditions:mithrillium_resonator>, <thaumcraft:mechanism_complex>, <thaumcraft:filter>, <thaumcraft:alumentum>, <thaumictinkerer:energetic_nitor>, <thaumcraft:filter>]
 );

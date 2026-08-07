@@ -123,7 +123,7 @@ function decodeOutput(s: string): string {
 
 // ── Server/world readiness check ───────────────────────────
 
-/** Search for `pattern` reading from the end of the file (up to 10 MB). */
+/** Search for `pattern` reading from the end of the file (up to 10 MB). */
 function searchFromEnd(filePath: string, pattern: RegExp): boolean {
   const CHUNK = 64 * 1024
   const MAX_READ = 10 * 1024 * 1024
@@ -142,34 +142,59 @@ function searchFromEnd(filePath: string, pattern: RegExp): boolean {
 
 // ── Log timestamp helpers ──────────────────────────────────
 
-function firstLine(filePath: string): string {
+const LOGS = () => [join(CWD, 'logs', 'latest.log'), DEBUG_LOG]
+
+const TIMESTAMP = /^\[(\d{2}:\d{2}:\d{2})\]/
+
+/**
+ * Oldest `[HH:MM:SS]` in the file. Scans forward instead of trusting line 1 —
+ * a log can open with a banner or a continuation line carried over from a
+ * previous run.
+ */
+function firstTimestamp(filePath: string): string | null {
   const size = fileSize(filePath)
-  if (!size) return ''
-  return readSlice(filePath, 0, Math.min(4096, size)).split('\n')[0] || ''
+  if (!size) return null
+  for (const line of readSlice(filePath, 0, Math.min(64 * 1024, size)).split('\n')) {
+    const m = line.match(TIMESTAMP)
+    if (m) return m[1]
+  }
+  return null
 }
-function lastLine(filePath: string): string {
-  const CHUNK = 4096
+/**
+ * Newest `[HH:MM:SS]` in the file, walking backwards until one is found. The
+ * tail is very often a stacktrace, an ASCII table or another continuation line
+ * with no timestamp of its own, and a single log line can be larger than one
+ * chunk — both used to yield "??" in the still-loading message.
+ */
+function lastTimestamp(filePath: string): string | null {
+  const CHUNK = 64 * 1024
+  const MAX_READ = 4 * 1024 * 1024
   const size = fileSize(filePath)
-  if (!size) return ''
-  const slice = readSlice(filePath, Math.max(0, size - CHUNK), size)
-  const lines = slice.trim().split('\n')
-  for (let i = lines.length - 1; i >= 0; i--) if (lines[i]) return lines[i]
-  return ''
-}
-function extractTimestamp(line: string): string | null {
-  const m = line.match(/^\[(\d{2}:\d{2}:\d{2})\]/)
-  return m ? m[1] : null
+  if (!size) return null
+  let pos = size
+  while (pos > 0 && size - pos < MAX_READ) {
+    const start = Math.max(0, pos - CHUNK)
+    const lines = readSlice(filePath, start, pos).split('\n')
+    if (start > 0) lines.shift() // leading line is truncated — it continues before `start`
+    for (let i = lines.length - 1; i >= 0; i--) {
+      const m = lines[i].match(TIMESTAMP)
+      if (m) return m[1]
+    }
+    pos = start
+  }
+  return null
 }
 function formatDuration(totalSec: number): string {
   const m = Math.floor(totalSec / 60)
   const s = totalSec % 60
   return s ? `${m}m ${s.toString().padStart(2, '0')}s` : `${m}m`
 }
-function logBoundaryTimestamps(): { first: string | null; duration: string | null } {
-  for (const lp of [join(CWD, 'logs', 'latest.log'), join(CWD, 'logs', 'debug.log')]) {
+function logBoundaryTimestamps(): { first: string | null, duration: string | null } {
+  let partial: { first: string | null, duration: string | null } = { first: null, duration: null }
+  for (const lp of LOGS()) {
     if (!existsSync(lp)) continue
-    const first = extractTimestamp(firstLine(lp))
-    const last = extractTimestamp(lastLine(lp))
+    const first = firstTimestamp(lp)
+    const last = lastTimestamp(lp)
     if (first && last) {
       const [fh, fm, fs] = first.split(':').map(Number)
       const [lh, lm, ls] = last.split(':').map(Number)
@@ -177,12 +202,11 @@ function logBoundaryTimestamps(): { first: string | null; duration: string | nul
       if (diff < 0) diff += 86400
       return { first, duration: formatDuration(diff) }
     }
-    if (first) return { first, duration: null }
+    // Keep looking in the other log — it may still yield a full pair.
+    if (first && !partial.first) partial = { first, duration: null }
   }
-  return { first: null, duration: null }
+  return partial
 }
-
-const LOGS = () => [join(CWD, 'logs', 'latest.log'), join(CWD, 'logs', 'debug.log')]
 
 /** True once a player has joined a world (integrated server ready for commands). */
 function isWorldLoaded(): boolean {
@@ -470,7 +494,8 @@ export async function waitForRmi(options: WaitForRmiOptions = {}): Promise<void>
       rmiLookup('<__probe__:ping>')
       if (debug) console.error('[probezs] RMI reachable')
       return
-    } catch {
+    }
+    catch {
       if (debug) console.error('[probezs] waiting for RMI...')
       await sleep(pollIntervalMs)
     }

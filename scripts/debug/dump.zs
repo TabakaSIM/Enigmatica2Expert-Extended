@@ -82,7 +82,7 @@ zenClass DebugUtils {
   function firstTime(time as long) as bool {
     if (once) return false;
     once = true;
-    timeMark = time + 200 as long;
+    timeMark = time + 200;
     return true;
   }
 }

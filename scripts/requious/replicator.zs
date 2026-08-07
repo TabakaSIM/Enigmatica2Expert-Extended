@@ -213,7 +213,7 @@ function increaseDifficulty(m as MachineContainer, bufferConsumed as int, dfclty
 // ========================================================
 function calcConsumption(upgrAmount as int, tick as long) as int {
   val s = pow(1.3, upgrAmount);
-  val resid = s - s as int as double;
+  val resid = s - s as int;
   if (resid == 0) return s;
   val bonus = (tick % (1.0 / resid) + 0.5) as int == 0 ? 1 : 0;
   return s as int + bonus;
@@ -222,7 +222,7 @@ function calcConsumption(upgrAmount as int, tick as long) as int {
 // Power consumption cant exceed ENERGY_CAPACITY
 function calcPowerConsumption(upgrAmount as int) as int {
   val powerUsage = pow(1.6, upgrAmount);
-  val consumption = (powerUsage * ENERGY_USAGE as double) as int;
+  val consumption = (powerUsage * ENERGY_USAGE) as int;
   return min(consumption, ENERGY_CAPACITY);
 }
 

@@ -23,7 +23,6 @@ import native.thaumcraft.common.lib.network.fx.PacketFXEssentiaSource;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellBlackout extends FocusEffect {
-
   zenConstructor() {
     super();
   }
@@ -35,7 +34,7 @@ zenClass SpellBlackout extends FocusEffect {
   function getResearch() as string {
     return 'BLACKOUT';
   }
-    
+
   function getKey() as string {
     return 'thaumcraft.BLACKOUT';
   }
@@ -43,7 +42,7 @@ zenClass SpellBlackout extends FocusEffect {
   //===================================
   //Set up focalmanipulator spell stats
   //===================================
-    
+
   function getAspect() as Aspect {
     return ThaumCraft.getAspect(Aspects('🌑')[0]);
   }
@@ -54,8 +53,8 @@ zenClass SpellBlackout extends FocusEffect {
 
   function createSettings() as NodeSetting[] {
     return [
-      NodeSetting('range', 'focus.common.range',    NodeSetting.NodeSettingIntList( [1, 2, 3, 4], ['20', '40', '80', '160'])),
-      NodeSetting('safe',  'focus.common.destroy',  NodeSetting.NodeSettingIntList([0, 1],        ['focus.common.no', 'focus.common.yes']))
+      NodeSetting('range', 'focus.common.range',    NodeSetting.NodeSettingIntList([1, 2, 3, 4], ['20', '40', '80', '160'])),
+      NodeSetting('safe',  'focus.common.destroy',  NodeSetting.NodeSettingIntList([0, 1],        ['focus.common.no', 'focus.common.yes'])),
     ];
   }
 
@@ -65,27 +64,27 @@ zenClass SpellBlackout extends FocusEffect {
 
   function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
     PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
-    if(target.typeOfHit == RayTraceResult.Type.BLOCK && this.getPackage().getCaster() instanceof EntityPlayer){
+    if (target.typeOfHit == RayTraceResult.Type.BLOCK && this.getPackage().getCaster() instanceof EntityPlayer) {
       val player = this.getPackage().getCaster() as EntityPlayer;
       if (player.cooldownTracker.hasCooldown(<thaumcraft:caster_basic>.native.getItem())) return false;
-      
+
       val world = this.getPackage().world;
       val range = 10 * pow(2, this.getSettingValue('range'));
-      player.getEntityData().setInteger("BlackoutEffect", range);
+      player.getEntityData().setInteger('BlackoutEffect', range);
       player.cooldownTracker.setCooldown(<thaumcraft:caster_basic>.native.getItem(), range);
-      mods.zenutils.CatenationPersistence.startPersistedCatenation("blackoutMechanic", world)
+      mods.zenutils.CatenationPersistence.startPersistedCatenation('blackoutMechanic', world)
         .withPosition(BlockPos(target.hitVec).wrapper)
         .withPlayer(player.wrapper)
         .start();
       return true;
     }
-     
-    if(!isNull(target.entityHit) && target.typeOfHit == RayTraceResult.Type.ENTITY){
+
+    if (!isNull(target.entityHit) && target.typeOfHit == RayTraceResult.Type.ENTITY) {
       val entity = target.entityHit.wrapper;
-      if(entity instanceof IEntityLivingBase){
+      if (entity instanceof IEntityLivingBase) {
         val entityLivingBase as IEntityLivingBase = entity;
         val potion = <potion:minecraft:blindness>;
-        if(!entityLivingBase.isPotionActive(potion)) entityLivingBase.addPotionEffect(potion.makePotionEffect((finalPower * 200) as int, this.getSettingValue('range') - 1));
+        if (!entityLivingBase.isPotionActive(potion)) entityLivingBase.addPotionEffect(potion.makePotionEffect((finalPower * 200) as int, this.getSettingValue('range') - 1));
         return true;
       }
     }
@@ -104,29 +103,29 @@ zenClass SpellBlackout extends FocusEffect {
   }
 }
 
-mods.zenutils.CatenationPersistence.registerPersistedCatenation("blackoutMechanic")
-  .setCatenationFactory(function(world) {
-    return world.catenation().sleepUntil( 
-      function(world, context){
+mods.zenutils.CatenationPersistence.registerPersistedCatenation('blackoutMechanic')
+  .setCatenationFactory(function (world) {
+    return world.catenation().sleepUntil(
+      function (world, context) {
         //if(world.time % 10 != 0) return false;
         val startX = context.getPosition().x;
         val startY = context.getPosition().y;
         val startZ = context.getPosition().z;
         val player = context.getPlayer().native;
 
-        if(isNull(player)) return true;
-        
-        val range = player.getEntityData().getInteger("BlackoutEffect");
+        if (isNull(player)) return true;
+
+        val range = player.getEntityData().getInteger('BlackoutEffect');
         val rangeStep = 1;
 
         for x in (range * -1) .. range {
-          for z in 0 .. (Math.sqrt(range*range - x*x) as int + 1) {
-            for y in (Math.min(255 - startY, Math.sqrt((range - rangeStep)*(range - rangeStep) - x*x - z*z) as int) + 1) .. Math.min(255 - startY, Math.sqrt(range*range - x*x - z*z) as int + 1) {
+          for z in 0 .. (Math.sqrt(range * range - x * x) as int + 1) {
+            for y in (Math.min(255 - startY, Math.sqrt((range - rangeStep) * (range - rangeStep) - x * x - z * z) as int) + 1) .. Math.min(255 - startY, Math.sqrt(range * range - x * x - z * z) as int + 1) {
               destroyIfLight(BlockPos(startX + x, startY + y, startZ + z), world, startX, startY, startZ);
               destroyIfLight(BlockPos(startX + x, startY + y, startZ - z), world, startX, startY, startZ);
-            } 
+            }
 
-            for y in (Math.min(startY, Math.sqrt((range - rangeStep)*(range - rangeStep) - x*x - z*z) as int) + 1) .. Math.min(startY, Math.sqrt(range*range - x*x - z*z) as int + 1) {
+            for y in (Math.min(startY, Math.sqrt((range - rangeStep) * (range - rangeStep) - x * x - z * z) as int) + 1) .. Math.min(startY, Math.sqrt(range * range - x * x - z * z) as int + 1) {
               destroyIfLight(BlockPos(startX + x, startY - y, startZ + z), world, startX, startY, startZ);
               destroyIfLight(BlockPos(startX + x, startY - y, startZ - z), world, startX, startY, startZ);
             }
@@ -134,32 +133,32 @@ mods.zenutils.CatenationPersistence.registerPersistedCatenation("blackoutMechani
         }
 
         for x in (range * -1) .. range {
-          for z in (Math.sqrt((range - rangeStep)*(range - rangeStep) - x*x) as int) .. (Math.sqrt(range*range - x*x) as int + 1) {
+          for z in Math.sqrt((range - rangeStep) * (range - rangeStep) - x * x) as int .. (Math.sqrt(range * range - x * x) as int + 1) {
             destroyIfLight(BlockPos(startX + x, startY, startZ + z), world, startX, startY, startZ);
             destroyIfLight(BlockPos(startX + x, startY, startZ - z), world, startX, startY, startZ);
           }
         }
 
-        if(range - rangeStep < 0) return true;
-        player.getEntityData().setInteger("BlackoutEffect", range - rangeStep);
+        if (range - rangeStep < 0) return true;
+        player.getEntityData().setInteger('BlackoutEffect', range - rangeStep);
         return false;
-    }).onStop(function(world, context){
-        val player = context.getPlayer();
-        if(!isNull(player)) player.native.getEntityData().removeTag("BlackoutEffect");
+      }).onStop(function (world, context) {
+      val player = context.getPlayer();
+      if (!isNull(player)) player.native.getEntityData().removeTag('BlackoutEffect');
     }).start();
-    })
+  })
   .addPositionHolder()
   .addPlayerHolder()
-.register();
+  .register();
 
-function destroyIfLight(pos as BlockPos, world as IWorld, startX as int, startY as int, startZ as int) as void{
+function destroyIfLight(pos as BlockPos, world as IWorld, startX as int, startY as int, startZ as int) as void {
   val blockState = world.native.getBlockState(pos);
   val block = blockState.getBlock();
-  if(blockState.getLightOpacity(world.native, pos) == 0 && block.getDefaultState().getLightValue() > 5 && blockState.getBlockHardness(world.native, pos) < 10) {
+  if (blockState.getLightOpacity(world.native, pos) == 0 && block.getDefaultState().getLightValue() > 5 && blockState.getBlockHardness(world.native, pos) < 10) {
     world.native.setBlockToAir(pos);
     world.native.playSound(null, pos, SoundsTC.wind, SoundCategory.AMBIENT, 1.0f, world.random.nextFloat() * 0.4f + 0.8f);
     PacketHandler.INSTANCE.sendToAllAround(
-    PacketFXEssentiaSource(BlockPos(startX, startY, startZ), startX - pos.getX(), startY - pos.getY(), startZ - pos.getZ() , 16777113, 20),
-    NetworkRegistry.TargetPoint(world.native.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 32.0));
+      PacketFXEssentiaSource(BlockPos(startX, startY, startZ), startX - pos.getX(), startY - pos.getY(), startZ - pos.getZ() , 16777113, 20),
+      NetworkRegistry.TargetPoint(world.native.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 32.0));
   }
 }

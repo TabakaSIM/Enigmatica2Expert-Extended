@@ -239,7 +239,7 @@ function beneficiate(
 ) {
   val calc = wholesCalc(_input.amount, _amount);
   val amount = calc.outs as int;
-  val newOutAmount = _input.amount * calc.ins as int;
+  val newOutAmount = _input.amount * calc.ins;
   val input = newOutAmount == 1 && _input.amount == 1 ? _input : _input * newOutAmount;
 
   val oreName = _oreName == 'Aluminum' ? 'Aluminium' : _oreName;
@@ -255,7 +255,7 @@ function beneficiate(
 
   // Infernal Furnace
   if (!isNull(JA)) {
-    val outTriple = (amount as double * calc.out1 as double) as int;
+    val outTriple = (amount as double * calc.out1) as int;
     val nuggetExtra = utils.getSomething(JA.secondExtraName, ['nugget'], outTriple);
     if (!isNull(nuggetExtra)) {
       val input1 = input.itemArray[0].anyAmount();

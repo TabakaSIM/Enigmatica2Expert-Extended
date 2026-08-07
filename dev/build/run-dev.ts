@@ -27,6 +27,22 @@ interface Ctx {
   failures: Failure[]
 }
 
+/** Keep failure replays readable — a single task can spew megabytes (huge ID lists, stack dumps). */
+const MAX_REPLAY_LINES = 40
+const MAX_LINE_CHARS = 500
+const MAX_STATUS_CHARS = 160
+
+function clamp(line: string, max: number): string {
+  return line.length > max ? `${line.slice(0, max)}… (+${line.length - max} chars)` : line
+}
+
+function truncate(output: string): string {
+  const lines = output.split(/\r?\n/)
+  const kept = lines.slice(-MAX_REPLAY_LINES).map(l => clamp(l, MAX_LINE_CHARS))
+  const hidden = lines.length - kept.length
+  return (hidden > 0 ? [`… ${hidden} earlier lines hidden`, ...kept] : kept).join('\n')
+}
+
 const pkg = JSON.parse(
   readFileSync(resolve(process.cwd(), 'package.json'), 'utf8')
 ) as { scripts: Record<string, string> }
@@ -60,7 +76,7 @@ const tasks: ListrTask<Ctx>[] = devScripts.map((script) => {
           .map(l => l.trim())
           .filter(Boolean)
           .pop()
-        if (lastLine) task.output = lastLine
+        if (lastLine) task.output = clamp(lastLine, MAX_STATUS_CHARS)
       }
 
       child.stdout?.on('data', onChunk)
@@ -104,7 +120,7 @@ if (ctx.failures.length > 0) {
   console.error('')
   for (const f of ctx.failures) {
     console.error(`\n──── ${f.name} (exit ${f.code}) ────`)
-    console.error(f.output)
+    console.error(truncate(f.output))
   }
   console.error(`\n${ctx.failures.length} of ${tasks.length} dev tasks failed.`)
   process.exit(1)

@@ -21,7 +21,6 @@ import native.thaumcraft.common.lib.network.PacketHandler;
 import native.thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
 zenClass SpellApiaryAcceleration extends FocusEffect {
-
   zenConstructor() {
     super();
   }
@@ -33,7 +32,7 @@ zenClass SpellApiaryAcceleration extends FocusEffect {
   function getResearch() as string {
     return 'APIARYACCELERATION';
   }
-    
+
   function getKey() as string {
     return 'thaumcraft.APIARYACCELERATION';
   }
@@ -41,7 +40,7 @@ zenClass SpellApiaryAcceleration extends FocusEffect {
   //===================================
   //Set up focalmanipulator spell stats
   //===================================
-    
+
   function getAspect() as Aspect {
     return ThaumCraft.getAspect(Aspects('🦉')[0]);
   }
@@ -52,7 +51,7 @@ zenClass SpellApiaryAcceleration extends FocusEffect {
 
   function createSettings() as NodeSetting[] {
     return [
-      NodeSetting('power', 'focus.common.power', NodeSetting.NodeSettingIntRange(1, 5))
+      NodeSetting('power', 'focus.common.power', NodeSetting.NodeSettingIntRange(1, 5)),
     ];
   }
 
@@ -62,23 +61,23 @@ zenClass SpellApiaryAcceleration extends FocusEffect {
 
   function execute(target as RayTraceResult, trajectory as Trajectory, finalPower as float, num as int) as bool {
     PacketHandler.INSTANCE.sendToAllAround(PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, [getKey()]), NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0));
-    if(target.typeOfHit == RayTraceResult.Type.BLOCK){
+    if (target.typeOfHit == RayTraceResult.Type.BLOCK) {
       val world = this.getPackage().world;
       val apiary = world.getTileEntity(target.getBlockPos());
-      if(isNull(apiary)) return false;
-      val bonus = finalPower * this.getSettingValue('power') * 50 as int;
+      if (isNull(apiary)) return false;
+      val bonus = finalPower * this.getSettingValue('power') * 50;
 
-      if(apiary instanceof TileBeeHousingBase || apiary instanceof TileEntityApiary || apiary instanceof TileApiary){
+      if (apiary instanceof TileBeeHousingBase || apiary instanceof TileEntityApiary || apiary instanceof TileApiary) {
         val house = apiary as ITickable;
-        for i in 0 .. bonus{
+        for i in 0 .. bonus {
           house.update();
         }
         world.playSound(null, target.getBlockPos(), SoundsTC.wand, SoundCategory.BLOCKS, 1.0f, world.rand.nextFloat() * 0.4f + 0.8f);
-          return true;
-        }
+        return true;
       }
-    return false;
     }
+    return false;
+  }
 
   function onCast(caster as Entity) {
   }
@@ -90,5 +89,4 @@ zenClass SpellApiaryAcceleration extends FocusEffect {
   function renderParticleFX(world as World, posX as double, posY as double, posZ as double, motionX as double, motionY as double, motionZ as double) as void {
     if (!isNull(SpellFX.apiaryAcceleration)) SpellFX.apiaryAcceleration(this, world, posX, posY, posZ, motionX, motionY, motionZ);
   }
-
 }

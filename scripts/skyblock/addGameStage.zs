@@ -1,4 +1,4 @@
-#modloaded gamestages
+#modloaded gamestages roidtweaker
 #priority -100
 #reloadable
 
@@ -48,8 +48,12 @@ function grant(player as IPlayer) as void {
   player.addPotionEffect(<potion:minecraft:haste>.makePotionEffect(20 * 60 * 60 * 3, 3));
 }
 
-function showWithDelay(player as IPlayer, lang as string) {
+function showWithDelay(player as IPlayer, lang as string) as void {
+  // Look the player up again after the delay - the captured wrapper can outlive its entity
+  val playerUuid = player.uuid;
   player.world.catenation().sleep(20 * 10).then(function (world, ctx) {
-    player.sendRichTextMessage(crafttweaker.text.ITextComponent.fromTranslation(lang));
+    val p = server.getPlayerByUUID(playerUuid);
+    if (isNull(p)) return;
+    p.sendRichTextMessage(crafttweaker.text.ITextComponent.fromTranslation(lang));
   }).start();
 }
