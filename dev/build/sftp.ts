@@ -10,7 +10,7 @@ import { replaceInFileSync } from 'replace-in-file'
 import Client from 'ssh2-sftp-client'
 import { $, fs, glob } from 'zx'
 
-import { confirm, getBoxForLabel } from './build_utils.js'
+import { confirm, formatError, getBoxForLabel } from './build_utils.js'
 
 const { readFileSync, writeFileSync, unlinkSync, existsSync, statSync } = fs
 
@@ -158,73 +158,46 @@ function isValidPort(port: string | number): boolean {
 }
 
 /**
- * Turn a raw connection/transfer error into an explanation a human can act on.
+ * Report an SFTP failure as it actually happened.
+ *
+ * Deliberately never guesses at a cause: a previous version pattern-matched the
+ * message and reported a remote "Permission denied" (SFTP status 3, thrown by
+ * `fastPut` long after login) as an authentication failure, which sent everyone
+ * looking at credentials that were fine. Print the real error plus the facts
+ * from the config needed to locate it, and nothing else.
  */
 function describeSftpError(error: unknown, config: SftpConfig): string {
-  const err = error as NodeJS.ErrnoException & { level?: string }
-  const host = config.host ?? '<unknown host>'
-  const port = config.port ?? 22
-  const target = `${host}:${port}`
-
-  switch (String(err.code)) {
-    case 'ENOTFOUND':
-      return `Host "${host}" could not be resolved (DNS lookup failed). `
-        + 'Check the "host" value for typos and your internet/VPN connection.'
-    case 'ECONNREFUSED':
-      return `Connection refused by ${target}. `
-        + 'The SFTP/SSH server is not accepting connections there — check it is running and the "port" is correct.'
-    case 'ETIMEDOUT':
-    case 'ERR_SOCKET_CONNECTION_TIMEOUT':
-      return `Connection to ${target} timed out. `
-        + 'The server is unreachable, a firewall is blocking it, or the host/port is wrong.'
-    case 'ECONNRESET':
-      return `Connection to ${host} was reset. The server closed the link unexpectedly (restart, idle timeout, or fail2ban?).`
-    case 'EHOSTUNREACH':
-      return `Host ${host} is unreachable. Check the network route / VPN.`
-    case 'ENETUNREACH':
-      return `Network unreachable while connecting to ${host}. Check your internet connection.`
-    case 'EPIPE':
-      return `Connection to ${host} broke mid-transfer (broken pipe). Retry — the server may have dropped the session.`
-    case 'ENOSPC':
-      return `Remote server ${host} is out of disk space (ENOSPC).`
-    case 'EACCES':
-    case 'EPERM':
-      return `Permission denied on ${host}. The user "${config.username}" lacks rights for that path.`
-    case 'ENOENT':
-      return `A path does not exist. Check "mc_root" (${config.mc_root ?? 'not set'}) on ${host} and local file paths.`
-    default:
-      break
-  }
-
-  const msg = err.message || String(error)
-
-  if (
-    err.level === 'client-authentication'
-    || /authentication|all configured authentication methods failed|permission denied/i.test(msg)
-  ) {
-    return `Authentication failed for user "${config.username}" on ${host}. `
-      + 'Check "username", "password"/"privateKey"'
-      + `${config.privateKey ? ' and "passphrase"' : ''}.`
-  }
-
-  if (/handshake/i.test(msg)) {
-    return `SSH handshake with ${host} failed. `
-      + 'The server may require key algorithms this client does not offer, or it is not an SSH/SFTP server.'
-  }
-
-  if (/time?d? ?out/i.test(msg))
-    return `Operation timed out talking to ${host}. ${msg}`
-
-  return `${msg}${err.code ? ` (code: ${err.code})` : ''}`
+  const target = `${config.username ?? '<no username>'}@${config.host ?? '<no host>'}:${config.port ?? 22}`
+  return `${formatError(error)}\n  target: ${target}  mc_root: ${config.mc_root ?? '<not set>'}`
 }
 
+/**
+ * Upload to one server, offering another attempt after every failure.
+ *
+ * Most things that break here — a dropped VPN, a wrong `mc_root`, a server-side
+ * permission — are fixed in another window in under a minute, and skipping would
+ * throw away a whole upload for that.
+ */
 async function uploadToServer(
   conf: LoadedConfig,
   ctx: { serverConfigTmp: string, confText: string, currentVersion: string }
 ) {
-  const { serverConfigTmp, confText, currentVersion } = ctx
-
   if (!await confirm(`Upload SFTP ${conf.label}?`)) return
+
+  while (!await attemptUpload(conf, ctx)) {
+    if (!await confirm(`Retry upload to SFTP ${conf.label}?`)) {
+      consola.warn(`SFTP "${conf.label}" skipped — the server still holds the previous version.`)
+      return
+    }
+  }
+}
+
+/** One connect-and-upload round trip. @returns whether it went through. */
+async function attemptUpload(
+  conf: LoadedConfig,
+  ctx: { serverConfigTmp: string, confText: string, currentVersion: string }
+): Promise<boolean> {
+  const { serverConfigTmp, confText, currentVersion } = ctx
 
   const sftp = new Client()
   const updateBox = getBoxForLabel(conf.label || '')
@@ -241,48 +214,54 @@ async function uploadToServer(
       ...port !== undefined ? { port: Number(port) } : {},
     })
     connected = true
-  }
-  catch (error) {
-    logUpdate.done()
-    consola.error(`Cannot connect to SFTP "${conf.label}": ${describeSftpError(error, conf.config)}`)
-    return
-  }
 
-  try {
-    if (conf.config.offline)
-      await uploadOffline(sftp, conf, { serverConfigTmp, confText, updateBox, basePath })
-    else
-      await uploadOnline(sftp, conf, { serverConfigTmp, currentVersion, updateBox, basePath })
+    const uploaded = conf.config.offline
+      ? await uploadOffline(sftp, conf, { serverConfigTmp, confText, updateBox, basePath })
+      : await uploadOnline(sftp, conf, { serverConfigTmp, updateBox, basePath })
+
+    // Both modes need this: the version banner and the server-only overrides are
+    // not part of the modpack zip, and `localFiles: overrides/ -> .` re-copies
+    // whatever sits in the remote `overrides/` on every install — a stale file
+    // there silently overwrites the fresh config of every later release.
+    if (uploaded)
+      await uploadOverrides(sftp, conf, { currentVersion, updateBox, basePath })
+
+    return true
   }
   catch (error) {
     logUpdate.done()
-    consola.error(`Upload to SFTP "${conf.label}" failed: ${describeSftpError(error, conf.config)}`)
+    const stage = connected ? 'Upload to' : 'Connection to'
+    consola.error(`${stage} SFTP "${conf.label}" failed: ${describeSftpError(error, conf.config)}`)
+    return false
   }
   finally {
     if (connected) {
       try {
         await sftp.end()
       }
-      catch {
-        // Closing an already-dead connection is not worth surfacing.
+      catch (error) {
+        // Closing an already-dead connection is expected after a failed upload,
+        // so this is not an error — but it is never hidden either.
+        consola.debug(`Closing SFTP "${conf.label}" failed: ${formatError(error)}`)
       }
     }
   }
 }
 
+/** @returns whether the pack was actually uploaded — `false` when there was nothing to send. */
 async function uploadOffline(
   sftp: Client,
   conf: LoadedConfig,
   { serverConfigTmp, confText, updateBox, basePath }:
   { serverConfigTmp: string, confText: string, updateBox: UpdateBox, basePath: string }
-) {
+): Promise<boolean> {
   // Derived from the config instead of a hardcoded repo URL, so renaming the
   // repo or hosting the zip elsewhere cannot silently break offline uploads.
   const zipName = confText.match(MODPACK_URL_RE)?.[2].split('/').pop()
   if (!zipName) {
     logUpdate.done()
     consola.warn(`Offline upload for "${conf.label}" skipped: no "modpackUrl:" found in the server setup config.`)
-    return
+    return false
   }
 
   const zipPath = join('dist', zipName)
@@ -290,7 +269,7 @@ async function uploadOffline(
     logUpdate.done()
     consola.warn(`Offline upload for "${conf.label}" skipped: modpack zip not built at "${zipPath}".\n  `
       + 'Run the "Create EN .zip" build step first.')
-    return
+    return false
   }
 
   // The server downloads the pack from its own folder rather than from GitHub.
@@ -306,6 +285,8 @@ async function uploadOffline(
   finally {
     if (existsSync(offlineConfigTmp)) unlinkSync(offlineConfigTmp)
   }
+
+  return true
 }
 
 /**
@@ -394,15 +375,25 @@ function formatDuration(sec: number): string {
   return `${ss}s`
 }
 
+/** The server downloads the pack itself, so only the setup config goes up here. */
 async function uploadOnline(
   sftp: Client,
   conf: LoadedConfig,
-  { serverConfigTmp, currentVersion, updateBox, basePath }:
-  { serverConfigTmp: string, currentVersion: string, updateBox: UpdateBox, basePath: string }
-) {
+  { serverConfigTmp, updateBox, basePath }:
+  { serverConfigTmp: string, updateBox: UpdateBox, basePath: string }
+): Promise<boolean> {
   updateBox(`Copy ${serverConfigTmp}`)
   await sftp.fastPut(serverConfigTmp, posix.join(basePath, 'server-setup-config.yaml'))
+  return true
+}
 
+/** Stamp the release into the Discord start banner and push the server-only overrides. */
+async function uploadOverrides(
+  sftp: Client,
+  conf: LoadedConfig,
+  { currentVersion, updateBox, basePath }:
+  { currentVersion: string, updateBox: UpdateBox, basePath: string }
+) {
   updateBox('Change and copy server overrides')
   const mc2discordPath = join(conf.dir, 'overrides/config/mc2discord.toml')
   if (!existsSync(mc2discordPath)) {

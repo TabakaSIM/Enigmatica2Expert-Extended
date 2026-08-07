@@ -152,11 +152,17 @@ async function resolveVersion(): Promise<Release> {
     validate    : validateVersion,
   })
 
-  // `suggestNextVersion` falls back to the old tag when history cannot be read,
-  // so make an accidental re-tag of the same version an explicit choice.
-  if (version === oldVersion && !await confirm(`${version} is already the latest tag. Move it to HEAD?`)) {
-    p.cancel('Operation cancelled.')
-    process.exit(0)
+  // Re-running a release for the same version is routine. Only ask when the tag
+  // sits on another commit — there, re-tagging silently moves it off whatever was
+  // released before.
+  if (version === oldVersion) {
+    const [tagged, head] = await Promise.all([revParse(version), revParse('HEAD')])
+    if (tagged && tagged !== head && !await confirm(
+      `${version} already points at ${tagged.slice(0, 7)}, HEAD is ${head.slice(0, 7)}. Move the tag to HEAD?`
+    )) {
+      p.cancel('Operation cancelled.')
+      process.exit(0)
+    }
   }
 
   return makeRelease(version)
@@ -235,6 +241,14 @@ async function commitVersionBump() {
 }
 
 async function createTag(release: Release) {
+  // The changelog step may have committed since the version was chosen, so this
+  // is re-checked here rather than reused from `resolveVersion`.
+  const [tagged, head] = await Promise.all([revParse(release.version), revParse('HEAD')])
+  if (tagged && tagged === head) {
+    p.log.info(`Tag ${release.version} is already on HEAD (${head.slice(0, 7)}) — nothing to tag.`)
+    return
+  }
+
   if (await confirm('Add tag?'))
     await $$`git tag -a -f -m "Next automated release" ${release.version}`
 }
@@ -412,6 +426,17 @@ async function runUntilSuccess(label: string, run: () => ProcessPromise): Promis
     if (!await confirm(`Retry ${label}?`))
       return false
   }
+}
+
+/**
+ * Commit a ref resolves to, or `''` when there is no such ref.
+ *
+ * `rev-list` rather than `rev-parse`: an annotated tag resolves to its own tag
+ * object, which never equals the commit HEAD points at.
+ */
+async function revParse(ref: string): Promise<string> {
+  const result = await $`git rev-list -n 1 ${ref}`.nothrow()
+  return result.exitCode === 0 ? result.stdout.trim() : ''
 }
 
 /** Index writes race with editors and file watchers on Windows; one short retry clears it. */
