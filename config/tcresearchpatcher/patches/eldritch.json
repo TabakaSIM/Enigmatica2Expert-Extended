@@ -1,0 +1,285 @@
+[
+{"key":"COSMIC_CASTER","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [13,0]},
+  {"op":"replace",
+  "path":"parents",
+  "value": ["KAMI_ICHORIUM_CASTER"]},
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"replace",
+  "path":"icons",
+  "value": ["avaritia:cosmic_caster"]}
+]}
+
+,{"key":"KAMI_ICHOR","ops":[
+  {"op":"replace",
+  "path":"stages/1/text",
+  "value": "research.ichorium.stage.2"},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value": "thaumcraft:ichor"}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORIUM_AXE","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,2]},
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:awakened_ichorium_axe"]}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORIUM_PICKAXE","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,0]},
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:awakened_ichorium_pickaxe"]}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORIUM_SHOVEL","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,-2]},
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:awakened_ichorium_shovel"]}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORIUM_SWORD","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,-4]},
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:awakened_ichorium_sword"]}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORWEAVE_BOOTS","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,12]},
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:kami_boots"]}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORWEAVE_HOOD","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:kami_helm"]},
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,6]}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORWEAVE_LEGGINGS","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:kami_legs"]},
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,10]}
+]}
+
+,{"key":"KAMI_AWAKENED_ICHORWEAVE_ROBE","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:kami_chest"]},
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,8]}
+]}
+
+,{"key":"KAMI_BOTTOMLESS_POUCH","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"remove",
+  "path": "meta"},
+  {"op":"replace",
+  "path":"location",
+  "value": [13,4]},
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:kami_focus_pouch"]}
+]}
+
+,{"key":"KAMI_ICHOR","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path":"location",
+  "value": [9,4]}
+]}
+
+,{"key":"KAMI_ICHORIUM","ops":[
+  {"op":"remove",
+  "path":"stages/1/recipes/0"},
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"add",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [11,3]}
+]}
+
+,{"key":"KAMI_ICHORIUM_CASTER","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value": ["thaumcraft:kami_ichorium_caster"]},
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op": "remove",
+  "path": "meta"},
+  {"op":"replace",
+  "path":"location",
+  "value": [13,2]}
+]}
+
+,{"key":"KAMI_ICHORIUM_TOOLS","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op": "add",
+  "path": "meta",
+  "value": ["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [9,-1]},
+  {"op":"replace",
+  "path":"stages/1/recipes/4",
+  "value": "thaumcraft:blessed_silverwood_rod"}
+]}
+
+,{"key":"KAMI_ICHORWEAVE_ARMOR","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"add",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [9,9]},
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:ichorweave_hood", "thaumcraft:ichorweave_robe", "thaumcraft:ichorweave_leggings", "thaumcraft:ichorweave_boots"]}
+]}
+
+,{"key":"KAMI_ICHORWEAVE_FABRIC","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:ichor_cloth"]},
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"add",
+  "path": "meta",
+  "value":["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [11,5]}
+]}
+
+,{"key":"PRIMALCRUSHER", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [0,-5]},
+  {"op":"replace",
+  "path":"parents",
+  "value": ["VOIDROBEARMOR"]} 
+]}
+
+,{"key":"VOIDROBEARMOR", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [0,-3]} 
+]}
+
+,{"key":"VOIDSIPHON", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [2,2]},
+  {"op":"add",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key":"VOIDSEERPEARL", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-2,0]} 
+]}
+
+,{"key":"ZENITH_BASE","ops":[
+  {"op":"replace",
+  "path":"category",
+  "value": "ELDRITCH"},
+  {"op":"replace",
+  "path":"location",
+  "value": [7,4]},
+  {"op":"replace",
+  "path":"parents",
+  "value": ["ADAMINITE"]}
+]}
+]

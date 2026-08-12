@@ -1,0 +1,60 @@
+[
+{"key":"CONTROLSEALS","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]}
+]}
+
+,{"key":"GOLEMCLIMBER","ops":[
+  {"op":"remove",
+  "path":"stages/0/required_research"}
+]}
+
+,{"key":"JARBRAIN","ops":[
+  {"op":"replace",
+  "path":"stages/1/warp",
+  "value": 2}
+]}
+
+,{"key":"MATSTUDBRASS","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE","ROUND"]}
+]}
+
+,{"key":"MATSTUDTHAUMIUM","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]}
+]}
+
+,{"key":"MATSTUDWOOD","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE","ROUND"]}
+]}
+
+,{"key":"MATSTUDVOID","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]}
+]}
+
+,{"key":"MINDBIOTHAUMIC","ops":[
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"replace",
+  "path":"stages/1/warp",
+  "value": 1}
+]}
+
+,{"key":"SEALBUTCHER","ops":[
+  {"op":"remove",
+  "path":"stages/1/warp"}
+]}
+
+,{"key":"SEALGUARD","ops":[
+  {"op":"remove",
+  "path":"stages/1/warp"}
+]}
+]
