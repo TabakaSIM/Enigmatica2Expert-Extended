@@ -8,36 +8,6 @@
   "value": ["ROUND"]}
 ]}
 
-,{"key":"BASEALCHEMY","ops":[
-  {"op":"replace",
-  "path":"meta",
-  "value": ["SPIKY"]}
-]}
-
-,{"key":"BASEARTIFICE","ops":[
-  {"op":"replace",
-  "path":"meta",
-  "value": ["SPIKY"]}
-]}
-
-,{"key":"BASEAUROMANCY","ops":[
-  {"op":"replace",
-  "path":"meta",
-  "value": ["SPIKY"]}
-]}
-
-,{"key":"BASEELDRITCH","ops":[
-  {"op":"replace",
-  "path":"meta",
-  "value": ["SPIKY"]}
-]}
-
-,{"key":"BASEGOLEMANCY","ops":[
-  {"op":"replace",
-  "path":"meta",
-  "value": ["SPIKY"]}
-]}
-
 ,{"key":"BIG_PEARL","ops":[
   {"op":"replace",
   "path":"location",

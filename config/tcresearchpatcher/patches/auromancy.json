@@ -1,5 +1,11 @@
 [
-{"key": "FOCUSBREAK","ops": [
+{"key":"BASEAUROMANCY","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key": "FOCUSBREAK","ops": [
   {"op": "replace",
   "path": "stages/0/required_item",
   "value": ["minecraft:enchanted_book"]}

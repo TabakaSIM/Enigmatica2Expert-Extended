@@ -1,5 +1,11 @@
 [
-{"key":"CONTROLSEALS","ops":[
+{"key":"BASEGOLEMANCY","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key":"CONTROLSEALS","ops":[
   {"op":"replace",
   "path":"meta",
   "value": ["ROUND"]}

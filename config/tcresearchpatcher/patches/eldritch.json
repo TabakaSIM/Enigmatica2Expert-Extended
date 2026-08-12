@@ -1,5 +1,11 @@
 [
-{"key":"COSMIC_CASTER","ops":[
+{"key":"BASEELDRITCH","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key":"COSMIC_CASTER","ops":[
   {"op":"replace",
   "path":"location",
   "value": [13,0]},

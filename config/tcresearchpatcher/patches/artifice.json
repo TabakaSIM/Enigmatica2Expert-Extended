@@ -1,5 +1,11 @@
 [
-{"key": "HUNGRYCHEST","ops": [
+{"key":"BASEARTIFICE","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key": "HUNGRYCHEST","ops": [
   {"op": "replace",
   "path": "stages/0/required_item",
   "value": ["oredict:chest"]}

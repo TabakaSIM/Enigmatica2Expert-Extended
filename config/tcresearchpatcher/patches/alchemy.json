@@ -11,6 +11,9 @@
 ]}
 
 ,{"key": "BASEALCHEMY","ops": [
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]},
   {"op": "add",
   "path": "stages/0/recipes/-",
   "value": ["thaumcraft:blue_bone"]}
