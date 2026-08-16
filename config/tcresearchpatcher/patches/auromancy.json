@@ -1,0 +1,89 @@
+[
+{"key":"BASEAUROMANCY","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key": "FOCUSBREAK","ops": [
+  {"op": "replace",
+  "path": "stages/0/required_item",
+  "value": ["minecraft:enchanted_book"]}
+]}
+
+,{"key":"FOCUSSCATTER","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key":"FOCUSCLOUD","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"FOCUSCURSE","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]},
+  {"op":"replace",
+  "path":"stages/1/warp",
+  "value": 1},
+  {"op":"replace",
+  "path":"location",
+  "value": [0,7]}
+]}
+
+,{"key":"FOCUSGREATER","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-1,-3]}
+]}
+
+,{"key":"FOCUSHEAL","ops":[
+  {"op":"add",
+  "path":"meta",
+  "value": ["REVERSE"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [-2,6]}
+]}
+
+,{"key":"FOCUSRIFT","ops":[
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"replace",
+  "path":"stages/0/warp",
+  "value": 1}
+]}
+
+,{"key":"FOCUSSPELLBAT","ops":[
+  {"op":"replace",
+  "path":"stages/1/warp",
+  "value": 1}
+]}
+
+,{"key":"RECHARGEPEDESTAL","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-4,0]}
+]}
+
+,{"key":"WORKBENCHCHARGER","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-5,1]}
+]}
+
+,{"key":"VISAMULET","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-3,1]}
+]}
+
+,{"key":"VISBATTERY","ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [-5,-1]}
+]}
+]
