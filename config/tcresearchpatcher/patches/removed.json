@@ -1,0 +1,16 @@
+[
+{"key": "IMPURE_TEAR","ops": [
+  {"op": "remove",
+  "path": "key"}
+]}
+
+,{"key":"TCONEVO_TCONINFUSIONENCH","ops":[
+  {"op":"remove",
+  "path":"key"}
+]}
+
+,{"key":"TCONEVO_BASE","ops":[
+  {"op":"remove",
+  "path":"key"}
+]}
+]
