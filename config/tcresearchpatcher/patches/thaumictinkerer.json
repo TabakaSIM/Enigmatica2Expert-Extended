@@ -1,0 +1,137 @@
+[
+{"key":"TT_ALIEN_SOUL","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE", "ROUND"]},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value":"thaumcraft:entity_soul_alien"}
+]}
+
+,{"key":"TT_AQUATIC_ALCHEMY","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key":"TT_ARCANE_INFUSION_ENCHANTMENT","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key":"TT_ARCANE_SOUL","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE", "ROUND"]},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value":"thaumcraft:entity_soul_arcane"}
+]}
+
+,{"key":"TT_CONDOR_SWORD","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}    
+    
+,{"key":"TT_CONSUMING_SIGIL","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TT_DEMONIC_SOUL","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value":"thaumcraft:entity_soul_demonic"}
+]}
+
+,{"key":"TT_DISSIMULATION_BLOCK","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TT_ENERGETIC_NITOR","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:energetic_nitor"]}
+]}
+
+,{"key":"TT_ELDRITCH_SOUL","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value":"thaumcraft:entity_soul_eldritch"}
+]}
+
+,{"key":"TT_ENDER_MIRROR","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key":"TT_ESSENTIA_FUNNEL","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TT_FELINE_CHARM","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:feline_charm"]}
+]}
+
+,{"key":"TT_HOSTILE_SOUL","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE", "ROUND"]},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value":"thaumcraft:entity_soul_hostile"}
+]}
+
+,{"key": "TT_NECROMANCY","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:necromancy_tablet"},
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value":"thaumcraft:entity_soul_peaceful"}
+]}
+
+,{"key":"TT_RECALL_STOPWATCH","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TT_TAINTED_SOUL","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]},
+  {"op":"replace",
+  "path":"stages/1/recipes/0",
+  "value":"thaumcraft:entity_soul_tainted"}
+]}
+
+,{"key":"TT_THAUMIC_RESTORER","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TT_TRANSVECTOR_DISLOCATOR","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TT_XP_TALISMAN","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:xp_talisman"]}
+]}
+]

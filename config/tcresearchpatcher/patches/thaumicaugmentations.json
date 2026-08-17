@@ -1,0 +1,134 @@
+[
+{"key": "ALCHEMY_GRATE","ops": [
+  {"op": "remove",
+  "path": "meta"}
+]}
+
+,{"key":"AUTOCASTER","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"BOOTS_VOID","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"CELESTIAL_OBSERVER","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:celestial_observer_placer"]}
+]}
+
+,{"key":"ELDRITCH_EPIPHANY","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND", "SPIKY"]}
+]}
+
+,{"key":"ELDRITCH_SPIRE","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key":"ELYTRA_HARNESS","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"EMPTINESS_MODIFIER","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"GAUNTLET_VOID","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+    
+,{"key": "GLASS_TUBE","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:glass_tube"}
+]}
+
+,{"key":"IMPETUS","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key": "IMPETUS_GENERATOR","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:impetus_generator"},
+  {"op":"replace",
+  "path":"stages/1/text",
+  "value": "thaumicaugmentation.research.impetus_generatorfix.1"}
+]}
+
+,{"key":"MORPHIC_TOOL","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"PRIMAL_CUTTER","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"RIFT_MANAGEMENT","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]}
+]}
+
+,{"key":"RIFT_POWER","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]}
+]}
+
+,{"key":"STARFIELD_GLASS_FRACTURE","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"STARFIELD_GLASS_MIRROR","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"STARFIELD_GLASS_RIFT","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"THAUMIC_AUGMENTATION_BASE","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key": "THAUMOSTATIC_HARNESS","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:thaumostatic_harness"}
+]}
+
+,{"key":"!VOIDSTONE","ops":[
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"replace",
+  "path":"stages",
+  "value": [{"text": "thaumicaugmentation.research.void_stone.0", "required_item": ["thaumicaugmentation:stone"]},
+            {"text": "thaumicaugmentation.research.void_stone.0"}]}
+]}
+
+,{"key":"VOID_STONE_USAGE","ops":[
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"remove",
+  "path":"stages/0/warp"}
+]}
+]
