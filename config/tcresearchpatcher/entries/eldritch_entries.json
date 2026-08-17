@@ -598,7 +598,7 @@
         },
         {
           "text": "research_stage.ore_purifier.2",
-          "required_craft": ["thaumicwonders:alienist_stone;*"],
+          "required_craft": ["thaumicwonders:alienist_stone;1;{display:{Lore:['Requires full durability']}}"],
           "required_knowledge": ["THEORY;ARTIFICE;1", "THEORY;INFUSION;1"]
         },
         {
