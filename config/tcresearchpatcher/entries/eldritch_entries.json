@@ -366,7 +366,7 @@
       "stages": [
         {
           "text": "research_stage.thaumadditions:mithminite_fabric.1",
-          "required_craft": ["thaumadditions:adaminite_fabric"]
+          "required_craft": ["kami:ichorweave_fabric"]
         },
         {
           "text": "research_stage.thaumadditions:mithminite_fabric.2",
