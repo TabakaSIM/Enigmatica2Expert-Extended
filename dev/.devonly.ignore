@@ -40,7 +40,6 @@ mods/tellme-*
 mods/JEIExporter-*
 mods/DynamicSurroundings-*
 mods/OreLib-*
-mods/RenderLib-*
 mods/EntityCulling-*
 mods/CustomSkinLoader_ForgeLegacy-*
 mods/simplelogin-*
@@ -65,6 +64,3 @@ config/EffortlessBuilding.cfg
 mods/Fancier-Block-Particles-*
 config/FBP/*
 mods/Valkyrie-*
-mods/naughthirium-*
-mods/Nothirium-*
-mods/NothiriumLittleTilesPatch-*

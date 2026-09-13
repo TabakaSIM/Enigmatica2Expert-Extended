@@ -1,0 +1,47 @@
+[
+{"key":"CHARMUNDYING","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key": "CLEANSING_AMULET","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": ["thaumcraft:cleansing_amulet"]},
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"replace",
+  "path":"category",
+  "value": "INFUSION"},
+  {"op":"replace",
+  "path":"parents",
+  "value": ["PURE_TEAR", "CURIOSITYBAND"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [6,1]}
+]}
+
+,{"key":"FORTRESSMASK","ops":[
+  {"op":"remove",
+  "path":"stages/1/warp"}
+]}
+
+,{"key":"INFUSIONANCIENT","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key":"INFUSIONELDRITCH","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+
+,{"key":"INFUSIONSTABLE","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["REVERSE"]}
+]}
+]

@@ -1,0 +1,67 @@
+[
+{"key":"ARCANEASSEMBLER","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]}
+]}
+
+,{"key":"ARCANEINSCRIBER","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND"]}
+]}
+
+,{"key":"ARCANETERMINAL","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:arcane_terminal"]}
+]}
+
+,{"key":"ESSENTIASTORAGE1k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_1k"]},
+  {"op":"remove",
+  "path":"stages/0/required_item"}
+]}
+
+,{"key":"ESSENTIASTORAGE4k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_4k"]},
+  {"op":"remove",
+  "path":"stages/0/required_item"}
+]}
+
+,{"key":"ESSENTIASTORAGE16k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_16k"]},
+  {"op":"remove",
+  "path":"stages/0/required_item"}
+]}
+
+,{"key":"ESSENTIASTORAGE64k","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value": ["thaumcraft:essentia_component_64k"]},
+  {"op":"remove",
+  "path":"stages/0/required_item"}
+]}
+
+,{"key": "INFUSIONPROVIDER","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:infusion_provider"},
+  {"op":"remove",
+  "path":"stages/1/warp"}
+]}
+
+,{"key":"KNOWLEDGECORE","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["ROUND", "SPIKY"]},
+  {"op":"remove",
+  "path":"stages/0/warp"}
+]}
+]

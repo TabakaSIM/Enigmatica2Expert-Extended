@@ -1,0 +1,152 @@
+[
+{"key": "ADVANCED_SMELTER","ops": [
+  {"op": "remove",
+  "path": "meta"}
+]}
+
+,{"key": "ARCANESPA", "ops":[
+  {"op": "replace",
+  "path": "location",
+  "value": [-5,-5]}
+]}
+
+,{"key": "BASEALCHEMY","ops": [
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]},
+  {"op": "add",
+  "path": "stages/0/recipes/-",
+  "value": ["thaumcraft:blue_bone"]}
+]}
+
+,{"key": "BATHSALTS", "ops":[
+  {"op": "replace",
+  "path": "location",
+  "value": [-4,-4]},
+  {"op": "replace",
+  "path": "parents",
+  "value": ["TAR_ESSENCE_SALT"]},
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": ["thaumcraft:bathsalts"]},
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"BOTTLETAINT","ops":[
+  {"op":"remove",
+  "path":"stages/0/warp"}
+]}
+
+,{"key": "ESSENTIASMELTER","ops": [
+  {"op": "replace",
+  "path": "stages/0/required_item",
+  "value": ["thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'aqua'}]}","thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'perditio'}]}"]},
+  {"op": "replace",
+  "path": "stages/1/required_item",
+  "value": ["thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'mortuus'}]}","thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'permutatio'}]}"]},
+  {"op": "replace",
+  "path": "location",
+  "value": [4,2]}
+]}
+
+,{"key":"ESSENTIASMELTERTHAUMIUM", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [6,2]},
+  {"op":"replace",
+  "path":"parents/1",
+  "value":"ESSENTIASMELTER"} 
+]}
+
+,{"key":"ESSENTIASMELTERVOID", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [8,2]} 
+]}
+
+,{"key":"ESSENTIATRANSPORT", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [10,-1]} 
+]}
+
+,{"key": "HEDGEALCHEMY","ops": [
+  {"op": "replace",
+  "path": "stages/1/required_craft",
+  "value": ["minecraft:gunpowder", "minecraft:dye", "minecraft:glowstone_dust"]},
+  {"op": "replace",
+  "path": "stages/2/required_craft",
+  "value": ["minecraft:clay_ball", "minecraft:lava_bucket"]},
+  {"op": "add",
+  "path": "stages/2/recipes/-",
+  "value": ["thaumcraft:ash_block"]}
+]}
+
+,{"key":"LIQUIDDEATH","ops":[
+  {"op":"replace",
+  "path":"stages/0/warp",
+  "value": 1}
+]}
+
+,{"key":"METALPURIFICATION","ops":[
+  {"op":"replace",
+  "path":"stages/0/recipes",
+  "value": [
+    "thaumcraft:metal_purification_iron",
+    "thaumcraft:metal_purification_gold",
+    "thaumcraft:metal_purification_cinnabar",
+    "thaumcraft:metal_purification_copper",
+    "thaumcraft:metal_purification_tin",
+    "thaumcraft:metal_purification_silver",
+    "thaumcraft:metal_purification_lead",
+    "thaumcraft:metal_purification_aluminium", 
+    "thaumcraft:metal_purification_nickel",
+    "thaumcraft:metal_purification_iridium" ,
+    "thaumcraft:metal_purification_platinum",
+    "thaumcraft:metal_purification_uranium",
+    "thaumcraft:metal_purification_osmium",
+    "thaumcraft:metal_purification_ardite",
+    "thaumcraft:metal_purification_cobalt",
+    "thaumcraft:metal_purification_tungsten",
+    "thaumcraft:metal_purification_starmetal",
+    "thaumcraft:metal_purification_boron",
+    "thaumcraft:metal_purification_lithium",
+    "thaumcraft:metal_purification_magnesium",
+    "thaumcraft:metal_purification_thorium",
+    "thaumcraft:metal_purification_manainfusedingot",
+    "thaumcraft:metal_purification_blackquartz",
+    "thaumcraft:metal_purification_draconium",
+    "thaumcraft:metal_purification_titanium"
+  ]}
+]}
+
+,{"key": "SANESOAP", "ops":[
+  {"op": "replace",
+  "path": "location",
+  "value": [-3,-5]},
+  {"op":"remove",
+  "path":"stages/0"}
+]}
+
+,{"key":"TAINT_MEAT","ops":[
+  {"op":"replace",
+  "path":"stages/0/warp",
+  "value": 2},
+  {"op":"replace",
+  "path":"category",
+  "value": "ALCHEMY"},
+  {"op":"replace",
+  "path":"parents",
+  "value": ["WARP_PAPER","LIQUIDDEATH"]},
+  {"op":"replace",
+  "path":"location",
+  "value": [-4,4]}
+]}
+
+,{"key":"THAUMATORIUM", "ops":[
+  {"op":"replace",
+  "path":"location",
+  "value": [8,-1]} 
+]}
+]

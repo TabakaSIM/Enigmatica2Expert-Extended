@@ -176,6 +176,21 @@ ignore:
           - Mixin config * does not specify "minVersion" property
           # Reference maps is common mistake of mod developers and does not cause harm
           - 'Invalid REFMAP JSON in :'
+          # "loaded too early" - the target class was already loaded when the mixin config
+          # was registered, so the mixin silently never applies. Checked, all three are no-ops here:
+          # loliasm's is a dev-environment only hack (voidForgeRequirements),
+          # Sledgehammer's accessor is called behind an `instanceof` guard,
+          # and its Quark one force-disables Improved Sleeping, which sledgehammer.conf
+          # (quark.improved-sleeping=false) does not ask for anyway.
+          - 'Critical problem: mixins.devenv.json:FMLModContainerMixin from mod loliasm*was loaded too early.'
+          - 'Critical problem: mixins.sledgehammer.forge.json:fml.common.FMLModContainerAccessor*was loaded too early.'
+          - 'Critical problem: mixins.sledgehammer.quark.json:base.module.ModuleLoaderMixin*was loaded too early.'
+          # Same thing, and unfixable anywhere: Cleanroom's own mod discovery loads ASMModParser
+          # (CoreModManager.handleLaunch) long before mixin configs are registered
+          # (CoreModManager.injectCoreModTweaks). Declined upstream:
+          # https://github.com/CleanroomMC/Cleanroom/issues/597
+          # Only the ~1-5s startup gain is lost; stellar_core.cfg:ASMModParserImprovements does nothing here.
+          - 'Critical problem: mixins.stellar_core_forge_asmmodparser.json:MixinASMModParser*was loaded too early.'
       # Some JEI errors, no harm
       - /(jei|Had.?Enough.?Items)/:
           - 'A Recipe Handler has already been registered for '
@@ -200,6 +215,11 @@ ignore:
           - Unable to find recipe for minecraft:baked_potato
       - Astral Sorcery:
           - Skipped * patreon effects during loading due to malformed data!
+      # VintageFix ships a shaded MixinExtras 0.3.6 that registers into Cleanroom's already
+      # initialized 0.5.5. Its own mixins apply after that bootstrap, so this is log noise only.
+      # Reported https://github.com/embeddedt/VintageFix/issues/183
+      - /MixinExtras/:
+          - 'Accepting * org.embeddedt.vintagefix.mixinextras* offered to *after initialization*'
       # Mixins for absent mods. Happen when mod doesn't care to check if mod present first
       - /(mixin|CleanMix)/:
           - 'Error loading class: '
@@ -530,6 +550,10 @@ ignore:
       # Reported: https://github.com/Akiak7/RecurrentComplexVolts/issues/3
       - net.minecraft.tileentity.TileEntity:
           - 'Skipping BlockEntity with id '
+      # Local `hei_bookmarks.ini` recipe bookmark with an input no other bookmark crafts.
+      # RecipeChain.rebuildGraph() warns, then adds it as a leaf node anyway. Player-local, harmless.
+      - Had Enough Items:
+          - Failed to get connections for *
 
   - ERROR:
       - Mekanism:

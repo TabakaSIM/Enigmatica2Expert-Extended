@@ -1,0 +1,182 @@
+[
+{"key": "TWOND_ALIENIST_STONE","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:alienist_stone"},
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key": "TWOND_ALKAHEST","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": ["thaumcraft:alkahest_vat"]},
+  {"op": "add",
+  "path": "parents",
+  "value": ["AURACHARGER", "TWOND_CATALYZATION_CHAMBER"]}
+]}
+
+,{"key":"TWOND_AVARIC_DECONSTRUCTION","ops":[
+  {"op":"remove",
+  "path":"key"}
+]}
+
+,{"key": "TWOND_CATALYZATION_CHAMBER","ops": [
+  {"op": "replace",
+  "path": "stages/2/recipes/2",
+  "value": "thaumcraft:alchemist_stone"}
+]}
+
+,{"key":"TWOND_CLEANSING_CHARM","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_DIMENSIONAL_RIPPER","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]},
+  {"op":"replace",
+  "path":"parents",
+  "value": ["TWOND_BASE", "~FLUX", "~ARCANEBORE", "~BASEELDRITCH"]}
+]}
+
+,{"key":"TWOND_ENTROPIC_PROCESSING","ops":[
+  {"op":"remove",
+  "path":"key"}
+]}
+
+,{"key":"TWOND_ESSENTIA_ENCHANTER","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_ERYTHURGY","ops":[
+  {"op":"remove",
+  "path":"key"}
+]}
+
+,{"key": "TWOND_FLUX_CAPACITOR","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:flux_capacitor"}
+]}
+
+,{"key": "TWOND_FLUX_DISTILLER","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:flux_distiller"}
+]}
+
+,{"key":"TWOND_FOCUS_BLINK","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_FOCUS_TELEPORT_HOME","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_MADNESS_ENGINE","ops":[
+  {"op":"replace",
+  "path":"meta",
+  "value": ["SPIKY"]}
+]}
+
+,{"key":"TWOND_MEATY_ORB","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key": "TWOND_MYSTIC_GARDENING","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes",
+  "value": ["thaumcraft:shimmerleaf_seed","thaumcraft:cinderpearl_seed","thaumcraft:vishroom_spore"]},
+  {"op":"remove",
+  "path":"meta"},
+  {"op":"remove",
+  "path":"stages/0/required_item"},
+  {"op":"replace",
+  "path":"parents",
+  "value": ["TWOND_BASE", "~INFUSION"]}
+]}
+
+,{"key":"TWOND_OBLIVION_ESSENTIA_JAR","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_ORDERED_DECONSTRUCTION","ops":[
+  {"op":"remove",
+  "path":"key"}
+]}
+
+,{"key":"TWOND_PRIMAL_DESTROYER","ops":[
+  {"op":"remove",
+  "path":"meta"},
+  {"op": "replace",
+  "path": "stages/1/recipes",
+  "value": ["thaumcraft:primal_destroyer"]},
+  {"op": "replace",
+  "path": "stages/2/recipes",
+  "value": ["thaumcraft:primal_destroyer", "thaumicwonders:voidflame_infusion_fake"]}
+]}
+
+,{"key": "TWOND_PRIMORDIAL_SIPHON","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes",
+  "value": ["thaumcraft:primordial_siphon"]},
+  {"op": "replace",
+  "path": "stages/2/recipes",
+  "value": ["thaumcraft:primordial_siphon", "thaumicwonders:primordial_pearl_reconstitution"]},
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_PRIMORDIAL_ACCRETION_CHAMBER","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_PRIMORDIAL_PEARL_GROWTH","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key": "TWOND_TRANSMUTER_STONE","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes/0",
+  "value": "thaumcraft:transmuter_stone"}
+]}
+
+,{"key":"TWOND_WARP_RING","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key": "TWOND_VIS_CAPACITOR","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes",
+  "value": ["thaumcraft:vis_capacitor"]}
+]}
+
+,{"key": "TWOND_VOID_BEACON","ops": [
+  {"op": "replace",
+  "path": "stages/1/recipes",
+  "value": ["thaumcraft:void_beacon"]}
+]}
+
+,{"key":"TWOND_VOID_FORTRESS_ARMOR","ops":[
+  {"op":"replace",
+  "path":"stages/1/recipes",
+  "value":["thaumcraft:void_fortress_helm", "thaumcraft:void_fortress_chest", "thaumcraft:void_fortress_legs"]},
+  {"op":"remove",
+  "path":"meta"}
+]}
+
+,{"key":"TWOND_VOID_PORTAL","ops":[
+  {"op":"remove",
+  "path":"meta"}
+]}
+]

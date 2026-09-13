@@ -30,18 +30,21 @@ import { resolve } from 'pathe'
 import { replaceInFile } from 'replace-in-file'
 import { $, fs, glob, retry } from 'zx'
 
-import { commitAmend, confirm, formatError, formatRemoveResult, getIgnoredFiles, removeFiles, runAllLabeled, showStacks } from './build/build_utils.js'
+import { cleanroomPatches, patchServerSetupConfig, SERVER_SETUP_CONFIG } from './automation/server_config.js'
+import { BUILD_TMP, commitAmend, confirm, DIST_DIR, formatError, formatRemoveResult, getIgnoredFiles, removeFiles, runAllLabeled, showStacks } from './build/build_utils.js'
+import { loadReleaseSnapshots, manifestMismatches, MCINSTANCE, readDevonlyIgnore, unignoredMods } from './build/devonly.js'
 import { manageSFTP } from './build/sftp.js'
 import { generateChangelog } from './tools/changelog/changelog.js'
+import { ICON_CLI, iconifyFile } from './tools/mc-icons.mjs'
 
-const { existsSync, readFileSync } = fs
+const { existsSync } = fs
 
 // stdin is `ignore`d: these commands never read from us, and a child holding the
 // console input handle eats the keystrokes of the next prompt.
 const $$ = $({ stdio: ['ignore', 'inherit', 'inherit'], verbose: true })
 
-// For children that do need a real stdin — mc-icons renders with Ink, which
-// requires a raw-mode-capable input stream.
+// For children that do need a real stdin — the mc-icons picker renders with
+// Ink, which requires a raw-mode-capable input stream.
 const $tty = $({ stdio: 'inherit', verbose: true })
 
 // For children that must not touch the console at all. MSYS `git push` leaves
@@ -50,21 +53,25 @@ const $tty = $({ stdio: 'inherit', verbose: true })
 // never gets a console handle; zx still echoes its output (verbose).
 const $pipe = $({ stdio: ['ignore', 'pipe', 'pipe'], verbose: true })
 
+// For probes whose failure is a normal answer — a tag that does not exist yet, a
+// repo without tags. zx pipes a child's stderr to the console even when the
+// failure is handled, so a plain `git rev-list` on a missing tag prints a
+// `fatal:` line in the middle of the prompts. `quiet` keeps the output in the
+// result and off the screen.
+const $q = $({ quiet: true })
+
 const PATHS = {
-  tmpDir           : 'D:/mc_tmp/',
-  mcIcons          : 'E:/dev/mc-icons/src/cli.ts',
-  dist             : 'dist',
-  devonlyIgnore    : 'dev/.devonly.ignore',
+  tmpDir           : BUILD_TMP,
+  dist             : DIST_DIR,
   versionTxt       : 'dev/version.txt',
   changelogLatest  : 'CHANGELOG-latest.md',
-  serverSetupConfig: 'server/server-setup-config.yaml',
-  relauncher       : 'config/relauncher.json',
+  serverSetupConfig: SERVER_SETUP_CONFIG,
   mainMenu         : 'config/CustomMainMenu/mainmenu.json',
   manifest         : 'manifest.json',
   enderModpackCfg  : 'config/endermodpacktweaks/modpack.cfg',
   modlist          : 'config/crash_assistant/modlist.json',
   skipWorktree     : [
-    'minecraftinstance.json',
+    MCINSTANCE,
     'config/crash_assistant/modlist.json',
   ],
 } as const
@@ -81,9 +88,6 @@ const SEMVER_RE = /^(v?)(\d+)\.(\d+)\.(\d+)(?:-[a-z0-9.-]+)?(?:\+[a-z0-9.-]+)?$/
 /** Canonical repo slug — also the fallback when `git remote` cannot be read. */
 const REPO = 'Krutoy242/Enigmatica2Expert-Extended'
 const CURSEFORGE_FILES_URL = 'https://legacy.curseforge.com/minecraft/modpacks/enigmatica-2-expert-extended/files'
-
-/** Cleanroom tags its releases `<ver>` and names the assets `cleanroom-<ver>[-installer].jar`. */
-const CLEANROOM_RELEASES = 'https://github.com/CleanroomMC/Cleanroom/releases/download'
 
 type BumpType = 'major' | 'minor' | 'patch'
 
@@ -141,8 +145,7 @@ async function runAutomation() {
 }
 
 async function resolveVersion(): Promise<Release> {
-  const described  = await $`git describe --tags --abbrev=0`.nothrow()
-  const oldVersion = described.exitCode === 0 ? described.stdout.trim() : ''
+  const oldVersion = await lastTag()
 
   if (!oldVersion)
     p.log.warn('No tags found — cannot suggest a version based on history.')
@@ -203,8 +206,17 @@ async function runChangelog(release: Release) {
     [PATHS.changelogLatest]  : () => generateChangelog(PATHS.changelogLatest),
   })
 
+  await noteUnignoredMods()
+
   p.note('Iconify changelog and prepare files to git add', '📝')
-  await $tty`tsx ${PATHS.mcIcons} ${PATHS.changelogLatest} --no-short --modpack=e2ee --treshold=2`
+  const { replaced, problems } = await iconifyFile(PATHS.changelogLatest)
+  p.log.step(`Item names turned into icons: ${replaced}`)
+
+  // Names that could mean several items are picked by hand, with image previews
+  // — and that picker is interactive, so it lives in the mc-icons CLI. The
+  // commit-msg hook nags about them as they are written, so this is rare.
+  if (problems.length)
+    await $tty`node ${ICON_CLI} ${PATHS.changelogLatest}`
 
   // These files are normally hidden from git; unhide them for exactly one commit
   // and always hide them again, even if the commit below fails.
@@ -234,10 +246,34 @@ async function commitVersionBump() {
   // -f: several of these are ignored in the dev tree.
   await gitRetry(() => $`git add -f ${filesToCommit}`)
 
-  if ((await $`git diff --staged --quiet`.nothrow()).exitCode !== 0)
-    await commitAmend('chore: 🧱 CHANGELOG update, version bump')
+  if ((await $q`git diff --staged --quiet`.nothrow()).exitCode !== 0)
+    await commitAmend('chore: 🧱CHANGELOG update, version bump')
   else
     p.log.warn('Nothing staged — version files already match. Skipping commit.')
+}
+
+/**
+ * Announce mods that join the release only because their `.devonly.ignore` entry
+ * was dropped.
+ *
+ * Nothing else in the run mentions them — the mod itself did not change, only
+ * the decision to ship it. They are in the changelog's mod list now, and this
+ * line is the cue to fill in their `Reason` column while the file is open.
+ */
+async function noteUnignoredMods() {
+  const tag = await lastTag()
+  if (!tag) return
+
+  try {
+    const mods = unignoredMods(await loadReleaseSnapshots(`tags/${tag}`, msg => p.log.warn(msg)))
+    if (mods.length)
+      p.log.info(`No longer dev-only since ${tag} — now shipping, and listed as added:\n${mods.join('\n')}`)
+  }
+  catch (error) {
+    // The changelog itself already survived without this; a failed extra check
+    // must not abort a release.
+    p.log.warn(`Could not compare the dev-only list against ${tag}: ${errMessage(error)}`)
+  }
 }
 
 async function createTag(release: Release) {
@@ -292,6 +328,8 @@ async function buildZips(release: Release) {
     if (!await confirm('Build the zip anyway?')) process.exit(1)
   }
 
+  await checkShippedModList(resolve(PATHS.tmpDir, 'manifest.json'))
+
   // 7z will not create the output directory for us.
   await fs.mkdir(resolve(PATHS.dist), { recursive: true })
 
@@ -300,6 +338,23 @@ async function buildZips(release: Release) {
 
   p.note('Create server zip', '📥 ')
   await $$({ cwd: 'server' })`7z a -bso0 ${release.serverZip} .`
+}
+
+/**
+ * Stop a zip whose `manifest.json` disagrees with the mod list the changelog was
+ * built from.
+ *
+ * The manifest is the only thing that tells the launcher what to download, and a
+ * different step writes it. Editing `.devonly.ignore` without re-running that
+ * step ships a pack that silently lacks the mods just announced as added.
+ */
+async function checkShippedModList(manifestPath: string) {
+  const problems = await manifestMismatches(manifestPath)
+  if (!problems.length) return
+
+  p.log.warn(`manifest.json does not match the release mod list:\n${problems.join('\n')}\n\n`
+    + 'Run `pnpm dev:manifest`, commit, and re-tag before building.')
+  if (!await confirm('Build the zip anyway?')) process.exit(1)
 }
 
 /** Strip dev-only files from the fresh clone and hoist `manifest.json` out of `overrides/`. */
@@ -435,8 +490,14 @@ async function runUntilSuccess(label: string, run: () => ProcessPromise): Promis
  * object, which never equals the commit HEAD points at.
  */
 async function revParse(ref: string): Promise<string> {
-  const result = await $`git rev-list -n 1 ${ref}`.nothrow()
+  const result = await $q`git rev-list -n 1 ${ref}`.nothrow()
   return result.exitCode === 0 ? result.stdout.trim() : ''
+}
+
+/** Newest tag reachable from HEAD — the release this one is compared against. `''` when the repo has none. */
+async function lastTag(): Promise<string> {
+  const described = await $q`git describe --tags --abbrev=0`.nothrow()
+  return described.exitCode === 0 ? described.stdout.trim() : ''
 }
 
 /** Index writes race with editors and file watchers on Windows; one short retry clears it. */
@@ -502,7 +563,7 @@ function validateVersion(value: string | undefined): string | undefined {
 }
 
 async function getGitHubRepo(): Promise<string> {
-  const remote = await $`git remote get-url origin`.nothrow()
+  const remote = await $q`git remote get-url origin`.nothrow()
   if (remote.exitCode === 0) {
     const match = remote.stdout.trim().match(/[:/]([^/]+\/[^/.]+)(?:\.git)?$/)
     if (match?.[1]) return match[1]
@@ -510,95 +571,24 @@ async function getGitHubRepo(): Promise<string> {
   return REPO
 }
 
-/** Matches one `key: value` line of a YAML mapping. Groups: the `key:` prefix, the value, an optional CR. */
-function yamlScalar(key: string): RegExp {
-  return new RegExp(String.raw`^([ \t]*${key}[ \t]*:[ \t]*)([^\r\n]*)(\r?)$`, 'm')
-}
-
-/**
- * Rewrite everything version-dependent in the dedicated-server setup config.
- *
- * One read-modify-write for the whole file: two `replaceInFile` calls on the same
- * path run concurrently here and would lose one of the two edits.
- */
+/** Rewrite everything version-dependent in the dedicated-server setup config. */
 async function updateServerSetupConfig(release: Release) {
-  const cleanroom = readCleanroomVersion()
-  const source    = await fs.readFile(PATHS.serverSetupConfig, 'utf8')
-
-  /** `expect`: leave the value alone unless it already is the kind of value we are about to write. */
-  const patches: { key: string, value: string, expect?: string }[] = [
+  const { warnings } = await patchServerSetupConfig([
     {
       key  : 'modpackUrl',
       value: `https://github.com/${REPO}/releases/download/${release.version}/${release.baseName}.zip`,
     },
-    {
-      key   : 'installerUrl',
-      value : `'${CLEANROOM_RELEASES}/${cleanroom}/cleanroom-${cleanroom}-installer.jar'`,
-      expect: 'cleanroom',
-    },
-    {
-      // The jar the installer above produces — a stale name here starts nothing.
-      key   : 'startFile',
-      value : `cleanroom-${cleanroom}.jar`,
-      expect: 'cleanroom',
-    },
-  ]
+    ...cleanroomPatches(),
+  ])
 
-  let patched = source
-  for (const { key, value, expect } of patches) {
-    const re    = yamlScalar(key)
-    const match = re.exec(patched)
-
-    if (!match) {
-      p.log.warn(`"${key}:" not found in ${PATHS.serverSetupConfig} — left untouched.`)
-      continue
-    }
-    if (expect && !match[2].toLowerCase().includes(expect)) {
-      p.log.warn(`"${key}: ${match[2].trim()}" in ${PATHS.serverSetupConfig} is not a ${expect} value — left untouched.`)
-      continue
-    }
-
-    patched = patched.replace(re, (_full, prefix: string, _old: string, cr: string) => `${prefix}${value}${cr}`)
-  }
-
-  if (patched !== source) await fs.writeFile(PATHS.serverSetupConfig, patched)
-}
-
-/**
- * Cleanroom build the client launches with.
- *
- * `config/relauncher.json` is the single source of truth: if the server installs
- * a different build, everyone joins a server running another loader version.
- */
-function readCleanroomVersion(): string {
-  let relauncher: { selectedVersion?: unknown }
-  try {
-    relauncher = JSON.parse(readFileSync(PATHS.relauncher, 'utf8')) as { selectedVersion?: unknown }
-  }
-  catch (error) {
-    throw new Error(`Cannot read the Cleanroom version from "${PATHS.relauncher}": ${errMessage(error)}`)
-  }
-
-  const version = relauncher.selectedVersion
-  if (typeof version !== 'string' || !version.trim()) {
-    throw new Error(`"selectedVersion" is missing or not a string in ${PATHS.relauncher}.\n`
-      + '  The server setup config takes its Cleanroom version from there.')
-  }
-  return version.trim()
-}
-
-function readDevonlyIgnore(): string {
-  try {
-    return readFileSync(PATHS.devonlyIgnore, 'utf8')
-  }
-  catch (error) {
-    throw new Error(`Cannot read the dev-only ignore list "${PATHS.devonlyIgnore}": ${errMessage(error)}`)
-  }
+  for (const warning of warnings) p.log.warn(warning)
 }
 
 /** Drop dev-only mods from the crash-assistant modlist so it matches the shipped `mods/`. */
 async function cleanupModlist() {
-  const modlist  = JSON.parse(await fs.readFile(PATHS.modlist, 'utf8')) as Record<string, unknown>
+  // Crash Assistant writes this file with a UTF-8 BOM, which `JSON.parse` rejects.
+  const raw      = (await fs.readFile(PATHS.modlist, 'utf8')).replace(/^\uFEFF/, '')
+  const modlist  = JSON.parse(raw) as Record<string, unknown>
   const filtered = Object.fromEntries(
     Object.entries(modlist).filter(([key]) => !devonlyIgnore.ignores(`mods/${key}`))
   )
